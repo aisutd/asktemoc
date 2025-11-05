@@ -1,0 +1,79 @@
+UT Dallas 2025 Undergraduate Catalog
+Download page as a PDF, opens a new tab
+Download page as a DOCX (MS Word) file
+Open page in a printable window, opens a new tab
+Compare Versions
+Naveen Jindal School of Management
+Computer Information Systems and Technology (BS)
+
+Degree Requirements (120 semester credit hours)
+
+Four-Year Degree Plan (Example)
+
+This is an example only. Please see advisor to develop an individual four-year plan.
+
+Freshman Year
+Semester 1 - Fall	Notes	Preferred	Core	SCH		Semester 2 - Spring	Notes	Preferred	Core	SCH
+010 Core			010	3	010 Core			010	3
+020 Core	1, 2, 3, 4, 5	MATH 1325	020	3	060 Core			060	3
+060 Core			060	3	BUAN 3301				3
+090 Core	1, 2, 3	BA 1310	090	3	ITSS 3311	2, 9			3
+ITSS 3300	2			3	OPRE 3333	2, 6			3
+BA 1105	2, 7			1					
+or BA 3105	2, 7							
+Total 	16	Total 	15
+ 
+Sophomore Year
+Semester 3 - Fall	Notes	Preferred	Core	SCH		Semester 4 - Spring	Notes	Preferred	Core	SCH
+030 Core			030	3	060 Core			060	3
+040 Core			040	3	080 Core			080	3
+ACCT 2301	2			3	ACCT 2302	2			3
+ITSS 4381				3	ITSS 4300				3
+BLAW 2301	2			3	OPRE 3360				3
+					or STAT 3360			
+Total 	15	Total 	15
+ 
+Junior Year
+Semester 5 - Fall	Notes	Preferred	Core	SCH		Semester 6 - Spring	Notes	Preferred	Core	SCH
+070 Core	1, 2, 3	GOVT 2305	070	3	070 Core	1, 2, 3	GOVT 2306	070	3
+ITSS 4360				3	FIN 3320				3
+MKT 3300				3	ITSS 4330				3
+BCOM 3300				3	ITSS 4351				3
+OPRE 3310				3	OBHR 3310				3
+					or OBHR 3330			
+					ITSS 4090	11			0
+Total 	15	Total 	15
+ 
+Senior Year
+Semester 7 - Fall	Notes	Preferred	Core	SCH		Semester 8 - Spring	Notes	Preferred	Core	SCH
+050 Core			050	3	090 Core	1, 2, 3	BA 1320	090	3
+ITSS 4382				3	IMS 3310				3
+ITSS 4370				3	BA 4095	12			0
+ITSS 4395				3	Guided Elective	10, 13, 14			3
+Guided Elective	10, 13, 14			3	Guided Elective	10, 13, 14			3
+					Free Elective	8			2
+Total 	15	Total 	14
+ 
+NOTES:
+1	Curriculum Requirements can be fulfilled by other approved courses from accredited institutions of higher education. The courses listed are recommended as the most efficient way to satisfy both Core Curriculum and Major Requirements at UT Dallas.
+2	Indicates a prerequisite class to be completed before enrolling for upper-division classes. Specific prerequisites are required for certain upper-division courses. Review requirements for your major and choose accordingly.
+3	A required course in the Major that also fulfills a Core Curriculum requirement. Semester credit hours are counted in Core Curriculum. Students must choose a different course for each Core Curriculum category
+4	MATH 1325 is required for all JSOM undergraduate students. Students may substitute MATH 2413 or MATH 2417 for MATH 1325. Students may substitute MATH 2414 or MATH 2419 for MATH 1326. Students who complete OPRE 3340 instead of MATH 1326 or MATH 2414 or MATH 2419 will require another course to satisfy the 090 Component Area Option Core Curriculum requirement.
+5	To make timely degree progress, students should complete MATH 1325 or its equivalent by the end of their first semester at UT Dallas. Students who will not meet this requirement should contact their academic advisor to discuss their degree timeline.
+6	Students may substitute MATH 2333 or MATH 2418 or CS 2305 for OPRE 3333.
+7	JSOM first-time-in-college freshmen are required to take BCOM 1300 in their first semester. Transfer students and students new to JSOM are required to take BCOM 3300 in their first semester.
+8	Free Electives: 0-3 semester credit hours are required for the B.S. in Information Technology and Systems. Students who complete OPRE 3340 instead of MATH 1326 or MATH 2414 or MATH 2419 will require another 090 Component Area Option Core course to meet the 120 semester credit hour requirement for graduation. Students who complete MATH 1326 or MATH 2414 or MATH 2419 instead of OPRE 3340 will require 3 semester credit hours of free electives to meet the 120 semester credit hour requirement for graduation.
+9	Students who have completed CS 1436 with a C or better may replace ITSS 3311 with an additional ITSS upper-division course (excluding ITSS 4301 and ITSS 4V90). Students who have completed CS 1337 with a C or better may replace (ITSS 3312 or ITSS 4381) with an additional ITSS upper-division course (excluding ITSS 4301 and ITSS 4V90).
+10	Guided Electives - The BS CIST degree program requires students to focus on a specific concentration to obtain in-depth knowledge in a particular business area.
+11	An Internship (Practicum) of at least 160 working hours is required for all JSOM majors. The zero semester-credit-hour internship courses, ITSS 4090 Information Technology and Systems Internship or BA 4090 Management Internship, are recommended as the most efficient way to satisfy this requirement. Students who are employed in full-time jobs may fulfill their internship requirement with their current employer as a special project for registration in BA 4090 with preapproval from their program director.
+12	A Community Engagement Experience is required for all JSOM majors in fall 2018 catalog or later. Students may fulfill the requirement with BA 4095, BPS 4396, ENTP 4340, IMS 4335, or MKT 4360. The 0 SCH course BA 4095 is recommended as the most efficient way to satisfy the requirement. Students will be registered for BA 4095 for 0 SCH in the semester they complete 100 service hours.
+13	ACCT 4301 or ITSS 4301 may not be used to satisfy BS CIST degree plan requirements.
+14	Students must ensure that they have at least 6 semester credit hours of guided electives with an ITSS prefix not including ITSS 4301 and ITSS 4V90.
+15	ITSS 4381 can satisfy the ITSS 3312 major preparatory requirement in prior BS CIST catalogs if the course is not used elsewhere on the degree plan.
+
+Be sure to check prerequisites of 2000-level and higher courses.
+120 semester credit hours required for graduation
+
+This plan is a resource tool only; it does not replace your degree plan or academic advising.
+
+Updated: 2025-05-24 18:52:18 v3.177e46

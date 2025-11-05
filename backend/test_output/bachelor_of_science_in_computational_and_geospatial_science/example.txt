@@ -1,0 +1,65 @@
+UT Dallas 2025 Undergraduate Catalog
+Download page as a PDF, opens a new tab
+Download page as a DOCX (MS Word) file
+Open page in a printable window, opens a new tab
+Compare Versions
+School of Economic, Political and Policy Sciences
+Computational and Geospatial Science (BS)
+
+Degree Requirements (120 semester credit hours)
+
+Four-Year Degree Plan (Example)
+
+This is an example only. Please see advisor to develop an individual four-year plan.
+
+Freshman Year
+Semester 1 - Fall	Notes	Preferred	Core	SCH		Semester 2 - Spring	Notes	Preferred	Core	SCH
+010 Core			010	3	CS 1337				3
+060 Core			060	3	CS 2305				3
+MATH 2413	1, 2		2090	4	GISC 2309				3
+or MATH 2417	1, 2		2090	MATH 2414	1, 2		2090	4
+CS 1436				4	or MATH 2419	1, 2		090
+GISC 2307	1, 2		1090	3	PHYS 2325			3090	3
+or GEOS 2307	1, 2		1090	PHYS 2125			3090	1
+or EPPS 2307	1, 2		1090					
+EPPS 1110				1					
+Total 	18	Total 	17
+ 
+Sophomore Year
+Semester 3 - Fall	Notes	Preferred	Core	SCH		Semester 4 - Spring	Notes	Preferred	Core	SCH
+040 Core			040	3	070 Core			070	3
+070 Core			070	3	CS 3341				3
+CS 2336				3	CS 3345				3
+GISC 2326				3	GISC 4325				3
+PHYS 2326			3090	3	MATH 2418				4
+PHYS 2126				1					
+Total 	16	Total 	16
+ 
+Junior Year
+Semester 5 - Fall	Notes	Preferred	Core	SCH		Semester 6 - Spring	Notes	Preferred	Core	SCH
+050 Core			050	3	060 Core			060	3
+080 Core	1, 2	GEOG 2303	080	3	CS 4347				3
+CS 4365				3	CS 4375				3
+CS 4371				3	GISC 4328				3
+GISC 4381				3	GISC 4382				3
+Total 	15	Total 	15
+ 
+Senior Year
+Semester 7 - Fall	Notes	Preferred	Core	SCH		Semester 8 - Spring	Notes	Preferred	Core	SCH
+CS 4391				3	Guided Elective	3			3
+GISC 4363				3	Guided Elective	3			3
+Guided Elective	3			3	Free Elective				3
+Free Elective				3	Free Elective				2
+Total 	12	Total 	11
+ 
+NOTES:
+1	Curriculum Requirements can be fulfilled by other approved courses from accredited institutions of higher education. The courses listed are recommended as the most efficient way to satisfy both Core Curriculum and Major Requirements at UT Dallas.
+2	A Major requirement that also fulfills a Core Curriculum requirement. Semester credit hours are counted in Core Curriculum.
+3	Although both lower- and upper-division courses may count as guided electives, they must be approved by the advisor.
+
+Be sure to check prerequisites of 2000-level or higher courses.
+120 semester credit hours required for graduation
+
+This plan is a resource tool only; it does not replace your degree plan or academic advising.
+
+Updated: 2025-05-29 12:52:16 v1.4beefb

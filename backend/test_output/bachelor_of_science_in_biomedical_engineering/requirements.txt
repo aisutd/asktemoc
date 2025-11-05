@@ -1,0 +1,238 @@
+UT Dallas 2025 Undergraduate Catalog
+Download page as a PDF, opens a new tab
+Download page as a DOCX (MS Word) file
+Open page in a printable window, opens a new tab
+Compare Versions
+Erik Jonsson School of Engineering and Computer Science
+Department of Bioengineering
+Biomedical Engineering (BS)
+Mission of the Department of Bioengineering
+
+The mission of the Bioengineering Department is to provide a state-of-the-art, highly interdisciplinary, teaching and research environment for undergraduate and graduate students. Whether at undergraduate or post-graduate levels, our students will be able to reach across traditional disciplinary boundaries, and work effectively with experts in engineering, life sciences, and medicine. At the Bachelors level, our graduates will be ready to meet the rapidly growing demand for bioengineers, and tackle challenges in emerging areas, including but not limited to personalized medicine, biomedical devices, and targeted drug delivery. At the Masters and PhD levels, our graduates will undertake original cutting-edge research at the forefront of scientific and technological developments in bioengineering.
+
+High School Preparation
+
+Engineering education requires a strong high school preparation. Pre-engineering students should have high school preparation of at least one-half year in trigonometry and at least one year each in algebra, pre-calculus, plane geometry, chemistry, and physics, thus developing their competencies to the highest possible levels and preparing to move immediately into demanding college courses in calculus, calculus-based physics, and chemistry for science majors. It is also essential that pre- engineering students have the competence to read rapidly and with comprehension, and to write clearly and correctly.
+
+Lower-Division Study
+
+All lower-division students in Biomedical Engineering concentrate on mathematics, science, and introductory engineering courses, building competence in these cornerstone areas for future application in upper-division engineering courses. The following requirements apply both to students seeking to transfer to UT Dallas from other institutions as well as to those currently enrolled at UT Dallas, whether in another school or in the Erik Jonsson School of Engineering and Computer Science.
+
+Academic Progress in Biomedical Engineering
+
+In order to make satisfactory academic progress as a Biomedical Engineering major, a student must meet all University requirements for academic progress, and must earn a grade of C- or better in each of the "major requirements" courses. No "Major Requirement" course may be taken until the student has obtained a grade of C- or better in each of the prerequisites. If a higher grade requirement is stated for a specific class, the higher requirement applies.
+
+Bachelor of Science in Biomedical Engineering
+
+Degree Requirements (128 semester credit hours)
+
+View an Example of Degree Requirements by Semester
+
+Faculty
+
+Professors: Orlando Auciello, Leonidas Bleris, Baowei Fei, Stephen D. Levene, Joseph Pancrazio, Shalini Prasad, David Schmidtke
+
+Associate Professors: Heather Hayenga, Seth Hays, Brian Kim, Kristin Miller, Danieli Rodrigues, Shashank Sirsi, Victor Varner
+
+Assistant Professors: Chen Cao, Yichen Ding, Polimyr Dingal, Jacopo Ferruzzi, Yongsheng Gao, Caroline Jones, Gu Eon Kang, You Li, Eric Meyers, Girgis Obaid
+
+Professor Emeritus: Stuart Cogan
+
+Professors-of-Instruction: Tariq Ali, Clark A. Meyer
+
+Associate Professors of Instruction: Kathleen Myers, Benjamin Porter
+
+Assistant Professors of Instruction: Fang Bian, Katherine Brown, Levi Good, Christian Rivera, Rafiul Shihab
+
+Professor of Practice: Todd W. Polk
+
+UT Dallas Affiliated Faculty: Dinesh Bhatia, Xianming Dai, Crystal Engineer, Jeremiah J. Gassensmith, John Hart Jr., Fatemeh Hassanipour, Michael P. Kilgard, David J. Lary, Lloyd Lumata, Faruck Morcos, Issa M. S. Panahi, Zhenpeng Qin, Bart Rypma, Mihaela C. Stefan, Yonas Tadesse, Lakshman Tamil, Jie Zheng
+
+I. Core Curriculum Requirements: 42 semester credit hours
+
+Curriculum Requirements can be fulfilled by other approved courses from institutions of higher education. The courses listed are recommended as the most efficient way to satisfy both Core Curriculum and Major Requirements at UT Dallas.
+
+Communication: 6 semester credit hours
+
+RHET 1302 Rhetoric1
+
+ECS 2390 Professional and Technical Communication1
+
+Or select any 6 semester credit hours from Communication Core courses (see advisor)
+
+Mathematics: 3 semester credit hours
+
+MATH 2417 Calculus I2
+
+Or select any 3 semester credit hours from Mathematics Core courses (see advisor)
+
+Life and Physical Sciences: 6 semester credit hours
+
+PHYS 2325 Mechanics3
+
+PHYS 2326 Electromagnetism and Waves3
+
+Or select any 6 semester credit hours from Life and Physical Sciences Core courses (see advisor)
+
+Language, Philosophy and Culture: 3 semester credit hours
+
+Select any 3 semester credit hours from Language, Philosophy and Culture Core courses (see advisor)
+
+Creative Arts: 3 semester credit hours
+
+Select any 3 semester credit hours from Creative Arts Core courses (see advisor)
+
+American History: 6 semester credit hours
+
+Select any 6 semester credit hours from American History Core courses (see advisor)
+
+Government/Political Science: 6 semester credit hours
+
+Select any 6 semester credit hours from Government/Political Science Core courses (see advisor)
+
+Social and Behavioral Sciences: 3 semester credit hours
+
+Select any 3 semester credit hours from Social and Behavioral Sciences Core courses (see advisor)
+
+Component Area Option: 6 semester credit hours
+
+MATH 2417 Calculus I2
+
+MATH 2419 Calculus II2
+
+PHYS 2125 Physics Laboratory I3
+
+Or select any 6 semester credit hours from Component Area Option Core courses (see advisor)
+
+II. Major Requirements: 86 semester credit hours4
+
+Major Preparatory Courses: 21-25 semester credit hours beyond Core Curriculum
+
+CHEM 1311 General Chemistry I
+
+CHEM 1111 General Chemistry Laboratory I
+
+CHEM 1312 General Chemistry II
+
+CHEM 2324 Introductory Organic Chemistry for Engineers
+
+BIOL 2311 Introduction to Modern Biology I
+
+BIOL 2111 Introduction to Modern Biology Workshop I
+
+BIOL 2281 Introductory Biology Laboratory
+
+PHYS 2125 Physics Laboratory I3
+
+PHYS 2126 Physics Laboratory II
+
+PHYS 2325 Mechanics3
+
+PHYS 2326 Electromagnetism and Waves3
+
+RHET 1302 Rhetoric1
+
+MATH Sequence - Students may choose one of the following sequences:
+
+I. MATH 2417 Calculus I2
+
+and MATH 2419 Calculus II2
+
+and MATH 2420 Differential Equations with Applications
+
+or
+
+II. MATH 2413 Differential Calculus2
+
+and MATH 2414 Integral Calculus2
+
+and MATH 2415 Calculus of Several Variables
+
+and MATH 2420 Differential Equations with Applications
+
+Major Engineering Courses: 10 semester credit hours beyond Core Curriculum
+
+ECS 1100 Introduction to Engineering and Computer Science
+
+ECS 2390 Professional and Technical Communication1
+
+ENGR 2300 Linear Algebra for Engineers
+
+BMEN 3300 Advanced Engineering Mathematics for Bioengineers
+
+BMEN 3341 Probability Theory and Statistics for Biomedical Engineers
+
+Major Core Courses: 43 semester credit hours beyond Core Curriculum
+
+BMEN 1100 Introduction to Bioengineering I5
+
+BMEN 1208 Introduction to Bioengineering II5
+
+BMEN 1300 Introduction to Biomedical Engineering Computing
+
+BMEN 2320 Statics
+
+BMEN 3200 Biomedical Engineering Fundamentals and Design
+
+BMEN 3220 Electrical and Electronic Circuits in Biomedical Engineering Lab
+
+BMEN 3302 Bioengineering Signals and Systems
+
+BMEN 3320 Electrical and Electronic Circuits in Biomedical Engineering
+
+BMEN 3331 Cell and Molecular Engineering
+
+BMEN 3332 Quantitative Physiology for Engineers
+
+BMEN 3315 Thermodynamics and Physical Chemistry in Biomedical Engineering
+
+BMEN 3399 Introductory Biomechanics
+
+BMEN 4310 Feedback Systems in Biomedical Engineering
+
+BMEN 4360 Biomaterials and Medical Devices
+
+BMEN 4388 Senior Design Project I
+
+BMEN 4389 Senior Design Project II
+
+Technical Electives: 8-12 semester credit hours
+
+Students who take MATH sequence I take 12 semester credit hours using any other BMEN 3000-level or higher class or any other upper division engineering course with approval from the department.
+Students who take MATH sequence II take 8 semester credit hours using any other BMEN 3000-level or higher class or any other upper division engineering course with approval from the department.
+Students must document 8-12 semester credit hours of engineering content for these to count towards their degree.
+Students are limited to 2 semester credit hours of internship credit towards prescribed electives.
+
+The plan must include sufficient upper-division courses to total 45 upper-division semester credit hours.
+
+Fast Track Baccalaureate/Master's Degrees
+
+In response to the need for advanced education in Biomedical engineering, a Fast Track program is available to well-qualified UT Dallas undergraduate students. Qualified seniors may take up to 15 graduate semester credit hours that may be used to complete the baccalaureate degree and also to satisfy the requirements for the master's degree. This is accomplished by (1) taking courses (typically electives) during one or more summer semesters, and (2) beginning graduate coursework during the senior year. Details are available from the Associate Dean for Undergraduate Education.
+
+Honors Program
+
+The Department of Biomedical Engineering offers upper-division Honors for outstanding students in the BS Biomedical Engineering degree program. This program offers special sections of designated classes and other activities designed to enhance the educational experience of exceptional students. Admission to the Honors programs requires a 3.500 or better GPA in at least 30 semester credit hours of coursework.
+
+Graduation with Honors requires a 3.500 or better GPA and completion of at least 6 honors classes. These honors classes must include either BMEN 4399 or BMEN 4V98 and a Senior Honors Thesis must be completed within one of those two classes. While the topics may be related, the Senior Thesis does not replace the need for the student to complete a regular Senior Design Project. The other 5 honors classes can come from a mixture of Graduate level (up to a count of 4) classes and special honor sections of regular undergraduate BMEN classes (up to a count of 2).
+
+Departmental Honors with Distinction may be awarded to students whose Senior Honors Thesis is judged by a faculty committee to be of exemplary quality. Only students graduating with Departmental Honors are eligible. Thesis/projects must be submitted by the deadline that applies to MS Theses in the graduating semester to allow for proper evaluation. Students interested in Honors with Distinction are encouraged to start working on their thesis/project a year prior to graduation.
+
+Considerations for Pre-Med Students
+
+While the Department of Bioengineering does not have an official track for pre-med students, a suggested course sequence is available to guide pre-med students in selecting complementary coursework. It is critical that students interested in medical school meet with their advisor to ensure their biology and chemistry courses will meet the requirements for medical schools.
+
+Minors
+
+The Department of Bioengineering does not offer minors at this time.
+
+1. Semester credit hours fulfill the communication component of the Core Curriculum.
+
+2. Three semester credit hours of Calculus are counted under Mathematics Core, and five semester credit hours of Calculus are counted as Component Area Option Core.
+
+3. Six semester credit hours of Physics are counted under Science core, and one semester credit hour of Physics (PHYS 2125) is counted as Component Area Option Core.
+
+4. Students must pass each of the major requirement courses listed in this degree plan and each of their prerequisites, with a grade of C- or better.
+
+5. Transfer students with sufficient background may petition to substitute upper-division semester credit hours in the major for this class.
+
+Updated: 2025-05-26 19:12:29 v10.44c515

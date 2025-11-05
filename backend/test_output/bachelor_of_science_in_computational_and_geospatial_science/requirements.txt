@@ -1,0 +1,209 @@
+UT Dallas 2025 Undergraduate Catalog
+Download page as a PDF, opens a new tab
+Download page as a DOCX (MS Word) file
+Open page in a printable window, opens a new tab
+Compare Versions
+School of Economic, Political and Policy Sciences
+Computational and Geospatial Science (BS)
+
+Computational and Geospatial Science is an interdisciplinary field that explores the management, analysis, and application of geospatial data to solve real-world challenges. It focuses on the complexities of location-based data and its integration into various systems and industries. This field combines advanced computational techniques with geospatial principles to address pressing issues across multiple domains.
+
+Applications of computational and geospatial science include web-based mapping services, which provide interactive tools for navigation and location-based services; national security and intelligence operations, supported by organizations such as the National Geospatial-Intelligence Agency; energy planning and management to optimize resources and infrastructure; environmental management to monitor and protect natural ecosystems; military operations requiring spatial intelligence for strategy and logistics; support of statewide and national government agencies such as FEMA or the Census Bureau; and disaster response, where geospatial data is critical for planning, risk assessment, and mitigation efforts.
+
+By leveraging cutting-edge technologies, graduates of the Bachelor of Science in Computational and Geospatial Science will be skilled in handling large-scale geospatial datasets, developing innovative solutions, and contributing to advancements in various industries that depend on spatial information.
+
+Mission
+
+The mission of Computational and Geospatial Science is to equip students with a strong interdisciplinary foundation that integrates computer science (CS) principles with geospatial information science (GIS) applications. This program aims to produce graduates who are proficient in computational thinking, algorithm design, and software development, while also being adept at leveraging geospatial technologies to solve real-world problems. Students gain expertise in data analysis, spatial data management, and advanced geospatial modeling, preparing them to address complex issues with computational skills in areas which involve geospatial data and location-based information systems. Graduates of the Bachelor of Science in Computational and Geospatial Science program will be uniquely prepared to address complex, location-based challenges that are increasingly important in our interconnected and rapidly changing world.
+
+Objectives
+
+The program education objectives will enable our graduates within a few years of graduation to:
+
+Pursue diverse career opportunities in computer science, geospatial information science, or related fields, including roles as industry professionals, educators, researchers, government officials, and entrepreneurs.
+Demonstrate effective teamwork and leadership skills in both professional and interdisciplinary settings, contributing meaningfully to projects in computer science and/or geospatial information science.
+Uphold ethical, socially responsible, and innovative practices that advance industry, academia, and society.
+Engage in lifelong learning and professional growth, successfully adapting to continuous advancements in computational and geospatial technologies.
+Bachelor of Science in Computational and Geospatial Science
+
+Degree Requirements (120 semester credit hours)
+
+View an Example of Degree Requirements by Semester
+
+EPPS Faculty
+
+Professors: Yongwan Chun, Dohyeong Kim, David J. Lary, Fang Qiu, May Yuan
+
+Associate Professor: Muhammad Rahman, Michael Tiefelsdorf
+
+Assistant-Professor: Elías Cisneros, Alexander Michels
+
+Professor Emeriti: Ronald Briggs, Daniel A. Griffith
+
+Lecturer: Bryan Chastain
+
+ECS Faculty
+
+Professors: Farokh B. Bastani, Sergey Bereg, Ovidiu Daescu, Yvo G. Desmedt, Ding-Zhu Du, Paul Fishwick, Xiaohu Guo, Gopal Gupta, Zygmunt Haas, Kevin Hamlen, Sanda M. Harabagiu, Dung T. Huynh, Jason Jue, Latifur Khan, Andrian Marcus, Neeraj Mittal, Dan I. Moldovan, Sriraam Natarajan, Yu-Chung (Vincent) Ng, Tien Nguyen, Simeon C. Ntafos, Ravi Prakash, Kamil Sarac, Haim Schweitzer, Bhavani Thuraisingham, W. Eric Wong, Weili Wu, I-Ling Yen, Rym Zalila-Wenkstern
+
+Associate Professors: Feng Chen, Lawrence Chung, Jorge A. Cobb, Vibhav Gogate, Benjamin Raichel, Nicholas Ruozzi
+
+Assistant Professors: Xinya Du, Emily Kyle Fox, Yunhui Guo, Shuang Hao, Rishabh Iyer, Kangkook Jee, Chung Hwan Kim, Jin Kim, Jessica Ouyang, Yapeng Tian, Shiyi Wei, Yu Xiang, Wei Yang
+
+Professors Emeriti: R. Chandrasekaran, Ivor P. Page, William J. Pervin, Balaji Raghavachari, Ivan Hal Sudborough, Klaus Truemper, Subbarayan Venkatesan, Kang Zhang
+
+Professors of Instruction: Ebru Cankaya, John Cole, Richard (Douglas) DeGroot, Timothy (Tim) Farage, Shyam Karrah, Pushpa Kumar, Nhut Nguyen, Greg Ozbirn, Miguel Razo-Razo, Jeyakesavan (Jey) Veerasamy
+
+Associate Professors of Instruction: Sridhar Alagar, Gordon Arnold, Anjum Chida, Wei Pang Chin, Bhadrachalam Chitturi, Michael Christiansen, Chris I. Davis, Karen Doore, Neeraj Gupta, Khiem Le, Anarag Nagar, Mehra Nouroz Borazjany, Jalal Omer, Mark Paulk, Jason W. Smith, Laurie Thompson, James Willson, Nurcan Yuruk
+
+Assistant Professors of Instruction: Eric Becker, Scott Dollinger, Serdar Erbatur, Ranran Feng, Omar Hamdy, Gity Karami, Kamran Khan, Karen Mazidi, Richard K. Min, Priya Narayanasami, Brian Ricks, Elmer Salazar, Meghana Satpute, Nidhiben Solanki, Srimathi Srinivasan, Yi Zhao
+
+I. Core Curriculum Requirements: 42 semester credit hours
+
+Curriculum Requirements can be fulfilled by other approved courses from institutions of higher education. The courses listed are recommended as the most efficient way to satisfy both Core Curriculum and Major Requirements at UT Dallas.
+
+Communication: 6 semester credit hours
+
+GISC 2307 Digital Earth
+
+or GEOS 2307 Digital Earth
+
+or EPPS 2307 Digital Earth
+
+Or select any 6 semester credit hours from Communication Core courses (see advisor)
+
+Mathematics: 3 semester credit hours
+
+MATH 2413 Differential Calculus
+
+or MATH 2417 Calculus I
+
+Or select any 3 semester credit hours from Mathematics Core courses (see advisor)
+
+Life and Physical Sciences: 6 semester credit hours
+
+PHYS 2325 Mechanics
+
+PHYS 2326 Electromagnetism and Waves
+
+Or select any 6 semester credit hours from Life and Physical Sciences Core courses (see advisor)
+
+Language, Philosophy and Culture: 3 semester credit hours
+
+Select any 3 semester credit hours from Language, Philosophy and Culture Core courses (see advisor)
+
+Creative Arts: 3 semester credit hours
+
+Select any 3 semester credit hours from Creative Arts Core courses (see advisor)
+
+American History: 6 semester credit hours
+
+Select any 6 semester credit hours from American History Core courses (see advisor).
+
+Government/Political Science: 6 semester credit hours
+
+Select any 6 semester credit hours from Government/Political Science Core courses (see advisor)
+
+Social and Behavioral Sciences: 3 semester credit hours
+
+GEOG 2303 World Regional Geography
+
+Or select any 3 semester credit hours from Social and Behavioral Sciences Core courses (see advisor)
+
+Component Area Option: 6 semester credit hours
+
+MATH 2413 Differential Calculus
+
+or MATH 2417 Calculus I
+
+MATH 2414 Integral Calculus
+
+or MATH 2419 Calculus II
+
+PHYS 2125 Physics Laboratory I
+
+Or select any 6 semester credit hours from Component Area Core courses (see advisor)
+
+II. Major Requirements: 61 semester credit hours
+
+Major Preparatory Courses: 25 semester credit hours beyond Core Curriculum
+
+CS 1436 Programming Fundamentals
+
+CS 1337 Computer Science I
+
+CS 2305 Discrete Mathematics for Computing I
+
+CS 2336 Computer Science II
+
+EPPS 1110 Critical Issues in the Social Sciences
+
+GISC 2307 Digital Earth1
+
+or GEOS 2307 Digital Earth1
+
+or EPPS 2307 Digital Earth1
+
+GISC 2309 Principles of Geospatial Information Sciences
+
+GISC 2326 Computer Mapping and Geovisualization
+
+MATH 2413 Differential Calculus12
+
+or MATH 2417 Calculus I1
+
+MATH 2414 Integral Calculus1
+
+or MATH 2419 Calculus II1
+
+MATH 2418 Linear Algebra
+
+PHYS 2325 Mechanics1
+
+PHYS 2125 Physics Laboratory I1
+
+PHYS 2326 Electromagnetism and Waves1
+
+PHYS 2126 Physics Laboratory II
+
+Major Core Courses: 36 semester credit hours
+
+CS 3341 Probability and Statistics in Computer Science and Software Engineering
+
+CS 3345 Data Structures and Foundations of Algorithmic Analysis
+
+CS 4347 Database Systems
+
+CS 4365 Artificial Intelligence
+
+CS 4371 Introduction to Big Data Management and Analytics
+
+CS 4375 Introduction to Machine Learning
+
+CS 4391 Introduction to Computer Vision
+
+GISC 4325 Introduction to Remote Sensing
+
+GISC 4328 Drone and Remote Sensing
+
+GISC 4363 Internet Mapping and Information Processing
+
+GISC 4381 Spatial Data Science
+
+GISC 4382 Applied Geographic Information Systems
+
+III. Elective Requirements: 17 semester credit hours
+
+Guided Electives: 8 semester credit hours
+
+Although both lower- and upper-division courses may count as guided electives, they must be approved by the advisor.
+
+Free Electives: 9 semester credit hours
+
+The plan must include sufficient upper-division courses to total 45 upper-division semester credit hours.
+
+1. A Major requirement that also fulfills a Core Curriculum requirement. Semester credit hours are counted in Core Curriculum.
+
+2. Incoming students may need to take the necessary 1000- and 2000- level Mathematics courses (e.g., MATH 1314, MATH 1316, and/or MATH 2312) prior to enrolling into MATH 2413 or MATH 2417.
+
+Updated: 2025-09-15 14:42:59 v10.f7892f

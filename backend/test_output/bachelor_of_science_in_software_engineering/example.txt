@@ -1,0 +1,70 @@
+UT Dallas 2025 Undergraduate Catalog
+Download page as a PDF, opens a new tab
+Download page as a DOCX (MS Word) file
+Open page in a printable window, opens a new tab
+Compare Versions
+Erik Jonsson School of Engineering and Computer Science
+Software Engineering (BS)
+
+Degree Requirements (123 semester credit hours)
+
+Four-Year Degree Plan (Example)
+
+This is an example only. Please see advisor to develop an individual four-year plan.
+
+Freshman Year
+Semester 1 - Fall	Notes	Preferred	Core	SCH		Semester 2 - Spring	Notes	Preferred	Core	SCH
+MATH 2413	1, 3		2090	4	060 Core			060	3
+or MATH 2417	1, 3		2090	MATH 2414	1, 3, 6		2090	4
+RHET 1302	1, 7		1090	3	or MATH 2419	1, 3, 6		090
+ECS 1100	5			1	MATH 2418				4
+CS 1200	7			2	CS 1337	7			3
+CS 1436	7			4	CS 2305	7			3
+Total 	14	Total 	17
+ 
+Sophomore Year
+Semester 3 - Fall	Notes	Preferred	Core	SCH		Semester 4 - Spring	Notes	Preferred	Core	SCH
+070 Core			070	3	040 Core			040	3
+PHYS 2325	1, 4, 6		3090	3	070 Core			070	3
+PHYS 2125	1, 4, 6		3090	1	PHYS 2326	1, 4, 6		3090	3
+CS 2336	6			3	PHYS 2126	1, 4, 6			1
+SE 2340	6			3	SE 3341				3
+SE 3306	6			3	SE 3345	6			3
+Total 	16	Total 	16
+ 
+Junior Year
+Semester 5 - Fall	Notes	Preferred	Core	SCH		Semester 6 - Spring	Notes	Preferred	Core	SCH
+Major Preparatory				3	050 Core			050	3
+ECS 2390	1, 2, 6		010	3	060 Core			060	3
+SE 3354	6			3	SE 3162	6			1
+SE 3377				3	SE 4348				3
+SE 4347	6			3	SE 4352	6			3
+					SE 4381	6			3
+Total 	15	Total 	16
+ 
+Senior Year
+Semester 7 - Fall	Notes	Preferred	Core	SCH		Semester 8 - Spring	Notes	Preferred	Core	SCH
+080 Core			080	3	Free Elective				2
+SE 4351				3	Free Elective				2
+SE 4367				3	SE 4485				4
+Major Technical Elective				3	Major Technical Elective				3
+Major Technical Elective				3	Major Technical Elective				3
+Total 	15	Total 	14
+ 
+NOTES:
+1	Curriculum Requirements can be fulfilled by other approved courses from accredited institutions of higher education. The courses listed are recommended as the most efficient way to satisfy both Core Curriculum and Major Requirements at UT Dallas.
+2	Semester credit hours fulfill the communication component of the Core Curriculum.
+3	Three semester credit hours of Calculus are counted under Mathematics Core, and five semester credit hours of Calculus are counted as Component Area Option Core.
+4	Six semester credit hours of Physics are counted under Science core, and one semester credit hour of Physics (PHYS 2125) is counted as Component Area Option Core.
+5	Transfer students with sufficient background may petition to substitute upper-division semester credit hours in the major for this class.
+6	Earliest semester course can be taken due to pre- or co-requisite course requirements.
+7	Must complete by 3rd semester of enrollment.
+
+Students wishing to fast track into the graduate program in Accounting may take up to six (6) semester credit hours of graduate ACCT electives - see the Undergraduate Accounting Program Director or the Associate Area Coordinator, for specific fast-track courses. Cumulative GPA of 3.4 minimum required for Fast-Track Program. See Academic Advisor for other requirements.
+
+Be sure to check prerequisites of 2000-level or higher courses.
+123 semester credit hours required for graduation
+
+This plan is a resource tool only; it does not replace your degree plan or academic advising.
+
+Updated: 2025-05-22 12:47:08 v3.f88b6d

@@ -1,0 +1,65 @@
+UT Dallas 2025 Undergraduate Catalog
+Download page as a PDF, opens a new tab
+Download page as a DOCX (MS Word) file
+Open page in a printable window, opens a new tab
+Compare Versions
+Erik Jonsson School of Engineering and Computer Science
+Systems Engineering (BS)
+
+Degree Requirements (120 semester credit hours)
+
+Four-Year Degree Plan (Example)
+
+This is an example only. Please see advisor to develop an individual four-year plan.
+
+Freshman Year
+Semester 1 - Fall	Notes	Preferred	Core	SCH		Semester 2 - Spring	Notes	Preferred	Core	SCH
+010 Core			010	3	SYSE 1202				2
+050 Core			050	3	MATH 2419	1, 2, 4		090	4
+MATH 2417	1, 2, 4		2090	4	ECS 2390	1, 2, 3		010	3
+CS 1325				3	PHYS 2325	1, 2, 5		3090	3
+ECS 1100				1	PHYS 2125	1, 2, 5		3090	1
+Total 	14	Total 	13
+ 
+Sophomore Year
+Semester 3 - Fall	Notes	Preferred	Core	SCH		Semester 4 - Spring	Notes	Preferred	Core	SCH
+070 Core			070	3	040 Core			040	3
+SYSE 2300				3	070 Core			070	3
+SYSE 2310				3	MATH 2420				4
+PHYS 2326	1, 2, 5		3090	3	ENGR 3300				3
+PHYS 2126				1	SYSE 3300				3
+ENGR 2300				3					
+Total 	16	Total 	16
+ 
+Junior Year
+Semester 5 - Fall	Notes	Preferred	Core	SCH		Semester 6 - Spring	Notes	Preferred	Core	SCH
+080 Core			080	3	060 Core			060	3
+MATH 3315				3	SYSE 3355				3
+ENGR 3341				3	SYSE 4305				3
+EE 3302				3	SYSE 4306				3
+Secondary Field				3	EE 3161				1
+					Secondary Field				3
+Total 	15	Total 	16
+ 
+Senior Year
+Semester 7 - Fall	Notes	Preferred	Core	SCH		Semester 8 - Spring	Notes	Preferred	Core	SCH
+060 Core			060	3	EE 4331				3
+EE 4310				3	Technical Elective				3
+SYSE 4302				3	Technical Elective				3
+SYSE 4380				3	Secondary Field				3
+Secondary Field				3	Secondary Field				3
+Total 	15	Total 	15
+ 
+NOTES:
+1	Curriculum Requirements can be fulfilled by other approved courses from accredited institutions of higher education. The courses listed are recommended as the most efficient way to satisfy both Core Curriculum and Major Requirements at UT Dallas.
+2	A required Major course that also fulfills a Core Curriculum requirement. Semester credit hours are counted in Core Curriculum.
+3	Semester credit hours fulfill the communication component of the Core Curriculum.
+4	Three semester credit hours of Calculus are counted under Mathematics Core, and five semester credit hours of Calculus are counted as Component Area Option Core.
+5	Six semester credit hours of Physics are counted under Science core, and one semester credit hour of Physics (PHYS 2125) is counted as Component Area Option Core.
+
+Be sure to check prerequisites of 2000-level or higher courses.
+120 semester credit hours required for graduation
+
+This plan is a resource tool only; it does not replace your degree plan or academic advising.
+
+Updated: 2025-04-15 16:24:38 v6.fe8784

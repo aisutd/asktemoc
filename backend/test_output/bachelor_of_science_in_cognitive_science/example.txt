@@ -1,0 +1,70 @@
+UT Dallas 2025 Undergraduate Catalog
+Download page as a PDF, opens a new tab
+Download page as a DOCX (MS Word) file
+Open page in a printable window, opens a new tab
+Compare Versions
+School of Behavioral and Brain Sciences
+Cognitive Science (BS)
+
+Degree Requirements (120 semester credit hours)
+
+Four-Year Degree Plan (Example)
+
+This is an example only. Please see advisor to develop an individual four-year plan.
+
+Freshman Year
+Semester 1 - Fall	Notes	Preferred	Core	SCH		Semester 2 - Spring	Notes	Preferred	Core	SCH
+060 Core			060	3	010 Core			010	3
+CGS 2301	1, 2		3090	3	060 Core			060	3
+MATH 2417	1, 2		2090	4	070 Core			070	3
+or MATH 2413	1, 2		2090	CS 1337	6			3
+PSY 2301	1, 2		8090	3	MATH 2419	1, 2		2090	4
+BBSU 1100				1	or MATH 2414	1, 2		2090
+Total	14	Total	16
+ 
+Sophomore Year
+Semester 3 - Fall	Notes	Preferred	Core	SCH		Semester 4 - Spring	Notes	Preferred	Core	SCH
+010 Core			010	3	030 Core			030	3
+030 Core			030	3	040 Core			040	3
+050 Core			050	3	070 Core			070	3
+MATH 2418				4	Free Elective				3
+Major Related				3	Free Elective				2
+Total	16	Total	14
+ 
+Junior Year
+Semester 5 - Fall	Notes	Preferred	Core	SCH		Semester 6 - Spring	Notes	Preferred	Core	SCH
+NSC 3361				3	CGS 3361				3
+PSY 2317	1, 5		2090	3	PSY 3392				3
+or CS 3341	3, 4, 5			Major Related				3
+Major Related				3	Major Related				3
+Free Elective				3	Free Elective				3
+or CS 2305	4							
+Free Elective				3					
+Total	15	Total	15
+ 
+Senior Year
+Semester 7 - Fall	Notes	Preferred	Core	SCH		Semester 8 - Spring	Notes	Preferred	Core	SCH
+CGS 3340				3	Major Related				3
+or PSY 3393				Major Related				3
+Major Related				3	Free Elective				3
+Major Related				3	Free Elective				3
+Free Electivee				3	Free Electivee				3
+or CS 2336	4							
+Free Elective				3					
+
+Total	15	Total	15
+ 
+NOTES:
+1	Curriculum Requirements can be fulfilled by other approved courses from accredited institutions of higher education. The courses listed are recommended as the most efficient way to satisfy both Core Curriculum and Major Requirements at UT Dallas.
+2	A required Preparatory course that also fulfills a Core Curriculum requirement. Fourteen semester credit hours (14) are counted in Core Curriculum.
+3	Note that either SE 3341 or STAT 3341 may be used as an equivalent course for CS 3341 for all Cognitive Science program requirements as well as all Cognitive Science course prerequisites.
+4	Only for AI area
+5	A.I. concentration students must take CS 3341.
+6	Enrollment in CS 1337 requires students to either obtain a score of at least a 70% on the CS Placement Exam or complete CS 1436 with a grade of C or higher.
+
+Be sure to check prerequisites of 2000-level or higher courses.
+120 semester credit hours required for graduation
+
+This plan is a resource tool only; it does not replace your degree plan or academic advising.
+
+Updated: 2025-05-11 14:21:21 v3.5b6bb1

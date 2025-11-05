@@ -1,0 +1,339 @@
+UT Dallas 2025 Undergraduate Catalog
+Download page as a PDF, opens a new tab
+Download page as a DOCX (MS Word) file
+Open page in a printable window, opens a new tab
+Compare Versions
+Erik Jonsson School of Engineering and Computer Science
+Department of Electrical and Computer Engineering
+Electrical Engineering (BSEE)
+
+The Electrical and Computer Engineering Department offers a Bachelor of Science in Electrical Engineering. The Electrical Engineering program offers students an opportunity to acquire a solid foundation in the broad areas of electrical engineering and emphasizes advanced study in digital systems, digital signal processing, communications, power systems, analog systems, RF/microwave, and microelectronics.
+
+The Electrical Engineering program offers students a solid educational foundation in the areas of electrical networks, electronics, electromagnetics, computers, digital systems, signal processing, and communications and is accredited by the Engineering Accreditation Commission of the Accreditation Board for Engineering and Technology (ABET). Mastery of these areas provides students with the ability to adapt and maintain leadership roles in their post- baccalaureate pursuits through the application of fundamental principles to a rapidly changing and growing discipline.
+
+Students in the Electrical Engineering program a broad general program in electrical engineering and can then take advanced courses in computer hardware and software; the analysis and design of analog and digital communication systems; analog and digital signal processing; the analysis, design, and fabrication of microelectronic components and systems; power systems, and guided and unguided wave propagation. A broad choice of electives (within and external to electrical engineering) allows students to broaden their education as well as develop expertise in areas of particular interest. In keeping with the role of a professional, students are expected to develop communication skills and an awareness of the relationship between technology and society.
+
+The Electrical Engineering program is based on a solid foundation of science and mathematics coursework. Students in this program are given an opportunity to learn and extend their abilities to analyze and solve complex problems and to design new uses of technology to serve today's society. The engineering programs at UT Dallas provide an integrated educational experience directed toward the development of the ability to apply pertinent knowledge to the identification and solution of practical problems in Electrical and other related engineering fields. These programs ensure that the design experience, which includes both analytical and experimental studies, is integrated throughout the curriculum in a sequential development leading to advanced work. Design problems are frequently assigned in both lecture and laboratory courses. Each student is required to complete a major design project during the senior year. In addition, established cooperative education programs with area industry serve to further supplement design experiences.
+
+Mission of the Electrical Engineering Program
+
+The mission of the Electrical Engineering Program is to provide excellent education in modern electrical engineering practice. Our graduates are highly qualified for rewarding and successful careers in a diverse range of electrical engineering fields.
+
+Program Educational Objectives for Electrical Engineering
+
+The UT Dallas Electrical Engineering Program educational objectives will enable our graduates within a few years of graduation to:
+
+Successfully pursue a diverse range of careers as electrical engineers, consultants, educators, and/or entrepreneurs as well as pursue advanced education.
+Be effective contributors and leaders in both professional and personal settings.
+Serve their profession and/or employer in a responsible, ethical, creative, and enthusiastic manner to meet the needs of industry and society
+Continue to learn and improve through self-motivation.
+High School Preparation
+
+Engineering education requires a strong high school preparation. Pre-engineering students should have high school preparation of at least one-half year in trigonometry and at least one year each in elementary algebra, intermediate and advanced algebra, plane geometry, chemistry, and physics, thus developing their competencies to the highest possible levels and preparing to move immediately into demanding college courses in calculus, calculus-based physics, and chemistry for science majors. It is also essential that pre- engineering students have the competence to read rapidly and with comprehension, and to write clearly and correctly.
+
+Lower-Division Study
+
+All lower-division students in Electrical Engineering concentrate on mathematics, science, and introductory engineering courses, building competence in these cornerstone areas for future application in upper-division engineering courses. The following requirements apply both to students seeking to transfer to UT Dallas from other institutions as well as to those currently enrolled at UT Dallas, whether in another school or in the Erik Jonsson School of Engineering and Computer Science.
+
+ABET Accreditation
+
+The BS program in Electrical Engineering is accredited by the Engineering Accreditation Commission of ABET, www.abet.org.
+
+Academic Progress in Electrical Engineering
+
+In order to make satisfactory academic progress as an Electrical Engineering major, a student must meet all University requirements for academic progress, and must earn a grade of C- or better in each of the "major requirements" courses. No "Major Requirements" course (as listed under Section II of the BSEE degree requirement) may be taken until the student has obtained a grade of C- or better in each of the prerequisites (if a higher grade requirement is stated for a specific class, the higher requirement applies).
+
+Bachelor of Science in Electrical Engineering
+
+Degree Requirements (128 semester credit hours)
+
+View an Example of Degree Requirements by Semester
+
+Faculty
+
+Professors: Bilal Akin, Naofal Al-Dhahir, Poras T. Balsara, Dinesh Bhatia, Yun Chiu, Babak Fahimi, John P. Fonseka, Andrea Fumagalli, John H. L. Hansen, Rashaunda Henderson, Nasser Kehtarnavaz, Kamran Kiasaleh, Gil S. Lee, Hoi Lee, Jin Liu, Dongsheng (Brian) Ma, Georgios Makris, Hlaing Minn, Aria Nosratinia, Mehrdad Nourani, Kenneth K. O, Lawrence J. Overzet, Issa M. S. Panahi, Mohammad Saquib, Carl Sechen, Lakshman Tamil, Murat Torlak
+
+Associate Professors: Benjamin Carrion Schafer, Joseph Friedman, Mona Ghassemi, Chadwin D. Young
+
+Assistant Professors: Kanad Basu, Sourav Dutta, Matthew Gardner, Ifana Mahbub, Jae Mo Park, Kaveh Shamsi
+
+Associate Professor Emeritus: Gerald O. Burnham
+
+Professors of Instruction: James Florence, Jung Lee, Randall E. Lehmann, Tooraj Nikoubin, Miguel Razo-Razo, Ricardo E. Saad, William (Bill) Swartz, Marco Tacca
+
+Associate Professors of Instruction: Md Ali, Matthew Heins, Rabah Mezenner, Neal Skinner
+
+Assistant-Professor-of-Instruction: Haifa Abulaiha, Shaheen Ahmed, Hossein Pedram
+
+I. Core Curriculum Requirements: 42 semester credit hours
+
+Curriculum Requirements can be fulfilled by other approved courses. The courses listed are recommended as the most efficient way to satisfy both Core Curriculum and Major Requirements at UT Dallas.
+
+Communication: 6 semester credit hours
+
+RHET 1302 Rhetoric1
+
+ECS 2390 Professional and Technical Communication1
+
+Or select any 6 semester credit hours from Communication Core courses (see advisor)
+
+Mathematics: 3 semester credit hours
+
+MATH 2414 Integral Calculus2
+
+or MATH 2417 Calculus I2
+
+Or select any 3 semester credit hours from Mathematics Core courses (see advisor)
+
+Life and Physical Sciences: 6 semester credit hours
+
+PHYS 2325 Mechanics3
+
+PHYS 2326 Electromagnetism and Waves3
+
+Or select any 6 semester credit hours from Life and Physical Sciences Core courses (see advisor)
+
+Language, Philosophy and Culture: 3 semester credit hours
+
+Select any 3 semester credit hours from Language, Philosophy and Culture Core courses (see advisor)
+
+Creative Arts: 3 semester credit hours
+
+Select any 3 semester credit hours from Creative Arts Core courses (see advisor)
+
+American History: 6 semester credit hours
+
+Select any 6 semester credit hours from American History Core courses (see advisor)
+
+Government/Political Science: 6 semester credit hours
+
+GOVT 2305 American National Government
+
+GOVT 2306 State and Local Government
+
+Or select any 6 semester credit hours from Government/Political Science Core courses (see advisor)
+
+Social and Behavioral Sciences: 3 semester credit hours
+
+Select any 3 semester credit hours from Social and Behavioral Sciences Core courses (see advisor)
+
+Component Area Option: 6 semester credit hours
+
+MATH 2414 Integral Calculus2
+
+or MATH 2417 Calculus I2
+
+MATH 2415 Calculus of Several Variables2
+
+or MATH 2419 Calculus II2
+
+PHYS 2125 Physics Laboratory I3
+
+Or select any 6 semester credit hours from Component Area Option Core courses (see advisor)
+
+II. Major Requirements: 77 semester credit hours4
+
+Major Preparatory Courses: 22 semester credit hours beyond Core Curriculum
+
+CHEM 1111 General Chemistry Laboratory I
+
+CHEM 1311 General Chemistry I
+
+CS 1325 Introduction to Programming
+
+EE 1100 Introduction to Electrical and Computer Engineering5
+
+ECS 1100 Introduction to Engineering and Computer Science
+
+EE 1202 Introduction to Electrical and Computer Engineering II5
+
+ENGR 2300 Linear Algebra for Engineers
+
+EE 2310 Introduction to Digital Systems
+
+PHYS 2125 Physics Laboratory I3
+
+PHYS 2126 Physics Laboratory II
+
+PHYS 2325 Mechanics3
+
+PHYS 2326 Electromagnetism and Waves3
+
+RHET 1302 Rhetoric1
+
+MATH Sequence - Students may choose one of the following two sequences:
+
+I. MATH 2414 Integral Calculus2
+
+and MATH 2415 Calculus of Several Variables2
+
+MATH 2420 Differential Equations with Applications
+
+or
+
+II. MATH 2417 Calculus I2
+
+and MATH 2419 Calculus II2
+
+MATH 2420 Differential Equations with Applications
+
+Major Core Courses: 43 semester credit hours beyond Core Curriculum
+
+EE 3161 Social Issues and Ethics in Engineering
+
+ECS 2390 Professional and Technical Communication1
+
+EE 3201 Electrical and Computer Engineering Fundamentals-I Laboratory
+
+EE 3202 Electrical and Computer Engineering Fundamentals-II Laboratory
+
+EE 3300 Advanced Engineering Mathematics
+
+EE 2301 Electrical Network Analysis
+
+EE 3302 Signals and Systems
+
+EE 3310 Electronic Devices
+
+EE 3311 Electronic Circuits
+
+EE 3320 Digital Circuits
+
+ENGR 3341 Probability Theory and Statistics
+
+EE 4301 Electromagnetic Engineering I
+
+EE 4310 Systems and Controls
+
+EE 4370 Embedded Systems
+
+EE 4388 Senior Design Project I
+
+EE 4389 Senior Design Project II
+
+Select one of the following laboratories:
+
+EE 4201 Electrical and Computer Engineering Laboratory in Computing Systems and Computer Engineering
+
+EE 4202 Electrical and Computer Engineering Laboratory in Circuits
+
+EE 4203 Electrical and Computer Engineering Laboratory in Signals and Systems
+
+EE 4204 Electrical and Computer Engineering Laboratory in Devices
+
+EE 4205 Electrical and Computer Engineering Laboratory in Power Electronics and Energy Systems
+
+Major Guided Electives: 12 semester credit hours
+
+Students pursuing the general program take 12 semester credit hours from any upper level Electrical Engineering course. EE 4V97, EE 4V98, or EE 4399 may be used for up to 6 of these hours.
+
+Students pursuing a concentration in one of the following areas should take a minimum of two courses in that area:
+
+Circuits
+
+EE 4168 RF/Microwave Laboratory
+
+EE 4325 Introduction to VLSI Design
+
+EE 4340 Analog Integrated Circuit Analysis and Design
+
+EE 4368 RF Circuit Design Principles
+
+EE 4V95 Undergraduate Topics in Electrical Engineering
+
+EE 4202 Electrical and Computer Engineering Laboratory in Circuits
+
+Computing Systems
+
+EE 4304 Computer Architecture
+
+EE 4V95 Undergraduate Topics in Electrical Engineering
+
+EE 4201 Electrical and Computer Engineering Laboratory in Computing Systems and Computer Engineering
+
+Devices
+
+EE 4330 Integrated Circuit Technology
+
+EE 4391 Technology of Plasma
+
+EE 4371 Introduction to MEMS
+
+EE 4V95 Undergraduate Topics in Electrical Engineering
+
+EE 4204 Electrical and Computer Engineering Laboratory in Devices
+
+Power Electronics and Energy Systems
+
+EE 4303 Fundamentals of Power Systems
+
+EE 4362 Introduction to Energy Conversion
+
+EE 4363 Introduction to Power Electronics
+
+EE 4V95 Undergraduate Topics in Electrical Engineering
+
+EE 4205 Electrical and Computer Engineering Laboratory in Power Electronics and Energy Systems
+
+Signals and Systems
+
+EE 3350 Communications Systems
+
+EE 4331 Applied Machine Learning
+
+EE 4342 Introduction to Robotics
+
+EE 4360 Digital Communications
+
+EE 4361 Introduction to Digital Signal Processing
+
+EE 4365 Introduction to Wireless Communication
+
+EE 4367 Telecommunication Networks
+
+EE 4V95 Undergraduate Topics in Electrical Engineering
+
+EE 4203 Electrical and Computer Engineering Laboratory in Signals and Systems
+
+III. Elective Requirements: 9 semester credit hours
+
+Free Electives: 5-9 semester credit hours
+
+Students who take MATH sequence I take 5 semester credit hours of free electives.
+Students who take MATH sequence II take 9 semester credit hours of free electives.
+
+Both lower- and upper-division courses may count as free electives.
+
+Degree programs in the Erik Jonsson School of Engineering and Computer Science are governed by various accreditation boards that place restrictions on classes used to meet the curricular requirements of degrees they certify. For this reason, not all classes offered by the University can be used to meet elective requirements. Please check with your academic advisor before enrolling in classes you hope to use as free electives.
+
+The plan must include sufficient upper-division courses to total 45 upper-division semester credit hours.
+
+Fast Track Baccalaureate/Master's Degrees
+
+In response to the need for advanced education in electrical engineering, a Fast Track program is available to well-qualified UT Dallas undergraduate students. Qualified seniors may take up to 15 graduate semester credit hours that may be used to complete the baccalaureate degree and also to satisfy the requirements for the master's degree. This is accomplished by (1) taking courses (typically electives) during one or more summer semesters, and (2) beginning graduate coursework during the senior year. Details are available from the Associate Dean for Undergraduate Education.
+
+Honors Program
+
+The Department of Electrical and Computer Engineering offers Departmental Honors for outstanding students in the BS Electrical Engineering degree program. Admission to the Honors programs requires that the student meet the following qualifications:
+
+Has repeated no more than 3 courses at UT Dallas and has repeated no course more than once.
+
+Graduation with Honors requires a 3.500 or better GPA and completion of either EE 4399 or EE 4V98. A Senior Honors Thesis must be completed within one of those two classes. (While the topics may be related, the Senior Thesis does not replace the need for the student to complete a regular Senior Design Project).
+
+Departmental Honors with Distinction may be awarded to students whose Senior Honors Thesis is judged by a faculty committee to be of exemplary quality. Only students graduating with Departmental Honors are eligible. Thesis/projects must be submitted by the deadline that applies to MS Theses in the graduating semester to allow for proper evaluation. Students interested in Honors with Distinction are encouraged to start working on their thesis/project a year prior to graduation.
+
+Minors
+
+The Department of Electrical and Computer Engineering does not offer minors at this time.
+
+1. Semester credit hours fulfill the communication component of the Core Curriculum.
+
+2. Three semester credit hours of Calculus are counted under Mathematics Core, and five semester credit hours of Calculus are counted as Component Area Option Core.
+
+3. Six semester credit hours of Physics (PHYS 2325 and PHYS 2326) are counted under Science Core and one semester credit hour (PHYS 2125) is counted under the Component Area Option Core.
+
+4. Students must pass each of the EE, CS, Math and Science courses listed in this degree plan and each of their prerequisites, with a grade of C- or better.
+
+5. Transfer students with sufficient background may petition to substitute upper-division semester credit hours in the major for this class.
+
+Updated: 2025-04-04 16:09:11 v7.aa6459
