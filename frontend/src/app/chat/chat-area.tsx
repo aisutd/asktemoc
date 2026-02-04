@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Send } from "lucide-react";
 import { Message, Conversation } from "@/types";
 import QuoteComponent from "./quote";
+import { chatAPI } from "@/lib/api";
 
 interface ChatAreaProps {
   selectedConversationId: string;
@@ -21,6 +22,8 @@ export default function ChatArea({
 }: ChatAreaProps) {
   const [inputValue, setInputValue] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
+  const [isBackendAvailable, setIsBackendAvailable] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const currentConversation = conversations.find(
@@ -34,6 +37,21 @@ export default function ChatArea({
   useEffect(() => {
     scrollToBottom();
   }, [currentConversation?.messages]);
+
+  // Check backend availability on mount
+  useEffect(() => {
+    const checkBackend = async () => {
+      try {
+        const available = await chatAPI.isBackendAvailable();
+        setIsBackendAvailable(available);
+      } catch (error) {
+        console.error("Backend check failed:", error);
+        setIsBackendAvailable(false);
+      }
+    };
+
+    checkBackend();
+  }, []);
 
   const sendMessage = async () => {
     if (!inputValue.trim() || isStreaming || !currentConversation) return;
@@ -51,91 +69,61 @@ export default function ChatArea({
 
     setInputValue("");
     setIsStreaming(true);
+    setError(null);
 
-    // Simulate streaming response
-    const assistantMessage: Message = {
-      id: (Date.now() + 1).toString(),
-      content: [],
-      role: "assistant",
-      timestamp: new Date(),
-    };
+    try {
+      // Check backend availability
+      const available = await chatAPI.isBackendAvailable();
+      if (!available) {
+        throw new Error("Backend service is not available. Please try again later.");
+      }
 
-    // Add empty assistant message
-    const messagesWithAssistant = [...updatedMessages, assistantMessage];
-    onUpdateConversation(selectedConversationId, messagesWithAssistant);
+      // Create assistant message for streaming
+      const assistantMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        content: [],
+        role: "assistant",
+        timestamp: new Date(),
+      };
 
-    // Simulate streaming
-    const mockResponses: Array<
-      Array<{ type: "text" | "source"; message: string }>
-    > = [
-      [
-        {
-          type: "text" as const,
-          message:
-            "I can definitely help you navigate UTD's systems and find the information you're looking for.",
-        },
-        {
-          type: "source" as const,
-          message:
-            "UTD offers over 140 academic programs across eight schools.",
-        },
-        {
-          type: "text" as const,
-          message: "Let me know if you need help with any specific aspect!",
-        },
-        {
-          type: "source" as const,
-          message:
-            "The university has a student population of over 30,000 students.",
-        },
-      ],
-    ];
+      // Add empty assistant message
+      const messagesWithAssistant = [...updatedMessages, assistantMessage];
+      onUpdateConversation(selectedConversationId, messagesWithAssistant);
 
-    const randomResponse =
-      mockResponses[Math.floor(Math.random() * mockResponses.length)];
+      // Stream response from backend
+      const responseStream = await chatAPI.sendMessage(inputValue.trim());
+      
+      let accumulatedContent: Array<{ type: "text" | "source"; message: string }> = [];
 
-    // Stream each content item one by one
-    for (
-      let contentIndex = 0;
-      contentIndex < randomResponse.length;
-      contentIndex++
-    ) {
-      const contentItem = randomResponse[contentIndex];
-
-      if (contentItem.type === "text") {
-        // Stream text content character by character
-        for (
-          let charIndex = 0;
-          charIndex <= contentItem.message.length;
-          charIndex++
-        ) {
-          await new Promise((resolve) => setTimeout(resolve, 5));
+      for await (const chunk of responseStream) {
+        if (chunk.type === 'text' || chunk.type === 'source') {
+          accumulatedContent.push(chunk);
+          
           const streamingMessage = {
             ...assistantMessage,
-            content: [
-              ...randomResponse.slice(0, contentIndex),
-              {
-                ...contentItem,
-                message: contentItem.message.slice(0, charIndex),
-              },
-            ],
+            content: [...accumulatedContent],
           };
           const finalMessages = [...updatedMessages, streamingMessage];
           onUpdateConversation(selectedConversationId, finalMessages);
         }
-      } else {
-        // For source content, add it immediately
-        const streamingMessage = {
-          ...assistantMessage,
-          content: randomResponse.slice(0, contentIndex + 1),
-        };
-        const finalMessages = [...updatedMessages, streamingMessage];
-        onUpdateConversation(selectedConversationId, finalMessages);
-        await new Promise((resolve) => setTimeout(resolve, 100)); // Small delay between items
       }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      setError(error instanceof Error ? error.message : "An error occurred while sending your message.");
+      
+      // Add error message to conversation
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        content: [{ type: "text", message: "Sorry, I encountered an error. Please try again." }],
+        role: "assistant",
+        timestamp: new Date(),
+      };
+      
+      const finalMessages = [...updatedMessages, errorMessage];
+      onUpdateConversation(selectedConversationId, finalMessages);
+    } finally {
+      setIsStreaming(false);
     }
-
-    setIsStreaming(false);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -211,22 +199,42 @@ export default function ChatArea({
 
       <div className="p-4 border-t border-utd-primary/20">
         <div className="w-full">
+          {/* Error message */}
+          {error && (
+            <div className="mb-3 p-3 bg-red-50 border border-red-200 rounded-md">
+              <p className="text-red-700 text-sm">{error}</p>
+            </div>
+          )}
+          
+          {/* Backend status */}
+          {!isBackendAvailable && (
+            <div className="mb-3 p-3 bg-yellow-50 border border-yellow-200 rounded-md">
+              <p className="text-yellow-700 text-sm">
+                Backend service is not available. Some features may be limited.
+              </p>
+            </div>
+          )}
+          
           <div className="flex gap-2">
             <Input
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Ask Temoc anything about UTD..."
-              disabled={isStreaming}
+              placeholder={isBackendAvailable ? "Ask Temoc anything about UTD..." : "Backend unavailable..."}
+              disabled={!isBackendAvailable || isStreaming}
               className="flex-1 border-utd-primary/30 focus:border-utd-primary focus:ring-utd-primary/20"
             />
             <Button
               onClick={sendMessage}
-              disabled={!inputValue.trim() || isStreaming}
+              disabled={!inputValue.trim() || !isBackendAvailable || isStreaming}
               size="icon"
-              className="bg-utd-secondary hover:bg-utd-secondary/90 text-white"
+              className="bg-utd-secondary hover:bg-utd-secondary/90 text-white disabled:opacity-50"
             >
-              <Send className="h-4 w-4" />
+              {isStreaming ? (
+                <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+              ) : (
+                <Send className="h-4 w-4" />
+              )}
             </Button>
           </div>
         </div>
