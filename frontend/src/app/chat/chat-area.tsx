@@ -96,12 +96,25 @@ export default function ChatArea({
       let accumulatedContent: Array<{ type: "text" | "source"; message: string }> = [];
 
       for await (const chunk of responseStream) {
-        if (chunk.type === 'text' || chunk.type === 'source') {
-          accumulatedContent.push(chunk);
-          
+        if (chunk.type === 'text') {
+          // Merge streaming text into a single content item (backend may send cumulative or incremental)
+          const last = accumulatedContent[accumulatedContent.length - 1];
+          if (last?.type === 'text') {
+            last.message = chunk.message;
+          } else {
+            accumulatedContent.push({ type: 'text', message: chunk.message });
+          }
           const streamingMessage = {
             ...assistantMessage,
-            content: [...accumulatedContent],
+            content: accumulatedContent.map((c) => ({ ...c })),
+          };
+          const finalMessages = [...updatedMessages, streamingMessage];
+          onUpdateConversation(selectedConversationId, finalMessages);
+        } else if (chunk.type === 'source') {
+          accumulatedContent.push(chunk);
+          const streamingMessage = {
+            ...assistantMessage,
+            content: accumulatedContent.map((c) => ({ ...c })),
           };
           const finalMessages = [...updatedMessages, streamingMessage];
           onUpdateConversation(selectedConversationId, finalMessages);
