@@ -6,10 +6,17 @@ const ASKTEMOC_API_ORIGIN =
 
 const nextConfig: NextConfig = {
   async rewrites() {
+    const o = ASKTEMOC_API_ORIGIN;
     return [
+      // Cloud Run redirects /api/health → http://.../api/health/ which breaks browser fetch
+      // from HTTPS; hit the canonical path directly.
+      {
+        source: "/api/proxy/health",
+        destination: `${o}/api/health/`,
+      },
       {
         source: "/api/proxy/:path*",
-        destination: `${ASKTEMOC_API_ORIGIN}/api/:path*`,
+        destination: `${o}/api/:path*`,
       },
     ];
   },

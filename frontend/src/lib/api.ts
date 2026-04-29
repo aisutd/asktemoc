@@ -44,7 +44,7 @@ function healthEndpoint(): string {
   if (isProxyBase(base)) {
     return `${base.replace(/\/$/, "")}/health`;
   }
-  return `${base.replace(/\/$/, "")}/api/health`;
+  return `${base.replace(/\/$/, "")}/api/health/`;
 }
 
 export class ChatAPI {
