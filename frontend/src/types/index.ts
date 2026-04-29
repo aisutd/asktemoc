@@ -1,9 +1,19 @@
+/** Optional fields on source items come from SSE (index/url) or `Source n: URL` in message. */
+export type MessageContentItem =
+  | { type: "text"; message: string }
+  | {
+      type: "source";
+      message: string;
+      index?: number;
+      n?: number;
+      url?: string;
+      href?: string;
+      title?: string;
+    };
+
 export interface Message {
   id: string;
-  content: Array<{
-    type: "text" | "source";
-    message: string;
-  }>;
+  content: MessageContentItem[];
   role: "user" | "assistant";
   timestamp: Date;
 }

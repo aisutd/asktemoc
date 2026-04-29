@@ -8,14 +8,34 @@ import {
 import { cn } from "@/lib/utils";
 import {
   buildSourceIndex,
+  resolveSourceHref,
   siteLabelFromSource,
   type SourceMeta,
   splitInlineCitations,
 } from "@/lib/citations";
 import type { Message } from "@/types";
 
-const pillClass =
-  "mx-0.5 inline-flex max-w-[12rem] cursor-pointer items-center gap-1 truncate rounded-full border border-utd-primary/30 bg-background/80 px-2 py-0.5 align-baseline text-xs font-medium text-utd-primary underline-offset-2 transition-colors hover:bg-utd-primary/10 hover:underline";
+const PILL_LABEL_MAX = 80;
+
+/** Prefer breaking at the last space within the first `maxLen` chars; otherwise cut at `maxLen`. */
+function truncatePillLabel(label: string, maxLen = PILL_LABEL_MAX): string {
+  const s = label.trim();
+  if (s.length <= maxLen) return s;
+  const window = s.slice(0, maxLen);
+  const lastSpace = window.lastIndexOf(" ");
+  const end = lastSpace > 0 ? lastSpace : maxLen;
+  const head = s.slice(0, end).trimEnd();
+  return head.length < s.length ? `${head}…` : head;
+}
+
+const pillBase =
+  "mx-0.5 inline-flex items-center gap-1 rounded-full border border-utd-primary/30 bg-background/80 px-2 py-0.5 align-baseline text-xs font-medium text-utd-primary underline-offset-2 transition-colors";
+
+const pillLink =
+  "cursor-pointer hover:bg-utd-primary/10 hover:underline";
+
+const pillNoLink =
+  "cursor-default no-underline hover:bg-transparent";
 
 function CitationPill({
   n,
@@ -26,20 +46,26 @@ function CitationPill({
   exactText: string;
   meta?: SourceMeta;
 }) {
-  const label = meta ? siteLabelFromSource(meta) : `Source ${n}`;
+  const fullLabel = meta ? siteLabelFromSource(meta) : `Source ${n}`;
+  const label = truncatePillLabel(fullLabel);
+  const href = resolveSourceHref(meta?.url);
 
-  const trigger = meta?.url ? (
+  const trigger = href ? (
     <a
-      href={meta.url}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={cn(pillClass)}
+      className={cn(pillBase, pillLink)}
+      title={fullLabel !== label ? fullLabel : undefined}
       onClick={(e) => e.stopPropagation()}
     >
       {label}
     </a>
   ) : (
-    <span className={cn(pillClass, "cursor-help no-underline hover:no-underline")}>
+    <span
+      className={cn(pillBase, pillNoLink)}
+      title={fullLabel !== label ? fullLabel : undefined}
+    >
       {label}
     </span>
   );
@@ -49,9 +75,12 @@ function CitationPill({
       <TooltipTrigger asChild>{trigger}</TooltipTrigger>
       <TooltipContent
         side="top"
-        className="max-h-48 max-w-md overflow-y-auto text-left"
+        className="max-w-md overflow-hidden p-0 text-left"
       >
-        <p className="whitespace-pre-wrap text-xs leading-relaxed">{exactText}</p>
+        {/* Inner scroll keeps overflow off the animated surface so no scrollbar during zoom/fade */}
+        <div className="max-h-48 overflow-x-hidden overflow-y-auto overscroll-contain px-3 py-1.5">
+          <p className="whitespace-pre-wrap text-xs leading-relaxed">{exactText}</p>
+        </div>
       </TooltipContent>
     </Tooltip>
   );

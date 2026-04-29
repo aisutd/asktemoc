@@ -8,7 +8,7 @@ import { Send } from "lucide-react";
 import { Message, Conversation } from "@/types";
 import QuoteComponent from "./quote";
 import { AssistantFormattedText } from "./assistant-text";
-import { chatAPI } from "@/lib/api";
+import { chatAPI, type ChatResponse } from "@/lib/api";
 
 interface ChatAreaProps {
   selectedConversationId: string;
@@ -96,7 +96,7 @@ export default function ChatArea({
       // Stream response from backend
       const responseStream = await chatAPI.sendMessage(trimmedInput);
       
-      const accumulatedContent: Array<{ type: "text" | "source"; message: string }> = [];
+      const accumulatedContent: Message["content"] = [];
 
       for await (const chunk of responseStream) {
         if (chunk.type === 'text') {
@@ -114,7 +114,16 @@ export default function ChatArea({
           const finalMessages = [...updatedMessages, streamingMessage];
           onUpdateConversation(selectedConversationId, finalMessages);
         } else if (chunk.type === 'source') {
-          accumulatedContent.push(chunk);
+          const s = chunk as ChatResponse;
+          accumulatedContent.push({
+            type: 'source',
+            message: s.message,
+            ...(typeof s.index === "number" ? { index: s.index } : {}),
+            ...(typeof s.n === "number" ? { n: s.n } : {}),
+            ...(typeof s.url === "string" ? { url: s.url } : {}),
+            ...(typeof s.href === "string" ? { href: s.href } : {}),
+            ...(typeof s.title === "string" ? { title: s.title } : {}),
+          });
           const streamingMessage = {
             ...assistantMessage,
             content: accumulatedContent.map((c) => ({ ...c })),
@@ -123,6 +132,11 @@ export default function ChatArea({
           onUpdateConversation(selectedConversationId, finalMessages);
         }
       }
+
+      console.log("[chat] stream complete — full response", {
+        userMessage: trimmedInput,
+        assistantContent: accumulatedContent.map((c) => ({ ...c })),
+      });
     } catch (error) {
       console.error("Error sending message:", error);
       setError(error instanceof Error ? error.message : "An error occurred while sending your message.");

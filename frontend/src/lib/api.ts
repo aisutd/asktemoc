@@ -1,6 +1,11 @@
-interface ChatResponse {
-  type: 'text' | 'source';
+export interface ChatResponse {
+  type: "text" | "source";
   message: string;
+  index?: number;
+  n?: number;
+  url?: string;
+  href?: string;
+  title?: string;
 }
 
 export class ChatAPI {
