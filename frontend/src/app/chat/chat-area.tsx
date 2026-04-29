@@ -54,11 +54,12 @@ export default function ChatArea({
   }, []);
 
   const sendMessage = async () => {
-    if (!inputValue.trim() || isStreaming || !currentConversation) return;
+    const trimmedInput = inputValue.trim();
+    if (!trimmedInput || isStreaming || !currentConversation) return;
 
     const userMessage: Message = {
       id: Date.now().toString(),
-      content: [{ type: "text", message: inputValue.trim() }],
+      content: [{ type: "text", message: trimmedInput }],
       role: "user",
       timestamp: new Date(),
     };
@@ -71,6 +72,19 @@ export default function ChatArea({
     setIsStreaming(true);
     setError(null);
 
+    const assistantMessage: Message = {
+      id: (Date.now() + 1).toString(),
+      content: [],
+      role: "assistant",
+      timestamp: new Date(),
+    };
+
+    // Show assistant bubble immediately so loading copy appears during health check + fetch
+    onUpdateConversation(selectedConversationId, [
+      ...updatedMessages,
+      assistantMessage,
+    ]);
+
     try {
       // Check backend availability
       const available = await chatAPI.isBackendAvailable();
@@ -78,20 +92,8 @@ export default function ChatArea({
         throw new Error("Backend service is not available. Please try again later.");
       }
 
-      // Create assistant message for streaming
-      const assistantMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        content: [],
-        role: "assistant",
-        timestamp: new Date(),
-      };
-
-      // Add empty assistant message
-      const messagesWithAssistant = [...updatedMessages, assistantMessage];
-      onUpdateConversation(selectedConversationId, messagesWithAssistant);
-
       // Stream response from backend
-      const responseStream = await chatAPI.sendMessage(inputValue.trim());
+      const responseStream = await chatAPI.sendMessage(trimmedInput);
       
       let accumulatedContent: Array<{ type: "text" | "source"; message: string }> = [];
 
@@ -180,6 +182,18 @@ export default function ChatArea({
                 }`}
               >
                 <div className="space-y-2">
+                  {message.role === "assistant" &&
+                    isStreaming &&
+                    message.id ===
+                      currentConversation.messages[
+                        currentConversation.messages.length - 1
+                      ]?.id &&
+                    message.content.length === 0 && (
+                      <p className="italic text-muted-foreground">
+                        Temoc is fetching the latest content from the
+                        interwebs...
+                      </p>
+                    )}
                   {message.content.map((contentItem, index) => (
                     <div key={index}>
                       {contentItem.type === "text" ? (
