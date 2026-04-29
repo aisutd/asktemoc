@@ -1,4 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "env": {
+    "ASKTEMOC_API_ORIGIN": "https://asktemoc-api-422855032073.us-central1.run.app"
+  }
 }

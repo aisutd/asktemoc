@@ -21,9 +21,23 @@ function isProxyBase(base: string): boolean {
  * - Dev default: http://localhost:8000
  * - Production default: /api/proxy → Cloud Run (ASKTEMOC_API_ORIGIN in next.config)
  * - Override: NEXT_PUBLIC_API_BASE_URL (e.g. direct Cloud Run URL if CORS allows)
+ *
+ * In production, a mis-set NEXT_PUBLIC_API_BASE_URL pointing at localhost is ignored
+ * so Vercel deployments don’t try to call the developer’s laptop from the browser.
  */
 export function getChatApiBaseUrl(): string {
-  const explicit = process.env.NEXT_PUBLIC_API_BASE_URL?.trim();
+  let explicit = process.env.NEXT_PUBLIC_API_BASE_URL?.trim();
+  if (explicit && process.env.NODE_ENV === "production") {
+    try {
+      const withProto = explicit.includes("://") ? explicit : `http://${explicit}`;
+      const { hostname } = new URL(withProto);
+      if (hostname === "localhost" || hostname === "127.0.0.1") {
+        explicit = "";
+      }
+    } catch {
+      /* keep explicit for values like /api/proxy */
+    }
+  }
   if (explicit) return explicit.replace(/\/$/, "");
   if (process.env.NODE_ENV === "development") {
     return "http://localhost:8000";
