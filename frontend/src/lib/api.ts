@@ -1,8 +1,3 @@
-interface ChatMessage {
-  type: 'text' | 'source';
-  message: string;
-}
-
 interface ChatResponse {
   type: 'text' | 'source';
   message: string;

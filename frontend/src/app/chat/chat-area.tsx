@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Send } from "lucide-react";
 import { Message, Conversation } from "@/types";
 import QuoteComponent from "./quote";
+import { AssistantFormattedText } from "./assistant-text";
 import { chatAPI } from "@/lib/api";
 
 interface ChatAreaProps {
@@ -95,7 +96,7 @@ export default function ChatArea({
       // Stream response from backend
       const responseStream = await chatAPI.sendMessage(trimmedInput);
       
-      let accumulatedContent: Array<{ type: "text" | "source"; message: string }> = [];
+      const accumulatedContent: Array<{ type: "text" | "source"; message: string }> = [];
 
       for await (const chunk of responseStream) {
         if (chunk.type === 'text') {
@@ -198,7 +199,14 @@ export default function ChatArea({
                     <div key={index}>
                       {contentItem.type === "text" ? (
                         <p className="whitespace-pre-wrap">
-                          {contentItem.message}
+                          {message.role === "assistant" ? (
+                            <AssistantFormattedText
+                              text={contentItem.message}
+                              content={message.content}
+                            />
+                          ) : (
+                            contentItem.message
+                          )}
                           {message.role === "assistant" &&
                             isStreaming &&
                             message.id ===
