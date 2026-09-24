@@ -1,42 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ask Temoc — Web App
+
+Next.js (App Router) chat UI for Ask Temoc, an AI assistant that answers questions
+about UTD using the university catalog. Built with React 19, Tailwind CSS v4 and
+shadcn/ui components.
 
 ## Getting Started
 
-First, install the dependencies:
-
 ```bash
 npm install
+npm run dev
 ```
 
-Then, run the development server:
+Open [http://localhost:3000](http://localhost:3000). No environment variables are
+needed — the app proxies to the deployed chat API by default (see
+[Chat API](#chat-api)).
+
+### Scripts
+
+| Script | Purpose |
+| --- | --- |
+| `npm run dev` | Dev server with Turbopack |
+| `npm run build` | Production build |
+| `npm start` | Serve a production build (run `build` first) |
+| `npm run lint` | ESLint |
+
+## Chat API
+
+The chat API is **not** in this repository — it lives in
+[AskTemoc_Backend](https://github.com/davis118/AskTemoc_Backend), a FastAPI service
+(pgvector RAG over the scraped catalog, streaming OpenAI completions) deployed to
+Cloud Run. It serves `POST /api/chat` and `GET /api/health/`.
+
+`next.config.ts` rewrites proxy to it so the browser only ever calls same-origin
+paths:
+
+```
+/api/proxy/health    → $ASKTEMOC_API_ORIGIN/api/health/
+/api/proxy/:path*    → $ASKTEMOC_API_ORIGIN/api/:path*
+```
+
+These rewrites are served by `next dev` too, which is why local development works
+without running an API process.
+
+### Environment variables
+
+| Variable | When | Purpose |
+| --- | --- | --- |
+| `ASKTEMOC_API_ORIGIN` | build time | Cloud Run origin the rewrites point at. Defaults to the deployed URL; also set in `vercel.json` and `.env.production`. |
+| `NEXT_PUBLIC_API_BASE_URL` | runtime, optional | Overrides the API base. Set to `http://localhost:8000` if you run the API yourself. Ignored in production when it points at localhost, so a stray value can't make deployments call a developer's machine. |
+
+See `.env.example` for details.
+
+### Running against a local API
+
+Start AskTemoc_Backend on port 8000 (`uvicorn app.main:app --reload`), allow this
+origin in its `CORS_ORIGINS`, then point the app at it:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+echo 'NEXT_PUBLIC_API_BASE_URL=http://localhost:8000' > .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Response format
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`POST /api/chat` with `{ "message": string }` returns server-sent events. Three
+chunk types arrive, each as `data: {…}`:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `text` — `delta` holds the new fragment and `message` the full text so far, so the
+  UI just replaces its text with the latest `message`.
+- `source` — a cited page, carrying `index`, `title`, and the URL both in a
+  `source` field and inline in `message` as `Source 1: https://…`. The client reads
+  the URL out of `message`, since it looks for `url`/`href` rather than `source`.
+- `done` — end of stream.
 
-## Learn More
+Assistant text embeds citations as `[n, "exact quoted text"]`, which
+`src/lib/citations.ts` turns into linked pills whose tooltip shows the quote.
 
-To learn more about Next.js, take a look at the following resources:
+## Source Layout
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+  app/
+    page.tsx            landing page
+    layout.tsx          root layout (Geist fonts via next/font, navbar)
+    chat/               chat route: page, sidebar, message area, citation rendering
+  components/ui/        shadcn/ui primitives
+  lib/
+    api.ts              chat API client + SSE parsing
+    citations.ts        [n, "…"] citation parsing and source resolution
+    markdown.ts         inline markdown (**bold**, *italic*, `code`)
+  types/                shared Message/Conversation types
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Conversations are held in React state only — there is no persistence, so a reload
+clears them.
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Run `vercel link` / `vercel deploy` from the **repository root**, not from
+`frontend/`, with the project's Root Directory set to `frontend`. Running from
+`frontend/` makes Vercel look for `frontend/frontend`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To require a login before the app loads, enable Vercel Authentication under
+Project → Deployment Protection.

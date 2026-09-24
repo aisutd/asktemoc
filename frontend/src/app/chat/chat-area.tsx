@@ -80,21 +80,17 @@ export default function ChatArea({
       timestamp: new Date(),
     };
 
-    // Show assistant bubble immediately so loading copy appears during health check + fetch
+    // Show assistant bubble immediately so loading copy appears during the fetch
     onUpdateConversation(selectedConversationId, [
       ...updatedMessages,
       assistantMessage,
     ]);
 
     try {
-      // Check backend availability
-      const available = await chatAPI.isBackendAvailable();
-      if (!available) {
-        throw new Error("Backend service is not available. Please try again later.");
-      }
-
-      // Stream response from backend
+      // Sending doubles as the availability probe: a pre-flight health check only
+      // added latency and turned slow cold starts into a false "unavailable".
       const responseStream = await chatAPI.sendMessage(trimmedInput);
+      setIsBackendAvailable(true);
       
       const accumulatedContent: Message["content"] = [];
 
@@ -156,7 +152,7 @@ export default function ChatArea({
     }
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
@@ -259,7 +255,8 @@ export default function ChatArea({
           {!isBackendAvailable && (
             <div className="mb-3 p-3 bg-yellow-50 border border-yellow-200 rounded-md">
               <p className="text-yellow-700 text-sm">
-                Backend service is not available. Some features may be limited.
+                Couldn’t reach the backend just now. Sending a message will try
+                again.
               </p>
             </div>
           )}
@@ -268,14 +265,14 @@ export default function ChatArea({
             <Input
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              onKeyPress={handleKeyPress}
-              placeholder={isBackendAvailable ? "Ask Temoc anything about UTD..." : "Backend unavailable..."}
-              disabled={!isBackendAvailable || isStreaming}
+              onKeyDown={handleKeyDown}
+              placeholder="Ask Temoc anything about UTD..."
+              disabled={isStreaming}
               className="flex-1 border-utd-primary/30 focus:border-utd-primary focus:ring-utd-primary/20"
             />
             <Button
               onClick={sendMessage}
-              disabled={!inputValue.trim() || !isBackendAvailable || isStreaming}
+              disabled={!inputValue.trim() || isStreaming}
               size="icon"
               className="bg-utd-secondary hover:bg-utd-secondary/90 text-white disabled:opacity-50"
             >

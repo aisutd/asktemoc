@@ -18,9 +18,11 @@ function isProxyBase(base: string): boolean {
 
 /**
  * API origin for chat + health.
- * - Dev default: http://localhost:8000
- * - Production default: /api/proxy → Cloud Run (ASKTEMOC_API_ORIGIN in next.config)
- * - Override: NEXT_PUBLIC_API_BASE_URL (e.g. direct Cloud Run URL if CORS allows)
+ * - Default (dev and production): /api/proxy → Cloud Run (ASKTEMOC_API_ORIGIN in
+ *   next.config). The rewrite is served by `next dev` too, so the app works out of
+ *   the box without a local API process.
+ * - Override: NEXT_PUBLIC_API_BASE_URL (e.g. http://localhost:8000 when running the
+ *   API locally, or a direct Cloud Run URL if CORS allows).
  *
  * In production, a mis-set NEXT_PUBLIC_API_BASE_URL pointing at localhost is ignored
  * so Vercel deployments don’t try to call the developer’s laptop from the browser.
@@ -39,9 +41,6 @@ export function getChatApiBaseUrl(): string {
     }
   }
   if (explicit) return explicit.replace(/\/$/, "");
-  if (process.env.NODE_ENV === "development") {
-    return "http://localhost:8000";
-  }
   return PROXY_BASE;
 }
 
@@ -51,6 +50,18 @@ function chatEndpoint(): string {
     return `${base.replace(/\/$/, "")}/chat`;
   }
   return `${base.replace(/\/$/, "")}/api/chat`;
+}
+
+/** Parse one SSE line. Returns null for comments, blank separators and bad JSON. */
+function parseSseLine(line: string): ChatResponse | null {
+  const trimmed = line.trimEnd();
+  if (!trimmed.startsWith("data: ")) return null;
+  try {
+    return JSON.parse(trimmed.slice(6)) as ChatResponse;
+  } catch (e) {
+    console.error("Error parsing SSE data:", e);
+    return null;
+  }
 }
 
 function healthEndpoint(): string {
@@ -92,25 +103,27 @@ export class ChatAPI {
 
     return {
       async *[Symbol.asyncIterator]() {
+        // Network chunks split mid-line and mid-UTF-8, so hold the trailing partial
+        // line until the next read instead of parsing (and dropping) it.
+        let buffer = "";
         try {
           while (true) {
             const { done, value } = await reader.read();
             if (done) break;
 
-            const chunk = decoder.decode(value);
-            const lines = chunk.split("\n");
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split("\n");
+            buffer = lines.pop() ?? "";
 
             for (const line of lines) {
-              if (line.startsWith("data: ")) {
-                try {
-                  const data = JSON.parse(line.slice(6));
-                  yield data;
-                } catch (e) {
-                  console.error("Error parsing SSE data:", e);
-                }
-              }
+              const data = parseSseLine(line);
+              if (data) yield data;
             }
           }
+
+          buffer += decoder.decode();
+          const tail = parseSseLine(buffer);
+          if (tail) yield tail;
         } finally {
           reader.releaseLock();
         }
@@ -122,7 +135,9 @@ export class ChatAPI {
     try {
       const response = await fetch(healthEndpoint(), {
         method: "GET",
-        signal: AbortSignal.timeout(5000),
+        // Cloud Run cold starts have been measured over 20s; a short timeout here
+        // reports a healthy backend as down.
+        signal: AbortSignal.timeout(35000),
       });
       return response.ok;
     } catch (error) {
