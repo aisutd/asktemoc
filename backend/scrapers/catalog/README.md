@@ -4,17 +4,19 @@ A Python web scraper using Playwright to extract program requirements and exampl
 degree plans from the UTD undergraduate catalog. It produces the plain-text corpus
 the assistant answers from.
 
-> This directory contains **only** the scraper. The chat API that the web app calls
-> is deployed separately on Cloud Run and its source is not in this repository.
+> The committed corpus lives in `data/catalog/` at the repo root, and
+> `backend/scripts/seed_catalog.py` loads it into the vector store. Rerun the
+> scraper only to refresh that snapshot.
 
 ## Installation
 
 1. Create a virtual environment and install dependencies:
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt -r requirements-scrape.txt
 ```
 
 2. Install the browser build matching the installed Playwright version:
@@ -54,8 +56,8 @@ asyncio.run(scraper.scrape())
 python test_scraper.py
 ```
 
-Despite the name, this scrapes **every** program (`max_pages=None`) into
-`./test_output` with `rate_limit=2.0` and `max_parallel=5`. Expect roughly 115
+Run from `backend/scrapers/catalog/`. Despite the name, this scrapes **every**
+program (`max_pages=None`) into `./test_output` (gitignored) with `rate_limit=2.0` and `max_parallel=5`. Expect roughly 115
 programs and several minutes. Pass `max_pages` to try a handful first.
 
 ## Configuration Options
@@ -87,4 +89,5 @@ most double majors, for instance. Extracted text currently includes some page
 chrome (for example "Download page as a PDF"), because the catalog's markup doesn't
 match the `main`/`#content` selectors the scraper prefers.
 
-`test_output/` in this repo is a committed snapshot of a previous full run.
+`data/catalog/` at the repo root is a committed snapshot of a previous full run.
+To refresh it, copy a new `test_output/` over `data/catalog/` and re-seed.
