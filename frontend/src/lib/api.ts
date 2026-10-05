@@ -1,5 +1,6 @@
 export interface ChatResponse {
-  type: "text" | "source";
+  /** "text" carries an answer delta; "done" ends the stream. Other types are ignored. */
+  type: "text" | "source" | "done" | (string & {});
   message: string;
   index?: number;
   n?: number;

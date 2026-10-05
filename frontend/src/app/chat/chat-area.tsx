@@ -96,10 +96,10 @@ export default function ChatArea({
 
       for await (const chunk of responseStream) {
         if (chunk.type === 'text') {
-          // Merge streaming text into a single content item (backend may send cumulative or incremental)
+          // Text events are deltas: append to the current text item.
           const last = accumulatedContent[accumulatedContent.length - 1];
           if (last?.type === 'text') {
-            last.message = chunk.message;
+            last.message += chunk.message;
           } else {
             accumulatedContent.push({ type: 'text', message: chunk.message });
           }
@@ -126,7 +126,10 @@ export default function ChatArea({
           };
           const finalMessages = [...updatedMessages, streamingMessage];
           onUpdateConversation(selectedConversationId, finalMessages);
+        } else if (chunk.type === 'done') {
+          break;
         }
+        // Unknown event types are ignored.
       }
 
       console.log("[chat] stream complete — full response", {
