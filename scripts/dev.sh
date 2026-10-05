@@ -56,7 +56,7 @@ case "${1:-}" in
     (cd "$FRONTEND" && npm run lint && npm run build)
     ;;
   *)
-    sed -n '2,9p' "$0" | sed 's/^# \{0,1\}//'
+    sed -n '2,8p' "$0" | sed 's/^# \{0,1\}//'
     exit 1
     ;;
 esac
