@@ -1,0 +1,247 @@
+UT Dallas 2025 Undergraduate Catalog
+Download page as a PDF, opens a new tab
+Download page as a DOCX (MS Word) file
+Open page in a printable window, opens a new tab
+Compare Versions
+School of Natural Sciences and Mathematics
+Data Science (BS)
+
+The Data Science BS is jointly offered by the Department of Mathematical Sciences in the School of Natural Sciences and Mathematics and the Department of Computer Science in the Erik Jonsson School of Engineering and Computer Science. Data Science is an emerging discipline that lies at the intersection of Computer Science, Mathematics, and Statistics. The curriculum for the program provides a solid foundation in all the three disciplines. It prepares students for Data Scientist or related positions in industry, business, and government that are currently in high demand and also for graduate study in either of the three disciplines. The curriculum also includes a capstone project course.
+
+Bachelor of Science in Data Science
+
+Degree Requirements (120 semester credit hours)
+
+View an Example of Degree Requirements by Semester
+
+NSM Faculty
+
+Professors: Swati Biswas, Min Chen, Pankaj Choudhary, Baris Coskunuzer, Mieczyslaw Dabkowski, Vladimir Dragovic, Sam Efromovich, Yulia Gel, Wieslaw Krawcewicz, Susan Minkoff, L. Felipe Pereira, Dmitry Rachinskiy, Viswanath Ramakrishna, Janos Turi
+
+Associate Professors: Maxim Arnold, Yan Cao, Liang Hong, Oleg Makarenkov, Tomoki Ohsawa, Anh Tran
+
+Assistant Professors: Carlos Arreche, Noirrit Chandra, Ronan Conlon, Rizwanur Khan, Qiwei Li, Stephen McKeown, Chuan-Fa Tang, Jiayi Wang, Nathan Williams, Nan Wu, Yunan Wu
+
+Professors Emeriti: Larry Ammann, Ali Hooshyar, Patrick Odell, John Van Ness
+
+Clinical Professor: Natalia Humphreys
+
+Clinical Associate Professor: Mohammad Akbar
+
+Clinical Assistant Professor: Wenyi Lu
+
+Professors of Instruction: Anatoly Eydelzon, Manjula Foley, Bentley Garrett, Yuly Koshevnik
+
+Associate Professors of Instruction: Mohammad Ahsan, Kelly Aman, Malgorzata Dabkowski, Rabin Dahal, Derege Mussa, My Linh Nguyen, Jigarkumar Patel, Julie Sutton
+
+Assistant Professors of Instruction: Anani Komla Adabrah, Iris Alvarado, Saikat Biswas, Hui Ding, Kemelli Estacio-Hiroms, Huizhen Guo, Shengjie Jiang, Joselle Kehoe, Runzhou Liu, Neha Makhijani, Irina Martynova, Diarisoa Mihaja Rakotomalala, Adrian Murza, Ajaya Paudel, Octavious Smiley, Nasrin Sultana, Che-Yu Wu
+
+ECS Faculty
+
+Professors: Farokh B. Bastani, Sergey Bereg, Ovidiu Daescu, Yvo G. Desmedt, Ding-Zhu Du, Paul Fishwick, Xiaohu Guo, Gopal Gupta, Zygmunt Haas, Kevin Hamlen, Sanda M. Harabagiu, Dung T. Huynh, Jason Jue, Latifur Khan, Andrian Marcus, Neeraj Mittal, Dan I. Moldovan, Sriraam Natarajan, Yu-Chung (Vincent) Ng, Tien Nguyen, Simeon C. Ntafos, Ravi Prakash, Kamil Sarac, Haim Schweitzer, Bhavani Thuraisingham, W. Eric Wong, Weili Wu, I-Ling Yen, Rym Zalila-Wenkstern
+
+Associate Professors: Feng Chen, Lawrence Chung, Jorge A. Cobb, Vibhav Gogate, Benjamin Raichel, Nicholas Ruozzi
+
+Assistant Professors: Xinya Du, Emily Kyle Fox, Yunhui Guo, Shuang Hao, Rishabh Iyer, Kangkook Jee, Chung Hwan Kim, Jin Kim, Jessica Ouyang, Yapeng Tian, Shiyi Wei, Yu Xiang, Wei Yang
+
+Professors Emeriti: R. Chandrasekaran, Ivor P. Page, William J. Pervin, Balaji Raghavachari, Ivan Hal Sudborough, Klaus Truemper, Subbarayan Venkatesan, Kang Zhang
+
+Professors of Instruction: Ebru Cankaya, John Cole, Richard (Douglas) DeGroot, Timothy (Tim) Farage, Shyam Karrah, Pushpa Kumar, Nhut Nguyen, Greg Ozbirn, Miguel Razo-Razo, Jeyakesavan (Jey) Veerasamy
+
+Associate Professors of Instruction: Sridhar Alagar, Gordon Arnold, Anjum Chida, Wei Pang Chin, Bhadrachalam Chitturi, Michael Christiansen, Chris I. Davis, Karen Doore, Neeraj Gupta, Khiem Le, Anarag Nagar, Mehra Nouroz Borazjany, Jalal Omer, Mark Paulk, Jason W. Smith, Laurie Thompson, James Willson, Nurcan Yuruk
+
+Assistant Professors of Instruction: Eric Becker, Scott Dollinger, Serdar Erbatur, Ranran Feng, Omar Hamdy, Gity Karami, Kamran Khan, Karen Mazidi, Richard K. Min, Priya Narayanasami, Brian Ricks, Elmer Salazar, Meghana Satpute, Nidhiben Solanki, Srimathi Srinivasan, Yi Zhao
+
+I. Core Curriculum Requirements: 42 semester credit hours1
+
+Communication: 6 semester credit hours
+
+Select any 6 semester credit hours from Communication Core courses (see advisor)
+
+Mathematics: 3 semester credit hours
+
+MATH 2417 Calculus I2, 3
+
+Or select any 3 semester credit hours from Mathematics Core courses (see advisor)
+
+Life and Physical Sciences: 6 semester credit hours2, 4
+
+PHYS 2325 Mechanics
+
+or PHYS 2421 Honors Physics I - Mechanics and Heat
+
+PHYS 2326 Electromagnetism and Waves
+
+or PHYS 2422 Honors Physics II - Electromagnetism and Waves
+
+Or select any 6 semester credit hours from Life and Physical Sciences Core courses (see advisor)
+
+Language, Philosophy and Culture: 3 semester credit hours
+
+Select any 3 semester credit hours from Language, Philosophy and Culture Core courses (see advisor)
+
+Creative Arts: 3 semester credit hours
+
+Select any 3 semester credit hours from Creative Arts Core courses (see advisor)
+
+American History: 6 semester credit hours
+
+Select any 6 semester credit hours from American History Core courses (see advisor)
+
+Government/Political Science: 6 semester credit hours
+
+Select any 6 semester credit hours from Government/Political Science Core courses (see advisor)
+
+Social and Behavioral Sciences: 3 semester credit hours
+
+Select any 3 semester credit hours from Social and Behavioral Sciences Core courses(see advisor)
+
+Component Area Option: 6 semester credit hours
+
+MATH 2417 Calculus I2, 3
+
+MATH 2419 Calculus II2, 3
+
+PHYS 2125 Physics Laboratory I2, 4
+
+or PHYS 2421 Honors Physics I - Mechanics and Heat5, 6
+
+Or select any 6 semester credit hours from Component Area Option courses (see advisor)
+
+II. Major Requirements: 65-66 semester credit hours
+
+Major Preparatory Courses: 19-20 semester credit hours beyond Core Curriculum
+
+CS 1436 Programming Fundamentals
+
+CS 1337 Computer Science I
+
+CS 2336 Computer Science II
+
+MATH 3315 Discrete Mathematics and Combinatorics
+
+or CS 2305 Discrete Mathematics for Computing I7
+
+MATH 2417 Calculus I2, 3, 8
+
+MATH 2418 Linear Algebra
+
+MATH 2419 Calculus II2, 3, 8
+
+NATS 1101 Natural Sciences and Mathematics Freshman Seminar
+
+PHYS 2325 Mechanics2, 4
+
+and PHYS 2125 Physics Laboratory I2, 4
+
+or PHYS 2421 Honors Physics I - Mechanics and Heat2, 4, 9
+
+PHYS 2326 Electromagnetism and Waves2, 4
+
+or PHYS 2422 Honors Physics II - Electromagnetism and Waves2, 4
+
+PHYS 2126 Physics Laboratory II
+
+Major Core Courses: 46 semester credit hours
+
+CS 3345 Data Structures and Foundations of Algorithmic Analysis
+
+CS 4347 Database Systems
+
+CS 4371 Introduction to Big Data Management and Analytics
+
+CS 4372 Computational Methods for Data Scientists
+
+CS 4375 Introduction to Machine Learning
+
+MATH 3310 Theoretical Concepts of Calculus
+
+MATH 3351 Advanced Calculus
+
+MATH 4301 Mathematical Analysis I
+
+STAT 3355 Introduction to Data Analysis
+
+STAT 4351 Probability
+
+STAT 4352 Mathematical Statistics
+
+STAT 4354 Numerical and Statistical Computing
+
+STAT 4355 Applied Linear Models
+
+STAT 4360 Introduction to Statistical Learning
+
+STAT 4475 Capstone Project
+
+or CS 4475 Capstone Project
+
+or MATH 4475 Capstone Project
+
+III. Elective Requirements: 12-13 semester credit hours
+
+Guided Electives: 12-13 semester credit hours
+
+Although both lower- and upper-division courses may count as guided electives, they must be approved by the advisor.
+
+The plan must include sufficient upper-division courses to total 45 upper-division semester credit hours.
+
+NOTE: Students transferring into this program at the upper-division level are expected to have completed all of the 1000- and 2000- level Mathematics and Computer Science core course requirements.
+
+Fast Track Baccalaureate/Master's Degrees
+
+For students with strong academic record who intend to pursue master's studies at UT Dallas, accelerated BS/MS Fast Tracks are available. After Fast Track admission to an MS program, students may take up to 15 semester credit hours of approved graduate courses in their senior year to use toward completion of both the BS and MS degrees. The available Fast Track options and their admission requirements, in addition to having completed 90 or more semester credit hours (out of which 36 hours are from the core curriculum) with a cumulative GPA of at least 3.00, are as follows:
+
+MS in Mathematics (Data Science specialization and possibly other specializations10): Students must have a cumulative GPA of at least 3.20 in all mathematics and statistics courses.
+MS in Statistics: Students must have a cumulative GPA of at least 3.20 in all mathematics and statistics courses.
+
+Interested students, after reviewing the UT Dallas Fast Track policy, should contact their undergraduate advisor and the graduate advisor of the intended MS program well in advance of their junior year to prepare a course sequence permitting maximal advantage and apply to the Fast Track program.
+
+Certificates
+Certificate in Data Science
+
+15 semester credit hours
+
+A Certificate in Data Science is offered by the Department of Mathematical Sciences in the School of Natural Sciences and Mathematics.
+
+The focus of the Certificate in Data Science is to provide training in core data analytics skills, including programming and statistical and machine learning methods.
+
+Admission Requirements
+
+Two semesters of Calculus.
+
+Certificate Requirements
+
+Students must complete the following courses:
+
+MATH 2333 Matrices, Vectors, and Data
+
+MATH 4332 Scientific Computing using Python
+
+MATH 4355 Methods of Applied Mathematics
+
+STAT 3355 Introduction to Data Analysis
+
+STAT 4360 Introduction to Statistical Learning
+
+1. Curriculum Requirements can be fulfilled by other approved courses from institutions of higher education. The courses listed are recommended as the most efficient way to satisfy both Core Curriculum and Major Requirements at UT Dallas.
+
+2. A required Major course that also fulfills Core Curriculum requirements. If semester credit hours are counted in the Core Curriculum, students must complete additional coursework to meet the minimum requirement for graduation. Course selection assistance is available from the undergraduate advisor.
+
+3. Three semester credit hours of Calculus are counted to fulfill the Mathematics Core Requirement with the remaining one semester credit hour to be counted under Component Area Option Core.
+
+4. Six semester credit hours of Physics are counted under Science core, and one semester credit hour of Physics (PHYS 2125) is counted under Component Area Core.
+
+5. Please consult your advisor if selecting Honors Physics.
+
+6. Students may use three semester credit hours of PHYS 2421 to count under Science core, and one semester credit hour of PHYS 2421 under Component Area Option core.
+
+7. BS in Data Science students can substitute MATH 2312 with MATH 2413.
+
+8. MATH 2417 and MATH 2419 requirements can be fulfilled by completing MATH 2413, MATH 2414, and MATH 2415.
+
+9. Students who complete PHYS 2421 do not need to complete PHYS 2125.
+
+10. For other specializations, please consult with the Graduate Advisor for Mathematics regarding admission prerequisites.
+
+Updated: 2025-09-08 10:39:15 v4.ab6cc0

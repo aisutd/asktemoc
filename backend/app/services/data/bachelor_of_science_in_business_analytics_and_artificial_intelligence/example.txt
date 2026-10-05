@@ -1,0 +1,84 @@
+UT Dallas 2025 Undergraduate Catalog
+Download page as a PDF, opens a new tab
+Download page as a DOCX (MS Word) file
+Open page in a printable window, opens a new tab
+Compare Versions
+Naveen Jindal School of Management
+Business Analytics and Artificial Intelligence (BS)
+
+Degree Requirements (120 semester credit hours)
+
+Four-Year Degree Plan (Example)
+
+This is an example only. Please see advisor to develop an individual four-year plan.
+
+Freshman Year
+Semester 1 - Fall	Notes	Preferred	Core	SCH		Semester 2 - Spring	Notes	Preferred	Core	SCH
+010 Core			010	3	010 Core			010	3
+030 Core			030	3	030 Core			030	3
+090 Core	1, 2, 3	BA 1310	090	3	060 Core			060	3
+MATH 1325	1, 2, 3, 4, 5		2090	3	OPRE 3333	2, 8			3
+BA 1105	2, 7			1	ITSS 3311	2, 9			3
+or BA 3105	2, 7							
+ITSS 3300	2			3					
+Total 	16	Total 	15
+ 
+Sophomore Year
+Semester 3 - Fall	Notes	Preferred	Core	SCH		Semester 4 - Spring	Notes	Preferred	Core	SCH
+040 Core			040	3	050 Core			050	3
+060 Core			060	3	070 Core	1, 2, 3	GOVT 2305	070	3
+BUAN 3301				3	BLAW 2301	2			3
+OPRE 3360	2			3	ACCT 2301	2			3
+or STAT 3360				BUAN 4320				3
+MKT 3300				3					
+Total 	15	Total 	15
+ 
+Junior Year
+Semester 5 - Fall	Notes	Preferred	Core	SCH		Semester 6 - Spring	Notes	Preferred	Core	SCH
+070 Core	1, 2, 3	GOVT 2306	070	3	080 Core			080	3
+090 Core	1, 2, 3	BA 1320	090	3	BCOM 3300	2			3
+FIN 3320				3	BUAN 4381				3
+ACCT 2302	2			3	BUAN 4373				3
+BUAN 4351				3	OPRE 3310				3
+					BA 4095	11			0
+
+Total 	15	Total 	15
+ 
+Senior Year
+Semester 7 - Fall	Notes	Preferred	Core	SCH		Semester 8 - Spring	Notes	Preferred	Core	SCH
+IMS 3310				3	BUAN 4383				3
+BUAN 4353				3	BUAN 4395				3
+BUAN 4355				3	Guided Elective	10			3
+OBHR 3310				3	Guided Elective	10			3
+or OBHR 3330				Free Elective				2
+BUAN 4090	12			0					
+Guided Elective	10			3					
+Total 	15	Total 	14
+ 
+NOTES:
+1	Curriculum Requirements can be fulfilled by other approved courses from accredited institutions of higher education. The courses listed are recommended as the most efficient way to satisfy both Core Curriculum and Major Requirements at UT Dallas.
+2	Indicates a prerequisite class to be completed before enrolling for upper-division classes. Specific prerequisites are required for certain upper-division courses. Review requirements for your major and choose accordingly.
+3	A required course in the Major that also fulfills a Core Curriculum requirement. Semester credit hours are counted in Core Curriculum. Students must choose a different course for each Core Curriculum category.
+4	MATH 1325 is required for all JSOM undergraduate students. Students may substitute MATH 2413 or MATH 2417 for MATH 1325. Students to substitute MATH 2414 or MATH 2419 for MATH 1326. Students that substitute OPRE 3340 for MATH 1326 or MATH 2414 or MATH 2419 will require an 090 Component Area Option Core course to meet graduation requirements.
+5	To make timely degree progress, students should complete MATH 1325 or its equivalent by the end of their first semester at UT Dallas. Students who will not meet this requirement should contact their academic advisor to discuss their degree timeline.
+6	JSOM first-time-in-college freshmen are required to take BCOM 1300 in their first semester. Transfer students and students new to JSOM are required to take BCOM 3300 in their first semester.
+7	Students may substitute OPRE 3340, but MATH 1326 is recommended for efficiency. Students who take OPRE 3340 will require an 090 Component Area Option Core course to meet graduation requirements.
+8	Students may substitute MATH 2333 or MATH 2418 or CS 2305 for OPRE 3333.
+9	Students who have completed CS 1436 with a C or better may replace ITSS 3311 with an additional BUAN upper-division or ITSS upper-division course (excluding ITSS 4301).
+10	Guided Electives: 9 semester credit hours from one of the following tracks. All prerequisites must be met:
+
+Marketing Analytics Track
+Operations and Supply Chain Management Track
+Finance and Risk Analytics Track
+Information Technology Track
+Data Science Track
+
+11	A Community Engagement Experience is required for all JSOM majors in fall 2018 catalog or later. Students may fulfill the requirement with BA 4095 upon completion of 100 service hours for 0 semester credit hour degree requirement only, or with BPS 4396 or ENTP 4340 or IMS 4335 or MKT 4360 for 3 semester credit hours. The 0 SCH course BA 4095 is recommended as the most efficient way to satisfy the requirement. Students will be registered for BA 4095 for 0 SCH in the semester they complete 100 service hours.
+12	An Internship (Practicum) of at least 160 working hours is required for all JSOM majors. The zero semester-credit-hour internship courses, BUAN 4090 or BA 4090, are recommended as the most efficient way to satisfy this requirement. Students who are employed in full-time jobs may fulfill their internship requirement with their current employer as a special project for registration in BA 4090 with preapproval from their program director.
+
+Be sure to check prerequisites of 2000-level and higher courses.
+120 semester credit hours required for graduation
+
+This plan is a resource tool only; it does not replace your degree plan or academic advising.
+
+Updated: 2025-05-24 16:37:50 v2.479e2b

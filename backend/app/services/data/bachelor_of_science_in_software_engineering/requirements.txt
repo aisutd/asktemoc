@@ -1,0 +1,368 @@
+UT Dallas 2025 Undergraduate Catalog
+Download page as a PDF, opens a new tab
+Download page as a DOCX (MS Word) file
+Open page in a printable window, opens a new tab
+Compare Versions
+Erik Jonsson School of Engineering and Computer Science
+Department of Computer Science
+Software Engineering (BS)
+
+The Computer Science Department offers the BS degree in Computer Science and the BS degree in Software Engineering. Both are based on a solid foundation of mathematics, including calculus, linear algebra, and discrete mathematics. These programs of study are designed to offer students opportunities to prepare for an industrial, business, or governmental career in a rapidly changing profession and to prepare for graduate study in a field in which further education is strongly recommended. The two programs have the same basis in core computer science, including the analysis of algorithms and data structures, modern programming methodologies, and the study of operating systems. The Computer Science program continues with courses in advanced data structures, programming languages, telecommunications networks, and automata theory, while the Software Engineering program include courses in requirements engineering, software validation and testing, and software architecture, culminating in a challenging project course in which students must demonstrate use of software engineering techniques. Both programs offer a rich choice of elective studies, including courses in artificial intelligence, computer graphics, databases, and compiler design.
+
+The school offers a "fast track" BS / MS option; see Fast Track Baccalaureate/Master's Degree Program.
+
+Mission of the Department of Computer Science
+
+The mission of the Department of Computer Science is to prepare undergraduate and graduate students for productive careers in industry, academia, and government by providing an outstanding environment for teaching, learning, and research in the theory and applications of computing. The Department places high priority on establishing and maintaining innovative research programs to enhance its education quality and make it an important regional, national, and international resource center for discovering, integrating and applying new knowledge and technologies.
+
+Goals of the Software Engineering Program
+
+The focus of the Software Engineering degree is to provide world class education in modern software engineering. The overall goals of the Bachelor of Science in Software Engineering Program are:
+
+To prepare students for software engineering positions in industry or government.
+To prepare students for graduate study in Software Engineering.
+To provide a solid foundation in Computer Science and Software Engineering principles that will allow graduates to adapt effectively in a quickly changing field.
+Program Educational Objectives for Software Engineering
+
+Within a few years after graduation, graduates of the Software Engineering Program should:
+
+Pursue lasting and successful careers in software engineering or related fields including as industry professionals, educators, researchers, government professionals and/or entrepreneurs
+Be effective team contributors and/or leaders, including in multi-disciplinary environments, in professional fields related to software engineering
+Serve their profession in a socially responsible, ethical, and innovative manner to meet the software engineering needs of industry, academia, and/or society
+Continue to develop and grow through lifelong learning, and successfully adapt to continuous advancements in software technology
+ABET Accreditation
+
+The BS program in Software Engineering is accredited by the Engineering Accreditation Commission of ABET, www.abet.org.
+
+Bachelor of Science in Software Engineering
+
+Degree Requirements (123 semester credit hours)
+
+View an Example of Degree Requirements by Semester
+
+Faculty
+
+Professors: Farokh B. Bastani, Sergey Bereg, Ovidiu Daescu, Yvo G. Desmedt, Ding-Zhu Du, Paul Fishwick, Xiaohu Guo, Gopal Gupta, Zygmunt Haas, Kevin Hamlen, Sanda M. Harabagiu, Dung T. Huynh, Jason Jue, Latifur Khan, Andrian Marcus, Neeraj Mittal, Dan I. Moldovan, Sriraam Natarajan, Yu-Chung (Vincent) Ng, Tien Nguyen, Simeon C. Ntafos, Ravi Prakash, Kamil Sarac, Haim Schweitzer, Bhavani Thuraisingham, W. Eric Wong, Weili Wu, I-Ling Yen, Rym Zalila-Wenkstern
+
+Associate Professors: Feng Chen, Lawrence Chung, Jorge A. Cobb, Vibhav Gogate, Benjamin Raichel, Nicholas Ruozzi
+
+Assistant Professors: Xinya Du, Emily Kyle Fox, Yunhui Guo, Shuang Hao, Rishabh Iyer, Kangkook Jee, Chung Hwan Kim, Jin Kim, Jessica Ouyang, Yapeng Tian, Shiyi Wei, Yu Xiang, Wei Yang
+
+Professors Emeriti: R. Chandrasekaran, Ivor P. Page, William J. Pervin, Balaji Raghavachari, Ivan Hal Sudborough, Klaus Truemper, Subbarayan Venkatesan, Kang Zhang
+
+Professors of Instruction: Ebru Cankaya, John Cole, Richard (Douglas) DeGroot, Timothy (Tim) Farage, Shyam Karrah, Pushpa Kumar, Nhut Nguyen, Greg Ozbirn, Miguel Razo-Razo, Jeyakesavan (Jey) Veerasamy
+
+Associate Professors of Instruction: Sridhar Alagar, Gordon Arnold, Anjum Chida, Wei Pang Chin, Bhadrachalam Chitturi, Michael Christiansen, Chris I. Davis, Karen Doore, Neeraj Gupta, Khiem Le, Anarag Nagar, Mehra Nouroz Borazjany, Jalal Omer, Mark Paulk, Jason W. Smith, Laurie Thompson, James Willson, Nurcan Yuruk
+
+Assistant Professors of Instruction: Eric Becker, Scott Dollinger, Serdar Erbatur, Ranran Feng, Omar Hamdy, Gity Karami, Kamran Khan, Karen Mazidi, Richard K. Min, Priya Narayanasami, Brian Ricks, Elmer Salazar, Meghana Satpute, Nidhiben Solanki, Srimathi Srinivasan, Yi Zhao
+
+I. Core Curriculum Requirements: 42 semester credit hours
+
+Curriculum Requirements can be fulfilled by other approved courses. The courses listed are recommended as the most efficient way to satisfy both Core Curriculum and Major Requirements at UT Dallas.
+
+Communication: 6 semester credit hours
+
+RHET 1302 Rhetoric1
+
+ECS 2390 Professional and Technical Communication1
+
+Or select any 6 semester credit hours from Communication Core courses (see advisor)
+
+Mathematics: 3 semester credit hours
+
+MATH 2413 Differential Calculus2
+
+or MATH 2417 Calculus I2
+
+Or select any 3 semester credit hours from Mathematics Core courses (see advisor)
+
+Life and Physical Sciences: 6 semester credit hours
+
+PHYS 2325 Mechanics3
+
+PHYS 2326 Electromagnetism and Waves3
+
+Or select any 6 semester credit hours from Life and Physical Sciences Core courses (see advisor)
+
+Language, Philosophy and Culture: 3 semester credit hours
+
+Select any 3 semester credit hours from Language, Philosophy and Culture Core courses (see advisor)
+
+Creative Arts: 3 semester credit hours
+
+Select any 3 semester credit hours from Creative Arts Core courses (see advisor)
+
+American History: 6 semester credit hours
+
+Select any 6 semester credit hours from American History Core courses (see advisor)
+
+Government/Political Science: 6 semester credit hours
+
+Select any 6 semester credit hours from Government/Political Science Core courses (see advisor)
+
+Social and Behavioral Sciences: 3 semester credit hours
+
+Select any 3 semester credit hours from Social and Behavioral Sciences Core courses (see advisor)
+
+Component Area Option: 6 semester credit hours
+
+MATH 2413 Differential Calculus2
+
+or MATH 2417 Calculus I2
+
+MATH 2414 Integral Calculus2
+
+or MATH 2419 Calculus II2
+
+PHYS 2125 Physics Laboratory I3
+
+Or select any 6 semester credit hours from Component Area Option Core courses (see advisor)
+
+II. Major Requirements: 77 semester credit hours
+
+Major Preparatory Courses: 27 semester credit hours beyond Core Curriculum
+
+ECS 1100 Introduction to Engineering and Computer Science4
+
+CS 1200 Introduction to Computer Science and Software Engineering
+
+CS 1436 Programming Fundamentals
+
+CS 1337 Computer Science I
+
+CS 2305 Discrete Mathematics for Computing I
+
+CS 2336 Computer Science II
+
+MATH 2418 Linear Algebra
+
+PHYS 2125 Physics Laboratory I3
+
+PHYS 2126 Physics Laboratory II
+
+PHYS 2325 Mechanics3
+
+PHYS 2326 Electromagnetism and Waves3
+
+RHET 1302 Rhetoric1
+
+SE 2340 Computer Architecture
+
+MATH Sequence - Students may choose one of the following sequences:
+
+I. MATH 2413 Differential Calculus2
+
+and MATH 2414 Integral Calculus2
+
+or
+
+II. MATH 2417 Calculus I2
+
+and MATH 2419 Calculus II2
+
+3 semester credit hours of Guided Elective in Mathematics.
+
+The following courses may be used as guided electives without the explicit approval of an advisor:
+
+MATH 2415 Calculus of Several Variables
+
+MATH 2420 Differential Equations with Applications
+
+MATH 3310 Theoretical Concepts of Calculus
+
+MATH 3311 Abstract Algebra I
+
+MATH 3321 Geometry
+
+MATH 3323 Elementary Number Theory
+
+MATH 3351 Advanced Calculus
+
+MATH 3397 Mathematical Problem Solving
+
+MATH 4332 Scientific Computing using Python
+
+MATH 4334 Numerical Analysis
+
+MATH 4381 Structure of Modern Geometry
+
+STAT 3355 Introduction to Data Analysis
+
+Major Core Courses: 38 semester credit hours beyond Core Curriculum
+
+SE 3162 Professional Responsibility in Computer Science and Software Engineering
+
+SE 3306 Mathematical Foundations of Software Engineering
+
+SE 3341 Probability and Statistics in Computer Science and Software Engineering
+
+SE 3345 Data Structures and Foundations of Algorithmic Analysis
+
+SE 3354 Software Engineering
+
+SE 3377 Systems Programming in UNIX and Other Environments
+
+ECS 2390 Professional and Technical Communication5
+
+SE 4347 Database Systems
+
+SE 4348 Operating Systems Concepts
+
+SE 4351 Requirements Engineering
+
+SE 4352 Software Architecture and Design
+
+SE 4367 Software Testing, Verification, Validation and Quality Assurance
+
+SE 4381 Software Project Planning and Management
+
+SE 4485 Software Engineering Project
+
+Major Technical Electives: 12 semester credit hours
+
+SE technical electives are 4000 level courses in SE or closely related areas approved by the student's SE advisor. The following courses may be used as technical electives without the explicit approval of an advisor:
+
+CS 4141 Digital Systems Laboratory
+
+CS 4314 Intelligent Systems Analysis
+
+CS 4315 Intelligent Systems Design
+
+CS 4332 Introduction to Programming Video Games
+
+CS 4334 Numerical Analysis
+
+CS 4337 Programming Language Paradigms
+
+CS 4339 Web Programming Languages
+
+CS 4341 Digital Logic and Computer Design
+
+CS 4349 Advanced Algorithm Design and Analysis
+
+CS 4352 Introduction to Human-Computer Interaction
+
+CS 4361 Computer Graphics
+
+CS 4365 Artificial Intelligence
+
+CS 4375 Introduction to Machine Learning
+
+CS 4384 Automata Theory
+
+CS 4386 Compiler Design
+
+CS 4389 Data and Applications Security
+
+CS 4390 Computer Networks
+
+CS 4391 Introduction to Computer Vision
+
+CS 4392 Computer Animation
+
+CS 4393 Computer and Network Security
+
+CS 4394 Implementation of Modern Operating Systems
+
+CS 4395 Human Language Technologies
+
+CS 4396 Networking Laboratory
+
+CS 4397 Embedded Computer Systems
+
+CS 4398 Digital Forensics
+
+CS 4459 Cyber Attack and Defense Laboratory
+
+CS 4485 Computer Science Project
+
+EE 4325 Introduction to VLSI Design
+
+SE 4376 Object-Oriented Design
+
+SE 4399 Senior Honors in Software Engineering
+
+Any other organized SE 4300-level course
+
+If eligible, graduate courses may also be used to satisfy SE technical elective requirements.
+
+III. Elective Requirements: 4 semester credit hours
+
+Free Electives: 4 semester credit hours
+
+All students must accumulate at least 123 semester credit hours of university credit to graduate.
+
+Both lower- and upper-division courses may count as free electives.
+
+The plan must include sufficient upper-division courses to total 45 upper-division semester credit hours.
+
+Fast Track Baccalaureate/Master's Degrees
+
+In response to the need for post-baccalaureate education in the exciting field of software engineering, a Fast Track program is available to well-qualified UT Dallas undergraduate students. Qualified seniors may take up to 15 graduate semester credit hours that may be used to complete the baccalaureate degree and also to satisfy the requirements for the master's degree. Interested students should see the Associate Dean of Undergraduate Education (ADU) for specific requirements.
+
+Interested students should see the Associate Dean of Undergraduate Education (ADU) for specific admission requirements to the Fast Track program.
+
+Honors Programs
+
+The Department of Computer Science offers an Honors Program called Computer Science Computing Scholars (CS2). (CS2) is an intense Bachelor of Science in Computer Science Degree Program created for exceptionally gifted students who wish to pursue a demanding course of study enriched throughout with research experiences. The Computing Scholars Program has a specially designed curriculum. Courses integrate discussion of current research, recent discoveries, and open problems into a rich logical progression of firmly related topics. Course numbers for the Core Curriculum Requirements and Major Requirements are the same as those for the Bachelor of Science in Computer Science, but Computing Scholars take honors versions of the following courses: CS 1200, CS 2305, CS 2340, CS 3341, CS 3345, CS 3354, CS 4141, CS 4337, CS 4341, CS 4348, CS 4349, and CS 4384.
+
+Admission to the program is mainly by nomination and invitation. Those invited to join the Computing Scholars Honors Program will have successfully completed a full and challenging high school curriculum, will have achieved high scores on the SAT or ACT tests, and will be about to graduate from high school, or equivalent, with high class rank.
+
+Successful participants will graduate with the added distinction of a Computing Scholars Honors Diploma.
+
+For more information about this program students should contact the Computer Science Department leadership.
+
+Minors
+
+Students will be expected to meet the normal prerequisites in courses making up the minor, and should maintain a minimum GPA of 2.000 on a 4.00 scale (C average).
+
+Minor in Software Engineering
+
+21 semester credit hours
+
+Students majoring in Computer Engineering, Computer Science or Software Engineering cannot add a minor in Software Engineering.
+
+A minor in Software Engineering requires 21 semester credit hours earned through the following courses:
+
+CS 1337 Computer Science I
+
+CS 2305 Discrete Mathematics for Computing I
+
+CS 2336 Computer Science II
+
+SE 3306 Mathematical Foundations of Software Engineering
+
+SE 3345 Data Structures and Foundations of Algorithmic Analysis
+
+SE 3354 Software Engineering
+
+Any 4000-level organized SE class
+
+Certificates
+Certificate in Cyber Defense
+
+9 semester credit hours
+
+A certificate in Cyber Defense is offered by the Department of Computer Science. It can be obtained by completing at least three courses (as well as any required prerequisites) out of the following set of courses:
+
+CS 4389 Data and Applications Security
+
+CS 4393 Computer and Network Security
+
+CS 4398 Digital Forensics
+
+CS 4459 Cyber Attack and Defense Laboratory
+
+Students that complete the minor in Cyber Security will not be awarded certificate in Cyber Defense.
+
+1. Semester credit hours fulfill the communication component of the Core Curriculum.
+
+2. Three semester credit hours of Calculus are counted under Mathematics Core, and five semester credit hours of Calculus are counted as Component Area Option Core.
+
+3. Six semester credit hours of Physics are counted under Science core, and one semester credit hour of Physics (PHYS 2125) is counted as Component Area Option Core.
+
+4. Transfer students with sufficient background may petition to substitute upper-division semester credit hours in the major for this class.
+
+5. Semester credit hours fulfill the communication elective of the Core Curriculum.
+
+Updated: 2025-05-28 08:23:12 v7.f0c2fc

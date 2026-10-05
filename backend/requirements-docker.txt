@@ -1,0 +1,18 @@
+fastapi
+uvicorn[standard]
+SQLAlchemy
+pydantic
+pydantic-settings
+python-dotenv
+requests
+
+# RAG / LLM stack
+langchain>=0.3.0
+langchain-community
+langchain-chroma
+langchain-ollama
+langchain-openai
+chromadb
+openai>=1.0.0
+crawl4ai
+

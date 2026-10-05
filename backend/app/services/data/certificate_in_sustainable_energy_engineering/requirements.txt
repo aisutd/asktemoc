@@ -1,0 +1,151 @@
+UT Dallas 2025 Undergraduate Catalog
+Download page as a PDF, opens a new tab
+Download page as a DOCX (MS Word) file
+Open page in a printable window, opens a new tab
+Compare Versions
+Erik Jonsson School of Engineering and Computer Science
+Undergraduate Certificates
+
+Certificate in Cyber Defense
+Certificate in Nanoscience and Nanotechnology
+Certificate in Semiconductor Technology
+Certificate in Sustainable Energy Engineering
+Certificate in Cyber Defense
+
+9 semester credit hours
+
+A certificate in Cyber Defense is offered by the Department of Computer Science. It can be obtained by completing at least three courses (as well as any required prerequisites) out of the following set of courses:
+
+CS 4389 Data and Applications Security
+
+CS 4393 Computer and Network Security
+
+CS 4398 Digital Forensics
+
+CS 4459 Cyber Attack and Defense Laboratory
+
+Students that complete the minor in Cyber Security will not be awarded certificate in Cyber Defense.
+
+Certificate in Nanoscience and Nanotechnology
+
+9 semester credit hours
+
+A Certificate in Nanoscience and Nanotechnology is offered by the Department of Materials Science and Engineering. It can be obtained by completing the following (as well as any required prerequisites):
+
+MSEN 3301 Introduction to Nanoscience and Nanotechnology
+
+MSEN 3302 Microscopy, Spectroscopy, and Nanotech Instrumentation
+
+And choose one of the following:
+
+MSEN 3310 Introduction to Materials Science
+
+MSEN 4391 Technology of Plasma
+
+MSEN 4V95 Undergraduate Research (in Nanotechnology) (3 semester credit hours or more)
+
+Any upper level class that satisfies the Minor in Nanoscience and Technology
+
+Certificate in Semiconductor Technology
+
+9 semester credit hours
+
+A Certificate in Semiconductor Technology is offered by the Department of Materials Science and Engineering. It can be obtained by completing the following (as well as any required prerequisites):
+
+Required courses:
+
+MSEN 3303 Introduction to Semiconductor Technology and Manufacturing
+
+MSEN 3320 Electrical, Optical, and Magnetic Properties of Materials
+
+Elective courses:
+
+Choose 3 semester credit hours from the following:1
+
+MSEN 3301 Introduction to Nanoscience and Nanotechnology
+
+MSEN 3302 Microscopy Spectroscopy and Nanotech Instrumentation
+
+MSEN 3310 Introduction to Materials Science
+
+MSEN 3339 Materials Characterization
+
+MSEN 3340 Materials Processing
+
+EE 3310 Electronic Devices
+
+EE 4330 Integrated Circuit Technology
+
+EE 4391 Technology of Plasma
+
+EE 4371 Introduction to MEMs
+
+or MECH 4370 Introduction to MEMs
+
+PHYS 4352 Concepts of Modern Physics
+
+PHYS 4371 Solid State Physics
+
+MECH 2340 Circuits and Applied Electronics
+
+MECH 3320 Heat Transfer
+
+MECH 3360 Introduction to Materials Science
+
+MECH 3370 Applied Thermodynamics
+
+MECH 4360 Introduction to Nanostructured Materials
+
+1. Each course has a set of prerequisites that will need to be met prior to taking the course.
+
+Certificate in Sustainable Energy Engineering
+
+9 semester credit hours
+
+A Certificate in Sustainable Energy Engineering is offered by the Department of Materials Science and Engineering. It can be obtained by completing the following (as well as any required prerequisites):
+
+Required courses:
+
+MSEN 3304 Introduction to Sustainable Energy Engineering
+
+Choose 3 semester credit hours from one of the following courses:
+
+MSEN 4305 Sustainable Electricity Generation1
+
+MSEN 4306 Batteries & Energy Storage Devices1
+
+Elective courses:
+
+Choose 3 semester credit hours from any of the following upper-level Electives:
+
+CHEM 4370 Carbon Capture and Sequestration
+
+CHEM 4381 Green Chemistry and Green Fuels
+
+EE 4362 Introduction to Energy Conversion
+
+EE 4363 Introduction to Power Electronics
+
+ENGY 3302 Managing Power and Renewable Energy Assets
+
+MECH 3370 Applied Thermodynamics
+
+MECH 4365 Energy Analytics
+
+MECH 4380 HVAC Systems
+
+MSEN 3301 Introduction to Nanoscience and Nanotechnology
+
+MSEN 3340 Materials Processing
+
+MSEN 4305 Sustainable Electricity Generation1
+
+MSEN 4306 Batteries & Energy Storage Devices1
+
+PHYS 4373 Physical Measurements Laboratory
+
+Other sustainable energy-related courses can be approved by petition.
+
+1. MSEN 4305 and MSEN 4306 must both be taken to have one of them count towards the Elective Requirement.
+
+Updated: 2025-08-04 08:23:26 v5.053419

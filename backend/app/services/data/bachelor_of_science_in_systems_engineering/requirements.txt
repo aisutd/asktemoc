@@ -1,0 +1,196 @@
+UT Dallas 2025 Undergraduate Catalog
+Download page as a PDF, opens a new tab
+Download page as a DOCX (MS Word) file
+Open page in a printable window, opens a new tab
+Compare Versions
+Erik Jonsson School of Engineering and Computer Science
+Department of Systems Engineering
+Systems Engineering (BS)
+Bachelor of Science in Systems Engineering
+
+Degree Requirements (120 semester credit hours)
+
+View an Example of Degree Requirements by Semester
+
+Faculty
+
+Professors: Stephanie Adams, S.O. Reza Moheimani, Mark W. Spong, Steve Yurkovich
+
+Associate Professor: Justin Ruths
+
+Assistant Professor: Waseem Abbas
+
+Chair Emeritus: Mathukumalli Vidyasagar
+
+Professor of Instruction: Nhut Nguyen
+
+Lecturers: Ramakrishna Koganti, Erik Reynolds, James Yurkovich
+
+I. Core Curriculum Requirements: 42 semester credit hours
+
+Curriculum Requirements can be fulfilled by other approved courses from institutions of higher education. The courses listed are recommended as the most efficient way to satisfy both Core Curriculum and Major Requirements at UT Dallas.
+
+Communication: 6 semester credit hours
+
+RHET 1302 Rhetoric1, 2
+
+ECS 2390 Professional and Technical Communication1, 2
+
+Or select any 6 semester credit hours from Communication Core courses (see advisor)
+
+Mathematics: 3 semester credit hours
+
+MATH 2414 Integral Calculus1, 3
+
+or MATH 2417 Calculus I1, 3
+
+Or select any 3 semester credit hours from Mathematics Core courses (see advisor)
+
+Life and Physical Sciences: 6 semester credit hours
+
+PHYS 2325 Mechanics1, 4
+
+PHYS 2326 Electromagnetism and Waves1, 4
+
+Or select any 6 semester credit hours from Life and Physical Sciences Core courses (see advisor)
+
+Language, Philosophy and Culture: 3 semester credit hours
+
+Select any 3 semester credit hours from Language, Philosophy and Culture Core courses (see advisor)
+
+Creative Arts: 3 semester credit hours
+
+Select any 3 semester credit hours from Creative Arts Core courses (see advisor)
+
+American History: 6 semester credit hours
+
+Select any 6 semester credit hours from American History Core courses (see advisor)
+
+Government/Political Science: 6 semester credit hours
+
+Select any 6 semester credit hours from Government/Political Science Core courses (see advisor)
+
+Social and Behavioral Sciences: 3 semester credit hours
+
+Select any 3 semester credit hours from Social and Behavioral Sciences Core courses (see advisor)
+
+Component Area Option: 6 semester credit hours
+
+MATH 2414 Integral Calculus1, 3
+
+or MATH 2417 Calculus I1
+
+MATH 2415 Calculus of Several Variables1, 3
+
+or MATH 2419 Calculus II1, 3
+
+PHYS 2125 Physics Laboratory I1, 4
+
+Or select any 6 semester credit hours from Component Area Option Core courses (see advisor)
+
+II. Major Requirements: 78 semester credit hours
+
+Students must pass each of the major requirement courses listed in this degree plan and each of their prerequisites, with a grade of C- or better.
+
+Major Preparatory Courses: 23 semester credit hours beyond Core Curriculum
+
+ECS 1100 Introduction to Engineering and Computer Science
+
+ECS 2390 Professional and Technical Communication1, 2
+
+SYSE 1202 Introduction to Systems Engineering
+
+ENGR 2300 Linear Algebra for Engineers
+
+ENGR 3300 Advanced Engineering Mathematics
+
+ENGR 3341 Probability Theory and Statistics
+
+MATH 2420 Differential Equations with Applications
+
+PHYS 2325 Mechanics1, 4
+
+PHYS 2125 Physics Laboratory I1, 4
+
+PHYS 2326 Electromagnetism and Waves1, 4
+
+PHYS 2126 Physics Laboratory II
+
+CS 1325 Introduction to Programming
+
+or MATH 2370 Introduction to Programming with MATLAB
+
+MATH 2414 Integral Calculus1, 3
+
+or MATH 2417 Calculus I1, 3
+
+MATH 2415 Calculus of Several Variables1, 3
+
+or MATH 2419 Calculus II1, 3
+
+MATH 3315 Discrete Mathematics and Combinatorics
+
+or CS 2305 Discrete Mathematics for Computing I
+
+Major Core Courses: 34 semester credit hours beyond Core Curriculum
+
+SYSE 2300 Project Management
+
+SYSE 2310 Systems Architecture
+
+SYSE 3300 Systems Design
+
+EE 3161 Social Issues and Ethics in Engineering
+
+EE 3302 Signals and Systems
+
+SYSE 3355 Data Science for Engineers
+
+SYSE 4302 Complex Networks for Engineers
+
+SYSE 4305 Optimization
+
+SYSE 4306 Modeling and Simulation
+
+EE 4310 Systems and Controls
+
+EE 4331 Applied Machine Learning
+
+SYSE 4380 Capstone Design Project
+
+Technical Electives: 6 semester credit hours
+
+Any six hours of upper division engineering courses.
+
+Secondary Field requirement: 15 semester credit hours
+
+The Secondary Field consists of 15 semester credit hours, at least 9 of which must be upper-division courses. Students may choose from the list of pre-approved application areas or design their own program in consultation with their advisor.
+
+Examples Secondary Fields
+
+Data Science
+Robotics and Mechatronics
+Business and Financial Engineering
+Energy Systems
+Healthcare Systems
+Public Policy
+
+The plan must include sufficient upper-division courses to total 45 upper-division semester credit hours.
+
+Fast Track Baccalaureate/Master's Degrees
+
+In response to the need for advanced education in Systems Engineering, a Fast Track program is available to well-qualified UT Dallas undergraduate students. Qualified seniors may take up to 15 graduate semester credit hours that may be used to complete the baccalaureate degree and also to satisfy the requirements for the master's degree. This is accomplished by (1) taking courses (typically electives) during one or more summer semesters, and (2) beginning graduate coursework during the senior year. Details are available from the Associate Dean for Undergraduate Education.
+
+Minors
+
+The Department of Systems Engineering does not offer minors at this time.
+
+1. A required Major course that also fulfills a Core Curriculum requirement. Semester credit hours are counted in Core Curriculum.
+
+2. Semester credit hours fulfill the communication component of the Core Curriculum.
+
+3. Three semester credit hours of Calculus are counted under Mathematics Core, and five semester credit hours of Calculus are counted as Component Area Option Core.
+
+4. Six semester credit hours of Physics are counted under Science core, and one semester credit hour of Physics (PHYS 2125) is counted as Component Area Option Core.
+
+Updated: 2025-05-02 15:50:40 v10.05aac8

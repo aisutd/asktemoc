@@ -1,0 +1,80 @@
+UT Dallas 2025 Undergraduate Catalog
+Download page as a PDF, opens a new tab
+Download page as a DOCX (MS Word) file
+Open page in a printable window, opens a new tab
+Compare Versions
+Erik Jonsson School of Engineering and Computer Science
+Biomedical Engineering (BS)
+
+Degree Requirements (128 semester credit hours)
+
+Four-Year Degree Plan (Example)
+
+This is an example only. Please see advisor to develop an individual four-year plan.
+
+Freshman Year
+Semester 1 - Fall	Notes	Preferred	Core	SCH		Semester 2 - Spring	Notes	Preferred	Core	SCH
+BMEN 1100	5, 6			1	BMEN 1208	5, 6, 7			2
+CHEM 1311	1, 5		3090	3	CHEM 1312	5, 7		3090	3
+CHEM 1111	1, 5		090	1	ENGR 2300	5			3
+BMEN 1300	5, 7			3	MATH 2419	1, 3, 5, 7		090	4
+ECS 1100	5, 6			1	or MATH 2414	1, 3, 5, 7		2090
+MATH 2417	1, 3, 5		2090	4	PHYS 2325	1, 4, 5, 7		3090	3
+or MATH 2413	1, 3, 5		2090	PHYS 2125	1, 4, 5, 7		3090	1
+RHET 1302	1, 8		1090	3					
+Total 	16	Total 	16
+	
+ 
+Semester 3 - Summer	Notes	Preferred	Core	SCH
+MATH 2415	9		2090	0-4
+Total 	0-4
+ 
+Sophomore Year
+Semester 4 - Fall	Notes	Preferred	Core	SCH		Semester 5 - Spring	Notes	Preferred	Core	SCH
+BIOL 2311	1, 5		3090	3	CHEM 2324	5, 7			3
+BIOL 2111	5			1	BIOL 2281	5, 7			2
+BMEN 2320	5, 7			3	BMEN 3331	5			3
+Core Course				3	BMEN 3399	5			3
+MATH 2420	5, 7			4	ENGR 3300	5, 7			3
+PHYS 2326	1, 4, 5, 7		3090	3	BMEN 3341	5			3
+PHYS 2126	5, 7			1					
+Total 	18	Total 	17
+ 
+Junior Year
+Semester 6 - Fall	Notes	Preferred	Core	SCH		Semester 7 - Spring	Notes	Preferred	Core	SCH
+Core Course				3	BMEN 3200	5, 7			2
+BMEN 3302	5			3	BMEN 4310	5, 7			3
+BMEN 3315	5			3	BMEN 4360	5			3
+BMEN 3320	5, 7			3	ECS 2390	1, 2, 5		010	3
+BMEN 3220	5, 7			2	Core Course				3
+BMEN 3332				3	Core Course				3
+Total 	17	Total 	17
+ 
+Senior Year
+Semester 8 - Fall	Notes	Preferred	Core	SCH		Semester 9 - Spring	Notes	Preferred	Core	SCH
+Technical Elective				2-3	Technical Elective				3
+BMEN 4388	5, 7			3	Technical Elective				3
+Core Course				3	Technical Elective				0-3
+Core Course				3	BMEN 4389	5, 7			3
+Core Course				3					
+Total 	14-15	Total 	9-12
+ 
+NOTES:
+1	Curriculum Requirements can be fulfilled by other approved courses from accredited institutions of higher education. The courses listed are recommended as the most efficient way to satisfy both Core Curriculum and Major Requirements at UT Dallas.
+2	Semester credit hours fulfill the communication component of the Core Curriculum.
+3	Three semester credit hours of Calculus are counted under Mathematics Core, and five semester credit hours of Calculus are counted as Component Area Option Core.
+4	Six semester credit hours of Physics are counted under Science core, and one semester credit hour of Physics (PHYS 2125) is counted as Component Area Option Core.
+5	Students must pass each of the major requirement courses listed in this degree plan and each of their prerequisites, with a grade of C- or better.
+6	Transfer students with sufficient background may petition to substitute upper-division semester credit hours in the major for this class.
+7	Earliest semester course can be taken due to pre- or co-requisite course requirements.
+8	Must complete by 3rd semester of enrollment.
+9	For students completing MATH Sequence II (MATH 2413, MATH 2414, and MATH 2415), a summer term is not essential for a timely completion of degree. See Academic Advisor for details.
+
+Students wishing to fast track into the graduate program in Biomedical Engineering may take up to six (6) semester credit hours of graduate BMEN electives - see the Undergraduate ECS Advising Office or the Degree Plan Evaluator in BMEN, for specific fast-track courses. Cumulative GPA of 3.00 minimum required for Fast-Track Program. See Academic Advisor for other requirements.
+
+Be sure to check prerequisites of 2000-level or higher courses.
+128 semester credit hours required for graduation
+
+This plan is a resource tool only; it does not replace your degree plan or academic advising.
+
+Updated: 2025-05-14 14:28:03 v3.b2701f

@@ -1,0 +1,332 @@
+UT Dallas 2025 Undergraduate Catalog
+Download page as a PDF, opens a new tab
+Download page as a DOCX (MS Word) file
+Open page in a printable window, opens a new tab
+Compare Versions
+Erik Jonsson School of Engineering and Computer Science
+Interdisciplinary Programs
+
+The Erik Jonsson School of Engineering and Computer Science offers a Bachelor of Science program in Computer Engineering. This program is delivered by the combined faculties of the Departments of Computer Science and Electrical Engineering.
+
+Computer Engineering (BS)
+
+The Computer Engineering program is interdisciplinary. It was designed by the combined faculties of the Computer Science Department and the Electrical Engineering Department. Computer Engineering requires a blend of knowledge from the areas of hardware (Electrical Engineering) and software (Computer Science). The focus of the Computer Engineering degree is to provide an excellent education in modern computer systems and prepare its graduates for outstanding careers in the rapidly changing and growing profession and for further continuing education.
+
+The Computer Engineering program is based on a solid foundation of science and mathematics coursework. Students have opportunities to expand their abilities to analyze and solve complex problems and to design new uses of technology to serve society. This program provides an integrated educational experience directed toward the development of the ability to apply pertinent knowledge to the identification and solution of practical problems in computer engineering.
+
+The Computer Engineering curriculum ensures that the design experience, which includes both analytical and experimental studies, is integrated throughout in a sequential development leading to advanced work. Design problems are frequently assigned in both lecture and laboratory courses. Each student is required to complete a major design project during the senior year. In addition, internships and cooperative education programs with area companies may further supplement a student's design experiences.
+
+Mission of the Computer Engineering (CE) Program
+
+The mission of the Computer Engineering Program is to provide an excellent education in modern computer engineering practice. Our graduates are highly qualified for rewarding and successful careers in a diverse range of computer engineering fields.
+
+Program Educational Objectives for Computer Engineering
+
+The UT Dallas Computer Engineering Program educational objectives will enable our graduates within a few years of graduation to:
+
+Successfully pursue a diverse range of careers as computer engineers, consultants, educators, and/or entrepreneurs as well as pursue advanced education.
+Be effective contributors and leaders in both professional and personal settings.
+Serve their profession and/or employer in a responsible, ethical, creative, and enthusiastic manner to meet the needs of industry and society
+Continue to learn and improve through self-motivation.
+High School Preparation
+
+Engineering education requires a strong high school preparation. Pre-engineering students should have high school preparation of at least one-half year in trigonometry and at least one year each in elementary algebra, intermediate and advanced algebra, plane geometry, chemistry, and physics, thus developing their competencies to the highest possible levels and preparing them to move immediately into demanding college courses in calculus, calculus-based physics, and chemistry for science majors. Pre-Computer Engineering students should have some experience with elementary programming in a high level language such as C, C++, or Java. It is also essential that pre-engineering students have the competence to read rapidly and with comprehension, and to write clearly and correctly.
+
+Lower-Division Study
+
+All lower-division students in Computer Engineering concentrate on mathematics, science, and introductory engineering courses, building competence in these cornerstone areas for future application in upper-division engineering courses. The following requirements apply both to students seeking to transfer to UT Dallas from other institutions as well as to those currently enrolled at UT Dallas, whether in another school or in the Erik Jonsson School of Engineering and Computer Science.
+
+ABET Accreditation
+
+The BS program in Computer Engineering is accredited by the Engineering Accreditation Commission of ABET, www.abet.org.
+
+Academic Progress in Computer Engineering
+
+In order to make satisfactory academic progress as a Computer Engineering major, a student must meet all University requirements for academic progress, and must earn a grade of C- or better in each of the "major requirements" courses. No "Major Requirements" course (as listed under Section II of the BS degree requirement) may be taken until the student has obtained a grade of C- or better in each of the prerequisites (if a higher grade requirement is stated for a specific class, the higher requirement applies).
+
+Bachelor of Science in Computer Engineering
+
+Degree Requirements (126 semester credit hours)
+
+View an Example of Degree Requirements by Semester
+
+Affiliated Faculty
+
+Professors: Naofal Al-Dhahir, Poras T. Balsara, Farokh B. Bastani, Dinesh Bhatia, Ovidiu Daescu, Ding-Zhu Du, Andrea Fumagalli, Gopal Gupta, John H. L. Hansen, Nasser Kehtarnavaz, Kamran Kiasaleh, Georgios Makris, Hlaing Minn, Neeraj Mittal, Mehrdad Nourani, Issa M. S. Panahi, Carl Sechen, Lakshman Tamil, Weili Wu, I-Ling Yen, Rym Zalila-Wenkstern
+
+Associate Professors: Benjamin Carrion Schafer, Jorge A. Cobb, Joseph Friedman, Cong Liu
+
+Assistant Professors: Kanad Basu, Kaveh Shamsi
+
+Professor Emeritus: Ivor P. Page, William J. Pervin, Subbarayan Venkatesan, Kang Zhang
+
+Professors of Instruction: Richard Goodrum, Tooraj Nikoubin, Greg Ozbirn, William (Bill) Swartz, Marco Tacca
+
+Associate Professors of Instruction: Md Ali, Chris I. Davis
+
+Assistant-Professor-of-Instruction: Haifa Abulaiha, Shaheen Ahmed, Hossein Pedram
+
+I. Core Curriculum Requirements: 42 semester credit hours
+
+Curriculum Requirements can be fulfilled by other approved courses. The courses listed are recommended as the most efficient way to satisfy both Core Curriculum and Major Requirements at UT Dallas.
+
+Communication: 6 semester credit hours
+
+RHET 1302 Rhetoric
+
+ECS 2390 Professional and Technical Communication1
+
+Or select any 6 semester credit hours from Communication Core courses (see advisor)
+
+Mathematics: 3 semester credit hours
+
+MATH 2417 Calculus I2
+
+Or select any 3 semester credit hours from Mathematics Core courses (see advisor)
+
+Life and Physical Sciences: 6 semester credit hours
+
+PHYS 2325 Mechanics3
+
+PHYS 2326 Electromagnetism and Waves3
+
+Or select any 6 semester credit hours from Life and Physical Sciences Core courses (see advisor)
+
+Language, Philosophy and Culture: 3 semester credit hours
+
+Select any 3 semester credit hours from Language, Philosophy and Culture Core courses (see advisor)
+
+Creative Arts: 3 semester credit hours
+
+Select any 3 semester credit hours from Creative Arts Core courses (see advisor)
+
+American History: 6 semester credit hours
+
+Select any 6 semester credit hours from American History Core courses (see advisor)
+
+Government/Political Science: 6 semester credit hours
+
+GOVT 2305 American National Government
+
+GOVT 2306 State and Local Government
+
+Or select any 6 semester credit hours from Government/Political Science Option courses (see advisor)
+
+Social and Behavioral Sciences: 3 semester credit hours
+
+Select any 3 semester credit hours from Social and Behavioral Sciences Core courses (see advisor)
+
+Component Area Option: 6 semester credit hours
+
+MATH 2417 Calculus I2
+
+MATH 2419 Calculus II2
+
+PHYS 2125 Physics Laboratory I3
+
+Or select any 6 semester credit hours from Component Area Option courses (see advisor)
+
+II. Major Requirements: 80-84 semester credit hours
+
+Major Preparatory Courses: 31-35 semester credit hours beyond Core Curriculum
+
+CE 1100 Introduction to Electrical and Computer Engineering4
+
+CE 1202 Introduction to Electrical and Computer Engineering II4
+
+CS 1436 Programming Fundamentals
+
+CE 1337 Computer Science I
+
+ECS 1100 Introduction to Engineering and Computer Science4
+
+ENGR 2300 Linear Algebra for Engineers
+
+CE 2305 Discrete Mathematics for Computing I
+
+CE 2310 Introduction to Digital Systems
+
+CE 2336 Computer Science II
+
+PHYS 2125 Physics Laboratory I3
+
+PHYS 2126 Physics Laboratory II
+
+PHYS 2325 Mechanics3
+
+PHYS 2326 Electromagnetism and Waves3
+
+RHET 1302 Rhetoric1
+
+MATH Sequence - Students may choose one of the following two sequences:
+
+I. MATH 2413 Differential Calculus2
+
+and MATH 2414 Integral Calculus2
+
+and MATH 2415 Calculus of Several Variables2
+
+MATH 2420 Differential Equations with Applications
+
+or
+
+II. MATH 2417 Calculus I2
+
+and MATH 2419 Calculus II2
+
+MATH 2420 Differential Equations with Applications
+
+3 semester credit hours of a guided elective in mathematics.
+
+The following courses may be used as guided electives without the explicit approval of an advisor:
+
+CE 3300 Advanced Engineering Mathematics
+
+MATH 3323 Elementary Number Theory
+
+MATH 3397 Mathematical Problem Solving
+
+STAT 3355 Introduction to Data Analysis
+
+Major Core Courses: 43 semester credit hours beyond Core Curriculum
+
+CE 3161 Social Issues and Ethics in Engineering
+
+CE 3201 Electrical and Computer Engineering Fundamentals-I Laboratory
+
+CE 3202 Electrical and Computer Engineering Fundamentals-II Laboratory
+
+ECS 2390 Professional and Technical Communication1
+
+CE 2301 Electrical Network Analysis
+
+CE 3303 Discrete-Time Signals and Systems
+
+CE 3311 Electronic Circuits
+
+CE 3320 Digital Circuits
+
+ENGR 3341 Probability Theory and Statistics
+
+CE 3345 Data Structures and Foundations of Algorithmic Analysis
+
+CE 3354 Software Engineering
+
+CE 4304 Computer Architecture
+
+CE 4348 Operating Systems Concepts
+
+CE 4370 Embedded Systems
+
+CE 4388 Senior Design Project I
+
+CE 4389 Senior Design Project II
+
+Select one of the following laboratories:
+
+CE 4201 Electrical and Computer Engineering Laboratory in Computing Systems and Computer Engineering
+
+CE 4202 Electrical and Computer Engineering Laboratory in Circuits
+
+CE 4203 Electrical and Computer Engineering Laboratory in Signals and Systems
+
+CE 4204 Electrical and Computer Engineering Laboratory in Devices
+
+CE 4205 Electrical and Computer Engineering Laboratory in Power Electronics and Energy Systems
+
+Major Guided Electives: 6 semester credit hours
+
+Students take 6 semester credit hours from any upper level course from the list below. CE 4V97, CE 4V98, or CE 4399 may be used for up to 6 of these semester credit hours.
+
+EE 3350 Communications Systems
+
+EE 4325 Introduction to VLSI Design
+
+EE 4330 Integrated Circuit Technology
+
+EE 4340 Analog Integrated Circuit Analysis and Design
+
+EE 4342 Introduction to Robotics
+
+EE 4360 Digital Communications
+
+EE 4363 Introduction to Power Electronics
+
+EE 4365 Introduction to Wireless Communication
+
+EE 4367 Telecommunication Networks
+
+EE 4371 Introduction to MEMS
+
+CE 3310 Electronic Devices
+
+CE 4331 Applied Machine Learning
+
+CS 4332 Introduction to Programming Video Games
+
+CS 4334 Numerical Analysis
+
+CS 4337 Programming Language Paradigms
+
+CS 4347 Database Systems
+
+CS 4352 Introduction to Human-Computer Interaction
+
+CS 4361 Computer Graphics
+
+CS 4365 Artificial Intelligence
+
+CS 4375 Introduction to Machine Learning
+
+CS 4384 Automata Theory
+
+CS 4389 Data and Applications Security
+
+CS 4390 Computer Networks
+
+CS 4392 Computer Animation
+
+CS 4393 Computer and Network Security
+
+CS 4398 Digital Forensics
+
+III. Elective Requirements: 0-4 semester credit hours
+
+Free Electives: 0-4 semester credit hours
+
+Students who take MATH sequence I will not have any free electives.
+Students who take MATH sequence II take 4 semester credit hours of free electives.
+
+Both lower-and upper-division courses may count as free electives.
+
+The plan must include sufficient upper-division courses to total 45 upper-division semester credit hours.
+
+Degree programs in the Erik Jonsson School of Engineering and Computer Science are governed by various accreditation boards that place restrictions on classes used to meet the curricular requirements of degrees they certify. For this reason, not all classes offered by the University can be used to meet elective requirements. Please check with your academic advisor before enrolling in classes you hope to use as free electives.
+
+Fast Track Baccalaureate/Master's Degrees
+
+In response to the need for advanced education in computer engineering, a Fast Track program is available to well-qualified UT Dallas undergraduate students. Qualified seniors may take up to 15 graduate semester credit hours that may be used to complete the baccalaureate degree and also to satisfy the requirements for the master's degree. This is accomplished by (1) taking courses (typically electives) during one or more summer semesters, and (2) beginning graduate coursework during the senior year. Details are available from the Associate Dean for Undergraduate Education.
+
+Honors Program
+
+The Computer Engineering Program offers Departmental Honors for outstanding students in the BS Computer Engineering degree program. Admission to the Honors programs requires that the student meet the following qualifications:
+
+Has repeated no more than 3 courses at UT Dallas and has repeated no course more than once.
+
+Graduation with Honors requires a 3.500 or better GPA and completion of either CE 4399 or CE 4V98. A Senior Honors Thesis must be completed within one of those two classes. (While the topics may be related, the Senior Thesis does not replace the need for the student to complete a regular Senior Design Project).
+
+Departmental Honors with Distinction may be awarded to students whose Senior Honors Thesis is judged by a faculty committee to be of exemplary quality. Only students graduating with Departmental Honors are eligible. Thesis/projects must be submitted by the deadline that applies to MS Theses in the graduating semester to allow for proper evaluation. Students interested in Honors with Distinction are encouraged to start working on their thesis/project a year prior to graduation.
+
+Minors
+
+The School of Engineering and Computer Science does not offer a minor in Computer Engineering at this time.
+
+1. Semester credit hours fulfill the communication component of the Core Curriculum.
+
+2. Three semester credit hours of Calculus are counted under Mathematics Core, and five semester credit hours of Calculus are counted as Component Area Option Core.
+
+3. Six semester credit hours of Physics are counted under Science core, and one semester credit hour of Physics (PHYS 2125) is counted as Component Area Option Core.
+
+4. Transfer students with sufficient background may petition to substitute upper-division semester credit hours in the major for this class.
+
+Updated: 2025-05-28 08:15:54 v9.c5c43b

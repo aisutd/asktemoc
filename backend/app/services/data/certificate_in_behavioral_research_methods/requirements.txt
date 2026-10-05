@@ -1,0 +1,125 @@
+UT Dallas 2025 Undergraduate Catalog
+Download page as a PDF, opens a new tab
+Download page as a DOCX (MS Word) file
+Open page in a printable window, opens a new tab
+Compare Versions
+School of Behavioral and Brain Sciences
+Certificates
+
+Certificates are designed for undergraduate students seeking to supplement their bachelor's degrees with additional skills in the field.
+
+Certificate in Behavioral Research Methods
+Certificate in Biobehavioral Data Science
+Certificate in User Experience (UX) Research
+Certificate in Neural Net Math
+
+
+Certificate in Behavioral Research Methods
+
+6 semester credit hours
+
+Behavioral Research Design and Analysis, formulating and testing meaningful behavioral hypotheses, interpreting and communicating research findings, and scientific writing skills applicable to reporting data analyses. These skills are relevant to students pursuing careers in areas such as: UX Research, Data Science, and Machine Learning.
+
+Admission Requirements
+
+Students may register for the program in the same semester they begin taking the applicable courses, but must do so before Census Day of that term.
+
+Prerequisites
+
+The prerequisite for this sequence requires completion of any one of the following four courses:
+
+PSY 2317 Statistics for Psychology
+
+or STAT 1342 Statistical Decision Making
+
+or CS 3341 Probability and Statistics in Computer Science and Software Engineering
+
+or STAT 4351 Probability
+
+Required Courses:
+
+PSY 3392 Research Design and Analysis1
+
+PSY 3393 Experimental Projects in Psychology1
+
+or CGS 3340 Experimental Projects in Cognitive Science1
+
+Certificate in Biobehavioral Data Science
+
+6 semester credit hours
+
+Introduces important tools and methods in the areas of Data Science and Machine Learning. These skills are relevant to students pursuing careers in Data Science and Machine Learning.
+
+Admission Requirements
+
+Students may register for the program in the same semester they begin taking the applicable courses, but must do so before Census Day of that term.
+
+Prerequisites
+
+No computer programming experience is required.
+
+Required Courses:
+
+CGS 3346 PYTHON for Biobehavioral Data Analysis1
+
+CGS 3342 Cognitive and Neural Modeling Laboratory1
+
+Certificate in User Experience (UX) Research
+
+6 semester credit hours
+
+Introduces important tools and methods relevant in the pursuit of careers in User Experience (UX) Research and Usability Engineering.
+
+Admission Requirements
+
+Students may register for the program in the same semester they begin taking the applicable courses, but must do so before Census Day of that term.
+
+Prerequisites
+
+No computer programming experience is assumed.
+
+Required Courses:
+
+CGS 4353 Qualitative UX Research1
+
+CGS 4321 Quantitative UX Research1
+
+Certificate in Neural Net Math
+
+6 semester credit hours
+
+The following two course sequence (which is cross-listed with the UTD Computer Science department and the UTD Cognitive Science Program) provides an in-depth introduction to mathematics relevant to understanding advanced machine learning algorithms and data science concepts.
+
+Admission Requirements
+
+Students may register for the program in the same semester they begin taking the applicable courses, but must do so before Census Day of that term.
+
+Prerequisites
+
+The following three courses are prerequisites for this sequence:
+
+MATH 2414 Integral Calculus
+
+or MATH 2419 Calculus II
+
+or MATH 3351 Advanced Calculus
+
+MATH 2418 Linear Algebra
+
+CS 3341 Probability and Statistics in Computer Science and Software Engineering
+
+or STAT 4351 Probability
+
+Required Courses:
+
+CS 4314 Intelligent Systems Analysis1
+
+or CGS 4314 Intelligent Systems Analysis1
+
+CS 4315 Intelligent Systems Design1
+
+or CGS 4315 Intelligent Systems Design1
+
+1. Required courses must be completed with at least a grade of B.
+
+Updated: 2025-07-28 08:25:32 v6.65f7b4
