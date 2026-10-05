@@ -27,6 +27,8 @@ class Settings(BaseSettings):
         env_file=BACKEND_DIR / ".env",
         env_file_encoding="utf-8",
         extra="ignore",
+        # Validation errors must never echo secrets (API keys, JWT secret) to logs.
+        hide_input_in_errors=True,
     )
 
     environment: str = "development"
