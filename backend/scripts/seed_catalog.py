@@ -32,7 +32,7 @@ FILES = {
     "example.txt": "example degree plan",
 }
 CORPUS = "catalog"
-BATCH_SIZE = 256
+BATCH_SIZE = 64
 
 
 def load_documents(data_dir: Path) -> list[Document]:
@@ -97,6 +97,8 @@ def main():
     settings = get_settings()
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--data-dir", default=settings.catalog_data_dir)
+    parser.add_argument("--batch-size", type=int, default=BATCH_SIZE,
+                        help="chunks per embedding request (lower it if a local Ollama struggles)")
     args = parser.parse_args()
     data_dir = Path(args.data_dir).resolve()
     if not data_dir.is_dir():
@@ -119,9 +121,17 @@ def main():
         collection_name=settings.chroma_collection_name,
         embedding_function=get_embeddings(settings),
     )
-    for start in range(0, len(chunks), BATCH_SIZE):
-        store.add_documents(chunks[start:start + BATCH_SIZE], ids=ids[start:start + BATCH_SIZE])
-        print(f"  embedded {min(start + BATCH_SIZE, len(chunks))}/{len(chunks)}")
+    batch = args.batch_size
+    for start in range(0, len(chunks), batch):
+        try:
+            store.add_documents(chunks[start:start + batch], ids=ids[start:start + batch])
+        except Exception as e:
+            sys.exit(
+                f"Embedding failed after {start} of {len(chunks)} chunks: {e}\n"
+                "Check OPENAI_API_KEY (and its billing) or that Ollama is running with "
+                f"{settings.ollama_embedding_model!r} pulled, then re-run; re-running is safe."
+            )
+        print(f"  embedded {min(start + batch, len(chunks))}/{len(chunks)}")
 
     print(
         f"Done: collection {settings.chroma_collection_name!r} at "
