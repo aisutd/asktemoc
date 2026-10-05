@@ -85,3 +85,21 @@ class Embedding(Base):
 
     def __repr__(self):
         return f"<Embedding(id={self.id}, chunk_id={self.chunk_id}, chroma_id={self.chroma_id})>"
+
+
+class User(Base):
+    """
+    A person who has signed in through the web app. Upserted on every
+    authenticated API request.
+    """
+    __tablename__ = "users"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    provider_sub = Column(String(255), unique=True, nullable=False, index=True)  # "<provider>:<account id>"
+    email = Column(String(320), unique=True, nullable=False, index=True)  # stored lower-cased
+    name = Column(String(255), nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    last_seen_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    def __repr__(self):
+        return f"<User(id={self.id}, email={self.email})>"

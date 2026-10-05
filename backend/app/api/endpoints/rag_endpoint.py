@@ -5,6 +5,8 @@ from fastapi import APIRouter, Depends
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
+from app.core.auth import get_current_user
+from app.db.models import User
 from app.services.rag_chain_service import get_rag_chain_service
 
 logger = logging.getLogger(__name__)
@@ -63,7 +65,12 @@ async def stream_rag_response(chain, message: str):
 
 
 @router.post("/chat")
-async def chat(request: ChatRequest, chain=Depends(get_chain)):
+async def chat(
+    request: ChatRequest,
+    # Declared before the chain so unauthenticated requests never build it.
+    user: User = Depends(get_current_user),
+    chain=Depends(get_chain),
+):
     return StreamingResponse(
         stream_rag_response(chain, request.message),
         media_type="text/event-stream",
