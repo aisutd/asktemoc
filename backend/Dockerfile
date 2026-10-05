@@ -13,10 +13,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Install a minimal, container-focused dependency set to avoid resolver issues
-# from the much larger local development requirements.
-COPY requirements-docker.txt /app/requirements-docker.txt
-RUN pip install --upgrade pip && pip install -r /app/requirements-docker.txt
+# Install the lean runtime set (scraping deps live in requirements-scrape.txt).
+COPY requirements.txt /app/requirements.txt
+RUN pip install --upgrade pip && pip install -r /app/requirements.txt
 
 # Copy application code
 COPY . /app

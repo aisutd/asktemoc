@@ -1,0 +1,11 @@
+# Scraping and heavy ingestion tooling. Not needed to run the API or seed the
+# vector store. Install on top of requirements.txt:
+#   pip install -r requirements.txt -r requirements-scrape.txt
+#   playwright install chromium
+playwright>=1.48.0
+Crawl4AI==0.7.6
+docling==2.60.0
+docling-core==2.50.0
+transformers==4.57.1
+torch==2.9.0
+sentence-transformers
