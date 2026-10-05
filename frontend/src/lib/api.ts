@@ -2,6 +2,8 @@ export interface ChatResponse {
   /** "text" carries an answer delta; "done" ends the stream. Other types are ignored. */
   type: "text" | "source" | "done" | (string & {});
   message: string;
+  /** Sent by older API builds alongside a cumulative `message`. */
+  delta?: string;
   index?: number;
   n?: number;
   url?: string;

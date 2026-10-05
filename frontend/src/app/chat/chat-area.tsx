@@ -96,12 +96,14 @@ export default function ChatArea({
 
       for await (const chunk of responseStream) {
         if (chunk.type === 'text') {
-          // Text events are deltas: append to the current text item.
+          // Text events are deltas: append to the current text item. Older API
+          // builds send `delta` plus a cumulative `message`; prefer `delta`.
+          const piece = typeof chunk.delta === "string" ? chunk.delta : chunk.message;
           const last = accumulatedContent[accumulatedContent.length - 1];
           if (last?.type === 'text') {
-            last.message += chunk.message;
+            last.message += piece;
           } else {
-            accumulatedContent.push({ type: 'text', message: chunk.message });
+            accumulatedContent.push({ type: 'text', message: piece });
           }
           const streamingMessage = {
             ...assistantMessage,
