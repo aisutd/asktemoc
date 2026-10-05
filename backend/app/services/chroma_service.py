@@ -5,6 +5,7 @@ Chroma export pipeline for syncing embeddings and metadata.
 import os
 from typing import List, Dict, Any, Optional
 from sqlalchemy.orm import Session
+from app.core.config import get_settings
 from app.db.models import Embedding, Chunk, Document
 from app.db.services import EmbeddingService
 
@@ -21,8 +22,9 @@ class ChromaService:
 
     def __init__(self):
         """Initialize ChromaDB client."""
-        self.persist_directory = os.getenv("CHROMA_PERSIST_DIRECTORY", "./app/chroma_db")
-        self.collection_name = os.getenv("CHROMA_COLLECTION_NAME", "asktemoc_collection")
+        settings = get_settings()
+        self.persist_directory = settings.chroma_persist_directory
+        self.collection_name = settings.chroma_collection_name
         self.client = None
         self.collection = None
 

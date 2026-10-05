@@ -1,33 +1,40 @@
-import os
+from functools import lru_cache
 
-from langchain_community.llms import Ollama
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnableParallel, RunnablePassthrough
 
+from app.core.config import get_settings
 from app.services.prompt_service import rag_prompt_template
-from app.services.retriever_service import retriever_service
+from app.services.retriever_service import get_retriever_service
 
 
 def _get_llm():
     """Use OpenAI if OPENAI_API_KEY is set, otherwise Ollama."""
-    if os.getenv("OPENAI_API_KEY"):
+    settings = get_settings()
+    if settings.llm_provider == "openai":
         from langchain_openai import ChatOpenAI
         return ChatOpenAI(
-            model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
+            model=settings.openai_model,
+            api_key=settings.openai_api_key,
             temperature=0.4,
         )
-    return Ollama(
-        model=os.getenv("OLLAMA_MODEL", "llama3.1:8b"),
-        base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
+    from langchain_ollama import OllamaLLM
+    return OllamaLLM(
+        model=settings.ollama_model,
+        base_url=settings.ollama_base_url,
     )
 
 
 class RagChainService:
     def __init__(self):
-        self.retriever = retriever_service.get_retriever()
+        self.retriever = get_retriever_service().get_retriever()
         self.llm = _get_llm()
+        self._chain = None
 
     def get_chain(self):
+        if self._chain is not None:
+            return self._chain
+
         def format_docs(docs):
             return "\n\n".join(doc.page_content for doc in docs)
 
@@ -42,6 +49,10 @@ class RagChainService:
             {"context": self.retriever, "question": RunnablePassthrough()}
         ).assign(answer=rag_chain_from_docs)
 
-        return rag_chain_with_source
+        self._chain = rag_chain_with_source
+        return self._chain
 
-rag_chain_service = RagChainService()
+
+@lru_cache
+def get_rag_chain_service() -> RagChainService:
+    return RagChainService()

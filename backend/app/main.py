@@ -1,14 +1,21 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import logging
+
 from app.api.endpoints import query, documents, chroma, dashboard, rag_endpoint, health
+from app.core.config import get_settings
 from app.db.database import init_db
+
+logging.basicConfig(level=logging.INFO)
+
+settings = get_settings()
 
 app = FastAPI(title="AskTemoc Backend")
 
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Frontend URL
+    allow_origins=settings.cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

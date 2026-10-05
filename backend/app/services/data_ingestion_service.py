@@ -9,24 +9,34 @@ from typing import List, Dict, Any
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 import chromadb
-from langchain_community.embeddings import OllamaEmbeddings
 from langchain_chroma import Chroma
+
+from app.core.config import get_settings
+from app.services.retriever_service import get_embeddings
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
+def make_text_splitter() -> RecursiveCharacterTextSplitter:
+    """Chunking used for the program corpus (shared with scripts/seed_catalog.py)."""
+    return RecursiveCharacterTextSplitter(
+        chunk_size=1000,
+        chunk_overlap=200,
+        length_function=len,
+    )
+
+
 class DataIngestionService:
     def __init__(self):
         """Initialize the data ingestion service with ChromaDB and embeddings."""
-        self.data_dir = "services/data"
-        self.chroma_persist_dir = os.getenv("CHROMA_PERSIST_DIRECTORY")
-        self.collection_name = os.getenv("CHROMA_COLLECTION_NAME")
+        settings = get_settings()
+        self.data_dir = settings.catalog_data_dir
+        self.chroma_persist_dir = settings.chroma_persist_directory
+        self.collection_name = settings.chroma_collection_name
         
-        # Initialize embeddings
-        self.embeddings = OllamaEmbeddings(
-            model=os.getenv("OLLAMA_EMBEDDING_MODEL", "nomic-embed-text")
-        )
+        # Initialize embeddings (same provider/model as the retriever)
+        self.embeddings = get_embeddings(settings)
         
         # Initialize ChromaDB client
         self.client = chromadb.PersistentClient(path=self.chroma_persist_dir)
@@ -37,11 +47,7 @@ class DataIngestionService:
         )
         
         # Text splitter for chunking documents
-        self.text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=1000,
-            chunk_overlap=200,
-            length_function=len,
-        )
+        self.text_splitter = make_text_splitter()
 
     def get_program_files(self) -> List[str]:
         """Get all program requirement file paths."""

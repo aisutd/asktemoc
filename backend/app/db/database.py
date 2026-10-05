@@ -2,19 +2,19 @@
 Database session management and initialization.
 """
 
-import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
+from app.core.config import get_settings
 from app.db.models import Base
 
 # Database URL configuration
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./asktemoc.db")
+DATABASE_URL = get_settings().database_url
 
-# Create engine
+# Create engine (connects lazily, on first use)
 engine = create_engine(
     DATABASE_URL,
-    connect_args={"check_same_thread": False} if "sqlite" in DATABASE_URL else {},
-    echo=os.getenv("DB_ECHO", "false").lower() == "true",
+    connect_args={"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {},
+    echo=get_settings().db_echo,
 )
 
 # Create session factory
