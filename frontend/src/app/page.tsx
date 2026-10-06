@@ -2,10 +2,8 @@ import Background from "@/components/ui/background";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { auth } from "@/auth";
 
-export default async function Home() {
-  const signedIn = !!(await auth())?.user;
+export default function Home() {
   return (
     <div className="relative min-h-screen">
       <Background />
@@ -22,11 +20,7 @@ export default async function Home() {
             className="bg-utd-secondary hover:bg-utd-primary/80 w-full sm:w-auto max-w-40 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-3 sm:py-4 md:py-6 lg:py-8 text-sm sm:text-base md:text-lg"
             asChild
           >
-            {signedIn ? (
-              <Link href="/chat">Get Started</Link>
-            ) : (
-              <Link href="/signin?callbackUrl=%2Fchat">Sign in</Link>
-            )}
+            <Link href="/chat">Get Started</Link>
           </Button>
           <Button
             className="bg-utd-secondary hover:bg-utd-primary/80 sm:w-auto max-w-40 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-3 sm:py-4 md:py-6 lg:py-8 text-sm sm:text-base md:text-lg"
