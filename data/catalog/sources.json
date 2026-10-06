@@ -1,0 +1,454 @@
+{
+  "ba_in_biology_and_criminology_double_major": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/biology-criminology",
+    "title": "BA in Biology and Criminology (Double Major)"
+  },
+  "ba_in_criminology_and_biology_double_major": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/epps/criminology-biology",
+    "title": "BA in Criminology and Biology (Double Major)"
+  },
+  "ba_in_education_7_12_social_studies_with_a_concentration_in_economics": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/is/education-712-ss-economics",
+    "title": "BA in Education - 7-12 Social Studies with a concentration in Economics"
+  },
+  "ba_in_education_7_12_social_studies_with_a_concentration_in_geography": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/is/education-712-ss-geography",
+    "title": "BA in Education - 7-12 Social Studies with a concentration in Geography"
+  },
+  "ba_in_education_7_12_social_studies_with_a_concentration_in_government": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/is/education-712-ss-government",
+    "title": "BA in Education - 7-12 Social Studies with a concentration in Government"
+  },
+  "ba_in_education_7_12_social_studies_with_a_concentration_in_history": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/is/education-712-ss-history",
+    "title": "BA in Education - 7-12 Social Studies with a concentration in History"
+  },
+  "ba_in_literature_creative_writing_concentration": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/literature-creative-writing",
+    "title": "BA in Literature - Creative Writing Concentration"
+  },
+  "ba_in_literature_pre_law_concentration": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/literature-pre-law",
+    "title": "BA in Literature - Pre-Law Concentration"
+  },
+  "ba_in_literature_professional_and_technical_writing_concentration": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/literature-professional-and-technical-writing",
+    "title": "BA in Literature - Professional and Technical Writing Concentration"
+  },
+  "ba_in_literature_spanish_concentration": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/literature-spanish",
+    "title": "BA in Literature - Spanish Concentration"
+  },
+  "ba_in_media_arts_and_design_critical_media_studies_concentration": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/atec-critical-media-studies",
+    "title": "BA in Media Arts and Design - Critical Media Studies Concentration"
+  },
+  "ba_in_media_arts_and_design_emerging_media_arts_concentration": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/atec-emerging-media-arts",
+    "title": "BA in Media Arts and Design - Emerging Media Arts Concentration"
+  },
+  "ba_in_visual_and_performing_arts_art_history_concentration": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/visual-and-performing-arts-art-history",
+    "title": "BA in Visual and Performing Arts - Art History Concentration"
+  },
+  "ba_in_visual_and_performing_arts_communication_studies_concentration": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/visual-and-performing-arts-communication",
+    "title": "BA in Visual and Performing Arts - Communication Studies Concentration"
+  },
+  "ba_in_visual_and_performing_arts_dance_concentration": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/visual-and-performing-arts-dance",
+    "title": "BA in Visual and Performing Arts - Dance Concentration"
+  },
+  "ba_in_visual_and_performing_arts_film_concentration": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/visual-and-performing-arts-film",
+    "title": "BA in Visual and Performing Arts - Film Concentration"
+  },
+  "ba_in_visual_and_performing_arts_music_concentration": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/visual-and-performing-arts-music",
+    "title": "BA in Visual and Performing Arts - Music Concentration"
+  },
+  "ba_in_visual_and_performing_arts_photo_video_digital_concentration": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/visual-and-performing-arts-photo-video-digital",
+    "title": "BA in Visual and Performing Arts - Photo Video Digital Concentration"
+  },
+  "ba_in_visual_and_performing_arts_theatre_concentration": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/visual-and-performing-arts-theatre",
+    "title": "BA in Visual and Performing Arts - Theatre Concentration"
+  },
+  "ba_in_visual_and_performing_arts_visual_arts_concentration": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/visual-and-performing-arts-visual-arts",
+    "title": "BA in Visual and Performing Arts - Visual Arts Concentration"
+  },
+  "bachelor_of_arts_in_american_studies": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/is/american-studies",
+    "title": "Bachelor of Arts in American Studies"
+  },
+  "bachelor_of_arts_in_animation_and_games": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/animation-and-games",
+    "title": "Bachelor of Arts in Animation and Games"
+  },
+  "bachelor_of_arts_in_biology": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/biology",
+    "title": "Bachelor of Arts in Biology"
+  },
+  "bachelor_of_arts_in_chemistry": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/chemistry",
+    "title": "Bachelor of Arts in Chemistry"
+  },
+  "bachelor_of_arts_in_criminology": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/epps/criminology",
+    "title": "Bachelor of Arts in Criminology"
+  },
+  "bachelor_of_arts_in_economics": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/epps/economics",
+    "title": "Bachelor of Arts in Economics"
+  },
+  "bachelor_of_arts_in_education": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/is/education",
+    "title": "Bachelor of Arts in Education"
+  },
+  "bachelor_of_arts_in_history": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/history",
+    "title": "Bachelor of Arts in History"
+  },
+  "bachelor_of_arts_in_interdisciplinary_studies": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/is/interdisciplinary-studies",
+    "title": "Bachelor of Arts in Interdisciplinary Studies"
+  },
+  "bachelor_of_arts_in_international_political_economy": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/epps/international-political-economy",
+    "title": "Bachelor of Arts in International Political Economy"
+  },
+  "bachelor_of_arts_in_latin_american_studies": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/latin-american-studies",
+    "title": "Bachelor of Arts in Latin American Studies"
+  },
+  "bachelor_of_arts_in_literature": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/literature",
+    "title": "Bachelor of Arts in Literature"
+  },
+  "bachelor_of_arts_in_mathematics": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/mathematics",
+    "title": "Bachelor of Arts in Mathematics"
+  },
+  "bachelor_of_arts_in_media_arts_and_design": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/atec",
+    "title": "Bachelor of Arts in Media Arts and Design"
+  },
+  "bachelor_of_arts_in_philosophy": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/philosophy",
+    "title": "Bachelor of Arts in Philosophy"
+  },
+  "bachelor_of_arts_in_physics": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/physics",
+    "title": "Bachelor of Arts in Physics"
+  },
+  "bachelor_of_arts_in_political_science": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/epps/political-science",
+    "title": "Bachelor of Arts in Political Science"
+  },
+  "bachelor_of_arts_in_public_health": {
+    "url": "https://catalog.utdallas.edu/2025-undergraduate/programs/epps/public-health",
+    "title": "Bachelor of Arts in Public Health"
+  },
+  "bachelor_of_arts_in_sociology": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/epps/sociology",
+    "title": "Bachelor of Arts in Sociology"
+  },
+  "bachelor_of_arts_in_visual_and_performing_arts": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/visual-and-performing-arts-interdisciplinary-arts",
+    "title": "Bachelor of Arts in Visual and Performing Arts"
+  },
+  "bachelor_of_science_in_accounting": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/accounting",
+    "title": "Bachelor of Science in Accounting"
+  },
+  "bachelor_of_science_in_actuarial_science": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/actuarial-science",
+    "title": "Bachelor of Science in Actuarial Science"
+  },
+  "bachelor_of_science_in_biochemistry": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/biochemistry",
+    "title": "Bachelor of Science in Biochemistry"
+  },
+  "bachelor_of_science_in_biomedical_engineering": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/ecs/biomedical-engineering",
+    "title": "Bachelor of Science in Biomedical Engineering"
+  },
+  "bachelor_of_science_in_biomedical_sciences": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/biomedical-sciences",
+    "title": "Bachelor of Science in Biomedical Sciences"
+  },
+  "bachelor_of_science_in_business_administration": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/business-administration",
+    "title": "Bachelor of Science in Business Administration"
+  },
+  "bachelor_of_science_in_business_analytics_and_artificial_intelligence": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/business-analytics",
+    "title": "Bachelor of Science in Business Analytics and Artificial Intelligence"
+  },
+  "bachelor_of_science_in_child_learning_and_development": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/bbs/child-learning-and-development",
+    "title": "Bachelor of Science in Child Learning and Development"
+  },
+  "bachelor_of_science_in_cognitive_science": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/bbs/cognitive-science",
+    "title": "Bachelor of Science in Cognitive Science"
+  },
+  "bachelor_of_science_in_computational_and_geospatial_science": {
+    "url": "https://catalog.utdallas.edu/2025-undergraduate/programs/ecs/computational-and-geospatial-sciences",
+    "title": "Bachelor of Science in Computational and Geospatial Science"
+  },
+  "bachelor_of_science_in_computer_engineering": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/ecs/computer-engineering",
+    "title": "Bachelor of Science in Computer Engineering"
+  },
+  "bachelor_of_science_in_computer_information_systems_and_technology": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/computer-information-systems-and-technology",
+    "title": "Bachelor of Science in Computer Information Systems and Technology"
+  },
+  "bachelor_of_science_in_computer_science": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/ecs/computer-science",
+    "title": "Bachelor of Science in Computer Science"
+  },
+  "bachelor_of_science_in_cybersecurity_and_risk_management": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/cybersecurity-and-risk-management",
+    "title": "Bachelor of Science in Cybersecurity and Risk Management"
+  },
+  "bachelor_of_science_in_data_science": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/ecs/data-science",
+    "title": "Bachelor of Science in Data Science"
+  },
+  "bachelor_of_science_in_electrical_engineering": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/ecs/electrical-engineering",
+    "title": "Bachelor of Science in Electrical Engineering"
+  },
+  "bachelor_of_science_in_finance": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/finance",
+    "title": "Bachelor of Science in Finance"
+  },
+  "bachelor_of_science_in_geosciences": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/geosciences",
+    "title": "Bachelor of Science in Geosciences"
+  },
+  "bachelor_of_science_in_geospatial_information_sciences": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/epps/geospatial-information-science",
+    "title": "Bachelor of Science in Geospatial Information Sciences"
+  },
+  "bachelor_of_science_in_global_business": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/global-business",
+    "title": "Bachelor of Science in Global Business"
+  },
+  "bachelor_of_science_in_healthcare_management": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/healthcare-management",
+    "title": "Bachelor of Science in Healthcare Management"
+  },
+  "bachelor_of_science_in_healthcare_studies": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/is/healthcare",
+    "title": "Bachelor of Science in Healthcare Studies"
+  },
+  "bachelor_of_science_in_human_resource_management": {
+    "url": "https://catalog.utdallas.edu/2025-undergraduate/programs/jsom/human-resource-management",
+    "title": "Bachelor of Science in Human Resource Management"
+  },
+  "bachelor_of_science_in_marketing": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/marketing",
+    "title": "Bachelor of Science in Marketing"
+  },
+  "bachelor_of_science_in_mechanical_engineering": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/ecs/mechanical-engineering",
+    "title": "Bachelor of Science in Mechanical Engineering"
+  },
+  "bachelor_of_science_in_molecular_biology": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/molecular-biology",
+    "title": "Bachelor of Science in Molecular Biology"
+  },
+  "bachelor_of_science_in_neuroscience": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/bbs/neuroscience",
+    "title": "Bachelor of Science in Neuroscience"
+  },
+  "bachelor_of_science_in_psychology": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/bbs/psychology",
+    "title": "Bachelor of Science in Psychology"
+  },
+  "bachelor_of_science_in_public_affairs": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/epps/public-affairs",
+    "title": "Bachelor of Science in Public Affairs"
+  },
+  "bachelor_of_science_in_public_policy": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/epps/public-policy",
+    "title": "Bachelor of Science in Public Policy"
+  },
+  "bachelor_of_science_in_software_engineering": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/ecs/software-engineering",
+    "title": "Bachelor of Science in Software Engineering"
+  },
+  "bachelor_of_science_in_speech_language_and_hearing_sciences": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/bbs/speech-language-and-hearing-sciences",
+    "title": "Bachelor of Science in Speech, Language, and Hearing Sciences"
+  },
+  "bachelor_of_science_in_supply_chain_management_and_analytics": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/supply-chain-management",
+    "title": "Bachelor of Science in Supply Chain Management and Analytics"
+  },
+  "bachelor_of_science_in_systems_engineering": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/ecs/systems-engineering",
+    "title": "Bachelor of Science in Systems Engineering"
+  },
+  "bachelor_of_sustainability_planning_and_policy": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/epps/sustainability-planning-and-policy",
+    "title": "Bachelor of Sustainability Planning and Policy"
+  },
+  "bs_in_biology_and_healthcare_management_double_major": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/biology-healthcare-management",
+    "title": "BS in Biology and Healthcare Management (Double Major)"
+  },
+  "bs_in_business_analytics_and_artificial_intelligence_and_supply_chain_management_and_analytics_double_major": {
+    "url": "https://catalog.utdallas.edu/2025-undergraduate/programs/jsom/business-analytics-supply-chain-management",
+    "title": "BS in Business Analytics and Artificial Intelligence and Supply Chain Management and Analytics (Double Major)"
+  },
+  "bs_in_economics_and_finance_double_major": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/epps/economics-finance",
+    "title": "BS in Economics and Finance (Double Major)"
+  },
+  "bs_in_finance_and_economics_double_major": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/finance-economics",
+    "title": "BS in Finance and Economics (Double Major)"
+  },
+  "bs_in_global_business_and_human_resource_management_double_major": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/global-business-human-resource-management",
+    "title": "BS in Global Business and Human Resource Management (Double Major)"
+  },
+  "bs_in_global_business_and_international_political_economy_double_major": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/global-business-international-political-economy",
+    "title": "BS in Global Business and International Political Economy (Double Major)"
+  },
+  "bs_in_global_business_and_marketing_double_major": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/global-business-marketing",
+    "title": "BS in Global Business and Marketing (Double Major)"
+  },
+  "bs_in_global_business_and_supply_chain_management_and_analytics_double_major": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/global-business-supply-chain-management",
+    "title": "BS in Global Business and Supply Chain Management and Analytics (Double Major)"
+  },
+  "bs_in_healthcare_management_and_biology_double_major": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/healthcare-management-biology",
+    "title": "BS in Healthcare Management and Biology (Double Major)"
+  },
+  "bs_in_healthcare_management_and_molecular_biology_double_major": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/healthcare-management-molecular-biology",
+    "title": "BS in Healthcare Management and Molecular Biology (Double Major)"
+  },
+  "bs_in_international_political_economy_and_global_business_double_major": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/epps/international-political-economy-global-business",
+    "title": "BS in International Political Economy and Global Business (Double Major)"
+  },
+  "bs_in_marketing_and_supply_chain_management_and_analytics_double_major": {
+    "url": "https://catalog.utdallas.edu/2025-undergraduate/programs/jsom/marketing-supply-chain-management",
+    "title": "BS in Marketing and Supply Chain Management and Analytics (Double Major)"
+  },
+  "bs_in_molecular_biology_and_healthcare_management_double_major": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/molecular-biology-healthcare-management",
+    "title": "BS in Molecular Biology and Healthcare Management (Double Major)"
+  },
+  "certificate_in_applied_experience_design_and_research": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/certificates#cert-applied-experience-design-and-research",
+    "title": "Certificate in Applied Experience Design and Research"
+  },
+  "certificate_in_behavioral_research_methods": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/bbs/certificates#cert-in-user-behavioral-research-methods",
+    "title": "Certificate in Behavioral Research Methods"
+  },
+  "certificate_in_biobehavioral_data_science": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/bbs/certificates#cert-in-user-biobehavioral-data-science",
+    "title": "Certificate in Biobehavioral Data Science"
+  },
+  "certificate_in_biomedical_data_analytics": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/mathematics#certificate-in-biomedical-data-analytics",
+    "title": "Certificate in Biomedical Data Analytics"
+  },
+  "certificate_in_biomedical_sciences": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/biomedical-sciences-certificate",
+    "title": "Certificate in Biomedical Sciences"
+  },
+  "certificate_in_compassionate_law_enforcement_active_response_clear": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/epps/certificates",
+    "title": "Certificate in Compassionate Law Enforcement Active Response (CLEAR)"
+  },
+  "certificate_in_creative_writing": {
+    "url": "https://catalog.utdallas.edu/2025-undergraduate/programs/aht/certificates#cert-in-creative-writing",
+    "title": "Certificate in Creative Writing"
+  },
+  "certificate_in_cyber_defense": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/ecs/certificates#certificate-cyber-defense",
+    "title": "Certificate in Cyber Defense"
+  },
+  "certificate_in_data_science": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/data-science#certificate-in-data-science",
+    "title": "Certificate in Data Science"
+  },
+  "certificate_in_geophysics": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/geosciences#certificate-in-geophysics",
+    "title": "Certificate in Geophysics"
+  },
+  "certificate_in_holocaust_genocide_and_human_rights": {
+    "url": "https://catalog.utdallas.edu/2025-undergraduate/programs/aht/certificates#cert-in-holocaust-genocide-and-human-rights",
+    "title": "Certificate in Holocaust, Genocide, and Human Rights"
+  },
+  "certificate_in_innovation_and_entrepreneurship": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/jsom/certificates",
+    "title": "Certificate in Innovation and Entrepreneurship"
+  },
+  "certificate_in_intercultural_communication": {
+    "url": "https://catalog.utdallas.edu/2025-undergraduate/programs/aht/certificates#cert-in-intercultural-communication",
+    "title": "Certificate in Intercultural Communication"
+  },
+  "certificate_in_legal_research_and_writing": {
+    "url": "https://catalog.utdallas.edu/2025-undergraduate/programs/aht/certificates#cert-in-legal-research-and-writing",
+    "title": "Certificate in Legal Research and Writing"
+  },
+  "certificate_in_military_science_leadership": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/epps/certificates#certificate-in-military-science-leadership",
+    "title": "Certificate in Military Science Leadership"
+  },
+  "certificate_in_nanoscience_and_nanotechnology": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/ecs/certificates#certificate-nanoscience-and-nanotech",
+    "title": "Certificate in Nanoscience and Nanotechnology"
+  },
+  "certificate_in_neural_net_math": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/bbs/certificates#cert-in-user-neural-net-math",
+    "title": "Certificate in Neural Net Math"
+  },
+  "certificate_in_professional_communication": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/certificates#cert-in-professional-communication",
+    "title": "Certificate in Professional Communication"
+  },
+  "certificate_in_public_service_and_civic_leadership": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/epps/certificates#certificate-in-public-service-civic-leadership",
+    "title": "Certificate in Public Service and Civic Leadership"
+  },
+  "certificate_in_quantum_information": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/physics#certificate-in-quantum-information",
+    "title": "Certificate in Quantum Information"
+  },
+  "certificate_in_semiconductor_technology": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/ecs/certificates#certificate-semiconductor-technology",
+    "title": "Certificate in Semiconductor Technology"
+  },
+  "certificate_in_sustainable_earth_and_environment": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/nsm/geosciences#certificate-in-sustainable-earth-and-environment",
+    "title": "Certificate in Sustainable Earth and Environment"
+  },
+  "certificate_in_sustainable_energy_engineering": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/ecs/certificates#certificate-sustainable-energy",
+    "title": "Certificate in Sustainable Energy Engineering"
+  },
+  "certificate_in_user_experience_ux_research": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/bbs/certificates#cert-in-user-experience-ux-research",
+    "title": "Certificate in User Experience (UX) Research"
+  },
+  "professional_communication_and_digital_media_studies": {
+    "url": "https://catalog.utdallas.edu/2025/undergraduate/programs/aht/professional-communication-and-digital-media-studies",
+    "title": "Professional Communication and Digital Media Studies"
+  }
+}

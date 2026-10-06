@@ -13,6 +13,7 @@ import {
   type SourceMeta,
   splitInlineCitations,
 } from "@/lib/citations";
+import { splitInlineMarkdown } from "@/lib/markdown";
 import type { Message } from "@/types";
 
 const PILL_LABEL_MAX = 80;
@@ -86,6 +87,36 @@ function CitationPill({
   );
 }
 
+function InlineMarkdown({ text }: { text: string }) {
+  return (
+    <>
+      {splitInlineMarkdown(text).map((seg, i) => {
+        switch (seg.type) {
+          case "strong":
+            return (
+              <strong key={i} className="font-semibold">
+                {seg.text}
+              </strong>
+            );
+          case "em":
+            return <em key={i}>{seg.text}</em>;
+          case "code":
+            return (
+              <code
+                key={i}
+                className="rounded bg-utd-primary/10 px-1 py-0.5 font-mono text-[0.9em]"
+              >
+                {seg.text}
+              </code>
+            );
+          default:
+            return <span key={i}>{seg.text}</span>;
+        }
+      })}
+    </>
+  );
+}
+
 export function AssistantFormattedText({
   text,
   content,
@@ -100,7 +131,7 @@ export function AssistantFormattedText({
     <>
       {segments.map((seg, i) =>
         seg.type === "text" ? (
-          <span key={i}>{seg.text}</span>
+          <InlineMarkdown key={i} text={seg.text} />
         ) : (
           <CitationPill
             key={i}

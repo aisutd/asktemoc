@@ -1,61 +1,37 @@
-# UTD Catalog Scraper
+# Ask Temoc API
 
-A Python web scraper using Playwright to extract program requirements and example degree plans from the UTD undergraduate catalog.
+FastAPI service behind the Ask Temoc web app: a LangChain RAG chain over a
+Chroma collection seeded from `data/catalog/`, streamed as server-sent events.
+For setup, see the [root README](../README.md).
 
-## Installation
+## Layout
 
-1. Install Python dependencies:
-```bash
-pip install -r requirements.txt
+```
+app/
+  main.py                    app, CORS, routers
+  core/config.py             all settings (env + backend/.env), see .env.example
+  api/endpoints/rag_endpoint.py   POST /api/chat (SSE)
+  api/endpoints/health.py         GET /api/health
+  services/rag_chain_service.py   the RAG chain (built lazily)
+  services/retriever_service.py   Chroma retriever + shared embeddings factory
+  db/                        SQLAlchemy models and services
+scripts/seed_catalog.py      load data/catalog into Chroma (idempotent)
+scrapers/catalog/            Playwright catalog scraper + sources.json builder
+tests/                       pytest suite (offline)
 ```
 
-2. Install Playwright browsers:
-```bash
-playwright install
-```
+## Requirements files
 
-## Usage
+| File | For |
+| --- | --- |
+| `requirements.txt` | running the API and the seed script (the Dockerfile uses it) |
+| `requirements-dev.txt` | the above plus pytest |
+| `requirements-scrape.txt` | scrapers and the Crawl4AI/docling ingestion experiments |
 
-### Basic Usage
-
-```python
-from scraper import UTDCatalogScraper
-
-scraper = UTDCatalogScraper()
-await scraper.scrape()
-```
-
-### With Configuration
-
-```python
-scraper = UTDCatalogScraper(
-    max_pages=10,          # Limit to 10 pages
-    rate_limit=2.0,        # 2 second delay between requests
-    max_parallel=5,        # 5 concurrent browser instances
-    output_dir="./data"    # Custom output directory
-)
-await scraper.scrape()
-```
-
-### Testing with Single Page
+## Common commands (from `backend/`, venv active)
 
 ```bash
-python test_scraper.py
+python scripts/seed_catalog.py              # seed / re-seed the vector store
+uvicorn app.main:app --reload --port 8000   # run the API
+python -m pytest                            # tests
 ```
-
-## Configuration Options
-
-- `max_pages`: Limit number of pages to scrape (None for all)
-- `rate_limit`: Delay between requests in seconds (default: 1.0)
-- `max_parallel`: Number of concurrent browser instances (default: 3)
-- `output_dir`: Output directory path (default: `./output`)
-
-## Output Structure
-
-```
-output/
-  {major_name}/
-    requirements.txt
-    example.txt
-```
-

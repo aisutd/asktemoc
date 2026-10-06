@@ -1,0 +1,4 @@
+# Test tooling. Install on top of requirements.txt.
+-r requirements.txt
+pytest>=8,<10
+httpx>=0.27

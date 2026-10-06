@@ -1,0 +1,48 @@
+# API in Docker; the Next.js frontend runs on the host with `npm run dev`.
+#
+#   docker compose up --build api                                   # start the API
+#   docker compose run --rm api python scripts/seed_catalog.py      # seed (once)
+#
+# Optional Ollama container instead of a host install:
+#   DOCKER_OLLAMA_BASE_URL=http://ollama:11434 docker compose --profile ollama up --build
+#   docker compose exec ollama ollama pull llama3.1:8b
+#   docker compose exec ollama ollama pull nomic-embed-text
+
+services:
+  api:
+    build: ./backend
+    env_file:
+      - path: ./backend/.env
+        required: false
+    environment:
+      # Container paths override the host-relative defaults in backend/.env.
+      DATABASE_URL: sqlite:////var/lib/asktemoc/asktemoc.db
+      CHROMA_PERSIST_DIRECTORY: /var/lib/asktemoc/chroma_db
+      CATALOG_DATA_DIR: /data/catalog
+      # Reach Ollama on the host by default (localhost inside the container is
+      # the container itself).
+      OLLAMA_BASE_URL: ${DOCKER_OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+    ports:
+      - "8000:8000"
+    volumes:
+      - api-data:/var/lib/asktemoc
+      - ./data:/data:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  ollama:
+    image: ollama/ollama
+    profiles: ["ollama"]
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+
+volumes:
+  api-data:
+  ollama-models:
