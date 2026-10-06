@@ -10,7 +10,7 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Annotated, Literal, Optional
 
-from pydantic import field_validator, model_validator
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 
 BACKEND_DIR = Path(__file__).resolve().parents[2]
@@ -53,47 +53,17 @@ class Settings(BaseSettings):
     # Comma-separated in the environment.
     cors_origins: Annotated[list[str], NoDecode] = ["http://localhost:3000"]
 
-    # Auth: the Next.js server mints short-lived HS256 tokens for the signed-in
-    # user; the API verifies them with the shared secret.
-    backend_jwt_secret: Optional[str] = None
-    jwt_audience: str = "asktemoc-api"
-    jwt_issuer: str = "asktemoc-web"
-    jwt_leeway_seconds: int = 30
-    allowed_email_domain: str = "utdallas.edu"
-    # Extra individual addresses, honoured only when ENVIRONMENT=development.
-    allowed_emails: Annotated[list[str], NoDecode] = []
-    # Development-only escape hatch: every request acts as a fixed dev user.
-    auth_disabled: bool = False
-
-    @field_validator("cors_origins", "allowed_emails", mode="before")
+    @field_validator("cors_origins", mode="before")
     @classmethod
-    def _split_csv(cls, v):
+    def _split_origins(cls, v):
         if isinstance(v, str):
             return [o.strip() for o in v.split(",") if o.strip()]
         return v
 
-    @field_validator("allowed_emails")
-    @classmethod
-    def _lower_emails(cls, v: list[str]) -> list[str]:
-        return [e.lower() for e in v]
-
-    @field_validator("openai_api_key", "backend_jwt_secret", mode="before")
+    @field_validator("openai_api_key", mode="before")
     @classmethod
     def _blank_is_none(cls, v):
         return v or None
-
-    @model_validator(mode="after")
-    def _check_auth(self):
-        if self.auth_disabled and not self.is_development:
-            raise ValueError(
-                "AUTH_DISABLED=true is only allowed with ENVIRONMENT=development "
-                f"(ENVIRONMENT={self.environment!r}); refusing to start"
-            )
-        if self.backend_jwt_secret is not None and len(self.backend_jwt_secret) < 32:
-            raise ValueError("BACKEND_JWT_SECRET must be at least 32 characters")
-        if not self.auth_disabled and self.backend_jwt_secret is None and not self.is_development:
-            raise ValueError("BACKEND_JWT_SECRET is required outside development")
-        return self
 
     @field_validator("chroma_persist_directory", "catalog_data_dir")
     @classmethod
@@ -107,10 +77,6 @@ class Settings(BaseSettings):
         if v.startswith(prefix) and v != "sqlite:///:memory:":
             return prefix + Path(_resolve(v[len(prefix):])).as_posix()
         return v
-
-    @property
-    def is_development(self) -> bool:
-        return self.environment.lower() == "development"
 
     @property
     def llm_provider(self) -> Literal["openai", "ollama"]:

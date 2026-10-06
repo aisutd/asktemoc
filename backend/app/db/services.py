@@ -6,8 +6,7 @@ from typing import List, Optional, Dict, Any
 from datetime import datetime
 from sqlalchemy.orm import Session
 from sqlalchemy import and_, or_
-from sqlalchemy.exc import IntegrityError
-from app.db.models import Document, Chunk, Embedding, User
+from app.db.models import Document, Chunk, Embedding
 import uuid
 
 
@@ -335,45 +334,3 @@ class EmbeddingService:
             .filter(Embedding.id.in_(embedding_ids))
             .all()
         )
-
-
-class UserService:
-    """Service for users who sign in through the web app."""
-
-    @staticmethod
-    def upsert_user(
-        db: Session, provider_sub: str, email: str, name: Optional[str] = None
-    ) -> User:
-        """
-        Create the user on first sight, otherwise refresh name and last_seen_at.
-
-        Looked up by provider_sub, then by email: the same person signing in
-        through a second provider (Entra vs Google) keeps one row, re-keyed to
-        the latest provider account.
-        """
-        try:
-            return UserService._upsert(db, provider_sub, email.lower(), name)
-        except IntegrityError:
-            # A concurrent first request inserted the row; update it instead.
-            db.rollback()
-            return UserService._upsert(db, provider_sub, email.lower(), name)
-
-    @staticmethod
-    def _upsert(db: Session, provider_sub: str, email: str, name: Optional[str]) -> User:
-        user = db.query(User).filter(User.provider_sub == provider_sub).first()
-        if user is None:
-            user = db.query(User).filter(User.email == email).first()
-        now = datetime.utcnow()
-        if user is None:
-            user = User(provider_sub=provider_sub, email=email, name=name,
-                        created_at=now, last_seen_at=now)
-            db.add(user)
-        else:
-            user.provider_sub = provider_sub
-            user.email = email
-            if name:
-                user.name = name
-            user.last_seen_at = now
-        db.commit()
-        db.refresh(user)
-        return user
