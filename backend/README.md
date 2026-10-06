@@ -10,12 +10,11 @@ For setup, see the [root README](../README.md).
 app/
   main.py                    app, CORS, routers
   core/config.py             all settings (env + backend/.env), see .env.example
-  core/auth.py               bearer-token verification, get_current_user
   api/endpoints/rag_endpoint.py   POST /api/chat (SSE)
   api/endpoints/health.py         GET /api/health
   services/rag_chain_service.py   the RAG chain (built lazily)
   services/retriever_service.py   Chroma retriever + shared embeddings factory
-  db/                        SQLAlchemy models (incl. users) and services
+  db/                        SQLAlchemy models and services
 scripts/seed_catalog.py      load data/catalog into Chroma (idempotent)
 scrapers/catalog/            Playwright catalog scraper + sources.json builder
 tests/                       pytest suite (offline)

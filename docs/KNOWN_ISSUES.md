@@ -1,27 +1,30 @@
 # Known issues
 
 These were noticed while building the runnable baseline and deliberately left
-for the 10-week plan, because they don't block cloning, signing in and getting
+for the 10-week plan, because they don't block cloning, running and getting
 an answer. They're grouped by area and roughly by priority within each group.
 
 ## Security
 
-- **Admin routes are unauthenticated.** Anyone who can reach the API can create,
-  modify or delete records and vectors through `/api/documents/*`,
-  `/api/chroma/*` (including `DELETE /api/chroma/vectors`) and
-  `/api/dashboard/*`. Only `POST /api/chat` requires a token. Before the API is
-  exposed beyond the team, put these behind `get_current_user` plus an
-  admin/role check, or remove them.
-- **`POST /api/query/` is a placeholder.** It ignores the question, asks a
-  hard-coded Ollama model for the capital of a random country, and is
-  unauthenticated.
-- **The deployed Cloud Run API is open.** The currently deployed API predates
-  this branch and accepts unauthenticated chat until it's redeployed from here.
-- **No rate limiting or quotas** on `/api/chat`. Any signed-in user can drive
-  unbounded OpenAI spend.
-- **One user row per email.** Users are matched by `provider_sub`, then by
-  email. If someone's email changes to an address another row already holds,
-  the upsert hits the unique constraint and the request fails with a 500.
+- **No sign-in.** Anyone who can reach the web app or the API can chat, and the
+  API's cost is unbounded. App-level sign-in is the 10-week plan's Weeks 2-4
+  assignment. Until then, the deployed web app relies on Vercel Deployment
+  Protection, and the API on its URL not being shared. An earlier
+  implementation (Auth.js plus API tokens and a users table) is preserved on the
+  `reference/auth-oauth` branch.
+- **UTD email is Microsoft 365, not Google.** Google OAuth restricted to
+  utdallas.edu won't work for most students, who have no Google account on
+  that domain.
+- **Admin routes are open too.** `/api/documents/*`, `/api/chroma/*` (including
+  `DELETE /api/chroma/vectors`) and `/api/dashboard/*` let anyone create,
+  modify or delete records and vectors. Put them behind auth plus an admin
+  check, or remove them, before the API is exposed beyond the team.
+- **`POST /api/query/` is a placeholder.** It ignores the question and asks a
+  hard-coded Ollama model for the capital of a random country.
+- **No rate limiting or quotas** on `/api/chat`.
+- **Placeholder 401/403 handling.** In `frontend/src/lib/api.ts`, the 401/403
+  branch only follows a `Location` header. It's replaced as part of the auth
+  work.
 
 ## Backend divergence
 
@@ -83,24 +86,17 @@ an answer. They're grouped by area and roughly by priority within each group.
 
 ## Frontend
 
-- **`next-auth` is pinned to `5.0.0-beta.32`.** Auth.js v5 is still published
-  only as a beta; upgrade deliberately.
 - **npm 11 skips install scripts** for `sharp`, `@tailwindcss/oxide` and
   `unrs-resolver` (the "allow-scripts" warnings). Lint and build pass without
   them; run `npm approve-scripts` if image optimisation misbehaves.
 - **`next start` locally talks to production.** It loads
   `frontend/.env.production`, which points `ASKTEMOC_API_ORIGIN` at Cloud Run.
   Set `ASKTEMOC_API_ORIGIN=http://localhost:8000` to test a production build
-  against a local API. `npm run dev` is unaffected.
+  against a local API. `npm run dev` proxies to the local API by default.
 - **Conversations aren't saved.** They live in React state, with three
   hard-coded sample conversations, and a reload clears them. (Persistence is
   part of the 10-week plan.)
 - **The landing page's "Learn More" button links to `/`.**
-- **An unused profile photo.** The Entra provider fetches the profile photo
-  from Microsoft Graph on every sign-in, but nothing displays it.
-- **Vercel Deployment Protection is redundant.** If it's still enabled on the
-  project, it adds a second login in front of the app's own sign-in. Decide
-  whether to keep it.
 
 ## Repo hygiene
 

@@ -1,8 +1,6 @@
 # Ask Temoc — Web App
 
-Next.js 15 / React 19 chat UI with Auth.js sign-in. For setup, see the
-[root README](../README.md); for providers and secrets, see
-[docs/AUTH_SETUP.md](../docs/AUTH_SETUP.md).
+Next.js 15 / React 19 chat UI. For setup, see the [root README](../README.md).
 
 ## Scripts
 
@@ -12,20 +10,19 @@ Next.js 15 / React 19 chat UI with Auth.js sign-in. For setup, see the
 
 ## How chat reaches the API
 
-The browser only calls this app's own routes:
+The browser calls same-origin `/api/proxy/chat` and `/api/proxy/health`.
+`next.config.ts` rewrites those to `ASKTEMOC_API_ORIGIN`:
 
-- `POST /api/chat` and `GET /api/health` (`src/app/api/*/route.ts`) require a
-  signed-in session. They sign a 5-minute HS256 token for the user with
-  `BACKEND_JWT_SECRET` (`src/lib/backend.ts`), call
-  `${ASKTEMOC_API_ORIGIN}/api/chat`, and stream the SSE response back
-  unbuffered.
-- `/chat` is protected by `src/middleware.ts`. Signed-out visitors go to
-  `/signin`.
-- If the session has expired, `src/lib/api.ts` gets a 401 and sends the user to
-  sign in again.
+- `npm run dev`: `http://localhost:8000` by default (the local API).
+- Production builds and Vercel: the Cloud Run origin, set in `.env.production`
+  and `vercel.json`.
 
-`ASKTEMOC_API_ORIGIN` defaults to `http://localhost:8000`. `.env.production`
-(used by `next build`/`next start` and Vercel) points it at Cloud Run.
+`NEXT_PUBLIC_API_BASE_URL` makes the browser call an API origin directly instead
+of going through the proxy. That needs CORS on the API; never point it at
+localhost in production.
+
+There's no app-level sign-in yet; it's planned for Weeks 2-4 of the 10-week plan.
+In production, Vercel Deployment Protection gates visitors.
 
 ## Response format
 
@@ -44,26 +41,23 @@ Assistant text may embed citations as `[n, "exact quoted text"]`, which
 
 ```
 src/
-  auth.ts               Auth.js config: providers, domain policy, session shape
-  middleware.ts         protects /chat
   app/
     page.tsx            landing page
-    signin/             sign-in page
+    layout.tsx          root layout (Geist fonts via next/font, navbar)
     chat/               chat page, sidebar, message area, citation rendering
-    api/auth/           Auth.js handlers
-    api/chat, api/health  authenticated proxy to the FastAPI backend
-  components/           navbar (session-aware) and shadcn/ui primitives
+  components/           navbar and shadcn/ui primitives
   lib/
-    api.ts              browser chat client + SSE parsing
-    backend.ts          server-only: token minting and response relay
-    auth-policy.ts      allowed-email rule (mirrors the API)
-    citations.ts, markdown.ts
+    api.ts              chat API client + SSE parsing
+    citations.ts        [n, "…"] citation parsing and source resolution
+    markdown.ts         inline markdown (**bold**, *italic*, `code`)
+  types/                shared Message/Conversation types
 ```
 
 Conversations are held in React state only, so a reload clears them.
 
 ## Deploy on Vercel
 
-Run `vercel link` / `vercel deploy` from the **repository root** with the
-project's Root Directory set to `frontend`. For the required environment
-variables, see "Deployment" in the root README.
+Run `vercel link` / `vercel deploy` from the **repository root**, not from
+`frontend/`, with the project's Root Directory set to `frontend`. To require a
+login before the app loads, enable Vercel Authentication under Project →
+Deployment Protection.
