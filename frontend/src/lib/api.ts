@@ -21,11 +21,11 @@ function isProxyBase(base: string): boolean {
 
 /**
  * API origin for chat + health.
- * - Default (dev and production): /api/proxy → Cloud Run (ASKTEMOC_API_ORIGIN in
- *   next.config). The rewrite is served by `next dev` too, so the app works out of
- *   the box without a local API process.
- * - Override: NEXT_PUBLIC_API_BASE_URL (e.g. http://localhost:8000 when running the
- *   API locally, or a direct Cloud Run URL if CORS allows).
+ * - Default: same-origin /api/proxy, rewritten by next.config to ASKTEMOC_API_ORIGIN:
+ *   the local API (http://localhost:8000) under `next dev`, Cloud Run in production
+ *   builds (.env.production / vercel.json).
+ * - Override: NEXT_PUBLIC_API_BASE_URL to call an API origin directly from the
+ *   browser (requires CORS on that API).
  *
  * In production, a mis-set NEXT_PUBLIC_API_BASE_URL pointing at localhost is ignored
  * so Vercel deployments don’t try to call the developer’s laptop from the browser.
