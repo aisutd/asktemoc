@@ -64,3 +64,63 @@ Each question is answerable from the scraped catalog corpus in `test_output/`.
 ## Q15
 **What leadership or ROTC-related programs does UTD's catalog include?**
 *Target doc*: `certificate_in_military_science_leadership/requirements.txt`
+
+## Q16
+**What are the requirements for the BS in Data Science at UTD?**
+*Target doc*: `bachelor_of_science_in_data_science/requirements.txt`
+
+## Q17
+**What courses are required for the BS in Cybersecurity and Risk Management?**
+*Target doc*: `bachelor_of_science_in_cybersecurity_and_risk_management/requirements.txt`
+
+## Q18
+**What does the BS in Software Engineering require compared to the BS in Computer Science?**
+*Target docs*: `bachelor_of_science_in_software_engineering/requirements.txt`, `bachelor_of_science_in_computer_science/requirements.txt`
+
+## Q19
+**What are the requirements for the Certificate in Cyber Defense?**
+*Target doc*: `certificate_in_cyber_defense/requirements.txt`
+
+## Q20
+**What courses are needed for the BS in Biomedical Engineering?**
+*Target doc*: `bachelor_of_science_in_biomedical_engineering/requirements.txt`
+
+## Q21
+**What is the BS in Neuroscience program and what does it require?**
+*Target doc*: `bachelor_of_science_in_neuroscience/requirements.txt`
+
+## Q22
+**What are the requirements for the BA in Economics vs the BS in Finance and Economics double major?**
+*Target docs*: `bachelor_of_arts_in_economics/requirements.txt`, `bs_in_economics_and_finance_double_major/requirements.txt`
+
+## Q23
+**What courses make up the Certificate in Data Science?**
+*Target doc*: `certificate_in_data_science/requirements.txt`
+
+## Q24
+**What does the BS in Mechanical Engineering require?**
+*Target doc*: `bachelor_of_science_in_mechanical_engineering/requirements.txt`
+
+## Q25
+**What programs at UTD focus on sustainability or environmental topics?**
+*Target docs*: `bachelor_of_sustainability_planning_and_policy/`, `certificate_in_sustainable_earth_and_environment/`, `certificate_in_sustainable_energy_engineering/`
+
+## Q26
+**What is the BS in Cognitive Science and what are its core requirements?**
+*Target doc*: `bachelor_of_science_in_cognitive_science/requirements.txt`
+
+## Q27
+**What are the requirements for the Certificate in Innovation and Entrepreneurship?**
+*Target doc*: `certificate_in_innovation_and_entrepreneurship/requirements.txt`
+
+## Q28
+**Does UTD offer a law-related certificate or program, and what does it cover?**
+*Target docs*: `certificate_in_legal_research_and_writing/requirements.txt`, `ba_in_literature_pre_law_concentration/requirements.txt`
+
+## Q29
+**What are the requirements for the BS in Business Analytics and Artificial Intelligence?**
+*Target doc*: `bachelor_of_science_in_business_analytics_and_artificial_intelligence/requirements.txt`
+
+## Q30
+**What programs at UTD combine business with another discipline (double majors or joint degrees)?**
+*Target docs*: `bs_in_global_business_and_marketing_double_major/`, `bs_in_global_business_and_supply_chain_management_and_analytics_double_major/`, `bs_in_business_analytics_and_artificial_intelligence_and_supply_chain_management_and_analytics_double_major/`
