@@ -11,7 +11,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends gcc libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements-deploy.txt .
+COPY deploy/requirements-deploy.txt requirements-deploy.txt
 RUN pip install --upgrade pip && pip install -r requirements-deploy.txt
 
 COPY app ./app
