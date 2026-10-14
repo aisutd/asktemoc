@@ -393,7 +393,6 @@ def ingest(payload: IngestPayload, db: Session = Depends(get_db)):
                     chunk_id=chunk.id,
                     vector=vector,
                     model=model_name,
-                    is_synced=True,
                 )
                 db.add(embedding)
             db.commit()

@@ -66,23 +66,15 @@ class Embedding(Base):
     """
     __tablename__ = "embeddings"
 
-    id = Column(String, primary_key=True, index=True)  # UUID or chroma_id
+    id = Column(String, primary_key=True, index=True)
     chunk_id = Column(String, ForeignKey("chunks.id"), nullable=False, index=True)
     vector = Column(Vector(3072), nullable=True)  # pgvector: text-embedding-3-large dimension
     model = Column(String(100), nullable=True)  # Model used (e.g., "text-embedding-3-large")
-    chroma_id = Column(String(255), nullable=True, index=True)  # Reference to ChromaDB ID (legacy)
-    is_synced = Column(Boolean, default=False, index=True)
     created_at = Column(DateTime, default=datetime.utcnow, index=True)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    last_synced_at = Column(DateTime, nullable=True)
 
     # Relationships
     chunk = relationship("Chunk", back_populates="embeddings")
 
-    __table_args__ = (
-        Index("idx_chroma_id", "chroma_id"),
-        Index("idx_is_synced", "is_synced"),
-    )
-
     def __repr__(self):
-        return f"<Embedding(id={self.id}, chunk_id={self.chunk_id}, chroma_id={self.chroma_id})>"
+        return f"<Embedding(id={self.id}, chunk_id={self.chunk_id})>"

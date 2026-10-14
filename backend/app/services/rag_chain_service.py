@@ -48,7 +48,7 @@ def _get_llm():
 
 
 class RagChainService:
-    """Builds a LangChain RAG graph that retrieves from Postgres/pgvector, not Chroma."""
+    """Builds a LangChain RAG graph that retrieves from Postgres/pgvector."""
 
     def __init__(self):
         self._llm = None

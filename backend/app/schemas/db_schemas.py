@@ -88,7 +88,6 @@ class EmbeddingCreate(BaseModel):
 class EmbeddingUpdate(BaseModel):
     """Schema for updating an embedding."""
     vector: Optional[List[float]] = None
-    chroma_id: Optional[str] = None
 
 
 class EmbeddingResponse(BaseModel):
@@ -96,11 +95,8 @@ class EmbeddingResponse(BaseModel):
     id: str
     chunk_id: str
     model: Optional[str]
-    chroma_id: Optional[str]
-    is_synced: bool
     created_at: datetime
     updated_at: datetime
-    last_synced_at: Optional[datetime]
 
     class Config:
         from_attributes = True
@@ -111,30 +107,6 @@ class BatchChunkCreate(BaseModel):
     """Schema for batch creating chunks."""
     document_id: str
     chunks: List[ChunkCreate]
-
-
-class BatchEmbeddingSync(BaseModel):
-    """Schema for batch syncing embeddings to ChromaDB."""
-    embedding_ids: Optional[List[str]] = None
-    document_id: Optional[str] = None
-    sync_all_unsynced: bool = False
-
-
-# ChromaDB Export Responses
-class ChromaExportResponse(BaseModel):
-    """Response for ChromaDB export operation."""
-    status: str
-    message: Optional[str] = None
-    upserted_count: Optional[int] = None
-    updated_db_count: Optional[int] = None
-    error: Optional[str] = None
-
-
-class ChromaIndexStats(BaseModel):
-    """ChromaDB index statistics."""
-    status: str
-    stats: Optional[Dict[str, Any]] = None
-    error: Optional[str] = None
 
 
 # Search and Query

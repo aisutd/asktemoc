@@ -15,4 +15,3 @@ langchain-ollama>=1.1
 langchain-text-splitters>=1.1
 tiktoken>=0.8
 httpx>=0.28
-chromadb>=0.5

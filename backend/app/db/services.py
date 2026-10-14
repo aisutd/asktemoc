@@ -220,7 +220,6 @@ class EmbeddingService:
         chunk_id: str,
         vector: List[float],
         model: str = "text-embedding-ada-002",
-        chroma_id: Optional[str] = None,
         embedding_id: Optional[str] = None,
     ) -> Embedding:
         """Create a new embedding."""
@@ -229,8 +228,6 @@ class EmbeddingService:
             chunk_id=chunk_id,
             vector=vector,
             model=model,
-            chroma_id=chroma_id,
-            is_synced=False,
         )
         db.add(embedding)
         db.commit()
@@ -253,22 +250,10 @@ class EmbeddingService:
         return db.query(Embedding).filter(Embedding.chunk_id == chunk_id).all()
 
     @staticmethod
-    def list_unsynced_embeddings(db: Session, limit: int = 100) -> List[Embedding]:
-        """List embeddings not yet synced to ChromaDB."""
-        return (
-            db.query(Embedding)
-            .filter(Embedding.is_synced == False)
-            .limit(limit)
-            .all()
-        )
-
-    @staticmethod
     def update_embedding(
         db: Session,
         embedding_id: str,
         vector: Optional[List[float]] = None,
-        chroma_id: Optional[str] = None,
-        is_synced: Optional[bool] = None,
     ) -> Optional[Embedding]:
         """Update an embedding."""
         embedding = EmbeddingService.get_embedding(db, embedding_id)
@@ -277,12 +262,6 @@ class EmbeddingService:
 
         if vector is not None:
             embedding.vector = vector
-        if chroma_id is not None:
-            embedding.chroma_id = chroma_id
-        if is_synced is not None:
-            embedding.is_synced = is_synced
-            if is_synced:
-                embedding.last_synced_at = datetime.utcnow()
 
         embedding.updated_at = datetime.utcnow()
         db.commit()
@@ -301,36 +280,11 @@ class EmbeddingService:
         return True
 
     @staticmethod
-    def mark_synced(
-        db: Session, embedding_id: str, chroma_id: str
-    ) -> Optional[Embedding]:
-        """Mark an embedding as synced to ChromaDB."""
-        embedding = EmbeddingService.get_embedding(db, embedding_id)
-        if not embedding:
-            return None
-
-        embedding.is_synced = True
-        embedding.chroma_id = chroma_id
-        embedding.last_synced_at = datetime.utcnow()
-        db.commit()
-        db.refresh(embedding)
-        return embedding
-
-    @staticmethod
     def get_embeddings_by_document(db: Session, document_id: str) -> List[Embedding]:
         """Retrieve all embeddings for a document."""
         return (
             db.query(Embedding)
             .join(Chunk)
             .filter(Chunk.document_id == document_id)
-            .all()
-        )
-
-    @staticmethod
-    def get_embeddings_by_ids(db: Session, embedding_ids: List[str]) -> List[Embedding]:
-        """Retrieve multiple embeddings by IDs."""
-        return (
-            db.query(Embedding)
-            .filter(Embedding.id.in_(embedding_ids))
             .all()
         )
