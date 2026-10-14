@@ -1,61 +1,73 @@
-# UTD Catalog Scraper
+﻿# AskTemoc Backend
 
-A Python web scraper using Playwright to extract program requirements and example degree plans from the UTD undergraduate catalog.
+FastAPI service for Ask Temoc (pgvector RAG over the UTD catalog, streaming
+`POST /api/chat`). This directory is the full backend imported from
+[AskTemoc_Backend](https://github.com/davis118/AskTemoc_Backend). The previous
+contents of `asktemoc/backend` were catalog-scraper scripts only.
 
-## Installation
+The web app in `../frontend` talks to:
 
-1. Install Python dependencies:
-```bash
-pip install -r requirements.txt
-```
+- `POST /api/chat` — SSE stream (`source`, `text`, `done` / `error`)
+- `GET /api/health/` — liveness
 
-2. Install Playwright browsers:
-```bash
-playwright install
-```
+Copy `.env.example` to `.env` and set at least `DATABASE_URL` (Neon Postgres)
+and `OPENAI_API_KEY`. For the API only, `pip install -r requirements-deploy.txt`
+is enough; `requirements.txt` is the full scrape/dev freeze.
 
-## Usage
+---
 
-### Basic Usage
+### Requirements
 
-```python
-from scraper import UTDCatalogScraper
+- Python 3.13+
+- [`ollama`](https://ollama.com/) installed and running (optional local LLM; OpenAI is the default)
+- `pip` (Python package installer)
+- Git
 
-scraper = UTDCatalogScraper()
-await scraper.scrape()
-```
+---
 
-### With Configuration
+### Setup
 
-```python
-scraper = UTDCatalogScraper(
-    max_pages=10,          # Limit to 10 pages
-    rate_limit=2.0,        # 2 second delay between requests
-    max_parallel=5,        # 5 concurrent browser instances
-    output_dir="./data"    # Custom output directory
-)
-await scraper.scrape()
-```
-
-### Testing with Single Page
+From this directory:
 
 ```bash
-python test_scraper.py
+python3.13 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements-deploy.txt
+cp .env.example .env      # then fill in DATABASE_URL and OPENAI_API_KEY
 ```
 
-## Configuration Options
+Ollama is optional (`LLM_PROVIDER=ollama`). The default is OpenAI.
 
-- `max_pages`: Limit number of pages to scrape (None for all)
-- `rate_limit`: Delay between requests in seconds (default: 1.0)
-- `max_parallel`: Number of concurrent browser instances (default: 3)
-- `output_dir`: Output directory path (default: `./output`)
+---
 
-## Output Structure
+### Run the FastAPI Server
 
-```
-output/
-  {major_name}/
-    requirements.txt
-    example.txt
+```bash
+uvicorn app.main:app --reload
 ```
 
+- Swagger UI: [http://localhost:8000/docs](http://localhost:8000/docs)
+- Chat (what the frontend uses): `POST /api/chat` with `{"message": "..."}`
+- Legacy non-streaming query: `POST /api/query/` with `{"query": "..."}`
+
+---
+
+
+### Webscraper Setup
+If you haven’t already installed the **Crawl4AI** library (it should be listed in `requirements.txt`), run:
+
+```bash
+pip install crawl4ai
+```
+
+After installing dependencies, run:
+
+```bash
+crawl4ai-setup
+```
+
+Then verify the installation with:
+
+```bash
+crawl4ai-doctor
+```

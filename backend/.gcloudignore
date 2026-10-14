@@ -1,0 +1,18 @@
+# Shrink Cloud Build / --source uploads (do not upload scraped corpora)
+.git
+.gcloudignore
+.venv
+venv
+**/__pycache__
+*.pyc
+.env
+.env.*
+.cursor
+logs
+nohup.out
+.pytest_cache
+output
+asktemoc.db
+app/chroma_db
+app/services/data/
+*.md

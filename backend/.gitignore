@@ -1,25 +1,30 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
+/venv
 venv/
-ENV/
-venv
+.venv/
 
-# Output
-output/
-*.log
+__pycache__
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
+*_data*.txt
 
-# OS
-.DS_Store
-Thumbs.db
+t*.py
+test*.ipynb
+/test_*
 
+/pipe*
+
+/school_crawl_output
+
+*_test.*
+*_test*.*
+
+# Keep scraper unit tests even though t*.py / *_test.* would ignore them
+!app/services/scrapers/tests/
+!app/services/scrapers/tests/**
+
+/crawled_content*/
+
+chroma_db/
+.env
+*.env
+asktemoc.db
+app/services/data/general/

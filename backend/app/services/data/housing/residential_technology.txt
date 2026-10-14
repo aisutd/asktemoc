@@ -1,0 +1,57 @@
+URL: https://housing.utdallas.edu/residential-technology
+Title: Residential Technology | University Housing | UTD
+Depth: 1
+
+------------------------------------------------------------
+
+Residential Technology
+
+University Housing provides residents with wireless and wired internet through Boldyn.
+
+Get Connected
+
+Step 1: Download Duo Mobile
+
+Download the Duo Mobile Authentication App on your phone.
+
+Step 2: Access the Online Portal
+
+If connecting for the first time, open your wireless settings and connect to “MyResNet Start Here”.
+If reconnecting, go to Boldyn’s online portal.
+
+Step 3: Sign In
+
+Sign into the portal using your UT Dallas email address and password.
+Accept the Duo notification push.
+Accept Boldyn’s terms and complete your profile.
+Note the Wi-Fi passkey that pops up on your screen.
+To change your password, click “show Wi-Fi password” under the “Add Devices” tab. This is a private password and should not be shared.
+
+Step 4: Connect to the Network
+
+Open your wireless settings on each device you are connecting.
+Connect to MyResNet-5G. (Only connect to MyResNet-2G if you cannot see the 5G network.)
+Enter your Wi-Fi password when prompted.
+Enable the “auto-join” feature.
+
+Step 5: Connecting Other Devices
+
+For a wired device, or a device without a graphical user interface (GUI), login to the portal and manually add the MAC address in the My Devices tab.
+Internet Support
+
+Boldyn provides 24/7 customer support for all of your internet needs.
+
+Call 855-465-6750.
+Live Chat dallasoncampus.hed.boldyn.com.
+Email support.hed@boldyn.com for additional assistance.
+Guest Network
+
+Guests and visitors can connect to the guest network for up to 12 hours.
+
+Step 1: From your device, click on “MyResNet-Start-Here” in your available networks. If the network is not available, go to dallasoncampus.hed.boldyn.com
+
+Step 2: In the new portal, click “Guests and Visitors”.
+
+Step 3: Click “Continue”.
+
+Step 4: Check the box to agree to the terms, then click “Create Guest Account”.
