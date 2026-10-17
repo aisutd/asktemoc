@@ -68,8 +68,8 @@ class Embedding(Base):
 
     id = Column(String, primary_key=True, index=True)  # UUID or chroma_id
     chunk_id = Column(String, ForeignKey("chunks.id"), nullable=False, index=True)
-    vector = Column(Vector(3072), nullable=True)  # pgvector: text-embedding-3-large dimension
-    model = Column(String(100), nullable=True)  # Model used (e.g., "text-embedding-3-large")
+    vector = Column(Vector(1536), nullable=True)  # pgvector: text-embedding-3-small dimension
+    model = Column(String(100), nullable=True)  # Model used (e.g., "text-embedding-3-small")
     chroma_id = Column(String(255), nullable=True, index=True)  # Reference to ChromaDB ID (legacy)
     is_synced = Column(Boolean, default=False, index=True)
     created_at = Column(DateTime, default=datetime.utcnow, index=True)

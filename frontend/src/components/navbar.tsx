@@ -1,12 +1,15 @@
-"use client";
-
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 import { NavigationMenu } from "@/components/ui/navigation-menu";
+import { Button } from "@/components/ui/button";
+import { auth, signOut } from "@/auth";
 
-export default function Navbar() {
+export default async function Navbar() {
+  const session = await auth();
+  const user = session?.user;
+
   return (
     <NavigationMenu
       viewport={false}
@@ -20,6 +23,32 @@ export default function Navbar() {
       >
         Home
       </Link>
+      <div className="ml-auto flex items-center gap-3">
+        {user ? (
+          <>
+            <Link
+              href="/profile"
+              className="text-sm font-medium text-utd-primary hover:underline"
+            >
+              {user.name ?? user.email ?? "Profile"}
+            </Link>
+            <form
+              action={async () => {
+                "use server";
+                await signOut({ redirectTo: "/" });
+              }}
+            >
+              <Button type="submit" variant="outline" size="sm">
+                Sign out
+              </Button>
+            </form>
+          </>
+        ) : (
+          <Button asChild size="sm" className="bg-utd-secondary hover:bg-utd-primary/80 text-white">
+            <Link href="/signin">Sign in</Link>
+          </Button>
+        )}
+      </div>
     </NavigationMenu>
   );
 }

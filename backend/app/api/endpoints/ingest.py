@@ -35,13 +35,13 @@ from app.core.retry_helpers import call_openai_embedding_with_retries
 logger = logging.getLogger(__name__)
 router = APIRouter()
 
-# text-embedding-3-large token limit is 8191 — use ~2000 tokens per chunk
+# text-embedding-3-small token limit is 8191 — use ~2000 tokens per chunk
 # for good retrieval granularity while preserving meaningful context.
 CHUNK_TOKENS = 2000
 CHUNK_OVERLAP_TOKENS = 100
-TIKTOKEN_MODEL = "text-embedding-3-large"
+TIKTOKEN_MODEL = "text-embedding-3-small"
 
-_EMBED_SAFE_MAX_TOKENS = 8000  # below OpenAI 8192 cap for text-embedding-3-large inputs
+_EMBED_SAFE_MAX_TOKENS = 8000  # below OpenAI 8192 cap for text-embedding-3-small inputs
 
 
 # --------------------------------------------------------------------------- #

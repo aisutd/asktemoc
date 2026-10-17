@@ -8,62 +8,22 @@ export interface ChatResponse {
   title?: string;
 }
 
-/** Same-origin proxy path on Vercel (see next.config rewrites). */
-const PROXY_BASE = "/api/proxy";
-
-function isProxyBase(base: string): boolean {
-  const b = base.replace(/\/$/, "");
-  return b === PROXY_BASE || b.endsWith(PROXY_BASE);
-}
-
 /**
- * API origin for chat + health.
- * - Dev default: http://localhost:8000
- * - Production default: /api/proxy → Cloud Run (ASKTEMOC_API_ORIGIN in next.config)
- * - Override: NEXT_PUBLIC_API_BASE_URL (e.g. direct Cloud Run URL if CORS allows)
- *
- * In production, a mis-set NEXT_PUBLIC_API_BASE_URL pointing at localhost is ignored
- * so Vercel deployments don’t try to call the developer’s laptop from the browser.
+ * The browser only talks to this app's own route handlers (src/app/api/*),
+ * which check the Auth.js session and forward to FastAPI with a short-lived JWT.
  */
-export function getChatApiBaseUrl(): string {
-  let explicit = process.env.NEXT_PUBLIC_API_BASE_URL?.trim();
-  if (explicit && process.env.NODE_ENV === "production") {
-    try {
-      const withProto = explicit.includes("://") ? explicit : `http://${explicit}`;
-      const { hostname } = new URL(withProto);
-      if (hostname === "localhost" || hostname === "127.0.0.1") {
-        explicit = "";
-      }
-    } catch {
-      /* keep explicit for values like /api/proxy */
-    }
-  }
-  if (explicit) return explicit.replace(/\/$/, "");
-  if (process.env.NODE_ENV === "development") {
-    return "http://localhost:8000";
-  }
-  return PROXY_BASE;
-}
+const CHAT_ENDPOINT = "/api/chat";
+const HEALTH_ENDPOINT = "/api/health";
 
-function chatEndpoint(): string {
-  const base = getChatApiBaseUrl();
-  if (isProxyBase(base)) {
-    return `${base.replace(/\/$/, "")}/chat`;
-  }
-  return `${base.replace(/\/$/, "")}/api/chat`;
-}
-
-function healthEndpoint(): string {
-  const base = getChatApiBaseUrl();
-  if (isProxyBase(base)) {
-    return `${base.replace(/\/$/, "")}/health`;
-  }
-  return `${base.replace(/\/$/, "")}/api/health/`;
+function redirectToSignIn(): void {
+  if (typeof window === "undefined") return;
+  const back = window.location.pathname + window.location.search;
+  window.location.assign(`/signin?callbackUrl=${encodeURIComponent(back)}`);
 }
 
 export class ChatAPI {
   async sendMessage(message: string): Promise<AsyncIterable<ChatResponse>> {
-    const response = await fetch(chatEndpoint(), {
+    const response = await fetch(CHAT_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -72,11 +32,8 @@ export class ChatAPI {
     });
 
     if (response.status === 401 || response.status === 403) {
-      const loc = response.headers.get("Location");
-      if (typeof window !== "undefined" && loc) {
-        window.location.assign(loc);
-      }
-      throw new Error(`HTTP error! status: ${response.status}`);
+      redirectToSignIn();
+      throw new Error("Your session has expired. Redirecting to sign in…");
     }
 
     if (!response.ok) {
@@ -120,7 +77,7 @@ export class ChatAPI {
 
   async isBackendAvailable(): Promise<boolean> {
     try {
-      const response = await fetch(healthEndpoint(), {
+      const response = await fetch(HEALTH_ENDPOINT, {
         method: "GET",
         signal: AbortSignal.timeout(5000),
       });

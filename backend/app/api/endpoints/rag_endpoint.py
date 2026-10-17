@@ -17,10 +17,11 @@ Citation protocol is defined on `prompt_service.rag_prompt_template` (marker sha
 import json
 import logging
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
+from app.core.auth import CurrentUser, get_current_user
 from app.services.prompt_service import extract_inline_citations
 from app.services.rag_chain_service import rag_chain_service
 
@@ -198,7 +199,10 @@ async def stream_rag_response(message: str):
     response_description="An SSE stream of `source`, `text`, and terminal `done` / `error` events",
     responses=_SSE_RESPONSES,
 )
-async def chat(request: ChatRequest):
+async def chat(
+    request: ChatRequest,
+    user: CurrentUser = Depends(get_current_user),
+):
     """
     Answers a question about UTD and streams the response as Server-Sent Events, in FastAPI format.
 
@@ -244,6 +248,7 @@ async def chat(request: ChatRequest):
     }
     ```
     """
+    logger.info("chat from %s (%s)", user.email, user.sub)
     return EventStreamResponse(
         stream_rag_response(request.message),
         headers=_SSE_HEADERS,
