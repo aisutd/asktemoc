@@ -32,6 +32,7 @@ from openai import OpenAI
 CHUNK_SIZE    = 512
 CHUNK_OVERLAP = 64
 BATCH_SIZE    = 100
+MIN_WORDS     = 30   # skip files with fewer words (footer-only scraping failures)
 CORPUS_DIR    = Path(__file__).parent / "test_output"
 ENV_PATH      = Path(__file__).parent / ".env"
 
@@ -121,7 +122,8 @@ def main():
     for path in txt_files:
         did  = doc_id(path)
         text = path.read_text(encoding="utf-8", errors="replace").strip()
-        if not text:
+        if not text or len(text.split()) < MIN_WORDS:
+            print(f"  [skip] {path.relative_to(CORPUS_DIR)} ({len(text.split())} words)")
             continue
 
         program = path.parent.name  # e.g. "bs_in_computer_science"
