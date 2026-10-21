@@ -14,14 +14,20 @@ SSE `data:` lines are JSON.
 Citation protocol is defined on `prompt_service.rag_prompt_template` (marker shape `[n, "EXACT_TEXT"]`).
 """
 
+import asyncio
 import json
 import logging
+import uuid
+from datetime import datetime, timezone
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
+from sqlalchemy import func
 
 from app.core.auth import CurrentUser, get_current_user
+from app.db.database import SessionLocal
+from app.db.models import Conversation, Message, User
 from app.services.prompt_service import extract_inline_citations
 from app.services.rag_chain_service import rag_chain_service
 
@@ -49,6 +55,10 @@ class ChatRequest(BaseModel):
         ...,
         min_length=1,
         description="Natural-language question. Embedded and used for pgvector retrieval verbatim.",
+    )
+    conversation_id: uuid.UUID | None = Field(
+        default=None,
+        description="Existing conversation. Omit to create one for the signed-in user.",
     )
 
     model_config = {
@@ -114,9 +124,170 @@ _SSE_RESPONSES = {
 }
 
 
-async def stream_rag_response(message: str):
+def _title_from_message(message: str) -> str:
+    # todo: llm summary
+    text = message.strip()
+    if len(text) <= 30:
+        return text or "New Chat"
+    return text[:30] + "..."
+
+
+def _content(parts: list[dict], citations: list[dict] | None = None) -> dict:
+    body: dict = {"parts": parts}
+    if citations is not None:
+        body["citations"] = citations
+    return body
+
+
+def _source_parts(sources_by_idx: dict[int, dict]) -> list[dict]:
+    parts = []
+    for idx in sorted(sources_by_idx):
+        meta = sources_by_idx[idx]
+        url = meta.get("source")
+        part = {
+            "type": "source",
+            "message": f"Source {idx}: {url}",
+            "index": idx,
+        }
+        if url:
+            part["url"] = url
+        title = meta.get("title")
+        if title:
+            part["title"] = title
+        parts.append(part)
+    return parts
+
+
+def begin_turn(user_id: str, message: str, conversation_id: uuid.UUID | None) -> dict:
+    """Insert the user row and a streaming assistant row. Returns ids for the start event."""
+    db = SessionLocal()
+    try:
+        if db.get(User, user_id) is None:
+            raise HTTPException(
+                status_code=403,
+                detail="Sign out and sign in again to register your account.",
+            )
+        if conversation_id is None:
+            conversation = Conversation(user_id=user_id, title=_title_from_message(message))
+            db.add(conversation)
+            db.flush()
+        else:
+            conversation = (
+                db.query(Conversation)
+                .filter(Conversation.id == conversation_id, Conversation.user_id == user_id)
+                .with_for_update()
+                .one_or_none()
+            )
+            if conversation is None:
+                raise HTTPException(status_code=404, detail="Conversation not found")
+            if not conversation.title:
+                conversation.title = _title_from_message(message)
+        next_index = (
+            db.query(func.max(Message.index))
+            .filter(Message.conversation_id == conversation.id)
+            .scalar()
+            or 0
+        )
+        user_message = Message(
+            conversation_id=conversation.id,
+            index=next_index + 1,
+            role="user",
+            status="complete",
+            content=_content([{"type": "text", "message": message}]),
+        )
+        assistant_message = Message(
+            conversation_id=conversation.id,
+            index=next_index + 2,
+            role="assistant",
+            status="streaming",
+            content=None,
+        )
+        db.add_all([user_message, assistant_message])
+        db.commit()
+        return {
+            "conversation_id": str(conversation.id),
+            "title": conversation.title,
+            "user_message_id": str(user_message.id),
+            "assistant_message_id": str(assistant_message.id),
+        }
+    except Exception:
+        db.rollback()
+        raise
+    finally:
+        db.close()
+
+
+def save_assistant(
+    assistant_message_id: str,
+    conversation_id: str,
+    status: str,
+    content: dict | None,
+) -> None:
+    """Write the assistant row once, and bump the conversation counters."""
+    db = SessionLocal()
+    try:
+        message = db.get(Message, uuid.UUID(assistant_message_id))
+        if message is None or message.status in ("complete", "error"):
+            return
+        message.status = status
+        message.content = content
+        conversation = db.get(Conversation, uuid.UUID(conversation_id))
+        if conversation is not None:
+            conversation.message_count = (conversation.message_count or 0) + 2
+            conversation.last_message_at = datetime.now(timezone.utc)
+        db.commit()
+    except Exception:
+        db.rollback()
+        logger.exception("failed to save assistant message %s", assistant_message_id)
+    finally:
+        db.close()
+
+
+def _sse(payload: dict) -> str:
+    return "data: " + json.dumps(payload) + "\n\n"
+
+
+def _citations(accumulated: str, sources_by_idx: dict[int, dict]) -> list[dict]:
+    citations = []
+    for cite in extract_inline_citations(accumulated):
+        meta = sources_by_idx.get(cite["source_index"], {})
+        citations.append(
+            {
+                "source_index": cite["source_index"],
+                "quote": cite["quote"],
+                "url": meta.get("source"),
+                "title": meta.get("title"),
+            }
+        )
+    return citations
+
+
+def _assistant_content(accumulated: str, sources_by_idx: dict[int, dict], citations: list[dict]) -> dict:
+    parts = _source_parts(sources_by_idx)
+    if accumulated:
+        parts.append({"type": "text", "message": accumulated})
+    return _content(parts, citations)
+
+
+async def stream_rag_response(message: str, started: dict):
+    persisted = False
+
+    async def persist(status: str, content: dict | None) -> None:
+        nonlocal persisted
+        if persisted:
+            return
+        persisted = True
+        await asyncio.to_thread(
+            save_assistant,
+            started["assistant_message_id"],
+            started["conversation_id"],
+            status,
+            content,
+        )
+
     accumulated = ""
     sources_by_idx: dict[int, dict] = {}
+    yield _sse({"type": "start", **started})
     try:
         async for ev in rag_chain_service.astream_rag(message):
             et = ev.get("type")
@@ -125,71 +296,34 @@ async def stream_rag_response(message: str):
                 src = ev.get("source") or "Unknown"
                 sources_by_idx[idx] = {"source": src, "title": ev.get("title")}
                 line = f"Source {idx}: {src}"
-                yield (
-                    "data: "
-                    + json.dumps(
-                        {
-                            "type": "source",
-                            "message": line,
-                            "index": idx,
-                            "source": src,
-                            "title": ev.get("title"),
-                        }
-                    )
-                    + "\n\n"
+                yield _sse(
+                    {
+                        "type": "source",
+                        "message": line,
+                        "index": idx,
+                        "source": src,
+                        "title": ev.get("title"),
+                    }
                 )
             elif et == "text":
                 delta = ev.get("delta") or ""
                 accumulated += delta
-                yield (
-                    "data: "
-                    + json.dumps(
-                        {
-                            "type": "text",
-                            "delta": delta,
-                            "message": accumulated,
-                        }
-                    )
-                    + "\n\n"
-                )
+                yield _sse({"type": "text", "delta": delta, "message": accumulated})
             elif et == "done":
-                raw_cites = extract_inline_citations(accumulated)
-                citations = []
-                for c in raw_cites:
-                    i = c["source_index"]
-                    meta = sources_by_idx.get(i, {})
-                    citations.append(
-                        {
-                            "source_index": i,
-                            "quote": c["quote"],
-                            "url": meta.get("source"),
-                            "title": meta.get("title"),
-                        }
-                    )
-                yield (
-                    "data: "
-                    + json.dumps(
-                        {
-                            "type": "done",
-                            "message": accumulated,
-                            "citations": citations,
-                        }
-                    )
-                    + "\n\n"
-                )
+                citations = _citations(accumulated, sources_by_idx)
+                await persist("complete", _assistant_content(accumulated, sources_by_idx, citations))
+                yield _sse({"type": "done", "message": accumulated, "citations": citations})
             elif et == "error":
-                yield (
-                    "data: "
-                    + json.dumps({"type": "error", "message": ev.get("message", "Error")})
-                    + "\n\n"
-                )
+                citations = _citations(accumulated, sources_by_idx)
+                await persist("error", _assistant_content(accumulated, sources_by_idx, citations))
+                yield _sse({"type": "error", "message": ev.get("message", "Error")})
     except Exception as e:
         logger.exception("SSE chat failed: %s", e)
-        yield (
-            "data: "
-            + json.dumps({"type": "error", "message": "Error processing request"})
-            + "\n\n"
-        )
+        await persist("error", _assistant_content(accumulated, sources_by_idx, []))
+        yield _sse({"type": "error", "message": "Error processing request"})
+    finally:
+        if not persisted:
+            await persist("error", _assistant_content(accumulated, sources_by_idx, []))
 
 
 @router.post(
@@ -206,12 +340,14 @@ async def chat(
     """
     Answers a question about UTD and streams the response as Server-Sent Events, in FastAPI format.
 
-    Initial start event contains the conversation_id and title.
+    Initial start event contains the conversation and the two message rows just written.
     ```json
     {
         "type": "start",
         "conversation_id": "0f8c2b53-4cb7-4ee0-baf1-a12a26fbc716",
-        "title": "BS in Computer Science"
+        "title": "BS in Computer Science",
+        "user_message_id": "41d0c2e1-6b0a-4f1e-9c3a-1b2d3e4f5a6b",
+        "assistant_message_id": "9ac1e7b2-3c4d-5e6f-7081-92a3b4c5d6e7"
     }
     ```
     First, source events are sent in relevance order, max 5, in this format:
@@ -249,7 +385,10 @@ async def chat(
     ```
     """
     logger.info("chat from %s (%s)", user.email, user.sub)
+    started = await asyncio.to_thread(
+        begin_turn, user.sub, request.message, request.conversation_id
+    )
     return EventStreamResponse(
-        stream_rag_response(request.message),
+        stream_rag_response(request.message, started),
         headers=_SSE_HEADERS,
     )

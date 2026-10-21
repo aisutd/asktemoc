@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import type { Provider } from "next-auth/providers";
 import Google from "next-auth/providers/google";
 import MicrosoftEntraID from "next-auth/providers/microsoft-entra-id";
+import { fastapiAdapter } from "@/lib/auth-adapter";
 import { isAllowedEmail } from "@/lib/auth-policy";
 import { claimsFromProfile, graphUser } from "@/lib/entra";
 
@@ -24,7 +25,9 @@ if (
       clientId: process.env.AUTH_MICROSOFT_ENTRA_ID_ID,
       clientSecret: process.env.AUTH_MICROSOFT_ENTRA_ID_SECRET,
       issuer: process.env.AUTH_MICROSOFT_ENTRA_ID_ISSUER,
-      // prompt:login skips login_hint, so the user is not automatically logged in to 
+      // Same verified @utdallas.edu address may sign in with either provider.
+      allowDangerousEmailAccountLinking: true,
+      // prompt:login skips login_hint, so the user is not automatically logged in to
       // currently signed-in account.
       authorization: { params: { prompt: "login" } },
     }),
@@ -32,7 +35,7 @@ if (
   providerList.push({ id: "microsoft-entra-id", name: "UT Dallas (Microsoft)" });
 }
 if (process.env.AUTH_GOOGLE_ID && process.env.AUTH_GOOGLE_SECRET) {
-  providers.push(Google);
+  providers.push(Google({ allowDangerousEmailAccountLinking: true }));
   providerList.push({ id: "google", name: "Google" });
 }
 
@@ -56,6 +59,7 @@ function microsoftEmail(profile: unknown): string | undefined {
 }
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
+  adapter: fastapiAdapter(),
   providers,
   session: { strategy: "jwt" },
   trustHost: true,
@@ -83,9 +87,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       }
       return isAllowedEmail(email);
     },
-    async jwt({ token, account, profile }) {
+    async jwt({ token, user, account, profile }) {
+      // users.id from the adapter. Do not replace it with provider:accountId.
+      if (user?.id) token.sub = user.id;
       if (account) {
-        token.sub = `${account.provider}:${account.providerAccountId}`;
         if (account.provider === "microsoft-entra-id" && account.access_token) {
           token.entra = claimsFromProfile(profile);
           const graph = await graphUser(account.access_token);

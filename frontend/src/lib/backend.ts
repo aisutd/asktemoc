@@ -31,6 +31,25 @@ export async function mintBackendToken(user: Session["user"]): Promise<string> {
     .sign(new TextEncoder().encode(secret));
 }
 
+/** Forward a request to FastAPI as the signed-in user. */
+export async function authorizedBackendFetch(
+  user: Session["user"],
+  path: string,
+  init?: RequestInit,
+): Promise<Response> {
+  const token = await mintBackendToken(user);
+  const headers = new Headers(init?.headers);
+  headers.set("Authorization", `Bearer ${token}`);
+  if (init?.body && !headers.has("Content-Type")) {
+    headers.set("Content-Type", "application/json");
+  }
+  return fetch(`${apiOrigin()}${path}`, {
+    ...init,
+    headers,
+    cache: "no-store",
+  });
+}
+
 /** Adds headers to not buffer the response body, for streaming. */
 export function relay(upstream: Response): Response {
   const headers = new Headers({

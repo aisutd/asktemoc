@@ -17,6 +17,7 @@ from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from app.core.config import Settings, get_settings
 
 _bearer = HTTPBearer(auto_error=False)
+ADAPTER_PURPOSE = "auth-adapter"
 
 
 @dataclass(frozen=True)
@@ -67,6 +68,9 @@ def get_current_user(
     except jwt.PyJWTError as e:
         raise _unauthorized(f"Invalid token: {e}") from e
 
+    if claims.get("purpose") == ADAPTER_PURPOSE:
+        raise _unauthorized("User token required")
+
     sub = claims.get("sub")
     if not isinstance(sub, str) or not sub:
         raise _unauthorized("Token missing sub")
@@ -80,3 +84,21 @@ def get_current_user(
 
     name = claims.get("name") if isinstance(claims.get("name"), str) else None
     return CurrentUser(sub=sub, email=email, name=name)
+
+
+def require_adapter(
+    credentials: HTTPAuthorizationCredentials | None = Depends(_bearer),
+) -> None:
+    """Server-to-server token used by the Auth.js adapter. Not a user session."""
+    settings = get_settings()
+
+    if credentials is None or credentials.scheme.lower() != "bearer":
+        raise _unauthorized("Missing bearer token")
+
+    try:
+        claims = _decode_claims(credentials.credentials, settings)
+    except jwt.PyJWTError as e:
+        raise _unauthorized(f"Invalid token: {e}") from e
+
+    if claims.get("purpose") != ADAPTER_PURPOSE:
+        raise _unauthorized("Adapter token required")

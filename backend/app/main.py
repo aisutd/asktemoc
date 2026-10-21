@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.endpoints import query, documents, chroma, dashboard, rag_endpoint, health, ingest
+from app.api.endpoints import query, documents, chroma, dashboard, rag_endpoint, health, ingest, auth_adapter, conversations
 from app.core.config import get_settings
 from app.db.database import init_db
 
@@ -26,5 +26,7 @@ app.include_router(documents.router, prefix="/api", tags=['documents'])
 app.include_router(chroma.router, prefix="/api", tags=['chroma'])
 app.include_router(dashboard.router, prefix="/api", tags=['dashboard'])
 app.include_router(rag_endpoint.router, prefix="/api", tags=['rag'])
+app.include_router(auth_adapter.router, prefix="/api/internal/auth", tags=['auth'])
+app.include_router(conversations.router, prefix="/api", tags=['conversations'])
 app.include_router(health.router, prefix="/api/health", tags=['health'])
 app.include_router(ingest.router, prefix="/api", tags=['ingest'])

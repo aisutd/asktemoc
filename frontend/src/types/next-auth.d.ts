@@ -4,7 +4,7 @@ import type { EntraIdClaims, GraphUser } from "@/lib/entra";
 declare module "next-auth" {
   interface Session {
     user: {
-      /** "<provider>:<provider account id>", stable per account. */
+      /** users.id from the Auth.js adapter, a text UUID. */
       id: string;
     } & DefaultSession["user"];
     entra?: EntraIdClaims;

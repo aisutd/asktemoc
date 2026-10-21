@@ -1,11 +1,15 @@
 export interface ChatResponse {
-  type: "text" | "source";
-  message: string;
+  type: "text" | "source" | "start" | "done" | "error";
+  message?: string;
   index?: number;
   n?: number;
   url?: string;
   href?: string;
   title?: string;
+  source?: string;
+  conversation_id?: string;
+  user_message_id?: string;
+  assistant_message_id?: string;
 }
 
 /**
@@ -22,13 +26,16 @@ function redirectToSignIn(): void {
 }
 
 export class ChatAPI {
-  async sendMessage(message: string): Promise<AsyncIterable<ChatResponse>> {
+  async sendMessage(
+    message: string,
+    conversationId: string,
+  ): Promise<AsyncIterable<ChatResponse>> {
     const response = await fetch(CHAT_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ message }),
+      body: JSON.stringify({ message, conversation_id: conversationId }),
     });
 
     if (response.status === 401 || response.status === 403) {
