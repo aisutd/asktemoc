@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
+// Where /api/proxy/* is forwarded. `next dev` defaults to the local API; production
+// builds get the Cloud Run origin from .env.production / vercel.json.
 const ASKTEMOC_API_ORIGIN =
-  process.env.ASKTEMOC_API_ORIGIN?.replace(/\/$/, "") ||
-  "https://asktemoc-api-422855032073.us-central1.run.app";
+  process.env.ASKTEMOC_API_ORIGIN?.replace(/\/$/, "") || "http://localhost:8000";
 
 const nextConfig: NextConfig = {
   async rewrites() {

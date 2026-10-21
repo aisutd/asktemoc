@@ -63,6 +63,27 @@ class UTDCatalogScraper:
         name = re.sub(r'[-\s]+', '_', name)
         return name.strip('_').lower()
     
+    def _program_url(self, href: Optional[str], text: str) -> Optional[str]:
+        """
+        Resolve a program href to an absolute URL, or None if it isn't a program.
+        
+        Filters out footnote anchors (e.g. `programs#footnote-1`, whose link text is
+        just "1"), which otherwise get scraped as a program named "1". Fragments are
+        preserved because concentrations are distinguished only by their fragment.
+        """
+        if not href or not text.strip():
+            return None
+        # Numeric link text is a footnote marker, never a program name.
+        if text.strip().isdigit():
+            return None
+        full = urljoin(self.BASE_URL, href)
+        path, _, fragment = full.partition('#')
+        if fragment.startswith('footnote'):
+            return None
+        if not fragment and path.rstrip('/') == self.BASE_URL.rstrip('/'):
+            return None
+        return full
+    
     async def find_program_links(self, page: Page) -> List[Tuple[str, str]]:
         """
         Find all program links matching the criteria.
@@ -86,11 +107,10 @@ class UTDCatalogScraper:
                 for link in p_links:
                     href = await link.get_attribute('href')
                     text = await link.inner_text()
-                    if href:
-                        full_url = urljoin(self.BASE_URL, href)
-                        if full_url not in seen_urls:
-                            seen_urls.add(full_url)
-                            links.append((full_url, text.strip()))
+                    full_url = self._program_url(href, text)
+                    if full_url and full_url not in seen_urls:
+                        seen_urls.add(full_url)
+                        links.append((full_url, text.strip()))
         
         # Find <a> tags containing "Concentration" (case-insensitive)
         all_links = await page.query_selector_all('a')
@@ -98,11 +118,10 @@ class UTDCatalogScraper:
             text = await link.inner_text()
             if 'concentration' in text.lower():
                 href = await link.get_attribute('href')
-                if href:
-                    full_url = urljoin(self.BASE_URL, href)
-                    if full_url not in seen_urls:
-                        seen_urls.add(full_url)
-                        links.append((full_url, text.strip()))
+                full_url = self._program_url(href, text)
+                if full_url and full_url not in seen_urls:
+                    seen_urls.add(full_url)
+                    links.append((full_url, text.strip()))
         
         logger.info(f"Found {len(links)} program links")
         return links
@@ -206,6 +225,9 @@ class UTDCatalogScraper:
             example: Example degree requirements text content
         """
         safe_name = self._sanitize_filename(major_name)
+        if not safe_name:
+            logger.warning(f"Skipping program with unusable name: {major_name!r}")
+            return
         major_dir = self.output_dir / safe_name
         major_dir.mkdir(parents=True, exist_ok=True)
         

@@ -1,1 +1,36 @@
 .vercel
+
+# Secrets / local config (commit only *.env.example)
+.env
+.env.*
+!.env.example
+!frontend/.env.production
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Backend runtime state (vector store, SQLite)
+backend/app/chroma_db/
+backend/*.db
+
+# Scraper output (committed corpus lives in data/)
+backend/scrapers/catalog/output/
+backend/scrapers/catalog/test_output/
+
+# Node
+node_modules/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# Retrieval eval: local BM25 corpus cache (rebuilt from Neon)
+backend/.cache/

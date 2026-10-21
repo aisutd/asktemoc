@@ -1,1 +1,18 @@
-playwright>=1.48.0
+# Runtime dependencies for the AskTemoc API (also installed by the Dockerfile).
+# Heavy scraping/ingestion tooling lives in requirements-scrape.txt; test tooling in
+# requirements-dev.txt.
+fastapi==0.142.2
+uvicorn[standard]==0.54.0
+SQLAlchemy==2.1.3
+pydantic==2.13.5
+pydantic-settings==2.15.0
+
+# RAG / LLM stack
+langchain-core==1.6.6
+langchain-community==0.4.2
+langchain-text-splitters==1.1.3
+langchain-chroma==1.1.0
+langchain-ollama==1.1.0
+langchain-openai==1.6.7
+chromadb==1.5.9
+openai==3.24.0

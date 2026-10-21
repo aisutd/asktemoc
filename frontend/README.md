@@ -1,42 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ask Temoc — Web App
 
-## Getting Started
+Next.js 15 / React 19 chat UI. For setup, see the [root README](../README.md).
 
-First, install the dependencies:
+## Scripts
 
-```bash
-npm install
+- `npm run dev`: development server on http://localhost:3000
+- `npm run build` / `npm start`: production build and server
+- `npm run lint`: ESLint
+
+## How chat reaches the API
+
+The browser calls same-origin `/api/proxy/chat` and `/api/proxy/health`.
+`next.config.ts` rewrites those to `ASKTEMOC_API_ORIGIN`:
+
+- `npm run dev`: `http://localhost:8000` by default (the local API).
+- Production builds and Vercel: the Cloud Run origin, set in `.env.production`
+  and `vercel.json`.
+
+`NEXT_PUBLIC_API_BASE_URL` makes the browser call an API origin directly instead
+of going through the proxy. That needs CORS on the API; never point it at
+localhost in production.
+
+There's no app-level sign-in yet; it's planned for Weeks 2-4 of the 10-week plan.
+In production, Vercel Deployment Protection gates visitors.
+
+## Response format
+
+SSE events, one `data: {json}` per line:
+
+- `source`: `message` is `Source n: <url>`, plus `index`, `url` and optionally
+  `title`.
+- `text`: the next piece of the answer. It's appended; when an event also has a
+  `delta` field (older API builds), the `delta` is appended instead.
+- `done`: end of stream. Unknown types are ignored.
+
+Assistant text may embed citations as `[n, "exact quoted text"]`, which
+`src/lib/citations.ts` turns into linked pills.
+
+## Source layout
+
+```
+src/
+  app/
+    page.tsx            landing page
+    layout.tsx          root layout (Geist fonts via next/font, navbar)
+    chat/               chat page, sidebar, message area, citation rendering
+  components/           navbar and shadcn/ui primitives
+  lib/
+    api.ts              chat API client + SSE parsing
+    citations.ts        [n, "…"] citation parsing and source resolution
+    markdown.ts         inline markdown (**bold**, *italic*, `code`)
+  types/                shared Message/Conversation types
 ```
 
-Then, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Conversations are held in React state only, so a reload clears them.
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Run `vercel link` / `vercel deploy` from the **repository root**, not from
+`frontend/`, with the project's Root Directory set to `frontend`. To require a
+login before the app loads, enable Vercel Authentication under Project →
+Deployment Protection.
