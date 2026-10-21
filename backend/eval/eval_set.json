@@ -1,0 +1,261 @@
+{
+  "source": {
+    "git": "origin/feat/crawl4ai-scraper:backend/eval_questions.md",
+    "blob": "d9b5dd85131319f720e4e109fa67ec9c51ee04eb",
+    "commit": "d8e03ee212e907a476b50df353a3ef0c9d2ddaad",
+    "ref_tip": "d8e03ee212e907a476b50df353a3ef0c9d2ddaad"
+  },
+  "count": 30,
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "What are the core requirements for the BS in Computer Science at UTD?",
+      "relevant": [
+        "bachelor_of_science_in_computer_science/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q2",
+      "question": "How many total credit hours are required to complete the BS in Computer Science?",
+      "relevant": [
+        "bachelor_of_science_in_computer_science/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q3",
+      "question": "What math courses are required for the BS in Electrical Engineering?",
+      "relevant": [
+        "bachelor_of_science_in_electrical_engineering/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q4",
+      "question": "What is the Certificate in Quantum Information and what courses does it require?",
+      "relevant": [
+        "certificate_in_quantum_information/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q5",
+      "question": "What are the requirements for the BS in Biology and Healthcare Management double major?",
+      "relevant": [
+        "bs_in_biology_and_healthcare_management_double_major/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q6",
+      "question": "What courses are listed under the Certificate in Intercultural Communication?",
+      "relevant": [
+        "certificate_in_intercultural_communication/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q7",
+      "question": "What does the Certificate in Military Science Leadership require, and who is eligible?",
+      "relevant": [
+        "certificate_in_military_science_leadership/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q8",
+      "question": "What courses make up the Certificate in Applied Experience Design and Research?",
+      "relevant": [
+        "certificate_in_applied_experience_design_and_research/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q9",
+      "question": "What are the upper-division elective options for the BS in Computer Science?",
+      "relevant": [
+        "bachelor_of_science_in_computer_science/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q10",
+      "question": "What are the requirements for the standalone BS in Healthcare Management at UTD?",
+      "relevant": [
+        "bachelor_of_science_in_healthcare_management/requirements"
+      ],
+      "note": "(revised \u2014 target corrected to standalone degree)"
+    },
+    {
+      "id": "Q11",
+      "question": "What science or lab courses are required in the BS in Electrical Engineering?",
+      "relevant": [
+        "bachelor_of_science_in_electrical_engineering/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q12",
+      "question": "What courses are required for the BS in Accounting at UTD?",
+      "relevant": [
+        "bachelor_of_science_in_accounting/requirements"
+      ],
+      "note": "(revised \u2014 replaced redundant quantum cert question)"
+    },
+    {
+      "id": "Q13",
+      "question": "What certificates at UTD focus on communication, design, or user experience?",
+      "relevant": [
+        "certificate_in_intercultural_communication/requirements",
+        "certificate_in_applied_experience_design_and_research/requirements",
+        "certificate_in_user_experience_ux_research/requirements"
+      ],
+      "note": "(revised framing)"
+    },
+    {
+      "id": "Q14",
+      "question": "What is the difference in core requirements between a BS in Computer Science and a BS in Electrical Engineering at UTD?",
+      "relevant": [
+        "bachelor_of_science_in_computer_science/requirements",
+        "bachelor_of_science_in_electrical_engineering/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q15",
+      "question": "What are the course requirements for the BA in Animation and Games at UTD?",
+      "relevant": [
+        "bachelor_of_arts_in_animation_and_games/requirements"
+      ],
+      "note": "(revised \u2014 replaced redundant military cert question)"
+    },
+    {
+      "id": "Q16",
+      "question": "What does the BS in Business Analytics and Artificial Intelligence require?",
+      "relevant": [
+        "bachelor_of_science_in_business_analytics_and_artificial_intelligence/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q17",
+      "question": "What courses are required for the BS in Cybersecurity and Risk Management?",
+      "relevant": [
+        "bachelor_of_science_in_cybersecurity_and_risk_management/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q18",
+      "question": "How do the core requirements for the BS in Software Engineering compare to those for the BS in Computer Science?",
+      "relevant": [
+        "bachelor_of_science_in_software_engineering/requirements",
+        "bachelor_of_science_in_computer_science/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q19",
+      "question": "What are the requirements for the Certificate in Cyber Defense?",
+      "relevant": [
+        "certificate_in_cyber_defense/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q20",
+      "question": "What courses does the BS in Biomedical Engineering require?",
+      "relevant": [
+        "bachelor_of_science_in_biomedical_engineering/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q21",
+      "question": "What is required for the BS in Neuroscience at UTD?",
+      "relevant": [
+        "bachelor_of_science_in_neuroscience/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q22",
+      "question": "How do the requirements differ between the BA in Economics and the BS in Finance and Economics double major?",
+      "relevant": [
+        "bachelor_of_arts_in_economics/requirements",
+        "bs_in_economics_and_finance_double_major/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q23",
+      "question": "What courses make up the Certificate in Data Science?",
+      "relevant": [
+        "certificate_in_data_science/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q24",
+      "question": "What are the requirements for the BS in Mechanical Engineering?",
+      "relevant": [
+        "bachelor_of_science_in_mechanical_engineering/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q25",
+      "question": "What programs at UTD focus on sustainability or environmental topics?",
+      "relevant": [
+        "bachelor_of_sustainability_planning_and_policy/requirements",
+        "certificate_in_sustainable_earth_and_environment/requirements",
+        "certificate_in_sustainable_energy_engineering/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q26",
+      "question": "What is the BS in Marketing and what courses does it require?",
+      "relevant": [
+        "bachelor_of_science_in_marketing/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q27",
+      "question": "What are the requirements for the Certificate in Innovation and Entrepreneurship?",
+      "relevant": [
+        "certificate_in_innovation_and_entrepreneurship/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q28",
+      "question": "Does UTD have a pre-law program or certificate, and what does it cover?",
+      "relevant": [
+        "certificate_in_legal_research_and_writing/requirements",
+        "ba_in_literature_pre_law_concentration/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q29",
+      "question": "What are the requirements for the BA in Visual and Performing Arts \u2014 Film concentration?",
+      "relevant": [
+        "ba_in_visual_and_performing_arts_film_concentration/requirements"
+      ],
+      "note": ""
+    },
+    {
+      "id": "Q30",
+      "question": "What programs at UTD combine business with another discipline as a prescribed double major?",
+      "relevant": [
+        "bs_in_global_business_and_marketing_double_major/requirements",
+        "bs_in_global_business_and_supply_chain_management_and_analytics_double_major/requirements",
+        "bs_in_business_analytics_and_artificial_intelligence_and_supply_chain_management_and_analytics_double_major/requirements"
+      ],
+      "note": ""
+    }
+  ]
+}
