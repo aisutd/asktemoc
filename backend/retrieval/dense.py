@@ -19,13 +19,19 @@ SEARCH_SQL = """
 """
 
 
-def openai_embed(text):
-    """Embed one query with EMBED_MODEL, using OPENAI_API_KEY from backend/.env."""
+def openai_embed_batch(texts, model=EMBED_MODEL):
+    """Embed several texts in one call, using OPENAI_API_KEY from backend/.env."""
     from dotenv import dotenv_values
     from openai import OpenAI
 
     client = OpenAI(api_key=dotenv_values(ENV_PATH).get("OPENAI_API_KEY"))
-    return client.embeddings.create(model=EMBED_MODEL, input=[text]).data[0].embedding
+    data = client.embeddings.create(model=model, input=list(texts)).data
+    return [d.embedding for d in sorted(data, key=lambda d: d.index)]
+
+
+def openai_embed(text, model=EMBED_MODEL):
+    """Embed one query (EMBED_MODEL unless given)."""
+    return openai_embed_batch([text], model)[0]
 
 
 def to_pgvector(vec):
