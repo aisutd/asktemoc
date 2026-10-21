@@ -32,7 +32,7 @@ Start the API from `../backend` first:
 ```bash
 cd ../backend
 python3.13 -m venv venv && source venv/bin/activate
-pip install -r requirements-deploy.txt
+pip install -r deploy/requirements-deploy.txt
 cp .env.example .env   # set DATABASE_URL and OPENAI_API_KEY
 uvicorn app.main:app --reload
 ```

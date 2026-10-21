@@ -25,9 +25,6 @@ class DocumentManagementUtils:
         chunks = ChunkService.list_chunks_by_document(db=db, document_id=doc_id, limit=10000)
         embeddings = EmbeddingService.get_embeddings_by_document(db=db, document_id=doc_id)
 
-        synced_embeddings = sum(1 for e in embeddings if e.is_synced)
-        unsynced_embeddings = sum(1 for e in embeddings if not e.is_synced)
-
         total_text_length = sum(len(chunk.text) for chunk in chunks)
         avg_chunk_length = total_text_length / len(chunks) if chunks else 0
 
@@ -39,11 +36,8 @@ class DocumentManagementUtils:
             "updated_at": document.updated_at,
             "chunk_count": len(chunks),
             "embedding_count": len(embeddings),
-            "synced_embeddings": synced_embeddings,
-            "unsynced_embeddings": unsynced_embeddings,
             "total_text_length": total_text_length,
             "average_chunk_length": avg_chunk_length,
-            "sync_percentage": (synced_embeddings / len(embeddings) * 100) if embeddings else 0,
         }
 
     @staticmethod
@@ -56,8 +50,6 @@ class DocumentManagementUtils:
             chunks = ChunkService.list_chunks_by_document(db=db, document_id=doc.id, limit=10000)
             embeddings = EmbeddingService.get_embeddings_by_document(db=db, document_id=doc.id)
 
-            synced = sum(1 for e in embeddings if e.is_synced)
-
             dashboard_data.append({
                 "id": doc.id,
                 "title": doc.title,
@@ -66,8 +58,6 @@ class DocumentManagementUtils:
                 "updated_at": doc.updated_at,
                 "chunks": len(chunks),
                 "embeddings": len(embeddings),
-                "synced": synced,
-                "status": "synced" if len(embeddings) > 0 and synced == len(embeddings) else "partial" if synced > 0 else "unsynced",
             })
 
         return dashboard_data
@@ -166,8 +156,6 @@ class DocumentManagementUtils:
                     {
                         "id": emb.id,
                         "model": emb.model,
-                        "chroma_id": emb.chroma_id,
-                        "is_synced": emb.is_synced,
                         "vector_length": len(emb.vector) if emb.vector else 0,
                     }
                     for emb in embeddings
@@ -232,17 +220,9 @@ class DocumentManagementUtils:
         return results
 
     @staticmethod
-    def get_sync_status_summary(db: Session) -> Dict[str, Any]:
-        """Get overall sync status of all embeddings to ChromaDB."""
+    def get_corpus_summary(db: Session) -> Dict[str, Any]:
+        """Count documents, chunks, and embeddings."""
         total_embeddings = db.query(func.count(Embedding.id)).scalar() or 0
-        synced_embeddings = (
-            db.query(func.count(Embedding.id))
-            .filter(Embedding.is_synced == True)
-            .scalar()
-            or 0
-        )
-        unsynced_embeddings = total_embeddings - synced_embeddings
-
         total_documents = (
             db.query(func.count(Document.id))
             .filter(Document.is_deleted == False)
@@ -260,10 +240,6 @@ class DocumentManagementUtils:
             "total_documents": total_documents,
             "total_chunks": total_chunks,
             "total_embeddings": total_embeddings,
-            "synced_embeddings": synced_embeddings,
-            "unsynced_embeddings": unsynced_embeddings,
-            "sync_percentage": (synced_embeddings / total_embeddings * 100) if total_embeddings > 0 else 0,
-            "last_updated": datetime.utcnow(),
         }
 
     @staticmethod
@@ -325,7 +301,6 @@ class DocumentManagementUtils:
                     "id": emb.id,
                     "chunk_id": emb.chunk_id,
                     "updated_at": emb.updated_at,
-                    "is_synced": emb.is_synced,
                 }
                 for emb in recent_embeddings
             ],

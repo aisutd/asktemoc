@@ -1,6 +1,5 @@
 """
 Retriever backed by pgvector + OpenAI embeddings.
-Replaces the previous ChromaDB-based retriever.
 """
 
 import logging

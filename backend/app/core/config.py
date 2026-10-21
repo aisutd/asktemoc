@@ -1,5 +1,4 @@
 import logging
-from pathlib import Path
 from typing import Literal, Optional
 
 from pydantic import field_validator
@@ -27,10 +26,6 @@ class Settings(BaseSettings):
     OLLAMA_EMBEDDING_MODEL: str = "nomic-embed-text"
     OLLAMA_TEMPERATURE: float = 0.4
 
-    # ChromaDB (kept for compatibility)
-    CHROMA_PERSIST_DIRECTORY: Path = Path("./app/chroma_db")
-    CHROMA_COLLECTION_NAME: str = "asktemoc_collection"
-
     # Comma-separated browser origins (set your deployed front-end HTTPS URL in Cloud Run).
     CORS_ORIGINS: str = "http://localhost:3000"
 
@@ -49,11 +44,6 @@ class Settings(BaseSettings):
             return "openai"
         s = str(v).strip().lower()
         return s if s in ("openai", "ollama") else "openai"
-
-    @property
-    def chroma_persist_path(self) -> Path:
-        project_root = Path(__file__).resolve().parent.parent
-        return (project_root / self.CHROMA_PERSIST_DIRECTORY).resolve()
 
     @property
     def cors_origins_list(self) -> list[str]:

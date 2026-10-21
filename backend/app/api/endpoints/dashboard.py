@@ -16,11 +16,10 @@ router = APIRouter(prefix="/dashboard", tags=["dashboard"])
 @router.get("/overview")
 def get_dashboard_overview(db: Session = Depends(get_db)):
     """Get overall dashboard statistics."""
-    sync_status = DocumentManagementUtils.get_sync_status_summary(db=db)
     documents = DocumentManagementUtils.get_all_documents_dashboard(db=db)
 
     return {
-        "sync_status": sync_status,
+        "totals": DocumentManagementUtils.get_corpus_summary(db=db),
         "documents": documents,
         "total_documents": len(documents),
     }
@@ -124,10 +123,3 @@ def get_recent_activity(days: int = 7, limit: int = 100, db: Session = Depends(g
         db=db, days=days, limit=limit
     )
     return activity
-
-
-@router.get("/sync-status")
-def get_sync_status(db: Session = Depends(get_db)):
-    """Get current sync status with ChromaDB."""
-    sync_status = DocumentManagementUtils.get_sync_status_summary(db=db)
-    return sync_status

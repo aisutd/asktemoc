@@ -6,10 +6,10 @@
 # Before first deploy, set env/secrets in Cloud Run for at least:
 #   DATABASE_URL (Neon Postgres), OPENAI_API_KEY, CORS_ORIGINS (your front-end origin(s))
 #
-# Usage:
+# Usage (from backend/):
 #   export GCP_PROJECT=my-project-id
 #   export GCP_REGION=us-central1
-#   bash scripts/deploy_cloud_run.sh
+#   bash deploy/deploy_cloud_run.sh
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
@@ -27,7 +27,10 @@ fi
 
 gcloud config set project "${PROJECT}"
 echo "Building and pushing: ${IMAGE}"
-gcloud builds submit --tag "${IMAGE}" "${ROOT}"
+gcloud builds submit "${ROOT}" \
+  --config "${ROOT}/deploy/cloudbuild.yaml" \
+  --ignore-file "${ROOT}/deploy/.gcloudignore" \
+  --substitutions "_IMAGE=${IMAGE}"
 gcloud run deploy "${SERVICE}" \
   --image "${IMAGE}" \
   --region "${REGION}" \
