@@ -51,6 +51,7 @@ class RetrieverService:
                 .filter(Chunk.is_deleted == False)
                 .filter(Document.is_deleted == False)
                 .filter(Embedding.vector.isnot(None))
+                .filter(Embedding.model == self.settings.OPENAI_EMBEDDING_MODEL)
                 .order_by(Embedding.vector.cosine_distance(query_vector))
                 .limit(k)
                 .all()

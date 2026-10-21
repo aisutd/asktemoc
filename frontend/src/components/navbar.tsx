@@ -1,25 +1,50 @@
-"use client";
-
-import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import { NavigationMenu } from "@/components/ui/navigation-menu";
+import { Button } from "@/components/ui/button";
+import { auth, signOut } from "@/auth";
 
-export default function Navbar() {
+export default async function Navbar() {
+  const session = await auth();
+  const user = session?.user;
+
   return (
-    <NavigationMenu
-      viewport={false}
-      className="p-4 w-full max-w-none justify-start"
-    >
-      <Image src="/temochead.svg" alt="logo" width={50} height={50} />
-      <h1 className="text-xl font-bold text-utd-primary">Ask Temoc</h1>
-      <Link
-        href="/"
-        className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 m-4"
-      >
-        Home
+    <header className="flex w-full shrink-0 items-center gap-4 border-b border-utd-primary/20 px-4 py-3">
+      <Link href="/" className="flex items-center gap-3">
+        <Image src="/temochead.svg" alt="logo" width={40} height={40} />
+        <span className="text-xl font-bold text-utd-primary">Ask Temoc</span>
       </Link>
-    </NavigationMenu>
+      <nav className="flex items-center">
+        <Link
+          href="/"
+          className="rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground"
+        >
+          Home
+        </Link>
+      </nav>
+      <div className="ml-auto flex items-center gap-2">
+        {user ? (
+          <>
+            <Button asChild variant="ghost" size="sm">
+              <Link href="/profile">Profile</Link>
+            </Button>
+            <form
+              action={async () => {
+                "use server";
+                await signOut({ redirectTo: "/" });
+              }}
+            >
+              <Button type="submit" variant="ghost" size="sm">
+                Sign out
+              </Button>
+            </form>
+          </>
+        ) : (
+          <Button asChild size="sm" className="bg-utd-secondary text-white hover:bg-utd-primary/80">
+            <Link href="/signin">Sign in</Link>
+          </Button>
+        )}
+      </div>
+    </header>
   );
 }

@@ -22,8 +22,12 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-In development the chat UI calls `http://localhost:8000` (`POST /api/chat`,
-`GET /api/health/`). Start the API from `../backend` first:
+`/chat` requires sign-in (Auth.js). The browser only calls this app's
+`/api/chat` and `/api/health` routes; those mint a short-lived JWT and
+forward to FastAPI. See [docs/AUTH_SETUP.md](../docs/AUTH_SETUP.md) for
+UTD Entra / Google setup.
+
+Start the API from `../backend` first:
 
 ```bash
 cd ../backend

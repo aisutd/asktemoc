@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     # OpenAI
     OPENAI_API_KEY: Optional[str] = None
     OPENAI_MODEL: str = "gpt-4o-mini"
-    OPENAI_EMBEDDING_MODEL: str = "text-embedding-3-large"
+    OPENAI_EMBEDDING_MODEL: str = "text-embedding-3-small"
 
     # Ollama (optional fallback)
     OLLAMA_MODEL: str = "llama3.1:8b"
@@ -28,6 +28,12 @@ class Settings(BaseSettings):
 
     # Comma-separated browser origins (set your deployed front-end HTTPS URL in Cloud Run).
     CORS_ORIGINS: str = "http://localhost:3000"
+
+    # Chat JWT minted by Next.js. Required; requests without a valid token are rejected.
+    BACKEND_JWT_SECRET: Optional[str] = None
+    BACKEND_JWT_AUDIENCE: str = "asktemoc-api"
+    BACKEND_JWT_ISSUER: str = "asktemoc-web"
+    ALLOWED_EMAIL_DOMAIN: str = "utdallas.edu"
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
@@ -50,6 +56,10 @@ class Settings(BaseSettings):
         if self.LLM_PROVIDER == "ollama":
             return False
         return bool(self.OPENAI_API_KEY)
+
+    @property
+    def allowed_email_domain(self) -> str:
+        return (self.ALLOWED_EMAIL_DOMAIN or "utdallas.edu").strip().lower().lstrip("@")
 
 
 def get_settings() -> Settings:
