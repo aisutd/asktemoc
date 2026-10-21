@@ -2,7 +2,7 @@
 
 - Questions: 30 from `origin/feat/crawl4ai-scraper:backend/eval_questions.md` (blob `d9b5dd851313`); parsed copy in `eval/eval_set.json`
 - Corpus: 192 documents, 885 chunks (Neon, read-only)
-- Code: `068a79e (with uncommitted changes)`
+- Code: `0330a52`
 - Questions source commit: `d8e03ee212e9` (last commit touching the file on `origin/feat/crawl4ai-scraper`; branch tip `d8e03ee212e9`)
 - Dense: `text-embedding-3-small` query embedding, pgvector cosine distance, exact scan
 - Dense-large: `text-embedding-3-large` for chunks and queries, exact cosine in numpy over locally cached chunk vectors (same 885 chunks as Neon)
