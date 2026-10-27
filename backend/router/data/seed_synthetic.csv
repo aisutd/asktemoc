@@ -1,0 +1,61 @@
+id,query,label,in_corpus,confidence,source,note
+s001,how do i apply for on-campus housing,housing,no,high,synthetic,
+s002,when is the housing application deadline for fall,housing,no,high,synthetic,
+s003,dorm laundry,housing,no,high,synthetic,messy phrasing
+s004,can freshmen live in university village,housing,no,high,synthetic,
+s005,canyon creek vs residence hall north which is better,housing,no,high,synthetic,
+s006,how much does it cost to live in the residence halls,housing,no,high,synthetic,
+s007,can i pick my roommate,housing,no,high,synthetic,
+s008,is there a fee to cancel my housing contract,housing,no,high,synthetic,
+s009,can i stay in my dorm over winter break,housing,no,high,synthetic,
+s010,is there summer housing,housing,no,high,synthetic,
+s011,when is move in day for fall,housing,no,high,synthetic,
+s012,ac broken in my uv apartment how do i put in a maintenance request,housing,no,high,synthetic,messy phrasing
+s013,do i have to buy a meal plan if i live in the residence halls,housing,no,medium,synthetic,edge: meal plans are dining but the requirement comes from the housing contract
+s014,If I withdraw from all my classes do I lose my dorm?,housing,no,medium,synthetic,edge: mentions withdrawal but asks about housing eligibility
+s015,overnight guest policy residence halls,housing,no,high,synthetic,
+s016,is housing guaranteed for transfer students,housing,no,high,synthetic,
+s017,are there living learning communities for engineering students,housing,no,medium,synthetic,edge: academic theme but run by University Housing
+s018,do i need to be enrolled full time to live on campus,housing,no,medium,synthetic,edge: enrollment wording but a housing eligibility rule
+s019,my comet card wont open my residence hall door,housing,no,low,synthetic,edge: Comet Card office or housing; housing controls building access
+s020,where do i pick up packages if i live in the dorms,housing,no,medium,synthetic,edge: mail service for residents is run by housing
+s021,cs 4375 prereqs,academics,no,high,synthetic,messy phrasing; CS 4375 is listed in program pages but its prerequisites are not
+s022,how do i register for classes,academics,no,high,synthetic,
+s023,when does registration open for spring,academics,no,high,synthetic,
+s024,last day to drop a class without getting a W,academics,no,high,synthetic,
+s025,how is GPA calculated,academics,no,high,synthetic,
+s026,can i retake a class to replace the grade,academics,no,high,synthetic,
+s027,what happens if i go on academic probation,academics,no,high,synthetic,
+s028,how do i declare a minor,academics,unsure,high,synthetic,program pages list minor requirements but not how to declare one
+s029,how do i change my major,academics,unsure,high,synthetic,only a Healthcare Studies change-of-major policy and a second-baccalaureate note
+s030,is there a pass/fail option for undergrads,academics,no,high,synthetic,
+s031,how many hours is full time,academics,no,medium,synthetic,full-time status is set by the registrar; financial aid also uses it
+s032,deadline to apply for graduation,academics,no,high,synthetic,
+s033,how do i see what transfer credit i got,academics,no,high,synthetic,
+s034,does AP calc bc count for anything,academics,no,high,synthetic,messy phrasing
+s035,how do i get off the waitlist for a class,academics,no,high,synthetic,
+s036,what happens if im reported for academic dishonesty,academics,no,high,synthetic,
+s037,how do you make the dean's list,academics,no,high,synthetic,
+s038,can i take more than 19 hrs in a semester,academics,no,high,synthetic,messy phrasing
+s039,can i take a class at a community college over the summer and transfer it,academics,unsure,high,synthetic,every program page says core courses can be taken at other institutions but not how transfer works
+s040,minimum gpa to stay in the cs major,academics,unsure,medium,synthetic,edge: program-specific rule; CS page gives a minor GPA but no clear major GPA
+s041,where can i park with a student permit,general,no,high,synthetic,
+s042,parking permit price,general,no,high,synthetic,messy phrasing
+s043,dining hall hrs,general,no,high,synthetic,messy phrasing
+s044,how do i make an appointment at the health center,general,no,high,synthetic,
+s045,lost my comet card,general,no,high,synthetic,messy phrasing
+s046,How much is tuition?,general,no,high,synthetic,edge: tuition is billed by the bursar not an academic department
+s047,Can financial aid pay for my dorm?,general,no,medium,synthetic,edge: mentions dorm but the financial aid office answers it
+s048,counseling center walk in hours,general,no,high,synthetic,
+s049,where can i print on campus,general,no,high,synthetic,
+s050,how do i put money on my comet card,general,no,high,synthetic,
+s051,can i set up a payment plan for my tuition bill,general,no,high,synthetic,
+s052,fafsa deadline,general,no,high,synthetic,messy phrasing
+s053,comet cruiser shuttle schedule,general,no,high,synthetic,
+s054,whats the weather in richardson today,general,no,high,synthetic,off-topic
+s055,write me a poem about cats,general,no,high,synthetic,off-topic
+s056,who won the cowboys game last night,general,no,high,synthetic,off-topic
+s057,how many credit hours do i need to keep my scholarship,general,no,medium,synthetic,edge: credit-hour wording but the scholarship office answers it
+s058,can i get a parking permit for university village,general,no,medium,synthetic,edge: mentions UV but parking and transportation answers it
+s059,if i drop a class will i lose my financial aid,general,no,medium,synthetic,edge: drop wording but the financial aid office answers it
+s060,how do i get extra time on exams for a disability,general,no,medium,synthetic,edge: exam wording but AccessAbility Services answers it

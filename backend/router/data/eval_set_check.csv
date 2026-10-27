@@ -1,0 +1,31 @@
+id,query,label,in_corpus,confidence,source,note
+Q1,What are the core requirements for the BS in Computer Science at UTD?,academics,yes,high,eval_set,sanity check only
+Q2,How many total credit hours are required to complete the BS in Computer Science?,academics,yes,high,eval_set,sanity check only
+Q3,What math courses are required for the BS in Electrical Engineering?,academics,yes,high,eval_set,sanity check only
+Q4,What is the Certificate in Quantum Information and what courses does it require?,academics,yes,high,eval_set,sanity check only
+Q5,What are the requirements for the BS in Biology and Healthcare Management double major?,academics,yes,high,eval_set,sanity check only
+Q6,What courses are listed under the Certificate in Intercultural Communication?,academics,yes,high,eval_set,sanity check only
+Q7,"What does the Certificate in Military Science Leadership require, and who is eligible?",academics,yes,high,eval_set,sanity check only
+Q8,What courses make up the Certificate in Applied Experience Design and Research?,academics,yes,high,eval_set,sanity check only
+Q9,What are the upper-division elective options for the BS in Computer Science?,academics,yes,high,eval_set,sanity check only
+Q10,What are the requirements for the standalone BS in Healthcare Management at UTD?,academics,yes,high,eval_set,sanity check only
+Q11,What science or lab courses are required in the BS in Electrical Engineering?,academics,yes,high,eval_set,sanity check only
+Q12,What courses are required for the BS in Accounting at UTD?,academics,yes,high,eval_set,sanity check only
+Q13,"What certificates at UTD focus on communication, design, or user experience?",academics,yes,high,eval_set,sanity check only
+Q14,What is the difference in core requirements between a BS in Computer Science and a BS in Electrical Engineering at UTD?,academics,yes,high,eval_set,sanity check only
+Q15,What are the course requirements for the BA in Animation and Games at UTD?,academics,yes,high,eval_set,sanity check only
+Q16,What does the BS in Business Analytics and Artificial Intelligence require?,academics,yes,high,eval_set,sanity check only
+Q17,What courses are required for the BS in Cybersecurity and Risk Management?,academics,yes,high,eval_set,sanity check only
+Q18,How do the core requirements for the BS in Software Engineering compare to those for the BS in Computer Science?,academics,yes,high,eval_set,sanity check only
+Q19,What are the requirements for the Certificate in Cyber Defense?,academics,yes,high,eval_set,sanity check only
+Q20,What courses does the BS in Biomedical Engineering require?,academics,yes,high,eval_set,sanity check only
+Q21,What is required for the BS in Neuroscience at UTD?,academics,yes,high,eval_set,sanity check only
+Q22,How do the requirements differ between the BA in Economics and the BS in Finance and Economics double major?,academics,yes,high,eval_set,sanity check only
+Q23,What courses make up the Certificate in Data Science?,academics,yes,high,eval_set,sanity check only
+Q24,What are the requirements for the BS in Mechanical Engineering?,academics,yes,high,eval_set,sanity check only
+Q25,What programs at UTD focus on sustainability or environmental topics?,academics,yes,high,eval_set,sanity check only
+Q26,What is the BS in Marketing and what courses does it require?,academics,yes,high,eval_set,sanity check only
+Q27,What are the requirements for the Certificate in Innovation and Entrepreneurship?,academics,yes,high,eval_set,sanity check only
+Q28,"Does UTD have a pre-law program or certificate, and what does it cover?",academics,yes,high,eval_set,sanity check only
+Q29,What are the requirements for the BA in Visual and Performing Arts — Film concentration?,academics,yes,high,eval_set,sanity check only
+Q30,What programs at UTD combine business with another discipline as a prescribed double major?,academics,yes,high,eval_set,sanity check only
