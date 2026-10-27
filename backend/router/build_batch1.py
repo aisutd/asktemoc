@@ -4,8 +4,8 @@ Build the first labeled query-router batch from the two hand-written sources.
     python -m router.build_batch1        (from backend/)
 
 Reads router/data/corpus_grounded.csv and router/data/seed_synthetic.csv, and
-writes router/data/labels_batch1.csv with a stratified 80/20 train/test split
-(seed 42). Also writes router/data/eval_set_check.csv from eval/eval_set.json.
+writes router/data/labels_batch1.csv with an 80/20 train/test split stratified
+by label and source (seed 42). Also writes router/data/eval_set_check.csv from eval/eval_set.json.
 The test rows are frozen: later batches go in new files, never back into this
 one, so rerunning this script must reproduce the same split.
 """
@@ -39,14 +39,17 @@ def write_rows(path, rows, columns):
 
 
 def split(rows):
-    """Assign split=test to round(20%) of each label, chosen with a seeded shuffle."""
+    """
+    Assign split=test to round(20%) of each (label, source) group, chosen with a
+    seeded shuffle, so off-corpus academics questions are held out too.
+    """
     rng = random.Random(SEED)
-    by_label = defaultdict(list)
+    groups = defaultdict(list)
     for row in rows:
-        by_label[row["label"]].append(row["id"])
+        groups[(row["label"], row["source"])].append(row["id"])
     test = set()
-    for label in sorted(by_label):
-        ids = sorted(by_label[label])
+    for key in sorted(groups):
+        ids = sorted(groups[key])
         rng.shuffle(ids)
         test.update(ids[:round(len(ids) * TEST_FRACTION)])
     return [{**row, "split": "test" if row["id"] in test else "train"} for row in rows]

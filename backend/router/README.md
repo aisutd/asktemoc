@@ -50,7 +50,7 @@ text for the topic, not by running retrieval.
 |---|---|
 | `data/corpus_grounded.csv` | Catalog questions written in student phrasing. All are academics with `in_corpus=yes`. |
 | `data/seed_synthetic.csv` | Off-corpus housing, academics-policy and general questions, including edge cases and off-topic requests. |
-| `data/labels_batch1.csv` | The two files above combined, with a `split` column. Built by `python -m router.build_batch1` from `backend/`. The split is stratified by label: 20% `test`, seed 42. |
+| `data/labels_batch1.csv` | The two files above combined, with a `split` column. Built by `python -m router.build_batch1` from `backend/`. The split is stratified by label and source together: 20% of each group is `test`, seed 42. |
 | `data/eval_set_check.csv` | The 30 retrieval eval questions, labeled academics. For sanity checks only. |
 
 ## Rules
@@ -62,6 +62,17 @@ text for the topic, not by running retrieval.
 - **Never use `eval_set_check.csv` for training or tuning.** It exists only
   to check that the router sends catalog questions to academics.
 - Put new labels in new batch files. Do not edit or reshuffle batch 1.
+
+## Known limitations
+
+- **in_corpus is almost perfectly correlated with source.** Every
+  `corpus_grounded` row is `in_corpus=yes`, and every `synthetic` row is `no`
+  or `unsure`. The two sets were also written in separate batches, so their
+  phrasing differs. A classifier trained on this data may learn writing style
+  rather than corpus coverage. Real user queries are needed to check this.
+- **The test split is small (18 rows).** One row is about 5.6 points of
+  accuracy, so a Week 6 difference of a few points between the classifier
+  and zero-shot routing is noise.
 
 `tests/test_router_data.py` checks both CSVs: no duplicate queries, valid
 `label` and `in_corpus` values, a split on every batch-1 row, and no eval-set

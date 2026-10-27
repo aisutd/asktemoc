@@ -3,32 +3,32 @@ c001,which actuarial exams does the actuarial science major prep you for,academi
 c002,what orgo classes do biochem majors have to take,academics,yes,high,corpus_grounded,bachelor_of_science_in_biochemistry/requirements (CHEM 2323/2325),train
 c003,what does a typical freshman year look like for computer engineering,academics,yes,high,corpus_grounded,bachelor_of_science_in_computer_engineering/example,train
 c004,how many upper division hours do i need for the psych BS,academics,yes,high,corpus_grounded,bachelor_of_science_in_psychology/requirements,train
-c005,what classes are in the cognitive science major,academics,yes,high,corpus_grounded,bachelor_of_science_in_cognitive_science/requirements,test
+c005,what classes are in the cognitive science major,academics,yes,high,corpus_grounded,bachelor_of_science_in_cognitive_science/requirements,train
 c006,speech language and hearing sciences degree plan,academics,yes,high,corpus_grounded,bachelor_of_science_in_speech_language_and_hearing_sciences/requirements,train
-c007,can i double major in bio and criminology and what would i take,academics,yes,high,corpus_grounded,ba_in_criminology_and_biology_double_major/requirements,train
+c007,can i double major in bio and criminology and what would i take,academics,yes,high,corpus_grounded,ba_in_criminology_and_biology_double_major/requirements,test
 c008,global business + HR management double major courses,academics,yes,high,corpus_grounded,bs_in_global_business_and_human_resource_management_double_major/requirements,train
 c009,how many credit hours is the marketing and supply chain double major,academics,yes,high,corpus_grounded,bs_in_marketing_and_supply_chain_management_and_analytics_double_major/requirements,train
-c010,requirements for doing IPE and global business together,academics,yes,high,corpus_grounded,bs_in_international_political_economy_and_global_business_double_major/requirements,test
-c011,what do you take in the molecular bio and healthcare management double major,academics,yes,high,corpus_grounded,bs_in_molecular_biology_and_healthcare_management_double_major/requirements,train
-c012,is there a certificate for biomedical data analytics and who can get it,academics,yes,high,corpus_grounded,certificate_in_biomedical_data_analytics/requirements (15 SCH; admission requirements),test
+c010,requirements for doing IPE and global business together,academics,yes,high,corpus_grounded,bs_in_international_political_economy_and_global_business_double_major/requirements,train
+c011,what do you take in the molecular bio and healthcare management double major,academics,yes,high,corpus_grounded,bs_in_molecular_biology_and_healthcare_management_double_major/requirements,test
+c012,is there a certificate for biomedical data analytics and who can get it,academics,yes,high,corpus_grounded,certificate_in_biomedical_data_analytics/requirements (15 SCH; admission requirements),train
 c013,how many hours is the geophysics certificate,academics,yes,high,corpus_grounded,certificate_in_geophysics/requirements (12 SCH),train
 c014,what classes do i need for the nanotech certificate,academics,yes,high,corpus_grounded,certificate_in_nanoscience_and_nanotechnology/requirements (MSEN 3301/3302); page is the ECS certificates list,train
-c015,holocaust and genocide studies certificate requirements,academics,yes,high,corpus_grounded,certificate_in_holocaust_genocide_and_human_rights/requirements; page is the Bass School certificates list,train
+c015,holocaust and genocide studies certificate requirements,academics,yes,high,corpus_grounded,certificate_in_holocaust_genocide_and_human_rights/requirements; page is the Bass School certificates list,test
 c016,i want to teach high school history what should i major in,academics,yes,medium,corpus_grounded,ba_in_education_7_12_social_studies_with_a_concentration_in_history/requirements,train
-c017,lit major with the creative writing concentration required classes,academics,yes,high,corpus_grounded,ba_in_literature_creative_writing_concentration/requirements,test
+c017,lit major with the creative writing concentration required classes,academics,yes,high,corpus_grounded,ba_in_literature_creative_writing_concentration/requirements,train
 c018,does utd have a spanish concentration for literature,academics,yes,high,corpus_grounded,ba_in_literature_spanish_concentration/requirements,train
 c019,what do dance concentration students have to take,academics,yes,high,corpus_grounded,ba_in_visual_and_performing_arts_dance_concentration/requirements,train
 c020,music concentration requirements in visual and performing arts,academics,yes,high,corpus_grounded,ba_in_visual_and_performing_arts_music_concentration/requirements,test
 c021,emerging media arts concentration what courses,academics,yes,high,corpus_grounded,ba_in_media_arts_and_design_emerging_media_arts_concentration/requirements,train
 c022,what do i need for the public health BA,academics,yes,high,corpus_grounded,bachelor_of_arts_in_public_health/requirements,train
-c023,philosophy major requirements,academics,yes,high,corpus_grounded,bachelor_of_arts_in_philosophy/requirements,train
-c024,does the math BA require linear algebra,academics,yes,high,corpus_grounded,bachelor_of_arts_in_mathematics/requirements (MATH 2418),test
+c023,philosophy major requirements,academics,yes,high,corpus_grounded,bachelor_of_arts_in_philosophy/requirements,test
+c024,does the math BA require linear algebra,academics,yes,high,corpus_grounded,bachelor_of_arts_in_mathematics/requirements (MATH 2418),train
 c025,core classes for systems engineering,academics,yes,high,corpus_grounded,bachelor_of_science_in_systems_engineering/requirements,train
-c026,which FIN classes are required for the finance major,academics,yes,high,corpus_grounded,bachelor_of_science_in_finance/requirements,test
+c026,which FIN classes are required for the finance major,academics,yes,high,corpus_grounded,bachelor_of_science_in_finance/requirements,train
 c027,GIS degree requirements,academics,yes,high,corpus_grounded,bachelor_of_science_in_geospatial_information_sciences/requirements,test
 c028,whats in the child learning and development major,academics,yes,high,corpus_grounded,bachelor_of_science_in_child_learning_and_development/requirements,train
 c029,how does the interdisciplinary studies degree work,academics,yes,high,corpus_grounded,bachelor_of_arts_in_interdisciplinary_studies/requirements,train
-c030,do global business majors have to do an international experience,academics,yes,high,corpus_grounded,bachelor_of_science_in_global_business/requirements (International Experience),test
+c030,do global business majors have to do an international experience,academics,yes,high,corpus_grounded,bachelor_of_science_in_global_business/requirements (International Experience),train
 s001,how do i apply for on-campus housing,housing,no,high,synthetic,,test
 s002,when is the housing application deadline for fall,housing,no,high,synthetic,,train
 s003,dorm laundry,housing,no,high,synthetic,messy phrasing,train
@@ -56,11 +56,11 @@ s024,last day to drop a class without getting a W,academics,no,high,synthetic,,t
 s025,how is GPA calculated,academics,no,high,synthetic,,train
 s026,can i retake a class to replace the grade,academics,no,high,synthetic,,train
 s027,what happens if i go on academic probation,academics,no,high,synthetic,,train
-s028,how do i declare a minor,academics,unsure,high,synthetic,program pages list minor requirements but not how to declare one,train
+s028,how do i declare a minor,academics,unsure,high,synthetic,program pages list minor requirements but not how to declare one,test
 s029,how do i change my major,academics,unsure,high,synthetic,only a Healthcare Studies change-of-major policy and a second-baccalaureate note,train
 s030,is there a pass/fail option for undergrads,academics,no,high,synthetic,,train
 s031,how many hours is full time,academics,no,medium,synthetic,full-time status is set by the registrar; financial aid also uses it,train
-s032,deadline to apply for graduation,academics,no,high,synthetic,,train
+s032,deadline to apply for graduation,academics,no,high,synthetic,,test
 s033,how do i see what transfer credit i got,academics,no,high,synthetic,,train
 s034,does AP calc bc count for anything,academics,no,high,synthetic,messy phrasing,train
 s035,how do i get off the waitlist for a class,academics,no,high,synthetic,,train
@@ -68,7 +68,7 @@ s036,what happens if im reported for academic dishonesty,academics,no,high,synth
 s037,how do you make the dean's list,academics,no,high,synthetic,,train
 s038,can i take more than 19 hrs in a semester,academics,no,high,synthetic,messy phrasing,train
 s039,can i take a class at a community college over the summer and transfer it,academics,unsure,high,synthetic,every program page says core courses can be taken at other institutions but not how transfer works,train
-s040,minimum gpa to stay in the cs major,academics,unsure,medium,synthetic,edge: program-specific rule; CS page gives a minor GPA but no clear major GPA,train
+s040,minimum gpa to stay in the cs major,academics,unsure,medium,synthetic,edge: program-specific rule; CS page gives a minor GPA but no clear major GPA,test
 s041,where can i park with a student permit,general,no,high,synthetic,,train
 s042,parking permit price,general,no,high,synthetic,messy phrasing,train
 s043,dining hall hrs,general,no,high,synthetic,messy phrasing,train

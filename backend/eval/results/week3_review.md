@@ -93,10 +93,10 @@ Ranked by strict MRR@10. Ties are broken by duplicate-aware MRR@10.
 
 | # | Q | first hit strict / dup | dense top 3 docs | likely cause |
 |---|---|---|---|---|
-| 1 | Q8 Cert. Applied Experience Design & Research | 8 / 5 | cert:user_experience_ux_research, cert:behavioral_research_methods, cert:biobehavioral_data_science | **Duplicate docs.** The target's text is identical to five other certificates (creative writing, Holocaust/genocide, intercultural communication, legal research, professional communication), so its content cannot single it out. A second exact-duplicate cluster (the UX research group) is semantically closer and takes the top 3. Large does no better (6 / 5). BM25 ranks it 1. |
+| 1 | Q8 Cert. Applied Experience Design & Research | 8 / 5 | cert:user_experience_ux_research, cert:behavioral_research_methods, cert:biobehavioral_data_science | **Duplicate docs.** The target's text is identical to five other certificates (creative writing, Holocaust/genocide, intercultural communication, legal research, professional communication), because all six are the Bass School's combined certificates page. Its content therefore cannot single it out. A second exact-duplicate cluster (the UX research group) is semantically closer and takes the top 3. Large does no better (6 / 5). BM25 ranks it 1. |
 | 2 | Q10 standalone BS Healthcare Management | 6 / 6 | bs:healthcare_studies, bs:cybersecurity_and_risk_management, bs:supply_chain_management_and_analytics | **Wrong ranking.** No duplicates are involved. Sibling programs with similar names outrank the target, and recall within 5 chunks is 0.000. This is the only question that dense and BM25 both miss in the top 5. Large reaches rank 4 through the healthcare-management double majors and `bs:healthcare_management/ex`. Whether that `/ex` page should also count as relevant needs checking. |
-| 3 | Q19 Cert. Cyber Defense | 6 / 3 | bs:software_engineering, bs:computer_science, cert:sustainable_energy_engineering | **Duplicate docs plus hub crowding.** The target's text is identical to the sustainable-energy, semiconductor and nanoscience certificates. SE and CS take the top 2, and they are dense's most frequent top-5 documents (8 and 6 questions). |
-| 4 | Q6 Cert. Intercultural Communication | 6 / 1 | cert:holocaust_genocide_and_human_rights, cert:creative_writing, cert:professional_communication | **Duplicate docs only.** The target belongs to the same six-document identical cluster as Q8. Ranks 1–5 are all copies, so the duplicate-aware rank is 1. Strict recall within 5 chunks is 0.000, which means the named certificate never reaches generation. At least five of these six pages must hold the wrong content, which points to a scraping defect. |
+| 3 | Q19 Cert. Cyber Defense | 6 / 3 | bs:software_engineering, bs:computer_science, cert:sustainable_energy_engineering | **Duplicate docs plus hub crowding.** The target's text is identical to the sustainable-energy, semiconductor and nanoscience certificates, because all four are the Jonsson School's combined certificates page. SE and CS take the top 2, and they are dense's most frequent top-5 documents (8 and 6 questions). |
+| 4 | Q6 Cert. Intercultural Communication | 6 / 1 | cert:holocaust_genocide_and_human_rights, cert:creative_writing, cert:professional_communication | **Duplicate docs only.** The target belongs to the same six-document identical cluster as Q8. Ranks 1–5 are all copies, so the duplicate-aware rank is 1. Strict recall within 5 chunks is 0.000, which means the named certificate never reaches generation. This is not a scraping error. All six documents are the Bass School's combined certificates page, saved once per certificate, so each copy contains the Intercultural Communication requirements but cannot be told apart from the other five. |
 | 5 | Q30 business + discipline double majors (3 targets) | 5 / 5 | 3, 2, 1 (catalog index pages) | **Index-page crowding.** The three identical index pages fill the top 3. This is a broad list question with 3 targets, and recall within 5 chunks is only 0.333. BM25 finds none of the targets in its top 10. |
 
 Next in line is Q5 (first hit 4 / 4). Its top 3 are also the index pages
@@ -111,16 +111,24 @@ Coverage of the candidate causes:
 
 ## 5. Week 5 experiments (ranked by expected impact)
 
-1. **Fix the duplicate-content documents at the source.** Four exact-text
-   clusters cover 6, 4, 4 and 3 certificates. Some certificates are also
-   exact copies of degree pages: quantum information ↔ BA physics, data
-   science ↔ BS data science, and sustainable earth ↔ BS geosciences / cert
-   geophysics. Duplicate content, counting the identical index pages, drives
-   4 of the 5 worst questions (Q6, Q8, Q19, Q30). It also explains why
-   strict and duplicate-aware scores differ (dense R@5: 0.761 vs 0.889). Re-scrape the
-   affected pages and collapse the three catalog index pages into one or
-   remove them. Then rerun the eval. This should also make the strict scores
-   the trustworthy ones.
+1. **Split combined pages into one document per certificate at ingestion.**
+   Four exact-text clusters cover 6, 4, 4 and 3 certificates. These are not
+   scraping errors: each cluster is a school's combined certificates page,
+   saved once per certificate. For example, every copy in the Bass School
+   cluster lists all six certificates, starting with Applied Experience
+   Design and Research. Some certificates are also exact copies of degree
+   pages: quantum information ↔ BA physics, data science ↔ BS data science,
+   and sustainable earth ↔ BS geosciences / cert geophysics. The
+   `certificate_in_geophysics` page, for one, is the Geosciences (BS) page
+   with the certificate section at the end, which suggests the same
+   combined-page pattern. Duplicate content, counting the identical index
+   pages, drives 4 of the 5 worst questions (Q6, Q8, Q19, Q30). It also
+   explains why strict and duplicate-aware scores differ (dense R@5: 0.761
+   vs 0.889). The fix is to cut each combined page at its `Certificate in …`
+   headings during ingestion, keep only the matching section in each
+   certificate's document, and keep one copy of the three catalog index
+   pages (or drop them). No re-scrape is needed. Then rerun the eval. This
+   should also make the strict scores the trustworthy ones.
 2. **Diversify chunks per document before generation.** Cap the number of
    chunks taken from one document, or apply MMR. Dense repeats a document in
    25/30 questions and needs 15.1 chunks to cover 10 distinct documents. The
