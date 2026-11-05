@@ -1,0 +1,207 @@
+{
+  "chunks": 885,
+  "programs": 115,
+  "pca_explained_variance_2pc": 0.181,
+  "topics": [
+    {
+      "topic": "Catalog index",
+      "programs": 3,
+      "chunks": 18,
+      "programs_targeted_by_eval": 1,
+      "program_coverage": 0.333
+    },
+    {
+      "topic": "Double majors",
+      "programs": 15,
+      "chunks": 94,
+      "programs_targeted_by_eval": 5,
+      "program_coverage": 0.333
+    },
+    {
+      "topic": "Arts, humanities & media",
+      "programs": 29,
+      "chunks": 177,
+      "programs_targeted_by_eval": 10,
+      "program_coverage": 0.345
+    },
+    {
+      "topic": "Behavioral & brain sciences",
+      "programs": 8,
+      "chunks": 55,
+      "programs_targeted_by_eval": 3,
+      "program_coverage": 0.375
+    },
+    {
+      "topic": "Education & interdisciplinary",
+      "programs": 5,
+      "chunks": 33,
+      "programs_targeted_by_eval": 2,
+      "program_coverage": 0.4
+    },
+    {
+      "topic": "Econ, policy & social science",
+      "programs": 15,
+      "chunks": 93,
+      "programs_targeted_by_eval": 7,
+      "program_coverage": 0.467
+    },
+    {
+      "topic": "Business",
+      "programs": 12,
+      "chunks": 158,
+      "programs_targeted_by_eval": 6,
+      "program_coverage": 0.5
+    },
+    {
+      "topic": "Natural sciences & math",
+      "programs": 14,
+      "chunks": 159,
+      "programs_targeted_by_eval": 7,
+      "program_coverage": 0.5
+    },
+    {
+      "topic": "Engineering & CS",
+      "programs": 14,
+      "chunks": 98,
+      "programs_targeted_by_eval": 8,
+      "program_coverage": 0.571
+    }
+  ],
+  "programs_targeted": 49,
+  "untargeted_programs_by_topic": {
+    "Arts, humanities & media": [
+      "ba_in_literature_professional_and_technical_writing_concentration",
+      "ba_in_literature_spanish_concentration",
+      "ba_in_media_arts_and_design_critical_media_studies_concentration",
+      "ba_in_media_arts_and_design_emerging_media_arts_concentration",
+      "ba_in_visual_and_performing_arts_art_history_concentration",
+      "ba_in_visual_and_performing_arts_communication_studies_concentration",
+      "ba_in_visual_and_performing_arts_dance_concentration",
+      "ba_in_visual_and_performing_arts_photo_video_digital_concentration",
+      "ba_in_visual_and_performing_arts_theatre_concentration",
+      "ba_in_visual_and_performing_arts_visual_arts_concentration",
+      "bachelor_of_arts_in_american_studies",
+      "bachelor_of_arts_in_latin_american_studies",
+      "bachelor_of_arts_in_media_arts_and_design",
+      "bachelor_of_arts_in_philosophy",
+      "bachelor_of_arts_in_visual_and_performing_arts",
+      "certificate_in_creative_writing",
+      "certificate_in_holocaust_genocide_and_human_rights",
+      "certificate_in_professional_communication",
+      "professional_communication_and_digital_media_studies"
+    ],
+    "Behavioral & brain sciences": [
+      "bachelor_of_science_in_child_learning_and_development",
+      "bachelor_of_science_in_cognitive_science",
+      "bachelor_of_science_in_speech_language_and_hearing_sciences",
+      "certificate_in_behavioral_research_methods",
+      "certificate_in_neural_net_math"
+    ],
+    "Business": [
+      "bachelor_of_science_in_business_administration",
+      "bachelor_of_science_in_computer_information_systems_and_technology",
+      "bachelor_of_science_in_finance",
+      "bachelor_of_science_in_global_business",
+      "bachelor_of_science_in_human_resource_management",
+      "bachelor_of_science_in_supply_chain_management_and_analytics"
+    ],
+    "Catalog index": [
+      "2",
+      "3"
+    ],
+    "Double majors": [
+      "ba_in_biology_and_criminology_double_major",
+      "ba_in_criminology_and_biology_double_major",
+      "bs_in_finance_and_economics_double_major",
+      "bs_in_global_business_and_human_resource_management_double_major",
+      "bs_in_global_business_and_international_political_economy_double_major",
+      "bs_in_healthcare_management_and_biology_double_major",
+      "bs_in_healthcare_management_and_molecular_biology_double_major",
+      "bs_in_international_political_economy_and_global_business_double_major",
+      "bs_in_marketing_and_supply_chain_management_and_analytics_double_major",
+      "bs_in_molecular_biology_and_healthcare_management_double_major"
+    ],
+    "Econ, policy & social science": [
+      "ba_in_education_7_12_social_studies_with_a_concentration_in_economics",
+      "bachelor_of_arts_in_international_political_economy",
+      "bachelor_of_arts_in_political_science",
+      "bachelor_of_arts_in_public_health",
+      "bachelor_of_arts_in_sociology",
+      "bachelor_of_science_in_computational_and_geospatial_science",
+      "bachelor_of_science_in_geospatial_information_sciences",
+      "certificate_in_public_service_and_civic_leadership"
+    ],
+    "Education & interdisciplinary": [
+      "ba_in_education_7_12_social_studies_with_a_concentration_in_geography",
+      "ba_in_education_7_12_social_studies_with_a_concentration_in_government",
+      "bachelor_of_arts_in_interdisciplinary_studies"
+    ],
+    "Engineering & CS": [
+      "bachelor_of_science_in_computer_engineering",
+      "bachelor_of_science_in_data_science",
+      "bachelor_of_science_in_systems_engineering",
+      "certificate_in_biobehavioral_data_science",
+      "certificate_in_nanoscience_and_nanotechnology",
+      "certificate_in_semiconductor_technology"
+    ],
+    "Natural sciences & math": [
+      "bachelor_of_arts_in_chemistry",
+      "bachelor_of_arts_in_mathematics",
+      "bachelor_of_arts_in_physics",
+      "bachelor_of_science_in_biomedical_sciences",
+      "certificate_in_biomedical_data_analytics",
+      "certificate_in_biomedical_sciences",
+      "certificate_in_geophysics"
+    ]
+  },
+  "most_isolated_programs": [
+    [
+      "certificate_in_innovation_and_entrepreneurship",
+      0.71
+    ],
+    [
+      "certificate_in_biomedical_sciences",
+      0.831
+    ],
+    [
+      "bachelor_of_science_in_neuroscience",
+      0.857
+    ],
+    [
+      "bachelor_of_arts_in_philosophy",
+      0.864
+    ],
+    [
+      "bachelor_of_science_in_speech_language_and_hearing_sciences",
+      0.868
+    ],
+    [
+      "bachelor_of_science_in_cognitive_science",
+      0.871
+    ],
+    [
+      "bachelor_of_arts_in_criminology",
+      0.879
+    ],
+    [
+      "bachelor_of_arts_in_latin_american_studies",
+      0.881
+    ],
+    [
+      "ba_in_visual_and_performing_arts_music_concentration",
+      0.882
+    ],
+    [
+      "bachelor_of_arts_in_history",
+      0.89
+    ],
+    [
+      "bachelor_of_science_in_public_affairs",
+      0.899
+    ],
+    [
+      "bachelor_of_arts_in_international_political_economy",
+      0.901
+    ]
+  ]
+}

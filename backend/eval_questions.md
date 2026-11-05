@@ -1,6 +1,6 @@
 # AskTemoc — RAG Evaluation Questions (UTD Catalog)
 
-30 ground-truth questions for evaluating retrieval quality.
+45 ground-truth questions for evaluating retrieval quality (Q1-Q30 original set, Q31-Q45 added after the embedding coverage pass in `analysis/coverage_report.md`).
 Each question is answerable from the scraped catalog corpus in `test_output/`.
 
 Questions cover: CS/Engineering, Business (Jindal), Arts/ATEC, Natural Sciences,
@@ -127,3 +127,67 @@ Social Sciences, certificates, double majors, admissions/policy, and cross-doc c
 ## Q30
 **What programs at UTD combine business with another discipline as a prescribed double major?**
 *Target docs*: `bs_in_global_business_and_marketing_double_major/requirements.txt`, `bs_in_global_business_and_supply_chain_management_and_analytics_double_major/requirements.txt`, `bs_in_business_analytics_and_artificial_intelligence_and_supply_chain_management_and_analytics_double_major/requirements.txt`
+
+---
+
+## Added after coverage analysis (Q31-Q45)
+
+## Q31
+**What does UT Dallas require to become a certified teacher through the BA in Education with 7-12 Social Studies (History)?**
+*Target doc*: `ba_in_education_7_12_social_studies_with_a_concentration_in_history/requirements.txt`
+
+## Q32
+**What is the BS in Healthcare Studies and what courses does it require?**
+*Target doc*: `bachelor_of_science_in_healthcare_studies/requirements.txt`
+
+## Q33
+**Which Society of Actuaries exams does the BS in Actuarial Science prepare students to take?**
+*Target doc*: `bachelor_of_science_in_actuarial_science/requirements.txt`
+
+## Q34
+**Which calculus and general chemistry courses are required for the BS in Biochemistry?**
+*Target doc*: `bachelor_of_science_in_biochemistry/requirements.txt`
+
+## Q35
+**What geology courses does the BS in Geosciences require, and what careers does it lead to?**
+*Target doc*: `bachelor_of_science_in_geosciences/requirements.txt`
+
+## Q36
+**How do the requirements for the BA in Biology differ from the BS in Molecular Biology?**
+*Target docs*: `bachelor_of_arts_in_biology/requirements.txt`, `bachelor_of_science_in_molecular_biology/requirements.txt`
+
+## Q37
+**What career paths does the BA in Criminology prepare students for?**
+*Target doc*: `bachelor_of_arts_in_criminology/requirements.txt`
+
+## Q38
+**What is the difference between the BS in Public Policy and the BS in Public Affairs?**
+*Target docs*: `bachelor_of_science_in_public_policy/requirements.txt`, `bachelor_of_science_in_public_affairs/requirements.txt`
+
+## Q39
+**What is the Certificate in Compassionate Law Enforcement Active Response (CLEAR) and how many credit hours is it?**
+*Target doc*: `certificate_in_compassionate_law_enforcement_active_response_clear/requirements.txt`
+
+## Q40
+**What are the requirements for the Music concentration in the BA in Visual and Performing Arts?**
+*Target doc*: `ba_in_visual_and_performing_arts_music_concentration/requirements.txt`
+
+## Q41
+**What concentrations does the BA in Literature offer, and what does the Creative Writing concentration require?**
+*Target docs*: `bachelor_of_arts_in_literature/requirements.txt`, `ba_in_literature_creative_writing_concentration/requirements.txt`
+
+## Q42
+**What are the degree requirements for the BA in History?**
+*Target doc*: `bachelor_of_arts_in_history/requirements.txt`
+
+## Q43
+**What does the sample four-year degree plan for the BS in Psychology look like for the first fall semester?**
+*Target doc*: `bachelor_of_science_in_psychology/example.txt`
+
+## Q44
+**What does the sample four-year degree plan for the BS in Computer Science look like for the first year?**
+*Target doc*: `bachelor_of_science_in_computer_science/example.txt`
+
+## Q45
+**Which undergraduate programs at UTD have a Fast Track option?**
+*Target doc*: `1/requirements.txt` (catalog index; footnote 1 marks Fast Track programs)
