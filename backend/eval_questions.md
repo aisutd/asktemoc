@@ -1,6 +1,6 @@
 # AskTemoc — RAG Evaluation Questions (UTD Catalog)
 
-51 ground-truth questions for evaluating retrieval quality (Q1-Q30 original set, Q31-Q51 added after the embedding coverage pass in `analysis/coverage_report.md`).
+55 ground-truth questions for evaluating retrieval quality (Q1-Q30 original set, Q31-Q55 added after the embedding coverage pass in `analysis/coverage_report.md`).
 Each question is answerable from the scraped catalog corpus in `test_output/`.
 
 Questions cover: CS/Engineering, Business (Jindal), Arts/ATEC, Natural Sciences,
@@ -190,7 +190,7 @@ Social Sciences, certificates, double majors, admissions/policy, and cross-doc c
 
 ## Q45
 **Which undergraduate programs at UTD have a Fast Track option?**
-*Target doc*: `1/requirements.txt` (catalog index; footnote 1 marks Fast Track programs)
+*Target doc*: `undergraduate_catalog_overview/requirements.txt` (catalog index; footnote 1 marks Fast Track programs)
 
 ## Q46
 **How many credit hours and how many core curriculum hours does the BA in Education with EC-6 Core Subjects require?**
@@ -215,3 +215,21 @@ Social Sciences, certificates, double majors, admissions/policy, and cross-doc c
 ## Q51
 **What is the difference between the BA in Education 4-8 Science and the BS in Education 4-8 Science?**
 *Target docs*: `ba_in_education_4_8_science/requirements.txt`, `bs_in_education_4_8_science/requirements.txt`
+
+## Non-catalog questions (Q52-Q55, from the Crawl4AI web pages)
+
+## Q52
+**How much more per semester credit hour do Oklahoma residents pay than the Texas resident tuition rate?**
+*Target doc*: `web/utd_tuition_rates.md`
+
+## Q53
+**Which terms do the 2026-2027 variable tuition plan rates apply to?**
+*Target doc*: `web/utd_tuition_rates.md`
+
+## Q54
+**What are the two paths for teacher certification listed on UT Dallas's academics page, and who is each for?**
+*Target doc*: `web/utd_academics.md`
+
+## Q55
+**What is the Bursar Office's email address and what are its office hours?**
+*Target doc*: `web/utd_tuition_rates.md`

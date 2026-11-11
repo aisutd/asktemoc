@@ -32,7 +32,8 @@ load_dotenv(HERE / ".env")
 
 # First matching rule wins.
 TOPIC_RULES = [
-    ("Catalog index", r"^(1|2|3)/"),
+    ("Catalog overview", r"^undergraduate_catalog_overview/"),
+    ("Web pages (non-catalog)", r"^web/"),
     ("Double majors", r"double_major"),
     ("Education & interdisciplinary", r"education|interdisciplinary|healthcare_studies"),
     ("Engineering & CS", r"computer_science|computer_engineering|electrical|mechanical|software_eng|systems_eng|biomedical_engineering|data_science|cyber_defense|nanoscience|semiconductor|sustainable_energy"),
