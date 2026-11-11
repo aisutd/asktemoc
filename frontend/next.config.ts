@@ -1,12 +1,9 @@
 import type { NextConfig } from "next";
-
-const ASKTEMOC_API_ORIGIN =
-  process.env.ASKTEMOC_API_ORIGIN?.replace(/\/$/, "") ||
-  "https://asktemoc-api-422855032073.us-central1.run.app";
+import { apiOrigin } from "./src/lib/api-origin";
 
 const nextConfig: NextConfig = {
   async rewrites() {
-    const o = ASKTEMOC_API_ORIGIN;
+    const o = apiOrigin();
     return [
       // Cloud Run redirects /api/health → http://.../api/health/ which breaks browser fetch
       // from HTTPS; hit the canonical path directly.

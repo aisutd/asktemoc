@@ -1,9 +1,6 @@
 import { SignJWT } from "jose";
 import type { Adapter, AdapterAccount, AdapterUser } from "next-auth/adapters";
-
-function apiOrigin(): string {
-  return (process.env.ASKTEMOC_API_ORIGIN || "http://localhost:8000").replace(/\/$/, "");
-}
+import { apiOrigin } from "@/lib/api-origin";
 
 /** Short-lived token for the adapter routes. It cannot call user routes. */
 async function mintAdapterToken(): Promise<string> {

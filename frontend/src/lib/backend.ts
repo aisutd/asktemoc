@@ -2,6 +2,9 @@ import "server-only";
 
 import { SignJWT } from "jose";
 import type { Session } from "next-auth";
+import { apiOrigin } from "@/lib/api-origin";
+
+export { apiOrigin };
 
 /**
  * Server-side access to the FastAPI backend. The browser never calls the API
@@ -10,13 +13,6 @@ import type { Session } from "next-auth";
  */
 
 const TOKEN_TTL = "5m";
-
-export function apiOrigin(): string {
-  return (process.env.ASKTEMOC_API_ORIGIN || "http://localhost:8000").replace(
-    /\/$/,
-    "",
-  );
-}
 
 export async function mintBackendToken(user: Session["user"]): Promise<string> {
   const secret = process.env.BACKEND_JWT_SECRET;

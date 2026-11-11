@@ -1,0 +1,130 @@
+name: Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+  workflow_dispatch:
+
+# Preview revisions never receive production traffic. Each pull request gets a
+# Cloud Run tag on asktemoc-api-preview and a Vercel preview deployment.
+concurrency:
+  group: preview-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event.action != 'closed' }}
+
+permissions:
+  contents: read
+  id-token: write
+  pull-requests: write
+
+jobs:
+  deploy:
+    if: >-
+      github.event.action != 'closed' &&
+      (github.event_name != 'pull_request' ||
+       github.event.pull_request.head.repo.full_name == github.repository)
+    runs-on: ubuntu-latest
+    env:
+      GCP_PROJECT: ${{ secrets.GCP_PROJECT_ID }}
+      GCP_REGION: us-central1
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      PREVIEW_TAG: ${{ github.event.pull_request.number && format('pr-{0}', github.event.pull_request.number) || '' }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID != '' && secrets.VERCEL_ORG_ID || 'team_etNhOt9uNqnkyecWNCBFh0ht' }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID != '' && secrets.VERCEL_PROJECT_ID || 'prj_vQ4THsQJ2k4sIaJKTwSAPUgNUmZj' }}
+      VERCEL_SCOPE: ${{ secrets.VERCEL_SCOPE != '' && secrets.VERCEL_SCOPE || 'davis118s-projects' }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      BACKEND_JWT_SECRET: ${{ secrets.BACKEND_JWT_SECRET }}
+      AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
+      AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
+      AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
+      AUTH_MICROSOFT_ENTRA_ID_ID: ${{ secrets.AUTH_MICROSOFT_ENTRA_ID_ID }}
+      AUTH_MICROSOFT_ENTRA_ID_SECRET: ${{ secrets.AUTH_MICROSOFT_ENTRA_ID_SECRET }}
+      AUTH_MICROSOFT_ENTRA_ID_ISSUER: ${{ secrets.AUTH_MICROSOFT_ENTRA_ID_ISSUER }}
+      ALLOWED_EMAIL_DOMAIN: utdallas.edu
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Require deploy secrets
+        run: |
+          set -euo pipefail
+          missing=0
+          for name in GCP_PROJECT VERCEL_TOKEN BACKEND_JWT_SECRET AUTH_SECRET; do
+            if [[ -z "${!name:-}" ]]; then
+              echo "Missing GitHub secret: $name"
+              missing=1
+            fi
+          done
+          exit "$missing"
+
+      # Keyless auth via Workload Identity Federation (the org blocks JSON keys).
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/422855032073/locations/global/workloadIdentityPools/github/providers/aisutd-asktemoc
+          service_account: github-action-worker@asktemoc.iam.gserviceaccount.com
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      - name: Deploy preview API
+        id: api
+        run: |
+          set -euo pipefail
+          bash scripts/preview/backend.sh
+          url="$(cat "${RUNNER_TEMP}/asktemoc-preview-api-url")"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Deploy preview frontend
+        id: web
+        env:
+          PREVIEW_API_URL: ${{ steps.api.outputs.url }}
+        run: |
+          set -euo pipefail
+          bash scripts/preview/frontend.sh
+          url="$(cat "${RUNNER_TEMP}/asktemoc-preview-web-url")"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+
+      - name: Allow the preview site to call the API
+        env:
+          PREVIEW_WEB_ORIGIN: ${{ steps.web.outputs.url }}
+          SKIP_BUILD: "1"
+        run: bash scripts/preview/backend.sh
+
+      - name: Comment on the pull request
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PREVIEW_API_URL: ${{ steps.api.outputs.url }}
+          PREVIEW_WEB_URL: ${{ steps.web.outputs.url }}
+        run: |
+          set -euo pipefail
+          body="$(printf '%s\n' \
+            '<!-- preview-deploy -->' \
+            "Preview is up." \
+            "- Frontend: ${PREVIEW_WEB_URL}" \
+            "- API: ${PREVIEW_API_URL}")"
+          marker="<!-- preview-deploy -->"
+          number="${{ github.event.pull_request.number }}"
+          existing="$(gh api "repos/${{ github.repository }}/issues/${number}/comments" --jq ".[] | select(.body | startswith(\"$marker\")) | .id" | head -1)"
+          if [[ -n "$existing" ]]; then
+            gh api -X PATCH "repos/${{ github.repository }}/issues/comments/${existing}" -f body="$body" >/dev/null
+          else
+            gh pr comment "$number" --body "$body"
+          fi
+
+  cleanup:
+    if: github.event.action == 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    env:
+      GCP_PROJECT: ${{ secrets.GCP_PROJECT_ID }}
+      PREVIEW_TAG: pr-${{ github.event.pull_request.number }}
+    steps:
+      - uses: actions/checkout@v4
+      # Keyless auth via Workload Identity Federation (the org blocks JSON keys).
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/422855032073/locations/global/workloadIdentityPools/github/providers/aisutd-asktemoc
+          service_account: github-action-worker@asktemoc.iam.gserviceaccount.com
+      - uses: google-github-actions/setup-gcloud@v2
+      - name: Remove preview tag
+        run: bash scripts/preview/cleanup.sh
