@@ -5,6 +5,7 @@ SQLAlchemy>=2.0
 pydantic>=2.11
 pydantic-settings>=2.11
 psycopg2-binary>=2.9
+psycopg[binary]>=3.2
 pgvector>=0.3
 python-dotenv>=1.0
 openai>=1.50
