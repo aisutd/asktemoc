@@ -34,12 +34,12 @@ load_dotenv(HERE / ".env")
 TOPIC_RULES = [
     ("Catalog index", r"^(1|2|3)/"),
     ("Double majors", r"double_major"),
+    ("Education & interdisciplinary", r"education|interdisciplinary|healthcare_studies"),
     ("Engineering & CS", r"computer_science|computer_engineering|electrical|mechanical|software_eng|systems_eng|biomedical_engineering|data_science|cyber_defense|nanoscience|semiconductor|sustainable_energy"),
     ("Business", r"accounting|finance|marketing|business|supply_chain|human_resource|healthcare_management|information_systems|innovation_and_entrepreneurship|cybersecurity_and_risk"),
     ("Natural sciences & math", r"biology|chemistry|mathematics|physics|actuarial|biochemistry|biomedical_sciences|geosciences|molecular|quantum|geophysics|sustainable_earth|biomedical_data|biomedical_analytics"),
     ("Behavioral & brain sciences", r"child_learning|cognitive|neuroscience|psychology|speech|behavioral_research|biobehavioral|user_experience|ux_research|neural_net"),
     ("Econ, policy & social science", r"criminology|economics|political|public_health|sociology|geospatial|public_affairs|public_policy|sustainability_planning|compassionate|civic|military|nonprofit"),
-    ("Education & interdisciplinary", r"education|interdisciplinary|healthcare_studies"),
     ("Arts, humanities & media", r"animation|media_arts|history|latin|literature|philosophy|visual_and_performing|professional_communication|creative_writing|holocaust|legal_research|intercultural|american_studies|applied_experience"),
 ]
 

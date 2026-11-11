@@ -1,6 +1,6 @@
 # AskTemoc — RAG Evaluation Questions (UTD Catalog)
 
-45 ground-truth questions for evaluating retrieval quality (Q1-Q30 original set, Q31-Q45 added after the embedding coverage pass in `analysis/coverage_report.md`).
+51 ground-truth questions for evaluating retrieval quality (Q1-Q30 original set, Q31-Q51 added after the embedding coverage pass in `analysis/coverage_report.md`).
 Each question is answerable from the scraped catalog corpus in `test_output/`.
 
 Questions cover: CS/Engineering, Business (Jindal), Arts/ATEC, Natural Sciences,
@@ -191,3 +191,27 @@ Social Sciences, certificates, double majors, admissions/policy, and cross-doc c
 ## Q45
 **Which undergraduate programs at UTD have a Fast Track option?**
 *Target doc*: `1/requirements.txt` (catalog index; footnote 1 marks Fast Track programs)
+
+## Q46
+**How many credit hours and how many core curriculum hours does the BA in Education with EC-6 Core Subjects require?**
+*Target doc*: `ba_in_education_ec_6_core_subjects/requirements.txt`
+
+## Q47
+**What are the degree requirements for the BS in Education with a 4-8 Mathematics focus?**
+*Target doc*: `bs_in_education_4_8_mathematics/requirements.txt`
+
+## Q48
+**How does the BA in Education 4-8 English, Language Arts and Reading (ELAR) differ from the 4-8 Social Studies track?**
+*Target docs*: `ba_in_education_4_8_english_language_arts_and_reading_elar/requirements.txt`, `ba_in_education_4_8_social_studies/requirements.txt`
+
+## Q49
+**What are the two routes to teacher certification at UT Dallas, and which schools run them?**
+*Target docs*: any education requirements page; the text is shared across them (for example `ba_in_education_ec_6_core_subjects/requirements.txt`)
+
+## Q50
+**What does the sample four-year degree plan for the BS in Education 4-8 Science look like?**
+*Target doc*: `bs_in_education_4_8_science/example.txt`
+
+## Q51
+**What is the difference between the BA in Education 4-8 Science and the BS in Education 4-8 Science?**
+*Target docs*: `ba_in_education_4_8_science/requirements.txt`, `bs_in_education_4_8_science/requirements.txt`
