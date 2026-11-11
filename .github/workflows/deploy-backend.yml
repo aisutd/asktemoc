@@ -1,0 +1,108 @@
+name: Deploy backend
+
+# Production deploy of the FastAPI container to Cloud Run (asktemoc-api).
+# Runs on every push to main that touches the backend; PRs get their own
+# preview revision from preview.yml instead.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/**"
+      - ".github/workflows/deploy-backend.yml"
+  workflow_dispatch:
+
+# Never run two production deploys at once, and never cancel one halfway.
+concurrency:
+  group: deploy-backend-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  GCP_REGION: us-central1
+  CLOUD_RUN_SERVICE: asktemoc-api
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: backend/deploy/requirements-deploy.txt
+
+      - name: Install deploy requirements
+        run: pip install -r deploy/requirements-deploy.txt
+
+      # The container installs exactly these requirements, so if the app
+      # cannot import here it cannot start on Cloud Run either. No env vars
+      # are set, matching a fresh container before secrets load.
+      - name: Import the app
+        env:
+          PYTHONPATH: .
+        run: python -c "import app.main as m; print(f'app.main imported, {len(m.app.routes)} routes')"
+
+  deploy:
+    needs: check
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ steps.deploy.outputs.url }}
+    env:
+      GCP_PROJECT: ${{ secrets.GCP_PROJECT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Require GCP_PROJECT_ID
+        run: |
+          if [[ -z "${GCP_PROJECT:-}" ]]; then
+            echo "Missing GitHub secret GCP_PROJECT_ID"
+            exit 1
+          fi
+
+      # Keyless auth via Workload Identity Federation (the org blocks JSON keys).
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/422855032073/locations/global/workloadIdentityPools/github/providers/aisutd-asktemoc
+          service_account: github-action-worker@asktemoc.iam.gserviceaccount.com
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      # Builds backend:<commit sha>, stages it with no traffic, health-checks
+      # it, then moves production traffic over. Env vars on the service are
+      # kept as they are.
+      - name: Build and deploy
+        id: deploy
+        run: |
+          set -euo pipefail
+          bash backend/deploy/deploy_cloud_run.sh
+          echo "url=$(cat "${RUNNER_TEMP}/asktemoc-api-url")" >> "$GITHUB_OUTPUT"
+
+      # Vercel reaches the API through ASKTEMOC_API_ORIGIN in frontend/vercel.json.
+      # Cloud Run keeps the same URL across deploys, so this only fails if the
+      # service was renamed or moved and vercel.json needs updating.
+      - name: Check the origin Vercel uses
+        run: |
+          set -euo pipefail
+          origin="$(python3 -c 'import json; print(json.load(open("frontend/vercel.json"))["env"]["ASKTEMOC_API_ORIGIN"].rstrip("/"))')"
+          echo "Vercel points at ${origin}"
+          curl -fsS --max-time 20 "${origin}/api/health/" >/dev/null \
+            || { echo "::error::${origin} (frontend/vercel.json) is not reaching the deployed API"; exit 1; }
+
+      - name: Summary
+        run: |
+          {
+            echo "### Backend deployed"
+            echo "- Commit: \`${GITHUB_SHA:0:12}\`"
+            echo "- Image: \`${GCP_REGION}-docker.pkg.dev/<project>/asktemoc-api/backend:${GITHUB_SHA:0:12}\`"
+            echo "- Service: ${{ steps.deploy.outputs.url }}"
+            echo "- Roll back: \`IMAGE_TAG=<old sha> SKIP_BUILD=1 bash backend/deploy/deploy_cloud_run.sh\`"
+          } >> "$GITHUB_STEP_SUMMARY"
