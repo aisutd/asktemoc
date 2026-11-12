@@ -1,35 +1,35 @@
 {
-  "chunks": 940,
-  "programs": 122,
+  "chunks": 892,
+  "programs": 121,
   "pca_explained_variance_2pc": 0.183,
   "topics": [
     {
-      "topic": "Catalog index",
-      "programs": 3,
-      "chunks": 18,
-      "programs_targeted_by_eval": 1,
-      "program_coverage": 0.333
-    },
-    {
-      "topic": "Double majors",
-      "programs": 15,
-      "chunks": 94,
-      "programs_targeted_by_eval": 5,
-      "program_coverage": 0.333
-    },
-    {
       "topic": "Arts, humanities & media",
       "programs": 29,
-      "chunks": 177,
+      "chunks": 165,
       "programs_targeted_by_eval": 10,
       "program_coverage": 0.345
     },
     {
+      "topic": "Double majors",
+      "programs": 14,
+      "chunks": 86,
+      "programs_targeted_by_eval": 5,
+      "program_coverage": 0.357
+    },
+    {
       "topic": "Behavioral & brain sciences",
       "programs": 8,
-      "chunks": 55,
+      "chunks": 52,
       "programs_targeted_by_eval": 3,
       "program_coverage": 0.375
+    },
+    {
+      "topic": "Econ, policy & social science",
+      "programs": 15,
+      "chunks": 83,
+      "programs_targeted_by_eval": 7,
+      "program_coverage": 0.467
     },
     {
       "topic": "Business",
@@ -39,23 +39,16 @@
       "program_coverage": 0.5
     },
     {
-      "topic": "Econ, policy & social science",
-      "programs": 14,
-      "chunks": 87,
-      "programs_targeted_by_eval": 7,
-      "program_coverage": 0.5
-    },
-    {
       "topic": "Natural sciences & math",
       "programs": 14,
-      "chunks": 159,
+      "chunks": 110,
       "programs_targeted_by_eval": 7,
       "program_coverage": 0.5
     },
     {
       "topic": "Engineering & CS",
       "programs": 14,
-      "chunks": 98,
+      "chunks": 84,
       "programs_targeted_by_eval": 8,
       "program_coverage": 0.571
     },
@@ -65,9 +58,23 @@
       "chunks": 94,
       "programs_targeted_by_eval": 8,
       "program_coverage": 0.615
+    },
+    {
+      "topic": "Catalog overview",
+      "programs": 1,
+      "chunks": 6,
+      "programs_targeted_by_eval": 1,
+      "program_coverage": 1.0
+    },
+    {
+      "topic": "Web pages (non-catalog)",
+      "programs": 1,
+      "chunks": 54,
+      "programs_targeted_by_eval": 1,
+      "program_coverage": 1.0
     }
   ],
-  "programs_targeted": 55,
+  "programs_targeted": 56,
   "untargeted_programs_by_topic": {
     "Arts, humanities & media": [
       "ba_in_literature_professional_and_technical_writing_concentration",
@@ -105,10 +112,7 @@
       "bachelor_of_science_in_human_resource_management",
       "bachelor_of_science_in_supply_chain_management_and_analytics"
     ],
-    "Catalog index": [
-      "2",
-      "3"
-    ],
+    "Catalog overview": [],
     "Double majors": [
       "ba_in_biology_and_criminology_double_major",
       "ba_in_criminology_and_biology_double_major",
@@ -118,8 +122,7 @@
       "bs_in_healthcare_management_and_biology_double_major",
       "bs_in_healthcare_management_and_molecular_biology_double_major",
       "bs_in_international_political_economy_and_global_business_double_major",
-      "bs_in_marketing_and_supply_chain_management_and_analytics_double_major",
-      "bs_in_molecular_biology_and_healthcare_management_double_major"
+      "bs_in_marketing_and_supply_chain_management_and_analytics_double_major"
     ],
     "Econ, policy & social science": [
       "bachelor_of_arts_in_international_political_economy",
@@ -128,6 +131,7 @@
       "bachelor_of_arts_in_sociology",
       "bachelor_of_science_in_computational_and_geospatial_science",
       "bachelor_of_science_in_geospatial_information_sciences",
+      "certificate_in_nonprofit_management",
       "certificate_in_public_service_and_civic_leadership"
     ],
     "Education & interdisciplinary": [
@@ -153,56 +157,57 @@
       "certificate_in_biomedical_data_analytics",
       "certificate_in_biomedical_sciences",
       "certificate_in_geophysics"
-    ]
+    ],
+    "Web pages (non-catalog)": []
   },
   "most_isolated_programs": [
+    [
+      "web",
+      0.673
+    ],
+    [
+      "certificate_in_military_science_leadership",
+      0.692
+    ],
     [
       "certificate_in_innovation_and_entrepreneurship",
       0.71
     ],
     [
-      "certificate_in_biomedical_sciences",
-      0.831
+      "certificate_in_compassionate_law_enforcement_active_response_clear",
+      0.729
     ],
     [
-      "bachelor_of_science_in_neuroscience",
-      0.857
+      "certificate_in_holocaust_genocide_and_human_rights",
+      0.747
     ],
     [
-      "bachelor_of_arts_in_philosophy",
-      0.864
+      "certificate_in_geophysics",
+      0.755
     ],
     [
-      "bachelor_of_science_in_speech_language_and_hearing_sciences",
-      0.868
+      "certificate_in_cyber_defense",
+      0.765
     ],
     [
-      "bachelor_of_science_in_cognitive_science",
-      0.871
+      "certificate_in_nonprofit_management",
+      0.766
     ],
     [
-      "bachelor_of_arts_in_criminology",
-      0.879
+      "certificate_in_quantum_information",
+      0.769
     ],
     [
-      "bachelor_of_arts_in_latin_american_studies",
-      0.881
+      "certificate_in_sustainable_earth_and_environment",
+      0.779
     ],
     [
-      "ba_in_visual_and_performing_arts_music_concentration",
-      0.882
+      "certificate_in_applied_experience_design_and_research",
+      0.786
     ],
     [
-      "bachelor_of_arts_in_history",
-      0.89
-    ],
-    [
-      "bachelor_of_science_in_public_affairs",
-      0.899
-    ],
-    [
-      "bachelor_of_arts_in_international_political_economy",
-      0.901
+      "undergraduate_catalog_overview",
+      0.797
     ]
   ]
 }
