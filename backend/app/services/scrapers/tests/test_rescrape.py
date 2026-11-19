@@ -389,3 +389,28 @@ def test_save_raw_puts_the_overview_in_folder_1_and_web_pages_in_the_web_dir(db,
     assert (tmp_path / "data" / "1" / "requirements.txt").read_text(encoding="utf-8") == body("overview")
     assert (tmp_path / "web" / "utd_home.md").read_text(encoding="utf-8") == md
     assert not (tmp_path / "data" / "undergraduate_catalog_overview").exists()
+
+
+def test_run_aborts_when_the_catalog_returns_nothing(db):
+    f = FakeFetcher(pages={BASE_URL: Page(403, "Forbidden")})
+    s = run(db, f, only=None)
+    assert s.aborted and "no catalog program pages" in s.reason and "HTTP 403" in s.reason
+    last = db.query(ScrapeLog).filter(ScrapeLog.run_id == s.run_id).one()
+    assert last.doc_key == "__run__"
+    assert not run(db, f, only=None, force=True).aborted
+
+
+def test_a_filtered_run_is_not_treated_as_a_missing_catalog(db):
+    s = run(db, FakeFetcher(), only="utd_home")
+    assert not s.aborted
+
+
+def test_save_raw_leaves_a_web_file_alone_when_only_the_navigation_changed(db, tmp_path):
+    page = "# Tuition Rates\n" + body("tuition")
+    f = FakeFetcher(web={"https://www.utdallas.edu/": Page(200, "  * [Students](https://x/s)\n" + page)})
+    s = run(db, f, only="web/utd_home")
+    assert save_raw(s.items, None, tmp_path) == 1
+    f2 = FakeFetcher(web={"https://www.utdallas.edu/": Page(200, "  * [Faculty](https://x/f)\n" + page)})
+    s2 = run(db, f2, only="web/utd_home")
+    assert s2.counts["unchanged"] == 1
+    assert save_raw(s2.items, None, tmp_path) == 0

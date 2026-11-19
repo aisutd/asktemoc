@@ -101,7 +101,7 @@ How it decides a page changed:
 
 Where the log lives: the `scrape_log` table in Postgres (`app/migrations/003_scrape_log.sql`), one row per page per run with the outcome (`new`, `changed`, `unchanged`, `failed`, `duplicate`, `removed`), hash, HTTP status and word count. Documents are identified by `sha256("<program>/<requirements|example>.txt")[:32]`, the same ids the existing Neon documents were created with, so a re-scrape updates them instead of adding copies. Unchanged documents whose `source` is still a local file path get the real page URL on the first run.
 
-Two guards stop a run before it writes anything (exit code 2, and a `failed` row with key `__run__`): more than 30% of the existing pages changed, or more than 30% of all pages failed. The first run after a long gap can legitimately trip the first guard; check `--dry-run` output, then use `--force`.
+Three guards stop a run before it writes anything (exit code 2, and a `failed` row with key `__run__`): more than 30% of the existing pages changed, more than 30% of all pages failed, or a full run found no catalog program pages at all (the catalog returned HTTP 403, or its layout changed). The scraper does not try to get around a block: if the catalog refuses it, the run stops. The first run after a long gap can legitimately trip the first guard; check `--dry-run` output, then use `--force`.
 
 Schedule: weekly, Sundays 02:00 America/Chicago, as a Cloud Run Job triggered by Cloud Scheduler (`bash deploy/deploy_rescrape_job.sh`; needs the Secret Manager and service account variables listed at the top of the script). The API image does not include a browser, so the job has its own image (`deploy/Dockerfile.rescrape`). The deploy files have not been run against a real project.
 

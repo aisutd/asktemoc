@@ -416,6 +416,18 @@ def classify(ctx: Context, item: Item) -> None:
     ctx.hash_owner[item.hash] = did  # so an identical page later in this run is a duplicate
 
 
+def check_catalog_available(items: list[Item], only: Optional[str], limit: Optional[int]) -> Optional[str]:
+    """A full run that found no catalog program pages at all means the catalog is blocking us or has
+    changed; without this the run would quietly check only the web pages."""
+    if only is not None or limit is not None:
+        return None
+    if any(i.unit.kind in ("catalog", "derived") and i.unit.folder != OVERVIEW_FOLDER for i in items):
+        return None
+    overview = next((i for i in items if i.unit.folder == OVERVIEW_FOLDER), None)
+    why = overview.error if overview and overview.error else "the index page loaded but listed no programs"
+    return f"no catalog program pages were found ({why}); the catalog may be blocking the scraper or have changed"
+
+
 def check_guards(items: list[Item]) -> Optional[str]:
     total = len(items)
     if total < GUARD_MIN_PAGES:
@@ -585,7 +597,7 @@ async def run(
     summary.items = items
     summary.counts = Counter(i.outcome for i in items)
 
-    reason = None if force else check_guards(items)
+    reason = None if force else (check_catalog_available(items, only, limit) or check_guards(items))
     if reason:
         summary.aborted, summary.reason = True, reason
         if not dry_run:
@@ -624,8 +636,14 @@ def save_raw(items: list[Item], catalog_dir: Optional[Path], web_dir: Optional[P
                 continue
             folder = "1" if item.unit.folder == OVERVIEW_FOLDER else item.unit.folder
             path = catalog_dir / folder / f"{item.unit.file}.txt"
-        if path.exists() and text_hash(path.read_text(encoding="utf-8", errors="replace")) == text_hash(item.raw):
-            continue
+        if path.exists():
+            existing = path.read_text(encoding="utf-8", errors="replace")
+            if item.unit.kind == "web":  # navigation around the page changes; only the cleaned text matters
+                same = text_hash(clean_markdown(existing)) == item.hash
+            else:
+                same = text_hash(existing) == text_hash(item.raw)
+            if same:
+                continue
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(item.raw, encoding="utf-8")
         saved += 1
