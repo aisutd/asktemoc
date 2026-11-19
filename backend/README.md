@@ -89,6 +89,8 @@ python -m app.services.scrapers.rescrape --status    # summary of the last run
 
 Other flags: `--limit N` (first N programs), `--only TEXT` (pages whose key contains TEXT), `--force` (skip the guards below). Run it from this directory with `DATABASE_URL` and `OPENAI_API_KEY` set. It needs Playwright's Chromium and Crawl4AI installed (see Webscraper Setup).
 
+Keeping git in step with Neon: the re-scrape writes straight to the database, so by default git does not see the new page text. Add `--save-dir app/services/data` (and `--save-web-dir ../crawl4ai_output` for the web pages) and the run also writes the pages it fetched to those folders, in the layout `corpus_prep.py` reads, then commit the changes. Only pages that already match Neon are written (after `--dry-run`, only the unchanged ones), and a file is only rewritten when its content differs. A Cloud Run Job's disk is ephemeral, so the scheduled job cannot update git by itself; run it with `--save-dir` from a machine or CI job that can commit after a refresh. `--status` shows when the last run happened and what changed, so anyone can tell when Neon last moved.
+
 How it decides a page changed:
 
 - A page is only used if it came back HTTP 200 with at least 30 words. Anything else is logged as `failed` and the stored document is left alone. A document is soft-deleted only after three consecutive 404/410 responses; timeouts and 5xx errors never delete anything.

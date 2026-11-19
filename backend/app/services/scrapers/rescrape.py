@@ -30,6 +30,7 @@ import uuid
 from collections import Counter
 from dataclasses import dataclass, field
 from functools import lru_cache
+from pathlib import Path
 from datetime import datetime
 from typing import Callable, Optional, Protocol
 from urllib.parse import urljoin
@@ -116,6 +117,7 @@ class Item:
     unit: Unit
     status: Optional[int] = None
     text: Optional[str] = None      # prepared text to store
+    raw: Optional[str] = None       # the page exactly as fetched (what --save-dir writes)
     error: Optional[str] = None
     hash: Optional[str] = None
     words: int = 0
@@ -287,6 +289,7 @@ def _catalog_item(unit: Unit, page: Page) -> Item:
         item.error = err
         return item
     item.text, item.hash, item.words = text, text_hash(text), word_count(text)
+    item.raw = page.text
     return item
 
 
@@ -302,6 +305,7 @@ def _web_item(unit: Unit, page: Page) -> Item:
         item.error = err
         return item
     item.text, item.hash, item.words = text, text_hash(text), word_count(text)
+    item.raw = page.text
     return item
 
 
@@ -597,6 +601,37 @@ async def run(
     return summary
 
 
+def save_raw(items: list[Item], catalog_dir: Optional[Path], web_dir: Optional[Path], *, dry_run: bool = False) -> int:
+    """Write the raw text of pages that are now in Neon to the corpus folders, so git matches Neon.
+
+    Catalog pages go to <catalog_dir>/<program>/<requirements|example>.txt (the layout corpus_prep reads),
+    web pages to <web_dir>/<name>.md. The catalog overview goes to <catalog_dir>/1/requirements.txt, where
+    the corpus keeps the index page. A file is only rewritten when its normalized content differs.
+    After a dry run only unchanged pages are saved: they are the ones that already match Neon.
+    """
+    saved = 0
+    for item in items:
+        if item.raw is None or item.unit.kind == "derived":
+            continue
+        if not (item.outcome == "unchanged" or (not dry_run and item.outcome in ("new", "changed"))):
+            continue
+        if item.unit.kind == "web":
+            if web_dir is None:
+                continue
+            path = web_dir / f"{item.unit.file}.md"
+        else:
+            if catalog_dir is None:
+                continue
+            folder = "1" if item.unit.folder == OVERVIEW_FOLDER else item.unit.folder
+            path = catalog_dir / folder / f"{item.unit.file}.txt"
+        if path.exists() and text_hash(path.read_text(encoding="utf-8", errors="replace")) == text_hash(item.raw):
+            continue
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(item.raw, encoding="utf-8")
+        saved += 1
+    return saved
+
+
 def format_summary(s: RunSummary) -> str:
     lines = [f"run {s.run_id}{' (dry run)' if s.dry_run else ''}"]
     for outcome in ("unchanged", "changed", "new", "duplicate", "failed", "removed"):
@@ -638,6 +673,14 @@ async def _main(args) -> int:
         async with LiveFetcher() as fetcher:
             summary = await run(db, fetcher, dry_run=args.dry_run, force=args.force, limit=args.limit, only=args.only)
         print(format_summary(summary))
+        if (args.save_dir or args.save_web_dir) and not summary.aborted:
+            n = save_raw(
+                summary.items,
+                Path(args.save_dir) if args.save_dir else None,
+                Path(args.save_web_dir) if args.save_web_dir else None,
+                dry_run=args.dry_run,
+            )
+            print(f"saved {n} page files")
         return 2 if summary.aborted else 0
     finally:
         db.close()
@@ -650,6 +693,8 @@ def main() -> None:
     ap.add_argument("--limit", type=int, help="only the first N catalog programs")
     ap.add_argument("--only", help="only pages whose key contains this text")
     ap.add_argument("--status", action="store_true", help="show the last run and exit")
+    ap.add_argument("--save-dir", help="also write the fetched catalog pages to this folder (app/services/data) so git matches Neon")
+    ap.add_argument("--save-web-dir", help="also write the fetched web pages (markdown) to this folder")
     sys.exit(asyncio.run(_main(ap.parse_args())))
 
 

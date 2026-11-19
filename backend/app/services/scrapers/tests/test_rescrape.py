@@ -13,7 +13,7 @@ from sqlalchemy.pool import StaticPool
 
 from app.db.models import Base, Chunk, Document, Embedding, ScrapeLog
 from app.services.scrapers import rescrape, scrape_log
-from app.services.scrapers.rescrape import Page, doc_id
+from app.services.scrapers.rescrape import BASE_URL, Page, doc_id, save_raw
 
 CHROME = (
     "UT Dallas 2025 Undergraduate Catalog\nDownload page as a PDF, opens a new tab\n"
@@ -334,3 +334,58 @@ def test_run_gives_up_after_repeated_database_errors(db, monkeypatch):
     _flaky_record(monkeypatch, fail_times=99)
     with pytest.raises(OperationalError):
         run(db, f)
+
+
+def _alpha(text, example=None):
+    f = fetcher_for(program("Bachelor of Science in Alpha", text, example_url="https://catalog.test/ex" if example else None))
+    if example:
+        f.pages["https://catalog.test/ex"] = Page(200, example)
+    return f
+
+
+def test_save_raw_writes_pages_in_the_corpus_layout(db, tmp_path):
+    page, example = body("alpha"), body("example")
+    s = run(db, _alpha(page, example))
+    assert save_raw(s.items, tmp_path, None) == 2
+    assert (tmp_path / "bachelor_of_science_in_alpha" / "requirements.txt").read_text(encoding="utf-8") == page
+    assert (tmp_path / "bachelor_of_science_in_alpha" / "example.txt").read_text(encoding="utf-8") == example
+    s2 = run(db, _alpha(page, example))
+    assert save_raw(s2.items, tmp_path, None) == 0  # same content, nothing rewritten
+
+
+def test_save_raw_rewrites_a_changed_page(db, tmp_path):
+    run_a = run(db, _alpha(body("alpha")))
+    save_raw(run_a.items, tmp_path, None)
+    run_b = run(db, _alpha(body("alphanew")))
+    assert save_raw(run_b.items, tmp_path, None) == 1
+    assert "alphanew" in (tmp_path / "bachelor_of_science_in_alpha" / "requirements.txt").read_text(encoding="utf-8")
+
+
+def test_save_raw_skips_failed_pages_and_changes_after_a_dry_run(db, tmp_path):
+    run(db, fetcher_for(program("Bachelor of Science in Alpha", body("alpha")), program("Bachelor of Science in Beta", body("beta"))))
+    dry = run(
+        db,
+        fetcher_for(
+            program("Bachelor of Science in Alpha", body("alpha")),           # unchanged
+            program("Bachelor of Science in Beta", body("betanew")),          # changed, not stored yet
+            program("Bachelor of Science in Gamma", "Not found", status=404),  # failed
+        ),
+        dry_run=True,
+    )
+    assert save_raw(dry.items, tmp_path, None, dry_run=True) == 1
+    assert (tmp_path / "bachelor_of_science_in_alpha" / "requirements.txt").exists()
+    assert not (tmp_path / "bachelor_of_science_in_beta").exists()
+    assert not (tmp_path / "bachelor_of_science_in_gamma").exists()
+
+
+def test_save_raw_puts_the_overview_in_folder_1_and_web_pages_in_the_web_dir(db, tmp_path):
+    md = "# Tuition Rates\n" + body("tuition")
+    f = FakeFetcher(
+        pages={BASE_URL: Page(200, body("overview"))},
+        web={"https://www.utdallas.edu/": Page(200, md)},
+    )
+    s = run(db, f, only=None)
+    assert save_raw(s.items, tmp_path / "data", tmp_path / "web") == 2
+    assert (tmp_path / "data" / "1" / "requirements.txt").read_text(encoding="utf-8") == body("overview")
+    assert (tmp_path / "web" / "utd_home.md").read_text(encoding="utf-8") == md
+    assert not (tmp_path / "data" / "undergraduate_catalog_overview").exists()
