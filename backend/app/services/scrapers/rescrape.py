@@ -25,6 +25,7 @@ import logging
 import re
 import sys
 import tempfile
+import time
 import uuid
 from collections import Counter
 from dataclasses import dataclass, field
@@ -33,6 +34,7 @@ from datetime import datetime
 from typing import Callable, Optional, Protocol
 
 import tiktoken
+from sqlalchemy.exc import DBAPIError
 from sqlalchemy.orm import Session
 
 from app.db.models import Chunk, Document, Embedding
@@ -66,6 +68,8 @@ GUARD_MIN_PAGES = 10            # guards only apply once a run has at least this
 CHUNK_SIZE = 512
 CHUNK_OVERLAP = 64
 EMBED_BATCH = 100
+DB_RETRIES = 3                  # attempts per page when the database connection drops
+DB_RETRY_BACKOFF = 2.0          # seconds, doubled each attempt
 EMBED_DIMS = 1536
 PRICE_PER_M_TOKENS = 0.02       # USD, text-embedding-3-small
 
@@ -488,30 +492,36 @@ def apply_item(db: Session, ctx: Context, item: Item, run: RunSummary, embed: Ca
 
     if item.outcome == "unchanged":
         doc = ctx.docs[did]
-        if doc.source != unit.url:  # moves old local-path sources over to the real URL
+        moved = doc.source != unit.url
+        if moved:  # moves old local-path sources over to the real URL
             row = db.get(Document, did)
             row.source = unit.url
             row.doc_metadata = {**doc.meta, "url": unit.url}
-            doc.source = unit.url
         log("unchanged")
         db.commit()
+        if moved:
+            doc.source = unit.url
     elif item.outcome == "duplicate":
         log("duplicate")
         db.commit()
     elif item.outcome == "failed":
         doc = ctx.docs.get(did)
         gone = item.status in GONE_STATUSES
-        if gone and doc is not None and not doc.deleted and scrape_log.consecutive_failures(db, unit.key) + 1 >= FAIL_LIMIT:
+        remove = gone and doc is not None and not doc.deleted and scrape_log.consecutive_failures(db, unit.key) + 1 >= FAIL_LIMIT
+        if remove:
             db.get(Document, did).is_deleted = True
-            doc.deleted = True
-            item.outcome = "removed"
             log("removed", f"{item.error}; {FAIL_LIMIT} consecutive failures")
         else:
             log("failed")
         db.commit()
+        if remove:
+            doc.deleted = True
+            item.outcome = "removed"
     else:
         try:
             upsert_document(db, ctx, item, run, embed)
+        except DBAPIError:
+            raise  # a database problem is retried by the caller, not recorded as a bad page
         except Exception as e:
             db.rollback()
             logger.exception("Embedding/storing %s failed", unit.key)
@@ -521,6 +531,24 @@ def apply_item(db: Session, ctx: Context, item: Item, run: RunSummary, embed: Ca
 
 
 # --- orchestration ----------------------------------------------------------
+
+def apply_with_retry(db: Session, ctx: Context, item: Item, run: RunSummary, embed: Callable) -> None:
+    """apply_item, retried with a fresh connection when the database connection drops mid-run."""
+    for attempt in range(1, DB_RETRIES + 1):
+        try:
+            apply_item(db, ctx, item, run, embed)
+            return
+        except DBAPIError as e:
+            logger.warning("Database error on %s (attempt %d/%d): %s", item.unit.key, attempt, DB_RETRIES, type(e).__name__)
+            try:
+                db.rollback()
+            except Exception:
+                pass
+            if db.get_bind().dialect.name != "sqlite":
+                db.get_bind().dispose()
+            if attempt == DB_RETRIES:
+                raise
+            time.sleep(DB_RETRY_BACKOFF * 2 ** (attempt - 1))
 
 async def run(
     db: Session,
@@ -553,7 +581,7 @@ async def run(
         return summary
 
     for item in items:
-        apply_item(db, ctx, item, summary, embed)
+        apply_with_retry(db, ctx, item, summary, embed)
     summary.counts = Counter(i.outcome for i in items)
     return summary
 

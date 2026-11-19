@@ -8,10 +8,11 @@ os.environ.setdefault("DATABASE_URL", "sqlite://")
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.exc import OperationalError
 from sqlalchemy.pool import StaticPool
 
 from app.db.models import Base, Chunk, Document, Embedding, ScrapeLog
-from app.services.scrapers import rescrape
+from app.services.scrapers import rescrape, scrape_log
 from app.services.scrapers.rescrape import Page, doc_id
 
 CHROME = (
@@ -289,3 +290,47 @@ def test_real_run_without_the_log_table_is_refused(db):
     ScrapeLog.__table__.drop(db.get_bind())
     with pytest.raises(RuntimeError, match="scrape_log"):
         run(db, FakeFetcher())
+
+
+def _flaky_record(monkeypatch, fail_times=1):
+    real = scrape_log.record
+    state = {"left": fail_times}
+
+    def record(*a, **kw):
+        if state["left"] > 0:
+            state["left"] -= 1
+            raise OperationalError("INSERT", {}, Exception("SSL SYSCALL error"))
+        return real(*a, **kw)
+
+    monkeypatch.setattr(scrape_log, "record", record)
+    monkeypatch.setattr(rescrape, "DB_RETRY_BACKOFF", 0)
+
+
+def test_dropped_connection_is_retried_and_the_page_still_lands(db, monkeypatch):
+    f = fetcher_for(program("Bachelor of Science in Alpha", body("alpha")))
+    _flaky_record(monkeypatch)
+    s = run(db, f)
+    assert s.counts["new"] == 1
+    assert db.get(Document, doc_id("bachelor_of_science_in_alpha/requirements.txt")) is not None
+    assert db.query(Embedding).count() == db.query(Chunk).count() >= 1
+    assert db.query(ScrapeLog).count() == 1
+
+
+def test_source_fix_is_not_lost_when_the_first_attempt_fails(db, monkeypatch):
+    name = "Bachelor of Science in Alpha"
+    f = fetcher_for(program(name, body("alpha")))
+    run(db, f)
+    doc = db.get(Document, doc_id("bachelor_of_science_in_alpha/requirements.txt"))
+    doc.source = "test_output/old/path.txt"
+    db.commit()
+    _flaky_record(monkeypatch)
+    run(db, f)
+    db.refresh(doc)
+    assert doc.source == "https://catalog.test/bachelor-of-science-in-alpha"
+
+
+def test_run_gives_up_after_repeated_database_errors(db, monkeypatch):
+    f = fetcher_for(program("Bachelor of Science in Alpha", body("alpha")))
+    _flaky_record(monkeypatch, fail_times=99)
+    with pytest.raises(OperationalError):
+        run(db, f)
