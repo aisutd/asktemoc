@@ -126,7 +126,8 @@ def prepare_documents() -> tuple[list[dict], list[str], list[str]]:
     section could not be found (they need a re-scrape).
     """
     raw: dict[str, str] = {}
-    for p in sorted(CORPUS_DIR.rglob("*.txt")):
+    # only <program>/requirements.txt and <program>/example.txt (same rule as Sahil's branch)
+    for p in sorted(list(CORPUS_DIR.glob("*/requirements.txt")) + list(CORPUS_DIR.glob("*/example.txt"))):
         raw[p.relative_to(CORPUS_DIR).as_posix()] = p.read_text(encoding="utf-8", errors="replace").strip()
 
     by_hash = defaultdict(list)
