@@ -32,6 +32,7 @@ from dataclasses import dataclass, field
 from functools import lru_cache
 from datetime import datetime
 from typing import Callable, Optional, Protocol
+from urllib.parse import urljoin
 
 import tiktoken
 from sqlalchemy.exc import DBAPIError
@@ -41,6 +42,7 @@ from app.db.models import Chunk, Document, Embedding
 from . import scrape_log
 from .content import (
     clean_markdown,
+    is_track_link,
     needs_section,
     prepare_catalog_text,
     sanitize,
@@ -205,12 +207,21 @@ class LiveFetcher:
         scraper = UTDCatalogScraper(rate_limit=self.rate_limit, output_dir=tempfile.mkdtemp())
         page = await self._browser.new_page()
         try:
-            return await scraper.find_program_links(page)
+            links = await scraper.find_program_links(page)
+            known = {u for u, _ in links}
+            for a in await page.query_selector_all("a"):  # still on the index page
+                text = (await a.inner_text() or "").strip()
+                href = await a.get_attribute("href")
+                if href and is_track_link(text):
+                    url = urljoin(BASE_URL, href)
+                    if url not in known:
+                        known.add(url)
+                        links.append((url, text))
+            return links
         finally:
             await page.close()
 
     async def page(self, url: str) -> Page:
-        from urllib.parse import urljoin
         from playwright.async_api import TimeoutError as PlaywrightTimeoutError
 
         context = await self._browser.new_context()

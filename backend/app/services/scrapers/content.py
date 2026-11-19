@@ -50,6 +50,12 @@ def validate(text: Optional[str], status: Optional[int]) -> Optional[str]:
     return None
 
 
+def is_track_link(text: str) -> bool:
+    """A degree track listed under its degree, e.g. 'BA in Education - EC-6 Core Subjects'.
+    The catalog scraper's own link finder misses these (no credit-hours paragraph, no 'Concentration')."""
+    return re.match(r"^(BA|BS) in .+ - .+", text.strip()) is not None
+
+
 # --- certificate sections -------------------------------------------------
 
 def cert_headings(lines: list[str]) -> list[tuple[int, str]]:

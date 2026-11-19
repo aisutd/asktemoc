@@ -3,6 +3,7 @@
 from app.services.scrapers.content import (
     cert_headings,
     clean_markdown,
+    is_track_link,
     needs_section,
     normalize,
     prepare_catalog_text,
@@ -124,3 +125,12 @@ def test_clean_markdown_strips_nav_footer_and_links():
     assert out.startswith("# Tuition Rates")
     assert "See the bursar for details." in out
     assert "Students" not in out and "Privacy" not in out and "pixel" not in out
+
+
+def test_track_links_are_recognised():
+    assert is_track_link("BA in Education - EC-6 Core Subjects")
+    assert is_track_link("BS in Education - 4-8 Mathematics")
+    assert is_track_link("BA in Media Arts and Design - Critical Media Studies Concentration")
+    assert not is_track_link("Bachelor of Arts in Education")
+    assert not is_track_link("Certificate in Cyber Defense")
+    assert not is_track_link("Undergraduate Minors")
