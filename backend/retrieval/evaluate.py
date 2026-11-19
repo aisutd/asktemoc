@@ -60,6 +60,20 @@ def doc_ranking(hits):
     return out
 
 
+def cap_per_doc(hits, cap):
+    """
+    Keep at most `cap` chunks from each document, in rank order. This is the
+    context generation would receive with a per-document cap.
+    """
+    counts, out = {}, []
+    for h in hits:
+        n = counts.get(h["doc_title"], 0)
+        if n < cap:
+            out.append(h)
+            counts[h["doc_title"]] = n + 1
+    return out
+
+
 def repeat_stats(hits, n=10):
     """Repeats among the top-n chunks, and how many chunks it takes to reach n distinct docs."""
     top_docs = [h["doc_title"] for h in hits[:n]]

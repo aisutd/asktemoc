@@ -42,7 +42,7 @@ from retrieval.db import connect  # noqa: E402
 from retrieval.dense import EMBED_MODEL, openai_embed, retrieve  # noqa: E402
 from retrieval.local_dense import LARGE_MODEL, load_index, local_retrieve  # noqa: E402
 from retrieval.evaluate import (  # noqa: E402
-    KS, NEAR_THRESHOLD, doc_ranking, duplicate_classes, parse_questions,
+    KS, cap_per_doc, NEAR_THRESHOLD, doc_ranking, duplicate_classes, parse_questions,
     repeat_stats, score, strict_classes,
 )
 
@@ -66,6 +66,8 @@ METHOD_LABELS = {
 MODES = ("strict", "duplicate-aware")
 # Chunk budgets: what the generation step would receive with k chunks of context.
 CHUNK_BUDGETS = (3, 5, 8)
+# Per-document cap for the capped chunk budget (most chunks one document may contribute).
+DOC_CAP = 2
 
 
 def git(*args):
@@ -154,6 +156,11 @@ def evaluate(questions, retrievers, classes):
                 "budget": {mode: {b: score([x["doc_title"] for x in h], q["relevant"], classes[mode], b)
                                   for b in CHUNK_BUDGETS}
                            for mode in MODES},
+                # Same budgets after keeping at most DOC_CAP chunks per document.
+                "budget_capped": {mode: {b: score([x["doc_title"] for x in cap_per_doc(h, DOC_CAP)],
+                                                  q["relevant"], classes[mode], b)
+                                         for b in CHUNK_BUDGETS}
+                                  for mode in MODES},
             }
     return results
 
@@ -165,7 +172,8 @@ def mean(xs):
 
 def write_csv(path, questions, results, today, methods):
     metric_cols = [f"{m}@{k}" for m in ("R", "MRR", "P") for k in KS]
-    budget_cols = [f"{m}@{b}chunks" for m in ("R", "MRR") for b in CHUNK_BUDGETS]
+    budget_cols = [f"{m}@{b}chunks" for m in ("R", "MRR", "CP") for b in CHUNK_BUDGETS]
+    budget_cols += [f"{m}@{b}chunks_cap{DOC_CAP}" for m in ("R", "CP") for b in CHUNK_BUDGETS]
     cols = ["date", "question_id", "question", "method", "mode", "n_targets", "targets",
             *metric_cols, *budget_cols, "first_hit_rank_at_10", "hits_at_10", "duplicate_hits_at_10",
             "changed_vs_strict", "top5_docs", "index_pages_in_top5_docs",
@@ -199,6 +207,10 @@ def write_csv(path, questions, results, today, methods):
                     for b, sb in r["budget"][mode].items():
                         row[f"R@{b}chunks"] = fmt(sb["recall"])
                         row[f"MRR@{b}chunks"] = fmt(sb["rr"])
+                        row[f"CP@{b}chunks"] = fmt(sb["precision"])
+                    for b, sb in r["budget_capped"][mode].items():
+                        row[f"R@{b}chunks_cap{DOC_CAP}"] = fmt(sb["recall"])
+                        row[f"CP@{b}chunks_cap{DOC_CAP}"] = fmt(sb["precision"])
                     w.writerow(row)
 
 
@@ -272,6 +284,15 @@ def write_md(path, questions, results, classes, meta, methods):
     table("recall", MODES, source="budget", cols=CHUNK_BUDGETS, col_label="{} chunks")
     add("**MRR within the first k chunks**\n")
     table("rr", MODES, source="budget", cols=CHUNK_BUDGETS, col_label="{} chunks")
+    add("**Context precision within the first k chunks**: the share of the k chunks sent to "
+        "generation that come from a relevant document. Repeated chunks of a target count each time.\n")
+    table("precision", MODES, source="budget", cols=CHUNK_BUDGETS, col_label="{} chunks")
+    add(f"**With a per-document cap of {DOC_CAP} chunks**: the same budgets after keeping at most "
+        f"{DOC_CAP} chunks from any one document.\n")
+    add("Recall:\n")
+    table("recall", MODES, source="budget_capped", cols=CHUNK_BUDGETS, col_label="{} chunks")
+    add("Context precision:\n")
+    table("precision", MODES, source="budget_capped", cols=CHUNK_BUDGETS, col_label="{} chunks")
 
     add("## Per question: rank of first relevant document (top 10, – = none)\n")
     add("| Q | targets | " + " | ".join(f"{m} {'strict' if mode == 'strict' else 'dup-aware'}"

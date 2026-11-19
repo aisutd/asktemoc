@@ -3,7 +3,7 @@
 import pytest
 
 from retrieval.evaluate import (
-    doc_ranking, duplicate_classes, parse_questions, repeat_stats, score, similarity,
+    cap_per_doc, doc_ranking, duplicate_classes, parse_questions, repeat_stats, score, similarity,
     strict_classes,
 )
 
@@ -112,3 +112,17 @@ def test_duplicate_classes_exact_and_near():
 def test_similarity_bounds():
     assert similarity("abc", "abc") == 1.0
     assert similarity("a" * 100, "a" * 50) == 0.0  # ruled out by length alone
+
+
+def test_cap_per_doc_keeps_order_and_limits_each_document():
+    hits = [{"doc_title": t} for t in ["a", "a", "b", "a", "c", "b", "b"]]
+    assert [h["doc_title"] for h in cap_per_doc(hits, 2)] == ["a", "a", "b", "c", "b"]
+    assert [h["doc_title"] for h in cap_per_doc(hits, 1)] == ["a", "b", "c"]
+
+
+def test_score_precision_on_chunks_is_context_precision():
+    # 5 chunks sent, 2 of them from the target document -> context precision 0.4
+    chunks = ["t", "x", "t", "y", "z"]
+    s = score(chunks, ["t"], strict_classes(["t"]), 5)
+    assert s["precision"] == pytest.approx(0.4)
+    assert s["recall"] == 1.0
