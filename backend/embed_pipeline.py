@@ -6,9 +6,13 @@ copied certificate pages cut down to their own section), one catalog overview pa
 the Crawl4AI web pages. A document is re-embedded only when its content hash changed.
 Identical chunks are stored once; the other sources are recorded in chunk_metadata.
 
-Usage (crawl4ai-env activated):
+Usage (crawl4ai-env activated; extra packages in backend/analysis/requirements.txt):
     python backend/embed_pipeline.py --dry-run   # show what would change, no writes
     python backend/embed_pipeline.py
+
+This is the bulk loader for the files in app/services/data/. Documents that the scheduled re-scrape
+has already refreshed (they carry a "url" in doc_metadata) are left alone unless --overwrite is
+given, because the local files are older than what the re-scrape stored.
 
 Settings:
     CHUNK_SIZE    = 512 tokens  (cl100k_base)
@@ -108,7 +112,7 @@ def log_dup(line: str):
 
 # ── Planning ──────────────────────────────────────────────────────────────────
 
-def plan(cur, docs, dropped):
+def plan(cur, docs, dropped, overwrite=False):
     cur.execute("SELECT id, doc_metadata FROM documents WHERE is_deleted IS NOT TRUE;")
     existing = {r[0]: (r[1] or {}) for r in cur.fetchall()}
     cur.execute(
@@ -118,7 +122,7 @@ def plan(cur, docs, dropped):
     empty_ids = {r[0] for r in cur.fetchall()}
 
     delete_ids = [doc_id(k) for k in dropped if doc_id(k) in existing]
-    insert, replace, backfill, skip = [], [], [], []
+    insert, replace, backfill, skip, refreshed = [], [], [], [], []
     for d in docs:
         did = doc_id(d["key"])
         d["id"] = did
@@ -135,11 +139,13 @@ def plan(cur, docs, dropped):
             replace.append(d)
         elif stored == d["metadata"]["content_hash"]:
             skip.append(d)
+        elif existing[did].get("url") and not overwrite:
+            refreshed.append(d)  # the scheduled re-scrape stored newer content than these local files
         elif stored is None and d["kind"] == "catalog":
             backfill.append(d)
         else:
             replace.append(d)
-    return existing, delete_ids, insert, replace, backfill, skip
+    return existing, delete_ids, insert, replace, backfill, skip, refreshed
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -147,6 +153,8 @@ def plan(cur, docs, dropped):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="show the plan, write nothing")
+    ap.add_argument("--overwrite", action="store_true",
+                    help="also replace documents the scheduled re-scrape has refreshed with the local files")
     args = ap.parse_args()
 
     docs, dropped, flagged = prepare_documents()
@@ -163,7 +171,7 @@ def main():
         migrate_column(cur)
         conn.commit()
 
-    existing, delete_ids, insert, replace, backfill, skip = plan(cur, docs, dropped)
+    existing, delete_ids, insert, replace, backfill, skip, refreshed = plan(cur, docs, dropped, args.overwrite)
     to_build = insert + replace
     est_tokens = sum(len(enc.encode(d["text"])) for d in to_build)
 
@@ -173,6 +181,7 @@ def main():
     print(f"  replace (content changed):        {len(replace)}")
     print(f"  backfill hash only:               {len(backfill)}")
     print(f"  unchanged:                        {len(skip)}")
+    print(f"  kept (newer from re-scrape):      {len(refreshed)}")
     print(f"  ~{est_tokens:,} tokens to embed  (≈ ${est_tokens / 1e6 * PRICE_PER_M:.3f})")
 
     if args.dry_run:

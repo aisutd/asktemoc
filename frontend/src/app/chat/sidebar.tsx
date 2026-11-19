@@ -16,6 +16,9 @@ import { Conversation } from "@/types";
 interface SidebarProps {
   conversations: Conversation[];
   selectedConversationId: string;
+  loading: boolean;
+  creating: boolean;
+  error: string | null;
   onSelectConversation: (id: string) => void;
   onCreateConversation: () => void;
   onDeleteConversation: (id: string) => void;
@@ -24,15 +27,19 @@ interface SidebarProps {
 export default function ChatSidebar({
   conversations,
   selectedConversationId,
+  loading,
+  creating,
+  error,
   onSelectConversation,
   onCreateConversation,
   onDeleteConversation,
 }: SidebarProps) {
   return (
-    <div className="w-64 bg-utd-secondary/10 border-r border-utd-primary/20">
+    <div className="flex h-full w-64 flex-col overflow-y-auto border-r border-utd-primary/20 bg-utd-secondary/10">
       <div className="p-4">
         <Button
           onClick={onCreateConversation}
+          disabled={loading || creating}
           className="w-full bg-transparent hover:bg-utd-secondary/30 hover:text-black border-2 border-utd-secondary/30 text-black rounded-2xl justify-start p-4"
           size="sm"
           variant="ghost"
@@ -47,6 +54,15 @@ export default function ChatSidebar({
           Conversations
         </SidebarGroupLabel>
         <SidebarGroupContent>
+          {error && (
+            <p className="px-4 pb-2 text-sm text-red-700">{error}</p>
+          )}
+          {loading && (
+            <p className="px-4 pb-2 text-sm text-black/60">Loading conversations…</p>
+          )}
+          {!loading && conversations.length === 0 && !error && (
+            <p className="px-4 pb-2 text-sm text-black/60">No conversations yet</p>
+          )}
           <SidebarMenu>
             {conversations.map((conversation) => (
               <SidebarMenuItem key={conversation.id}>

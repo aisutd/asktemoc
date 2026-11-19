@@ -1,7 +1,7 @@
 # AskTemoc — RAG Evaluation Questions (UTD Catalog)
 
 55 ground-truth questions for evaluating retrieval quality (Q1-Q30 original set, Q31-Q55 added after the embedding coverage pass in `analysis/coverage_report.md`).
-Each question is answerable from the scraped catalog corpus in `test_output/`.
+Each question is answerable from the scraped catalog corpus in `app/services/data/`.
 
 Questions cover: CS/Engineering, Business (Jindal), Arts/ATEC, Natural Sciences,
 Social Sciences, certificates, double majors, admissions/policy, and cross-doc comparisons.

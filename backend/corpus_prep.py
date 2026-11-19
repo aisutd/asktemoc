@@ -17,7 +17,8 @@ from collections import defaultdict
 from pathlib import Path
 
 HERE = Path(__file__).parent
-CORPUS_DIR = HERE / "test_output"
+CORPUS_DIR = HERE / "app" / "services" / "data"
+SOURCE_PREFIX = "app/services/data"
 WEB_DIR = HERE / "crawl4ai_output"
 
 CATALOG_HEADER = "UT Dallas 2025 Undergraduate Catalog"
@@ -126,7 +127,8 @@ def prepare_documents() -> tuple[list[dict], list[str], list[str]]:
     section could not be found (they need a re-scrape).
     """
     raw: dict[str, str] = {}
-    for p in sorted(CORPUS_DIR.rglob("*.txt")):
+    # only <program>/requirements.txt and <program>/example.txt; the data dir also holds other crawl output
+    for p in sorted(list(CORPUS_DIR.glob("*/requirements.txt")) + list(CORPUS_DIR.glob("*/example.txt"))):
         raw[str(p.relative_to(CORPUS_DIR))] = p.read_text(encoding="utf-8", errors="replace").strip()
 
     by_hash = defaultdict(list)
@@ -143,7 +145,7 @@ def prepare_documents() -> tuple[list[dict], list[str], list[str]]:
         stem = fname.removesuffix(".txt")
         title = f"{folder}/{stem}"
         meta = {"program": folder, "file": stem}
-        src = f"test_output/{key}"
+        src = f"{SOURCE_PREFIX}/{key}"
 
         if folder in INDEX_FOLDERS:
             dropped.append(key)
@@ -164,7 +166,7 @@ def prepare_documents() -> tuple[list[dict], list[str], list[str]]:
             for sec_folder, sec_text in _section_for(text, None):
                 if sec_folder not in existing_folders and sec_folder not in {d["metadata"].get("program") for d in docs}:
                     skey = f"{sec_folder}/requirements.txt"
-                    docs.append(_doc(skey, f"{sec_folder}/requirements", f"test_output/{skey}",
+                    docs.append(_doc(skey, f"{sec_folder}/requirements", f"{SOURCE_PREFIX}/{skey}",
                                      sec_text, "certificate-section",
                                      {"program": sec_folder, "file": "requirements",
                                       "derived_from": key}))
@@ -174,7 +176,7 @@ def prepare_documents() -> tuple[list[dict], list[str], list[str]]:
 
     if overview_text:
         okey = f"{OVERVIEW_FOLDER}/requirements.txt"
-        docs.append(_doc(okey, f"{OVERVIEW_FOLDER}/requirements", f"test_output/{okey}",
+        docs.append(_doc(okey, f"{OVERVIEW_FOLDER}/requirements", f"{SOURCE_PREFIX}/{okey}",
                          overview_text, "catalog-overview",
                          {"program": OVERVIEW_FOLDER, "file": "requirements",
                           "derived_from": f"{INDEX_FOLDERS[0]}/requirements.txt"}))

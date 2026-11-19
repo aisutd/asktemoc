@@ -1,90 +1,39 @@
 "use client";
 
-import { useState } from "react";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import ChatSidebar from "./sidebar";
 import ChatArea from "./chat-area";
-import { Message, Conversation } from "@/types";
+import { useConversations } from "./conversation-context";
 
 export default function Chat() {
-  const [conversations, setConversations] = useState<Conversation[]>([
-    {
-      id: "1",
-      title: "How to register for classes?",
-      messages: [],
-      lastMessage: new Date(),
-    },
-    {
-      id: "2",
-      title: "UTD parking information",
-      messages: [],
-      lastMessage: new Date(),
-    },
-    {
-      id: "3",
-      title: "Campus dining options",
-      messages: [],
-      lastMessage: new Date(),
-    },
-  ]);
-  const [selectedConversationId, setSelectedConversationId] =
-    useState<string>("1");
-
-  const createNewConversation = () => {
-    const newConversation: Conversation = {
-      id: Date.now().toString(),
-      title: "New Chat",
-      messages: [],
-      lastMessage: new Date(),
-    };
-    setConversations((prev) => [newConversation, ...prev]);
-    setSelectedConversationId(newConversation.id);
-  };
-
-  const updateConversation = (conversationId: string, messages: Message[]) => {
-    setConversations((prev) =>
-      prev.map((conv) =>
-        conv.id === conversationId
-          ? {
-              ...conv,
-              messages,
-              title:
-                messages.length > 0 && conv.title === "New Chat"
-                  ? messages[0].content
-                      .find((item) => item.type === "text")
-                      ?.message.slice(0, 30) + "..." || "New Chat"
-                  : conv.title,
-              lastMessage: new Date(),
-            }
-          : conv
-      )
-    );
-  };
-
-  const deleteConversation = (conversationId: string) => {
-    setConversations((prev) =>
-      prev.filter((conv) => conv.id !== conversationId)
-    );
-    if (selectedConversationId === conversationId) {
-      setSelectedConversationId(
-        conversations.length > 1 ? conversations[1].id : ""
-      );
-    }
-  };
+  const {
+    conversations,
+    selectedConversationId,
+    loading,
+    creating,
+    error,
+    selectConversation,
+    createConversation,
+    updateConversation,
+    deleteConversation,
+  } = useConversations();
 
   return (
-    <SidebarProvider>
-      <div className="h-screen flex w-full">
-        {/* Sidebar */}
+    <SidebarProvider className="min-h-0 flex-1">
+      <div className="flex h-full min-h-0 w-full">
         <ChatSidebar
           conversations={conversations}
           selectedConversationId={selectedConversationId}
-          onSelectConversation={setSelectedConversationId}
-          onCreateConversation={createNewConversation}
+          loading={loading}
+          creating={creating}
+          error={error}
+          onSelectConversation={selectConversation}
+          onCreateConversation={() => {
+            void createConversation();
+          }}
           onDeleteConversation={deleteConversation}
         />
 
-        {/* Main Chat Area */}
         <ChatArea
           selectedConversationId={selectedConversationId}
           conversations={conversations}

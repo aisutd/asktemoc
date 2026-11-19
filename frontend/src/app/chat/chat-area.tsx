@@ -94,18 +94,31 @@ export default function ChatArea({
       }
 
       // Stream response from backend
-      const responseStream = await chatAPI.sendMessage(trimmedInput);
+      const responseStream = await chatAPI.sendMessage(
+        trimmedInput,
+        selectedConversationId,
+      );
       
       const accumulatedContent: Message["content"] = [];
 
       for await (const chunk of responseStream) {
+        if (chunk.type === "start") {
+          if (chunk.user_message_id) userMessage.id = chunk.user_message_id;
+          if (chunk.assistant_message_id) assistantMessage.id = chunk.assistant_message_id;
+          onUpdateConversation(selectedConversationId, [
+            ...updatedMessages,
+            { ...assistantMessage, content: accumulatedContent.map((c) => ({ ...c })) },
+          ]);
+          continue;
+        }
         if (chunk.type === 'text') {
+          const text = chunk.message ?? "";
           // Merge streaming text into a single content item (backend may send cumulative or incremental)
           const last = accumulatedContent[accumulatedContent.length - 1];
           if (last?.type === 'text') {
-            last.message = chunk.message;
+            last.message = text;
           } else {
-            accumulatedContent.push({ type: 'text', message: chunk.message });
+            accumulatedContent.push({ type: 'text', message: text });
           }
           const streamingMessage = {
             ...assistantMessage,
@@ -117,10 +130,14 @@ export default function ChatArea({
           const s = chunk as ChatResponse;
           accumulatedContent.push({
             type: 'source',
-            message: s.message,
+            message: s.message ?? "",
             ...(typeof s.index === "number" ? { index: s.index } : {}),
             ...(typeof s.n === "number" ? { n: s.n } : {}),
-            ...(typeof s.url === "string" ? { url: s.url } : {}),
+            ...(typeof s.url === "string"
+              ? { url: s.url }
+              : typeof s.source === "string"
+                ? { url: s.source }
+                : {}),
             ...(typeof s.href === "string" ? { href: s.href } : {}),
             ...(typeof s.title === "string" ? { title: s.title } : {}),
           });
@@ -165,7 +182,7 @@ export default function ChatArea({
 
   if (!currentConversation) {
     return (
-      <div className="flex-1 flex flex-col">
+      <div className="flex h-full min-h-0 flex-1 flex-col">
         <div className="p-4 border-b border-utd-primary/20">
           <h1 className="text-lg font-semibold text-utd-primary">Ask Temoc</h1>
         </div>
@@ -179,7 +196,7 @@ export default function ChatArea({
   }
 
   return (
-    <div className="flex-1 flex flex-col w-full">
+    <div className="flex h-full min-h-0 w-full flex-1 flex-col">
       <div className="flex-1 overflow-y-auto p-4">
         <div className="w-full space-y-4">
           {currentConversation.messages.map((message) => (

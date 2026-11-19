@@ -1,29 +1,36 @@
-# Environment
-.env
-.env.local
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
+/venv
 venv/
-ENV/
-venv
+.venv/
 
-# Output
-output/
+__pycache__
+
+*_data*.txt
+
+t*.py
+test*.ipynb
+/test_*
+
+/pipe*
+
+/school_crawl_output
+
+*_test.*
+*_test*.*
+
+# Keep scraper unit tests even though t*.py / *_test.* would ignore them
+!app/services/scrapers/tests/
+!app/services/scrapers/tests/**
+
+/crawled_content*/
+
+chroma_db/
+.env
+*.env
+asktemoc.db
+app/services/data/general/
+
+# Local run output
 *.log
-
-# IDE
+.DS_Store
 .vscode/
 .idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-

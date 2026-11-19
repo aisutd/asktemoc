@@ -22,6 +22,21 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+`/chat` requires sign-in (Auth.js). The browser only calls this app's
+`/api/chat` and `/api/health` routes; those mint a short-lived JWT and
+forward to FastAPI. See [docs/AUTH_SETUP.md](../docs/AUTH_SETUP.md) for
+UTD Entra / Google setup.
+
+Start the API from `../backend` first:
+
+```bash
+cd ../backend
+python3.13 -m venv venv && source venv/bin/activate
+pip install -r deploy/requirements-deploy.txt
+cp .env.example .env   # set DATABASE_URL and OPENAI_API_KEY
+uvicorn app.main:app --reload
+```
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
