@@ -127,7 +127,7 @@ def prepare_documents() -> tuple[list[dict], list[str], list[str]]:
     """
     raw: dict[str, str] = {}
     for p in sorted(CORPUS_DIR.rglob("*.txt")):
-        raw[str(p.relative_to(CORPUS_DIR))] = p.read_text(encoding="utf-8", errors="replace").strip()
+        raw[p.relative_to(CORPUS_DIR).as_posix()] = p.read_text(encoding="utf-8", errors="replace").strip()
 
     by_hash = defaultdict(list)
     for k, t in raw.items():
