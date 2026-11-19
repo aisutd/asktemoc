@@ -156,11 +156,15 @@ Files: `eval/results/retrieval_eval_2026-11-18.{md,csv}`.
 
 A second run at 19:47 CT gave different dense numbers with identical cached
 query embeddings and identical BM25. Querying Neon showed why: at 18:48 to
-18:51 CT (00:48 to 00:51 UTC), `embed_pipeline.py` re-ingested `web/utd_home`,
-the 14 education documents and several other program pages. Sahil confirmed
-he hashed and removed duplicate chunks: a chunk whose text appears in two
-documents is now stored once. Chunks went from 892 to 874; documents stayed at
-202.
+18:51 CT (00:48 to 00:51 UTC), Sahil's new scheduled re-scrape job
+(`app/services/scrapers/rescrape.py`, commits `0d81ebb` to `383867a` on
+`fix/corpus-dedupe-and-sources` and `feat/scheduled-rescrape`) downloaded fresh
+copies of the catalog pages from the live UTD site, re-chunked and re-embedded
+the ones whose text changed (`web/utd_home`, the education pages and several
+other program pages), and merged identical chunks by hash: a chunk whose text
+appears in two documents is stored once. Chunks went from 892 to 874;
+documents stayed at 202. The job uses the same chunking as `corpus_prep.py`
+(512/64, cl100k_base), so the change is in the page text, not the settings.
 
 Chunks per document that changed (before, after): most lost one shared
 boilerplate chunk; `bs_in_finance_and_economics_double_major` went from 5 to 1
@@ -183,6 +187,19 @@ Run 2 (19:47 CT, 202 docs, 874 chunks) against run 1, dense strict:
 
 "q" is the change in questions (change x 55). BM25 was unchanged because it
 reads the chunk cache on disk, not live Neon.
+
+**Local corpus vs Neon.** The re-scrape writes fetched pages straight into
+Neon and does not save them to `app/services/data`, so no folder in git holds
+exactly what Neon holds. Chunk text identical to Neon, rebuilding at 512/64:
+
+| Local corpus from | Identical to Neon |
+|---|---:|
+| `data/catalog` on this branch (Nov 11 scrape) | 491 of 874 |
+| `app/services/data` at `d8c2241` (Sahil, Nov 18 18:46) | 653 of 874 |
+
+Most remaining differences are education pages from the 18:51 run. Raised
+with Sahil as a GitHub issue ("Save re-scraped pages to `app/services/data` so
+git matches Neon").
 
 **Run 2 is the baseline from here on.** Gains on Q46, Q48 and Q50 come from
 Sahil's re-ingestion and must not be credited to any Week 5 experiment.
@@ -286,8 +303,16 @@ not this one, because it also scores chunk by chunk.
   branch, but `corpus_prep.py` reads only `data/catalog/` and the 3 Crawl4AI
   pages. The router can send queries to housing, but retrieval has nothing
   there. Data role (Sahil).
-- **Re-ingestion coordination.** Post in the team chat before running
-  `embed_pipeline.py` against Neon (section 5).
+- **Re-scraped pages are not in git.** The re-scrape job updates Neon but not
+  `app/services/data`, so the production corpus cannot be rebuilt from the
+  repo (section 5). GitHub issue open (Sahil).
+- **Re-scrape coordination.** Announce re-scrape or re-ingestion runs against
+  Neon in the team chat, or run them on a known schedule (section 5).
+- **Corpus location.** Three places: `data/catalog/` on this branch,
+  `backend/app/services/data` on main and on Sahil's branch. Likely settles on
+  `app/services/data`; this branch would follow when it merges.
+- **Windows bug on Sahil's branch.** His new `corpus_prep.py` builds keys with
+  `str(p.relative_to(...))` again; `.as_posix()` fixes it (`d73de2f`).
 - **Vector dimension mismatch.** On main, `app/db/models.py` declares
   `Vector(3072)` ("text-embedding-3-large dimension"), while Neon and
   `embed_pipeline.py` use 1536 (small). Backend (Davis).
@@ -295,7 +320,10 @@ not this one, because it also scores chunk by chunk.
   document, so a Finance and Economics question may cite the Economics and
   Finance page. Same content, different source label. Generation (Nithin).
 - **`CORPUS_DIR` moved.** `embed_pipeline.py` imports `corpus_prep`, so
-  ingestion from this branch reads `data/catalog/` (Sahil).
+  ingestion from this branch reads `data/catalog/` (Sahil). This branch's
+  `corpus_prep.py` now reads only `<program>/requirements.txt` and
+  `example.txt`, the same rule as Sahil's, because his data folder also holds
+  housing pages that are not ingested yet.
 
 ## 11. Next steps
 
@@ -304,8 +332,25 @@ Week 5:
 1. **Chunk-size sweep** (`scripts/sweep_chunking.py`): build the corpus locally
    with `corpus_prep.py`, chunk at 256/32, 384/48, 512/64, 768/96, 1024/128,
    embed with small (plus 512/64 with large), search in numpy, score with
-   `retrieval/evaluate.py`. Sanity check: local 512/64 small must match run 2.
-   Compare at equal token budgets. Watch Q45 and Q50.
+   `retrieval/evaluate.py`. Compare every config against local 512/64, at
+   equal token budgets. Watch Q45 and Q50. The dry run (chunk counts and cost,
+   no API calls) is done; embedding and scoring are next.
+
+   Run it on Sahil's data, the closest full-text copy of Neon, through a
+   worktree so this branch is untouched:
+
+   ```powershell
+   cd C:\dev\asktemoc
+   git worktree add --detach ..\asktemoc-sahil origin/fix/corpus-dedupe-and-sources
+   cd backend
+   $S = "..\..\asktemoc-sahil\backend"
+   python scripts/sweep_chunking.py --dry-run --corpus-dir $S\app\services\data --web-dir $S\crawl4ai_output
+   ```
+
+   Sanity check (replaces "local 512/64 must match run 2", which cannot pass
+   while git and Neon differ): embed Neon's exact 874 chunk texts locally and
+   confirm local search and scoring reproduce run 2. When Sahil's issue is
+   fixed, refresh the worktree and re-run the sweep.
 2. **Neighbor expansion** on the best config: fill remaining slots with the
    top document's other chunks. Check the two-target questions Q14, Q18, Q22.
 3. **Title-match boost**: small score bonus when the document title contains
@@ -339,6 +384,8 @@ Week 6:
 | 2026-11-18 | `d73de2f` | Windows path fix in `corpus_prep.py` |
 | 2026-11-18 | `00c5747` | `.md` target fix; baseline run 1 (892 chunks) |
 | 2026-11-18 | | Context precision, per-doc cap, `compare_runs.py`, run 2 (874 chunks), this README |
+| 2026-11-18 | `0d81ebb`..`383867a` (Sahil) | Scheduled re-scrape job; ran against Neon 18:48 to 18:51 CT |
+| 2026-11-18 | | Sweep dry run; `--corpus-dir`/`--web-dir`; `corpus_prep.py` reads only requirements/example pages; section 5 corrected |
 
 ## Appendix: ad-hoc checks
 
