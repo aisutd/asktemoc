@@ -28,3 +28,9 @@ chroma_db/
 *.env
 asktemoc.db
 app/services/data/general/
+
+# Local run output
+*.log
+.DS_Store
+.vscode/
+.idea/

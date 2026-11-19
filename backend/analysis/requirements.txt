@@ -1,0 +1,5 @@
+# Extra packages for embedding_coverage.py and embed_pipeline.py (the rest are in ../requirements.txt)
+psycopg2-binary>=2.9
+scikit-learn>=1.5
+umap-learn>=0.5
+matplotlib>=3.9
