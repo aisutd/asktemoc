@@ -1,0 +1,5 @@
+# Image for the weekly re-scrape Cloud Run Job: the API requirements plus a browser and Crawl4AI.
+-r requirements-deploy.txt
+playwright>=1.48.0
+crawl4ai>=0.9.4
+tenacity>=8.2

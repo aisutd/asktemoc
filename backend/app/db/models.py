@@ -6,7 +6,7 @@ and chat conversations.
 import uuid
 from datetime import datetime, timezone
 
-from sqlalchemy import CheckConstraint, Column, String, Integer, Float, DateTime, ForeignKey, Text, JSON, Boolean, Index, PrimaryKeyConstraint
+from sqlalchemy import BigInteger, CheckConstraint, Column, String, Integer, Float, DateTime, ForeignKey, Text, JSON, Boolean, Index, PrimaryKeyConstraint
 from sqlalchemy.dialects.postgresql import JSONB, UUID
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
@@ -72,8 +72,8 @@ class Embedding(Base):
 
     id = Column(String, primary_key=True, index=True)
     chunk_id = Column(String, ForeignKey("chunks.id"), nullable=False, index=True)
-    vector = Column(Vector(3072), nullable=True)  # pgvector: text-embedding-3-large dimension
-    model = Column(String(100), nullable=True)  # Model used (e.g., "text-embedding-3-large")
+    vector = Column(Vector(1536), nullable=True)  # pgvector: text-embedding-3-small dimension
+    model = Column(String(100), nullable=True)  # Model used (e.g., "text-embedding-3-small")
     created_at = Column(DateTime, default=datetime.utcnow, index=True)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
@@ -187,3 +187,32 @@ class Message(Base):
 
     def __repr__(self):
         return f"<Message(id={self.id}, conversation_id={self.conversation_id}, index={self.index})>"
+
+
+class ScrapeLog(Base):
+    """
+    One row per page check made by the scheduled re-scrape. The latest row for a
+    doc_key with a content_hash is that page's current hash.
+    """
+
+    __tablename__ = "scrape_log"
+
+    id = Column(BigInteger().with_variant(Integer, "sqlite"), primary_key=True, autoincrement=True)
+    run_id = Column(String(36), nullable=False, index=True)
+    doc_key = Column(String(512), nullable=False)
+    url = Column(String(1024), nullable=False)
+    document_id = Column(String, nullable=True)
+    # new | changed | unchanged | failed | duplicate | removed
+    outcome = Column(String(16), nullable=False)
+    content_hash = Column(String(64), nullable=True)
+    http_status = Column(Integer, nullable=True)
+    word_count = Column(Integer, nullable=True)
+    detail = Column(Text, nullable=True)
+    checked_at = Column(DateTime(timezone=True), nullable=False, default=_utcnow)
+
+    __table_args__ = (
+        Index("idx_scrape_log_doc_checked", "doc_key", "checked_at"),
+    )
+
+    def __repr__(self):
+        return f"<ScrapeLog(doc_key={self.doc_key}, outcome={self.outcome})>"
