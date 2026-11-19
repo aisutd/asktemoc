@@ -1,5 +1,7 @@
 # Retrieval evaluation: Weeks 4 to 6
 
+| 2026-11-18 | | README; improved `compare_runs.py` table |
+
 Owner: Sal (role B, retrieval and its metrics). Branch: `feat/week5-retrieval-router`.
 
 This file records what was done on this branch, in order, with the results, so
