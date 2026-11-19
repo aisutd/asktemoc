@@ -1,0 +1,21 @@
+FROM python:3.13-slim-bookworm
+
+WORKDIR /app
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PYTHONPATH=/app \
+    PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends gcc libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY deploy/requirements-deploy.txt deploy/requirements-rescrape.txt ./
+RUN pip install --upgrade pip && pip install -r requirements-rescrape.txt \
+    && playwright install --with-deps chromium
+
+COPY app ./app
+
+# Exit code 0 = ran (pages that failed are logged); 2 = a safety guard stopped the run before it wrote anything.
+CMD ["python", "-m", "app.services.scrapers.rescrape"]
