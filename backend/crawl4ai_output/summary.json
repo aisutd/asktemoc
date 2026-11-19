@@ -1,0 +1,38 @@
+[
+  {
+    "name": "utd_home",
+    "url": "https://www.utdallas.edu/",
+    "success": true,
+    "status_code": 200,
+    "word_count": 640,
+    "internal_links": 66,
+    "external_links": 13,
+    "media_images": 22,
+    "markdown_preview": "[Skip to main content](https://www.utdallas.edu/#main) #  [ ](https://www.utdallas.edu/ \"The University of Texas at Dallas\") #  [ ](https://www.utdallas.edu/ \"The University of Texas at Dallas\") ####  Info For    * [Students](https://www.utdallas.edu/current/)   * [Faculty & Staff](https://www.utdallas.edu/faculty/)   * [Alumni](https://www.utdallas.edu/alumni/)   * [Family & Visitors](https://www.utdallas.edu/visitors/)   * [DFW Community](https://www.utdallas.edu/dfw-community/)   ####  Resour",
+    "output_file": "backend/crawl4ai_output/utd_home.md"
+  },
+  {
+    "name": "utd_academics",
+    "url": "https://www.utdallas.edu/academics/",
+    "success": true,
+    "status_code": 200,
+    "word_count": 637,
+    "internal_links": 57,
+    "external_links": 13,
+    "media_images": 8,
+    "markdown_preview": "[Skip to main content](https://www.utdallas.edu/academics/#main) ##  [ ](https://www.utdallas.edu/ \"The University of Texas at Dallas\") ##  [ ](https://www.utdallas.edu/ \"The University of Texas at Dallas\") ####  Info For    * [Students](https://www.utdallas.edu/current/)   * [Faculty & Staff](https://www.utdallas.edu/faculty/)   * [Alumni](https://www.utdallas.edu/alumni/)   * [Family & Visitors](https://www.utdallas.edu/visitors/)   * [DFW Community](https://www.utdallas.edu/dfw-community/)   ",
+    "output_file": "backend/crawl4ai_output/utd_academics.md"
+  },
+  {
+    "name": "utd_tuition_rates",
+    "url": "https://bursar.utdallas.edu/tuition/tuition-rates/",
+    "success": true,
+    "status_code": 200,
+    "word_count": 13202,
+    "internal_links": 29,
+    "external_links": 5,
+    "images": 1,
+    "output_file": "backend/crawl4ai_output/utd_tuition_rates.md",
+    "preview": "[Skip to main content](https://bursar.utdallas.edu/tuition/tuition-rates/#primary) [![The University of Texas at Dallas](https://websvcs.utdallas.edu/shared/svg/utd-wordmark-1line-white-web.svg)](https://www.utdallas.edu/) ## [Bursar Office](https://bursar.utdallas.edu)   * [Information For Parents](https://bursar.utdallas.edu/parents-info/ \"Information For Parents\")   * [Tuition](https://bursar.u"
+  }
+]
