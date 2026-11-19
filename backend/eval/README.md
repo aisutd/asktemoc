@@ -385,7 +385,7 @@ Week 6:
 | 2026-11-18 | `00c5747` | `.md` target fix; baseline run 1 (892 chunks) |
 | 2026-11-18 | | Context precision, per-doc cap, `compare_runs.py`, run 2 (874 chunks), this README |
 | 2026-11-18 | `0d81ebb`..`383867a` (Sahil) | Scheduled re-scrape job; ran against Neon 18:48 to 18:51 CT |
-| 2026-11-18 | | Sweep dry run; `--corpus-dir`/`--web-dir`; `corpus_prep.py` reads only requirements/example pages; section 5 corrected |
+| 2026-11-18 | `c95ca28`, `803faa6` | Sweep dry run; `--corpus-dir`/`--web-dir`; `corpus_prep.py` reads only requirements/example pages; section 5 corrected |
 
 ## Appendix: ad-hoc checks
 
