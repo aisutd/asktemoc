@@ -35,7 +35,7 @@ def parse_questions(md):
         paths = re.findall(r"`([^`]+)`", t.group(1))
         if not paths:
             raise ValueError(f"{qid}: no target paths")
-        relevant = list(dict.fromkeys(p[:-4] if p.endswith(".txt") else p for p in paths))
+        relevant = list(dict.fromkeys(re.sub(r"\.(txt|md)$", "", p) for p in paths))
         note = header.strip().strip("*").strip()
         out.append({"id": qid, "question": q.group(1).strip(), "relevant": relevant, "note": note})
     ids = [q["id"] for q in out]
